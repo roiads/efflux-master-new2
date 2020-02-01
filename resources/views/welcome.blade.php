@@ -65,7 +65,7 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref bg-gradient-dark" id="home">
+        <div class="flex-center position-ref bg-gradient-secondary" id="home">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth

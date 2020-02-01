@@ -1,11 +1,14 @@
 @extends('core.web')
 
 @section('content')
-
 <body class="login-page bg-gradient-dark">
 <div class="flex-center position-ref full-height">
     <div class="login-box">
-        <div class="login-logo"><a href="/" class="brand-link text-white"><i class="fab fa-erlang"></i> <span class="brand-text">fflux</span></a></div>
+        <div class="login-logo">
+            <a href="/" class="brand-link text-white">
+                <i class="fab fa-erlang"></i> <span class="brand-text">fflux</span>
+            </a>
+        </div>
         <div class="card">
             <div class="card-body">
                 @if (session('status')) <div class="alert alert-success" role="alert">{{ session('status') }}</div> @endif

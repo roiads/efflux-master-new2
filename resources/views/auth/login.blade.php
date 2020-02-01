@@ -41,19 +41,19 @@
                 </p>
             </div>
         </div>
-        {{-- <p class="text-center mt-5 mb-3">- OR -</p> --}}
+        <p class="text-center mt-5 mb-3">- OR -</p>
         <div class="social-auth-links text-center m-0 p-0">
             <div class="row">
-                {{-- <div class="col-6 p-1">
-                    <a href="#" class="btn btn-block btn-dark text-light" style="background:#4267b2;">
+                <div class="col-6 p-1">
+                    <a href="#" class="btn btn-block btn-dark social-auth" style="background:#4267b2;">
                         <i class="fab fa-facebook mr-2"></i> Facebook
                     </a>
                 </div>
                 <div class="col-6 p-1">
-                    <a href="#" class="btn btn-block btn-dark" style="background:#d14538;">
+                    <a href="#" class="btn btn-block btn-dark social-auth" style="background:#d14538;">
                         <i class="fab fa-google-plus mr-2"></i> Google+
                     </a>
-                </div> --}}
+                </div>
                 <div class="col-8 offset-2 p-1">
                     <a href="{{ route('register') }}" class="btn btn-block btn-success text-center">
                         <i class="fas fa-plus mr-2"></i> Register a New Account

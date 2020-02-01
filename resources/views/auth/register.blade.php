@@ -1,7 +1,7 @@
 @extends('core.web')
 
 @section('content')
-<body class="register-page bg-gradient-dark">
+<body class="login-page bg-gradient-dark">
 <div class="flex-center position-ref full-height">
     <div class="register-box">
         <div class="register-logo">
@@ -47,19 +47,19 @@
                 </form>
             </div>
         </div>
-        {{-- <p class="text-center mt-5 mb-3">- OR -</p> --}}
+        <p class="text-center mt-5 mb-3">- OR -</p>
         <div class="social-auth-links text-center m-0 p-0">
             <div class="row">
-                {{-- <div class="col-6 p-1">
-                    <a href="#" class="btn btn-block btn-dark text-light" style="background:#4267b2;">
+                <div class="col-6 p-1">
+                    <a href="#" class="btn btn-block btn-dark social-auth" style="background:#4267b2;">
                         <i class="fab fa-facebook mr-2"></i> Facebook
                     </a>
                 </div>
                 <div class="col-6 p-1">
-                    <a href="#" class="btn btn-block btn-dark" style="background:#d14538;">
+                    <a href="#" class="btn btn-block btn-dark social-auth" style="background:#d14538;">
                         <i class="fab fa-google-plus mr-2"></i> Google+
                     </a>
-                </div> --}}
+                </div>
                 <div class="col-8 offset-2 p-1">
                     <a href="{{ route('login') }}" class="btn btn-block btn-warning">
                         <i class="fas fa-undo mr-2"></i> I already have an account

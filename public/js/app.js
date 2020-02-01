@@ -56315,6 +56315,10 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
+$(document).on('click', 'a.social-auth', function (event) {
+  event.preventDefault();
+  alert('Sorry!\nSocial Oauth Not yet enabled...');
+});
 
 /***/ }),
 
