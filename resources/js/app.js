@@ -32,7 +32,8 @@ import router from './routes';
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('statbox-list', require('./components/statboxList.vue').default);
+Vue.component('statbox', require('./components/statbox.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

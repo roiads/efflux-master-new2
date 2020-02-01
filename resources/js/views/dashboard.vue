@@ -4,58 +4,7 @@
 
             <div class="container-fluid">
 
-                <!-- Small Stat Boxes -->
-                <div class="row">
-
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <div class="info-box animated flipInY fast bg-info">
-                            <span class="info-box-icon"><i class="fas fa-clock"></i></span>
-                            <div class="info-box-content">
-                                <span class="info-box-text">Now</span>
-                                <span class="info-box-number">###</span>
-                                <div class="progress"><div class="progress-bar" style="width: 70%"></div></div>
-                                <span class="progress-description">Active users on site <i class="fa fa-arrow-circle-right"></i></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <div class="info-box animated flipInY fast bg-success" style="animation-delay: .1s;">
-                            <span class="info-box-icon"><i class="fas fa-users"></i></span>
-                            <div class="info-box-content">
-                                <span class="info-box-text">Today</span>
-                                <span class="info-box-number">###</span>
-                                <div class="progress"><div class="progress-bar" style="width: 70%"></div></div>
-                                <span class="progress-description">Today's page views <i class="fa fa-arrow-circle-right"></i></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <div class="info-box animated flipInY fast bg-secondary" style="animation-delay: .2s;">
-                            <span class="info-box-icon"><i class="fas fa-user"></i></span>
-                            <div class="info-box-content">
-                                <span class="info-box-text">Unique</span>
-                                <span class="info-box-number">###</span>
-                                <div class="progress"><div class="progress-bar" style="width: 70%"></div></div>
-                                <span class="progress-description">Todays unique visitors <i class="fa fa-arrow-circle-right"></i></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <div class="info-box animated flipInY fast bg-danger" style="animation-delay: .3s;">
-                            <span class="info-box-icon"><i class="fas fa-exclamation-triangle"></i></span>
-                            <div class="info-box-content">
-                                <span class="info-box-text">Alerts</span>
-                                <span class="info-box-number">###</span>
-                                <div class="progress"><div class="progress-bar" style="width: 70%"></div></div>
-                                <span class="progress-description">Todays unique visitors <i class="fa fa-arrow-circle-right"></i></span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                <statbox-list></statbox-list>
 
                 <!-- Charts -->
                 <div class="row">
