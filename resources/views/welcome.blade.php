@@ -59,10 +59,13 @@
             a.brand-link span.brand-text{
                 font-size:66px;
             }
+            #home{
+                padding:200px 0px;
+            }
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height bg-gradient-dark">
+        <div class="flex-center position-ref bg-gradient-dark" id="home">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -75,17 +78,138 @@
                     @endauth
                 </div>
             @endif
-            <div class="content">
+            <div class="content py-5">
                 <div class="title m-b-md">
-                    <a href="/admin/dashboard" class="brand-link text-white">
+                    <a href="/" class="brand-link text-white pt-5">
                         <i class="fab fa-erlang"></i> <span class="brand-text">fflux</span>
                     </a>
                 </div>
                 <div class="links">
                     <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Services</a>
-                    <a href="#">Contact Us</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="container bg-light my-5 py-3" id="about">
+            <h5 class="header">About</h5>
+            <div class="row">
+                <div class="col-8">
+                    <p>Some Content Here...</p>
+                </div>
+                <div class="col-4 bg-gradient-dark">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid bg-secondary p-3">
+            <div class="row">&nbsp;</div>
+        </div>
+        <div class="container bg-light my-5 py-3" id="services">
+            <h5 class="header">Services</h5>
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header bg-gradient-primary">
+                            Header
+                        </div>
+                        <div class="card-body">
+                            Body
+                        </div>
+                        <div class="card-footer bg-gradient-light">
+                            Footer
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header bg-gradient-primary">
+                            Header
+                        </div>
+                        <div class="card-body">
+                            Body
+                        </div>
+                        <div class="card-footer bg-gradient-light">
+                            Footer
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header bg-gradient-primary">
+                            Header
+                        </div>
+                        <div class="card-body">
+                            Body
+                        </div>
+                        <div class="card-footer bg-gradient-light">
+                            Footer
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header bg-gradient-primary">
+                            Header
+                        </div>
+                        <div class="card-body">
+                            Body
+                        </div>
+                        <div class="card-footer bg-gradient-light">
+                            Footer
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header bg-gradient-primary">
+                            Header
+                        </div>
+                        <div class="card-body">
+                            Body
+                        </div>
+                        <div class="card-footer bg-gradient-light">
+                            Footer
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header bg-gradient-primary">
+                            Header
+                        </div>
+                        <div class="card-body">
+                            Body
+                        </div>
+                        <div class="card-footer bg-gradient-light">
+                            Footer
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid bg-gradient-secondary p-3">
+            <div class="row">&nbsp;</div>
+        </div>
+        <div class="container bg-light my-5 py-3" id="contact">
+            <h5 class="header">Contact Us</h5>
+            <div class="row">
+                <div class="col-8 offset-2">
+                    <form class="form-control">
+                        <div class="input-group mb-3">
+                            <input class="form-control" type="text" name="name" placeholder="Name" />
+                            <div class="input-group-append"><div class="input-group-text"><span class="fas fa-user"></span></div></div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input class="form-control" type="text" name="email" placeholder="Email" />
+                            <div class="input-group-append"><div class="input-group-text"><span class="fas fa-envelope"></span></div></div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -9,6 +9,9 @@
               </div>
             </div>
         </div>
+        <modal>
+            <editor></editor>
+        </modal>
     </div>
 </template>
 

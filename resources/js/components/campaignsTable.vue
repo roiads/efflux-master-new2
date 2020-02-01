@@ -2,7 +2,7 @@
     <div class="col-md-8">
         <div class="card animated fadeInUp fast card-light">
             <div class="card-header py-2">
-                <h3 class="card-title mb-0">Some Stats Here</h3>
+                <h3 class="card-title mb-0">Active campaigns</h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="#" data-source-selector="#card-refresh-content"><i class="fas fa-sync-alt"></i></button>
                     <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>

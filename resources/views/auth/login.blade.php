@@ -9,7 +9,7 @@
             </a>
         </div>
         <div class="card">
-            <div class="card-body  login-card-body">
+            <div class="card-body login-card-body pb-1">
                 <p class="login-box-msg">Sign in to start your session</p>
 
                 <form method="POST" action="{{ route('login') }}">
@@ -35,22 +35,30 @@
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                         </div>
                     </div>
-                    <div class="social-auth-links text-center mb-3">
-                        <p>- OR -</p>
-                        <a href="#" class="btn btn-block btn-primary">
-                            <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-                        </a>
-                        <a href="#" class="btn btn-block btn-danger">
-                            <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-                        </a>
-                    </div>
-                    <p class="mb-1">
-                        <a href="{{ route('password.request') }}">I forgot my password</a>
-                    </p>
-                    <p class="mb-0">
-                        <a href="{{ route('register') }}" class="text-center">Register a New Account</a>
-                    </p>
                 </form>
+                <p class="text-center mt-2 mb-1 p-0">
+                    <a href="{{ route('password.request') }}">I forgot my password</a>
+                </p>
+            </div>
+        </div>
+        {{-- <p class="text-center mt-5 mb-3">- OR -</p> --}}
+        <div class="social-auth-links text-center m-0 p-0">
+            <div class="row">
+                {{-- <div class="col-6 p-1">
+                    <a href="#" class="btn btn-block btn-dark text-light" style="background:#4267b2;">
+                        <i class="fab fa-facebook mr-2"></i> Facebook
+                    </a>
+                </div>
+                <div class="col-6 p-1">
+                    <a href="#" class="btn btn-block btn-dark" style="background:#d14538;">
+                        <i class="fab fa-google-plus mr-2"></i> Google+
+                    </a>
+                </div> --}}
+                <div class="col-8 offset-2 p-1">
+                    <a href="{{ route('register') }}" class="btn btn-block btn-success text-center">
+                        <i class="fas fa-plus mr-2"></i> Register a New Account
+                    </a>
+                </div>
             </div>
         </div>
     </div>

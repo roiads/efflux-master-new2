@@ -10,9 +10,8 @@
             </a>
         </div>
         <div class="card">
-            <div class="card-body register-card-body">
-                <p class="login-box-msg">Register a New Account</p>
-
+            <div class="card-body register-card-body py-2">
+                <p class="login-box-msg mt-2">Register a New Account</p>
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
                     <div class="input-group mb-3">
@@ -45,19 +44,27 @@
                             <button type="submit" class="btn btn-primary btn-block">Register</button>
                         </div>
                     </div>
-                    <div class="social-auth-links text-center mb-3">
-                        <p>- OR -</p>
-                        <a href="#" class="btn btn-block btn-primary">
-                            <i class="fab fa-facebook mr-2"></i> Sign up using Facebook
-                        </a>
-                        <a href="#" class="btn btn-block btn-danger">
-                            <i class="fab fa-google-plus mr-2"></i> Sign up using Google+
-                        </a>
-                    </div>
-                    <p class="mb-1">
-                        <a href="{{ route('login') }}">I already have a membership</a>
-                    </p>
                 </form>
+            </div>
+        </div>
+        {{-- <p class="text-center mt-5 mb-3">- OR -</p> --}}
+        <div class="social-auth-links text-center m-0 p-0">
+            <div class="row">
+                {{-- <div class="col-6 p-1">
+                    <a href="#" class="btn btn-block btn-dark text-light" style="background:#4267b2;">
+                        <i class="fab fa-facebook mr-2"></i> Facebook
+                    </a>
+                </div>
+                <div class="col-6 p-1">
+                    <a href="#" class="btn btn-block btn-dark" style="background:#d14538;">
+                        <i class="fab fa-google-plus mr-2"></i> Google+
+                    </a>
+                </div> --}}
+                <div class="col-8 offset-2 p-1">
+                    <a href="{{ route('login') }}" class="btn btn-block btn-warning">
+                        <i class="fas fa-undo mr-2"></i> I already have an account
+                    </a>
+                </div>
             </div>
         </div>
     </div>

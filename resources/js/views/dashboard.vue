@@ -6,8 +6,6 @@
                 <div class="row">
                     <domains-table></domains-table>
                     <campaigns-table></campaigns-table>
-
-
                 </div>
             </div>
         </section>
@@ -21,5 +19,5 @@
 
       }
     }
-    
+
 </script>
