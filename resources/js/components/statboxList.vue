@@ -1,19 +1,21 @@
 <template>
-    <div>
-        <div class="row">
-
-            <statbox></statbox>
-
-        </div>
-    </div>
+	<div class="row">
+		<statbox></statbox>
+		<statbox></statbox>
+		<statbox></statbox>
+	</div>
 </template>
 
-
 <script>
-
     export default {
-      mounted() {
-        
-      }
+        data() {
+            return {
+                stats: []
+            }
+        },
+        created() {
+        },
+        methods: {
+        }
     }
 </script>

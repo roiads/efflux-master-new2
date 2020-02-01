@@ -14,7 +14,7 @@ Vue.use(VueRouter);
 Vue.component('statbox-list', require('./components/statboxList.vue').default);
 Vue.component('statbox', require('./components/statBox.vue').default);
 Vue.component('editor', require('./components/editor.vue').default);
-Vue.component('model', require('./components/model.vue').default);
+Vue.component('modal', require('./components/modal.vue').default);
 Vue.component('campaigns-table', require('./components/campaignsTable.vue').default);
 Vue.component('domains-table', require('./components/domainsTable.vue').default);
 

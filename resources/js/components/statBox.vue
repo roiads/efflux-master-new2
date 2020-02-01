@@ -1,13 +1,14 @@
 <template>
     <div class="col-6 col-sm-6 col-md-3">
-        <div class="info-box animated flipInY fast bg-gradient-info">
-            <span class="info-box-icon"><i class="fas fa-clock"></i></span>
-            <div class="info-box-content">
-                <span class="info-box-text">Now</span>
-                <span class="info-box-number">###</span>
-                <div class="progress"><div class="progress-bar" style="width: 70%"></div></div>
-                <span class="progress-description">Active users on site <i class="fa fa-arrow-circle-right"></i></span>
+        <div class="small-box bg-info">
+            <div class="inner">
+                <h3>{{ value }}</h3>
+                <p>{{ title }}</p>
             </div>
+            <div class="icon">
+                <i class="ion ion-bag"></i>
+            </div>
+            <a href="#" class="small-box-footer">{{ message }} <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
 </template>
