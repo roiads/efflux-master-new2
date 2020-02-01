@@ -1,0 +1,108 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Font Awesome
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// AdminLTE
+@import '~admin-lte/dist/css/adminlte.css';
+// GrapesJS
+$primaryColor: #ececec;
+$secondaryColor: #ddd;
+$tertiaryColor: #804f7b;
+$quaternaryColor: #d278c9;
+@import '~grapesjs/dist/css/grapes.min.css';
+// GrapesJS
+@import '~animate.css/animate.css';
+
+
+ul.nav.nav-treeview{
+	border-bottom:1px solid #0005;
+	background: #fffb !important;
+}
+
+
+
+
+#gjs {
+	border: none;
+}
+
+.gjs-one-bg {
+  background-color: #e5e9ec;
+}
+.gjs-two-color {
+  color: rgba(0, 0, 0, 0.7);
+}
+.gjs-three-bg {
+  background-color: #ca7a35;
+  color: white;
+}
+.gjs-four-color,
+.gjs-four-color-h:hover {
+  color: #ca7a35;
+}
+.gjs-cv-canvas {
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.gjs-block {
+  width: auto;
+  height: auto;
+  min-height: auto;
+}
+.panel__top {
+  padding: 0;
+  width: 100%;
+  display: flex;
+  position: initial;
+  justify-content: center;
+  justify-content: space-between;
+}
+.panel__basic-actions {
+  position: initial;
+}
+.editor-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  height: 400px;
+}
+
+.editor-canvas {
+  flex-grow: 1;
+}
+
+.panel__right {
+  flex-basis: 150px;
+  position: relative;
+  overflow-y: auto;
+}
+
+a.brand-link{
+	i,span.brand-text{
+		font-size:45px;
+		line-height:48px;
+	  text-shadow: 1px 1px 2px #000;
+  	-webkit-background-clip: text;
+       -moz-background-clip: text;
+          	background-clip: text;
+	}
+	span.brand-text{
+		margin-left: 5px;
+    font-size: 26px;
+    line-height: 26px;
+    letter-spacing: 0.1em;
+	}
+}
