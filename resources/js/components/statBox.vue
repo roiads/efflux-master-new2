@@ -1,6 +1,6 @@
 <template>
     <div class="col-6 col-sm-6 col-md-3">
-        <div class="info-box animated flipInY fast bg-info">
+        <div class="info-box animated flipInY fast bg-gradient-info">
             <span class="info-box-icon"><i class="fas fa-clock"></i></span>
             <div class="info-box-content">
                 <span class="info-box-text">Now</span>

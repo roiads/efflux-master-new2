@@ -17,10 +17,11 @@
                                 </div>
                             </div>
                             <div class="card-body table-responsive p-0" style="height: 300px;">
+
                                 <table class="table table-hover ">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th class="d-none">ID</th>
                                         <th>User</th>
                                         <th>Email</th>
                                     </tr>
@@ -33,6 +34,7 @@
                                     </tr>
                                     </tbody>
                                 </table>
+                                
                             </div>
                             <!-- /.card-body -->
                         </div>

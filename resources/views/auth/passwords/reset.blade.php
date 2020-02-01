@@ -1,10 +1,16 @@
-@extends('layouts.app')
+@extends('core.web')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+
+<body class="login-page bg-gradient-dark">
+<div class="flex-center position-ref full-height">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="/" class="brand-link text-white">
+                <i class="fab fa-erlang"></i> <span class="brand-text">fflux</span>
+            </a>
+        </div>
+        <div class="card">
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">

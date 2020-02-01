@@ -1,5 +1,5 @@
-<aside class="main-sidebar elevation-4 sidebar-light-primary" style="background:#d9dadabb;">
-    <a href="/admin/dashboard" class="brand-link bg-secondary m-0 px-2 py-0">
+<aside class="main-sidebar elevation-4 sidebar-light-primary" style="background:#d9dadacc;">
+    <a href="/admin/dashboard" class="brand-link bg-gradient-dark m-0 px-2 py-0 text-white">
       <i class="fab fa-erlang"></i>
       <span class="brand-text">fflux</span>
     </a>

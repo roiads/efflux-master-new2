@@ -11,6 +11,7 @@
 @import 'variables';
 
 // Bootstrap
+$enable-gradients: true;
 @import '~bootstrap/scss/bootstrap';
 
 // AdminLTE
@@ -25,6 +26,12 @@ $quaternaryColor: #d278c9;
 @import '~animate.css/animate.css';
 
 
+html, body {
+	font-family: 'Nunito', sans-serif;
+	font-weight: 200;
+	height: 100vh;
+	margin: 0;
+}
 ul.nav.nav-treeview{
 	border-bottom:1px solid #0005;
 	background: #fffb !important;
@@ -93,7 +100,7 @@ ul.nav.nav-treeview{
 a.brand-link{
 	i,span.brand-text{
 		font-size:45px;
-		line-height:48px;
+		line-height:47px;
 	  text-shadow: 1px 1px 2px #000;
   	-webkit-background-clip: text;
        -moz-background-clip: text;
@@ -104,5 +111,27 @@ a.brand-link{
     font-size: 26px;
     line-height: 26px;
     letter-spacing: 0.1em;
+	}
+}
+nav.main-header{
+	form.search{
+		opacity:0.5;
+		&:hover{
+			opacity:1;
+		}
+	}
+	ul.navbar-nav{
+		li.nav-item{
+			a.nav-link{
+				padding:5px 0px;
+				i.top-nav-icon{
+					font-size:1.5rem;
+					color:#fff9;
+					&:hover{
+						color:#fff;
+					}
+				}
+			}
+		}
 	}
 }

@@ -17,6 +17,14 @@ let routes = [
     {
         path: '/ad_creator',
         component: require('./views/ad_creator').default
+    },
+    {
+        path: '/campaigns',
+        component: require('./views/campaigns').default
+    },
+    {
+        path: '/reports/revenue',
+        component: require('./views/reports_revenue').default
     }
 ];
 
