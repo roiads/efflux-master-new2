@@ -1,16 +1,15 @@
 @extends('core.web')
-
 @section('content')
 <body class="login-page bg-gradient-dark">
 <div class="flex-center position-ref full-height">
-    <div class="register-box">
-        <div class="register-logo">
+    <div class="login-box">
+        <div class="login-logo">
             <a href="/" class="brand-link text-white">
                 <i class="fab fa-erlang"></i> <span class="brand-text">fflux</span>
             </a>
         </div>
         <div class="card">
-            <div class="card-body register-card-body py-2">
+            <div class="card-body login-card-body py-2">
                 <p class="login-box-msg mt-2">Register a New Account</p>
                 <form method="POST" action="{{ route('register') }}">
                     @csrf

@@ -8,9 +8,8 @@ import router from './routes';
 window.Vue = Vue;
 window.Form = Form;
 
-// Edit Router in resources/js/routes.js
 Vue.use(VueRouter);
-// Located in /resources/js/components/...
+
 Vue.component('statbox-list', require('./components/statboxList.vue').default);
 Vue.component('statbox', require('./components/statBox.vue').default);
 Vue.component('editor', require('./components/editor.vue').default);
@@ -24,10 +23,7 @@ const app = new Vue({
 });
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
-
 });
-
-
 $(document).on('click','a.social-auth',function(event){
     event.preventDefault();
     alert('Sorry!\nSocial Oauth Not yet enabled...');

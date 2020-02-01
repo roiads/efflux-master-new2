@@ -53,19 +53,13 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
-            a.brand-link i{
-                font-size:96px;
-            }
-            a.brand-link span.brand-text{
-                font-size:66px;
-            }
             #home{
                 padding:200px 0px;
             }
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref bg-gradient-secondary" id="home">
+        <div class="flex-center position-ref bg-gradient-dark" id="home">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth

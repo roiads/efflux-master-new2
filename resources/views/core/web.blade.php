@@ -6,14 +6,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name') }}</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style>
-        a.brand-link i{
-            font-size:72px;
-        }
-        a.brand-link span.brand-text{
-            font-size:50px;
-        }
-    </style>
 </head>
     @yield('content')
     <script src="{{ asset('js/app.js') }}" defer></script>
