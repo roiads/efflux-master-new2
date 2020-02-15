@@ -5,81 +5,28 @@ namespace App\Http\Controllers;
 use App\route;
 use Illuminate\Http\Request;
 
-class RouteController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+class RouteController extends Controller {
+  public function index() {
+    $routes = route::all();
+    return $routes;
+  }
+  public function create() {
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+  }
+  public function store(Request $request) {
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+  }
+  public function show($id) {
+    $route = route::find($id);
+    return $route;
+  }
+  public function edit($id) {
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\route  $route
-     * @return \Illuminate\Http\Response
-     */
-    public function show(route $route)
-    {
-        //
-    }
+  }
+  public function update(Request $request, $id) {
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\route  $route
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(route $route)
-    {
-        //
-    }
+  }
+  public function destroy($id) {
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\route  $route
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, route $route)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\route  $route
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(route $route)
-    {
-        //
-    }
+  }
 }

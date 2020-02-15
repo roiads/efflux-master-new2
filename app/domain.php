@@ -33,4 +33,7 @@ class domain extends Model {
   public function routes() {
     return $this->hasMany(route::class);
   }
+  public function subdomains() {
+    return $this->hasMany(subdomain::class);
+  }
 }

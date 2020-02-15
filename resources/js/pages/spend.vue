@@ -2,9 +2,14 @@
   <div>
     <section class="content">
       <div class="container-fluid">
+        <div class="page-header">
+          <crumbs page="spend" :name="spend.cc"></crumbs>
+          <!-- <tbar></tbar> -->
+          <h1>Domain Manager</h1>
+        </div>
         <div class="row">
-          <xList @paymentOverview="paymentOverview"></xList>
-          <xOverview :id="id"></xOverview>
+          <xList @setId="setId"></xList>
+          <xOverview :id="id" @setObj="setObj"></xOverview>
         </div>
       </div>
     </section>
@@ -42,11 +47,11 @@ export default {
         .post('/payment')
         .then(r => this.items.push(r));
     },
-    setPaymentID(id) {
+    setId(id) {
       this.id = id;
     },
-    paymentOverview(id) {
-      this.setPaymentID(id);
+    setObj(obj) {
+      this.payment = obj;
     }
   }
 }

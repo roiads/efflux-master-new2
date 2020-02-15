@@ -14,12 +14,13 @@ class UserController extends Controller {
 	public function create(Request $request) {
 		Validator::make($request->all(), [
 			'name' => ['required', 'string', 'max:255'],
-			'email' => ['required', 'string', 'email', 'max:255', 'unique:users.users'],
+			'email' => ['required', 'string', 'email', 'max:255', 'unique:mysql.users.users'],
 			'password' => ['required', 'string', 'min:8', 'confirmed'],
 		])->validate();
 		return User::create([
-			'name' => $request['name'],
+			'first_name' => $request['name'],
 			'email' => $request['email'],
+			'username' => $request['email'],
 			'password' => Hash::make($request['password']),
 		]);
 	}
@@ -27,7 +28,8 @@ class UserController extends Controller {
 
 	}
 	public function show($id) {
-
+		$user = User::find($id);
+		return $user;
 	}
 	public function edit($id) {
 

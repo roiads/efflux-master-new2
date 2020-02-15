@@ -2,8 +2,12 @@
   <div>
     <section class="content">
       <div class="container-fluid">
-        <div class="row">
-          <h3>Accounts</h3>
+        <div class="page-header">
+          <div class="row">
+            <crumbs page="accounts" :name="account.name"></crumbs>
+            <tbar :id="account.id"></tbar>
+          </div>
+          <h1>Account Manager</h1>
         </div>
       </div>
     </section>
@@ -24,7 +28,8 @@ export default {
   },
   data() {
     return {
-      items: [],
+      account: [],
+      accounts: [],
       form: new Form({
         'name': '',
         'email': '',
@@ -35,13 +40,13 @@ export default {
   },
   created() {
     axios.get('/account')
-      .then(r => this.items = r);
+      .then(r => this.accounts = r);
   },
   methods: {
     onSubmit() {
       this.form
         .post('/account')
-        .then(r => this.items.push(r));
+        .then(r => this.accounts.push(r));
     }
   }
 }

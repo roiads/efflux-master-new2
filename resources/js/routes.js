@@ -11,14 +11,17 @@ let routes = [{
     path: '/domains*',
     component: require('./pages/domains').default
   },{
-    path: '/spend*',
-    component: require('./pages/spend').default
+    path: '/payments*',
+    component: require('./pages/paymentMethods').default
   },{
     path: '/campaigns*',
     component: require('./pages/campaigns').default
   },{
     path: '/reports*',
     component: require('./pages/reports').default
+  },{
+    path: '/pages*',
+    component: require('./pages/pages').default
   }
 ];
 import VueRouter from 'vue-router';

@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";/*!
+@import url(https://fonts.googleapis.com/css?family=Nunito|Raleway%20Dots);@charset "UTF-8";/*!
  *   AdminLTE v3.0.2
  *   Author: Colorlib
  *   Website: AdminLTE.io <http://adminlte.io>
@@ -17421,6 +17421,64 @@ body {
   margin: 0;
 }
 
+html div.page-header ol.breadcrumb li.breadcrumb-item a,
+body div.page-header ol.breadcrumb li.breadcrumb-item a {
+  color: #6c757d;
+  text-transform: capitalize;
+}
+
+html div.page-header ol.breadcrumb li.breadcrumb-item a:hover,
+body div.page-header ol.breadcrumb li.breadcrumb-item a:hover {
+  color: #3490dc;
+}
+
+html div.page-header ol.breadcrumb li.breadcrumb-item:last-of-type,
+body div.page-header ol.breadcrumb li.breadcrumb-item:last-of-type {
+  font-style: italic;
+  font-weight: bold;
+}
+
+html div.page-header ul.nav-pills,
+body div.page-header ul.nav-pills {
+  margin-right: 10px;
+}
+
+html div.page-header ul.nav-pills li.nav-item button.btn,
+body div.page-header ul.nav-pills li.nav-item button.btn {
+  margin: 0px 7px;
+  padding: 10px 20px;
+}
+
+html div.page-header ul.nav-pills li.nav-item button.btn.btn-outline-danger,
+body div.page-header ul.nav-pills li.nav-item button.btn.btn-outline-danger {
+  color: #e3342f;
+}
+
+html div.page-header ul.nav-pills li.nav-item button.btn.btn-outline-success,
+body div.page-header ul.nav-pills li.nav-item button.btn.btn-outline-success {
+  color: #38c172;
+}
+
+html div.page-header ul.nav-pills li.nav-item button.btn.btn-outline-primary,
+body div.page-header ul.nav-pills li.nav-item button.btn.btn-outline-primary {
+  color: #3490dc;
+}
+
+html div.page-header ul.nav-pills li.nav-item button.btn.btn-outline-secondary,
+body div.page-header ul.nav-pills li.nav-item button.btn.btn-outline-secondary {
+  color: #6c757d;
+}
+
+html div.page-header ul.nav-pills li.nav-item button.btn:hover,
+body div.page-header ul.nav-pills li.nav-item button.btn:hover {
+  color: white;
+}
+
+html div.page-header h1,
+body div.page-header h1 {
+  font-family: "Raleway Dots";
+}
+
 html div.card .card-header .card-title,
 body div.card .card-header .card-title {
   margin: 0px;
@@ -17431,11 +17489,6 @@ body div.card .card-body table.table {
   margin: 0px;
 }
 
-html div.card .card-body table.table thead tr th,
-body div.card .card-body table.table thead tr th {
-  padding: 0.25rem 0.5rem;
-}
-
 html div.card .card-body table.table tbody tr td,
 body div.card .card-body table.table tbody tr td {
   padding: 0.5rem 0.5rem;
@@ -17444,11 +17497,17 @@ body div.card .card-body table.table tbody tr td {
 html div.card .card-body table.table tbody tr:hover,
 body div.card .card-body table.table tbody tr:hover {
   cursor: pointer;
+  background: #ffed4a50;
 }
 
 html div.card .card-body table.table tbody tr:hover td.btn-group button.btn,
 body div.card .card-body table.table tbody tr:hover td.btn-group button.btn {
   opacity: 0.75;
+}
+
+html div.card .card-body table.table tbody tr td:not(.btn-group),
+body div.card .card-body table.table tbody tr td:not(.btn-group) {
+  width: 100%;
 }
 
 html div.card .card-body table.table tbody tr td.btn-group,
@@ -17471,96 +17530,6 @@ body div.card .card-body table.table tbody tr td.btn-group button.btn:active {
   box-shadow: 0px 0px 3px #000 inset;
 }
 
-html div.card .card-body table.table tbody tr td:not(.btn-group),
-body div.card .card-body table.table tbody tr td:not(.btn-group) {
-  width: 100%;
-}
-
-html div.card #gjs,
-body div.card #gjs {
-  border: none;
-}
-
-html div.card .gjs-one-bg,
-body div.card .gjs-one-bg {
-  background-color: #e5e9ec;
-}
-
-html div.card .gjs-two-color,
-body div.card .gjs-two-color {
-  color: rgba(0, 0, 0, 0.7);
-}
-
-html div.card .gjs-three-bg,
-body div.card .gjs-three-bg {
-  background-color: #ca7a35;
-  color: white;
-}
-
-html div.card .gjs-four-color,
-html div.card .gjs-four-color-h:hover,
-body div.card .gjs-four-color,
-body div.card .gjs-four-color-h:hover {
-  color: #ca7a35;
-}
-
-html div.card .gjs-cv-canvas,
-body div.card .gjs-cv-canvas {
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-
-html div.card .gjs-block,
-body div.card .gjs-block {
-  width: auto;
-  height: auto;
-  min-height: auto;
-}
-
-html div.card .panel__top,
-body div.card .panel__top {
-  padding: 0;
-  width: 100%;
-  display: -webkit-box;
-  display: flex;
-  position: initial;
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-box-pack: justify;
-          justify-content: space-between;
-}
-
-html div.card .panel__basic-actions,
-body div.card .panel__basic-actions {
-  position: initial;
-}
-
-html div.card .editor-row,
-body div.card .editor-row {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: stretch;
-          align-items: stretch;
-  flex-wrap: nowrap;
-  height: 400px;
-}
-
-html div.card .editor-canvas,
-body div.card .editor-canvas {
-  -webkit-box-flex: 1;
-          flex-grow: 1;
-}
-
-html div.card .panel__right,
-body div.card .panel__right {
-  flex-basis: 150px;
-  position: relative;
-  overflow-y: auto;
-}
-
 html div.cc-template,
 body div.cc-template {
   width: 300px;
@@ -17573,12 +17542,6 @@ body div.cc-template i.fab {
   font-size: 50px;
   line-height: 50px;
   margin-bottom: 30px;
-}
-
-html div.pulsate,
-body div.pulsate {
-  -webkit-animation: pulse 2s infinite;
-          animation: pulse 2s infinite;
 }
 
 html aside.control-sidebar,
@@ -17634,7 +17597,7 @@ body aside.main-sidebar div.sidebar > nav {
 html aside.main-sidebar div.sidebar > nav ul li a.nav-link:not(.active):hover,
 body aside.main-sidebar div.sidebar > nav ul li a.nav-link:not(.active):hover {
   color: #000;
-  background: #0001;
+  background: #ffed4a50;
   font-weight: bold;
 }
 
@@ -17751,17 +17714,6 @@ body.www .title {
   font-size: 84px;
 }
 
-html.www .links > a,
-body.www .links > a {
-  color: #fff5;
-  padding: 0 25px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.1rem;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
 html.www .links > a:hover,
 body.www .links > a:hover {
   color: #fff;
@@ -17775,5 +17727,16 @@ body.www .m-b-md {
 html.www #home,
 body.www #home {
   padding: 200px 0px;
+}
+
+html.www .links > a,
+body.www .links > a {
+  color: #fff5;
+  padding: 0 25px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 

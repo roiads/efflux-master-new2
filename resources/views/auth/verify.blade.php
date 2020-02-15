@@ -1,4 +1,4 @@
-@extends('core.web')
+@extends('layouts.web')
 
 @section('content')
 <body class="login-page bg-gradient-dark">

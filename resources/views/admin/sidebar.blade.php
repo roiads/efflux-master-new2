@@ -18,66 +18,53 @@
             'title'=>'Google',
             'icon'=>'google fab',
             'url'=>'/accounts/google'])
+        @endvLinks
+        @vLinks([
+          'title'=>'Campaigns',
+          'icon'=>'bullhorn fas'])
           @vLink([
-            'title'=>'Taboola',
-            'icon'=>'ad fas',
-            'url'=>'/accounts/taboola'])
+            'title'=>'Campaign Manager',
+            'icon'=>'chart-line fas',
+            'url'=>'/campaigns'])
           @vLink([
-            'title'=>'Content.ad',
-            'icon'=>'adversal fab',
-            'url'=>'/accounts/contentad'])
+            'title'=>'Waffles',
+            'icon'=>'stroopwafel fas',
+            'url'=>'/rules'])
         @endvLinks
         @vLink([
-          'title'=>'Content Creator',
-          'icon'=>'palette fas',
-          'url'=>'/ad_creator'])
+          'title'=>'Content Manager',
+          'icon'=>'newspaper far',
+          'url'=>'/pages'])
         @vLink([
-          'title'=>'Domain Manager',
+          'title'=>'Domains & Routes',
           'icon'=>'sitemap fas',
           'url'=>'/domains'])
-
-        @vLink([
-          'title'=>'Campaign Manager',
-          'icon'=>'bullhorn fas',
-          'url'=>'/campaigns'])
         @vLinks([
           'title'=>'Reporting',
           'icon'=>'chart-line fas'])
           @vLink([
-            'title'=>'Revenue Sources',
+            'title'=>'Spend',
             'icon'=>'funnel-dollar fas',
+            'url'=>'/reports/spend'])
+          @vLink([
+            'title'=>'Revenue',
+            'icon'=>'dollar-sign fas',
             'url'=>'/reports/revenue'])
           @vLink([
-            'title'=>'Network Stats',
-            'icon'=>'network-wired fas',
-            'url'=>'/reports/network'])
-          @vLink([
-            'title'=>'User Stats',
+            'title'=>'Users',
             'icon'=>'users fas',
             'url'=>'/reports/user'])
-        @endvLinks
-        @vLink([
-          'title'=>'Rules',
-          'icon'=>'shield-alt fas',
-          'url'=>'/rules'])
-        @vLinks([
-          'title'=>'Payment Methods',
-          'icon'=>'dollar-sign fas'])
           @vLink([
-            'title'=>'Credit Cards',
+            'title'=>'Traffic',
+            'icon'=>'traffic-light fas',
+            'url'=>'/reports/traffic'])
+        @endvLinks
+          @vLink([
+            'title'=>'Payment Methods',
             'icon'=>'credit-card fas',
-            'url'=>'/spend/cc'])
-          @vLink([
-            'title'=>'Paypal',
-            'icon'=>'cc-paypal fab',
-            'url'=>'/spend/paypal'])
-          @vLink([
-            'title'=>'ACH / Bank',
-            'icon'=>'university fas',
-            'url'=>'/spend/bank'])
-        @endvLinks
+            'url'=>'/payments'])
         @vLink([
-          'title'=>'Users',
+          'title'=>'Users & Permissions',
           'icon'=>'users-cog fas',
           'url'=>'/users'])
       </ul>

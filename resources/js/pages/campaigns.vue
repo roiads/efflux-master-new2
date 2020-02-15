@@ -2,8 +2,12 @@
   <div>
     <section class="content">
       <div class="container-fluid">
-        <div class="row">
-          <h3>Campaigns</h3>
+        <div class="page-header">
+          <div class="row">
+            <crumbs page="campaigns" :name="campaign.name"></crumbs>
+            <tbar :id="campaign.id"></tbar>
+          </div>
+          <h1>Campaign Manager</h1>
         </div>
       </div>
     </section>
@@ -24,7 +28,8 @@ export default {
   },
   data() {
     return {
-      items: [],
+      campaign: [],
+      campaigns: [],
       form: new Form({
         'name': ''
       })
@@ -32,13 +37,13 @@ export default {
   },
   created() {
     axios.get('/campaign')
-      .then(r => this.items = r);
+      .then(r => this.campaigns = r);
   },
   methods: {
     onSubmit() {
       this.form
         .post('/campaign')
-        .then(r => this.items.push(r));
+        .then(r => this.campaigns.push(r));
     }
   }
 }

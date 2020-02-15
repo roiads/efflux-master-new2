@@ -17,7 +17,7 @@ class DomainController extends Controller {
 
 	}
 	public function show($id) {
-		$domain = domain::find($id);
+		$domain = domain::with('routes')->find($id);
 		return $domain;
 	}
 	public function edit($id) {

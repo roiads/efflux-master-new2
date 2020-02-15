@@ -1,5 +1,4 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Nunito|Raleway%20Dots');
 @import 'variables';
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/brands';
@@ -10,119 +9,78 @@
 @import '~icheck-bootstrap/icheck-bootstrap.min.css';
 @import '~grapesjs/dist/css/grapes.min.css';
 @import '~animate.css/animate.min.css';
-
 html, body {
 	font-family: 'Nunito', sans-serif;
 	font-weight: 200;
 	height: 100vh;
 	margin: 0;
-
-	div.card{
-
-		.card-header{
-			.card-title{
-				margin:0px;
+	div.page-header{
+		ol.breadcrumb{
+			li.breadcrumb-item{
+				a{
+					color:$secondary;
+					text-transform: capitalize;
+					&:hover{
+						color:$primary;
+					}
+				}
+			}
+			li.breadcrumb-item:last-of-type{
+				font-style: italic;
+				font-weight: bold;
 			}
 		}
+		ul.nav-pills{
+			margin-right:10px;
+			li.nav-item{
+				button.btn{
+					margin:0px 7px;
+					padding: 10px 20px;
+					&.btn-outline-danger{
+						color:$danger;
+					}
+					&.btn-outline-success{
+						color:$success;
+					}
+					&.btn-outline-primary{
+						color:$primary;
+					}
+					&.btn-outline-secondary{
+						color:$secondary;
+					}
+					&:hover{
+						color:white;
+					}
+				}
+			}
+		}
+		h1{
+			font-family:$header-font;
+		}
+	}
+	div.card{
+		.card-header .card-title{margin:0px;}
 		.card-body{
 			table.table{
 				margin:0px;
-				thead{
-					tr{
-						th{
-							padding:0.25rem 0.5rem;
-						}
+				tbody tr{
+					td{padding:0.5rem 0.5rem;}
+					&:hover{
+						cursor:pointer;
+						background: $hover-highlight;
+						td.btn-group button.btn{opacity:.75;}
 					}
-				}
-				tbody{
-					tr{
-						td{
-							padding:0.5rem 0.5rem;
-						}
-						&:hover{
-							cursor:pointer;
-							td.btn-group{
-								button.btn{
-									opacity:.75;
-								}
-							}
-						}
-						td.btn-group{
-							padding:2px 2px 1px;
-							button.btn{
-								opacity:0.25;
-								padding: 0.25rem 0.5rem;
-								background:#fff;
-								&:hover,&:active{
-									background:$info;
-									box-shadow: 0px 0px 3px #000 inset;
-								}
-							}
-						}
-						td:not(.btn-group){
-							width:100%;
-						}
-					}
-				}
-			}
-		}
-		.card-footer{
-
-		}
-		#gjs {
-			border: none;
-		}
-		.gjs-one-bg {
-		  background-color: #e5e9ec;
-		}
-		.gjs-two-color {
-		  color: rgba(0, 0, 0, 0.7);
-		}
-		.gjs-three-bg {
-		  background-color: #ca7a35;
-		  color: white;
-		}
-		.gjs-four-color,
-		.gjs-four-color-h:hover {
-		  color: #ca7a35;
-		}
-		.gjs-cv-canvas {
-		  top: 0;
-		  width: 100%;
-		  height: 100%;
-		}
-		.gjs-block {
-		  width: auto;
-		  height: auto;
-		  min-height: auto;
-		}
-		.panel__top {
-		  padding: 0;
-		  width: 100%;
-		  display: flex;
-		  position: initial;
-		  justify-content: center;
-		  justify-content: space-between;
-		}
-		.panel__basic-actions {
-		  position: initial;
-		}
-		.editor-row {
-		  display: flex;
-		  justify-content: flex-start;
-		  align-items: stretch;
-		  flex-wrap: nowrap;
-		  height: 400px;
-		}
-		.editor-canvas {
-		  flex-grow: 1;
-		}
-		.panel__right {
-		  flex-basis: 150px;
-		  position: relative;
-		  overflow-y: auto;
-		}
-	}
+					td:not(.btn-group){width:100%;}
+					td.btn-group{
+						padding:2px 2px 1px;
+						button.btn{
+							opacity:0.25;
+							padding: 0.25rem 0.5rem;
+							background:#fff;
+							&:hover,&:active{
+								background:$info;
+								box-shadow: 0px 0px 3px #000 inset;
+	}}}}}}}
 	div.cc-template{
 		width:300px;
 		height:180px;
@@ -131,12 +89,7 @@ html, body {
 			font-size:50px;
 			line-height: 50px;
 			margin-bottom:30px;
-
-		}
-	}
-	div.pulsate{
-		animation: pulse 2s infinite;
-	}
+	}}
 	aside.control-sidebar{
 		background:#0009;
 		box-shadow: 0px 0px 5px 0px #0005;
@@ -155,10 +108,7 @@ html, body {
 	       -moz-background-clip: text;
 	          	background-clip: text;
 	    background:#343a40 linear-gradient(180deg, #52585d, #343a40) repeat-x !important;
-			i,span.brand-text{
-				font-size:45px;
-				line-height:47px;
-			}
+			i,span.brand-text{font-size:45px;line-height:47px;}
 			span.brand-text{
 				margin-left: 5px;
 		    font-size: 26px;
@@ -166,33 +116,20 @@ html, body {
 		    letter-spacing: 0.1em;
 			}
 		}
-		div.sidebar{
-			>nav{
-				margin-top:10px;
-				ul{
-					li{
-						a.nav-link:not(.active){
-							&:hover{
-								color:#000;
-								// background:#{$warning}50;
-								background:#0001;
-								font-weight: bold;
-							}
-						}
-						ul.nav.nav-treeview{
-							border-bottom:1px solid #0005;
-							background: #fffb !important;
-							li{
-								a.nav-link{
-									padding-left:25px;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+		div.sidebar>nav{
+			margin-top:10px;
+			ul li{
+				a.nav-link:not(.active){
+					&:hover{
+						color:#000;
+						background:$hover-highlight;
+						font-weight: bold;
+				}}
+				ul.nav.nav-treeview{
+					border-bottom:1px solid #0005;
+					background: #fffb !important;
+					li a.nav-link{padding-left:25px;}
+	}}}}
 	div.login-logo,div.title{
 	  margin-bottom:0px;
 	  a.brand-link{
@@ -208,62 +145,28 @@ html, body {
 				margin-left: -10px;
 		    letter-spacing: 0.1em;
 	      font-size:60px;
-	    }
-	  }
-	}
+	}}}
 	nav.main-header{
-		form.search{
-			opacity:0.5;
-			&:hover{
-				opacity:1;
-			}
-		}
-		ul.navbar-nav{
-			li.nav-item{
-				a.nav-link{
-					padding:5px 0px;
-					i.top-nav-icon{
-						font-size:1.5rem;
-						color:#fff9;
-						&:hover{
-							color:#fff;
-						}
-					}
-				}
-			}
-		}
-	}
-
-}
+		form.search{opacity:0.5;&:hover{opacity:1;}}
+		ul.navbar-nav li.nav-item a.nav-link{
+			padding:5px 0px;
+			i.top-nav-icon{font-size:1.5rem;color:#fff9;&:hover{color:#fff;}
+}}}}
 html.www, body.www {
 	color: #636b6f;
 	font-family: 'Nunito', sans-serif;
 	font-weight: 200;
 	height: 100vh;
 	margin: 0;
-	.full-height {
-	  height: 100vh;
-	}
-	.flex-center {
-	  align-items: center;
-	  display: flex;
-	  justify-content: center;
-	}
-	.position-ref {
-	  position: relative;
-	}
-	.top-right {
-	  position: absolute;
-	  right: 10px;
-	  top: 18px;
-	}
-	.content {
-	  text-align: center;
-	}
-	.title {
-	  font-size: 84px;
-	}
-
+	.full-height {height: 100vh;}
+	.flex-center {align-items: center;display: flex;justify-content: center;}
+	.position-ref {position: relative;}
+	.top-right {position: absolute;right: 10px;top: 18px;}
+	.content {text-align: center;}
+	.title {font-size: 84px;}
+	.links > a:hover {color: #fff;}
+	.m-b-md {margin-bottom: 30px;}
+	#home{padding:200px 0px;}
 	.links > a {
 	  color: #fff5;
 	  padding: 0 25px;
@@ -272,14 +175,4 @@ html.www, body.www {
 	  letter-spacing: .1rem;
 	  text-decoration: none;
 	  text-transform: uppercase;
-	}
-	.links > a:hover {
-	  color: #fff;
-	}
-	.m-b-md {
-	  margin-bottom: 30px;
-	}
-	#home{
-	  padding:200px 0px;
-	}
-}
+}}

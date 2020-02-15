@@ -3,13 +3,13 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <stat-box bg="success" :header="campaignCount" url="/admin/campaigns" message="Total Active Campaigns" icon="chart-line" footer="see more..."></stat-box>
-          <stat-box bg="warning" :header="domainCount" url="/admin/domains" message="Domains &amp; Sub-Domains" icon="network-wired" footer="see more..."></stat-box>
-          <stat-box bg="warning" :header="pageCount" url="/admin/pages" message="Total combined pages/posts" icon="newspaper" footer="see more..."></stat-box>
-          <stat-box bg="danger" :header="alertCount" url="/admin/alerts" message="Recent Notifications &amp; alerts" icon="exclamation-triangle" footer="see more..."></stat-box>
+          <stat-box size="col-6 col-sm-4 col-lg-3" bg="success" :header="campaignCount" url="/admin/campaigns" message="Total Active Campaigns" icon="chart-line" footer="see more..."></stat-box>
+          <stat-box size="col-6 col-sm-4 col-lg-3" bg="warning" :header="domainCount" url="/admin/domains" message="Domains &amp; Sub-Domains" icon="network-wired" footer="see more..."></stat-box>
+          <stat-box size="col-6 col-sm-4 col-lg-3" bg="warning" :header="pageCount" url="/admin/pages" message="Total combined pages/posts" icon="newspaper" footer="see more..."></stat-box>
+          <stat-box size="col-6 col-sm-4 col-lg-3" bg="danger" :header="alertCount" url="/admin/alerts" message="Recent Notifications &amp; alerts" icon="exclamation-triangle" footer="see more..."></stat-box>
         </div>
         <div class="row">
-          <domainList @domainOverview="domainOverview"></domainList>
+          <domainList @setId="domainOverview"></domainList>
           <campaignsTable></campaignsTable>
         </div>
       </div>

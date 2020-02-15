@@ -2,35 +2,42 @@
   <div>
     <section class="content">
       <div class="container-fluid">
+        <div class="page-header">
+          <div class="row">
+            <crumbs page="domains" :name="domain.name"></crumbs>
+            <tbar :id="domain.id"></tbar>
+          </div>
+          <h1>Domain Manager</h1>
+        </div>
         <div class="row">
-          <xList @domainOverview="domainOverview"></xList>
-          <xOverview :id="id"></xOverview>
+          <xList @setId="setId"></xList>
+          <xOview :id="id" @setObj="setObj"></xOview>
         </div>
       </div>
     </section>
   </div>
 </template>
 <script>
-import xAdd from './domains/add'
-import xOverview from './domains/overview'
+import xOview from './domains/overview'
 import xList from './domains/list'
 import xTable from './domains/table'
-import xSubs from './domains/subdomains'
+
 export default {
   name: 'domains',
   components: {
     xList,
     xTable,
-    xOverview,
-    xAdd,
-    xSubs
+    xOview
   },
   data() {
     return {
       id: 0,
-      items: [],
+      domain: [],
+      domains: [],
       form: new Form({
-        'name': ''
+        'name': '',
+        'registrar_id': 0,
+        'notes': '...'
       })
     }
   },
@@ -39,11 +46,11 @@ export default {
     this.id = q.replace(/^\/|\/$/g, '');
   },
   methods: {
-    setDomainID(id) {
+    setId(id) {
       this.id = id;
     },
-    domainOverview(id) {
-      this.setDomainID(id);
+    setObj(obj) {
+      this.domain = obj;
     }
   }
 }

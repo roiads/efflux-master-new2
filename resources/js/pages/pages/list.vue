@@ -1,21 +1,15 @@
 <template>
   <div class="col-md-4 col-lg-3">
-    <div class="card animated fadeInUp fast card-light">
-      <div class="card-header py-2">
-        <h3 class="card-title">Domains</h3>
-        <div class="card-tools">
-          <button type="button" class="btn btn-tool" data-toggle="modal" data-target="#domain_add"><i class="fas fa-plus"></i></button>
-        </div>
-      </div>
+    <div class="card animated fadeInLeft fast card-light">
       <div class="card-body p-0">
         <table class="table table-hover">
           <tbody>
-            <template v-for="domain in domains">
+            <template v-for="page in pages">
               <tr>
-                <td @click="$emit('domainOverview', domain.id )">{{domain.name}}</td>
+                <td @click="$emit('setId', page.id )">{{page.name}}</td>
                 <td class="btn-group">
-                  <button class="btn" data-toggle="modal" data-target="#mdl-subdoms">
-                    <i class="fa fa-network-wired"></i>
+                  <button class="btn" data-toggle="modal" data-target="#mdl-page">
+                    <i class="fas fa-edit"></i>
                   </button>
                 </td>
               </tr>
@@ -24,20 +18,22 @@
         </table>
       </div>
     </div>
-    <modal id="mdl-subdoms"></modal>
-    <modal id="domain_add">
-      <domain-add></domain-add>
-    </modal>    
   </div>
 </template>
 <script>
-  export default {
-    data() {return {domains: [],domain:[]}},
-    created() {
-      axios.get('/domain')
-        .then(({data}) => this.domains = data);
-    },
-    mounted() {
+export default {
+  name: 'pagesList',
+  data() {
+    return {
+      pages: []
     }
-  }
+  },
+  created() {
+    axios.get('/page')
+      .then(({
+        data
+      }) => this.pages = data);
+  },
+  mounted() {}
+}
 </script>

@@ -4,59 +4,57 @@
       <div class="container-fluid">
         <div class="page-header">
           <div class="row">
-            <crumbs page="pages" :name="page.name"></crumbs>
-            <tbar :id="page.id"></tbar>
+            <crumbs page="payments" :name="paymentMethod.cc"></crumbs>
+            <tbar :id="paymentMethod.id"></tbar>
           </div>
-          <h1>Page &amp; Post Manager</h1>
+          <h1>Payment Methods</h1>
         </div>
         <div class="row">
           <xList @setId="setId"></xList>
-          <xOverview :id="id" @setObj="setObj"></xOverview>
+          <xOview :id="id" @setObj="setObj"></xOview>
         </div>
       </div>
     </section>
   </div>
 </template>
 <script>
-import xAdd from './pages/add'
-import xOverview from './pages/overview'
-import xList from './pages/list'
-import xTable from './pages/table'
-import xEditor from './pages/editor'
+import xAdd from './payments/add'
+import xOview from './payments/overview'
+import xList from './payments/list'
+import xTable from './payments/table'
 export default {
-  name: 'pages',
+  name: 'payments',
   components: {
     xList,
     xTable,
-    xOverview,
-    xAdd,
-    xEditor
+    xOview,
+    xAdd
   },
   data() {
     return {
       id: 0,
-      page: [],
-      pages: [],
+      paymentMethod: [],
+      paymentMethods: [],
       form: new Form({
         'name': ''
       })
     }
   },
   created() {
-    axios.get('/page')
-      .then(r => this.pages = r);
+    axios.get('/payment')
+      .then(r => this.paymentMethods = r);
   },
   methods: {
     onSubmit() {
       this.form
-        .post('/page')
-        .then(r => this.pages.push(r));
+        .post('/payment')
+        .then(r => this.paymentMethods.push(r));
     },
     setId(id) {
       this.id = id;
     },
     setObj(obj) {
-      this.page = obj;
+      this.paymentMethod = obj;
     }
   }
 }
