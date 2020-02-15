@@ -17421,6 +17421,61 @@ body {
   margin: 0;
 }
 
+html div.card .card-header .card-title,
+body div.card .card-header .card-title {
+  margin: 0px;
+}
+
+html div.card .card-body table.table,
+body div.card .card-body table.table {
+  margin: 0px;
+}
+
+html div.card .card-body table.table thead tr th,
+body div.card .card-body table.table thead tr th {
+  padding: 0.25rem 0.5rem;
+}
+
+html div.card .card-body table.table tbody tr td,
+body div.card .card-body table.table tbody tr td {
+  padding: 0.5rem 0.5rem;
+}
+
+html div.card .card-body table.table tbody tr:hover,
+body div.card .card-body table.table tbody tr:hover {
+  cursor: pointer;
+}
+
+html div.card .card-body table.table tbody tr:hover td.btn-group button.btn,
+body div.card .card-body table.table tbody tr:hover td.btn-group button.btn {
+  opacity: 0.75;
+}
+
+html div.card .card-body table.table tbody tr td.btn-group,
+body div.card .card-body table.table tbody tr td.btn-group {
+  padding: 2px 2px 1px;
+}
+
+html div.card .card-body table.table tbody tr td.btn-group button.btn,
+body div.card .card-body table.table tbody tr td.btn-group button.btn {
+  opacity: 0.25;
+  padding: 0.25rem 0.5rem;
+  background: #fff;
+}
+
+html div.card .card-body table.table tbody tr td.btn-group button.btn:hover,
+html div.card .card-body table.table tbody tr td.btn-group button.btn:active,
+body div.card .card-body table.table tbody tr td.btn-group button.btn:hover,
+body div.card .card-body table.table tbody tr td.btn-group button.btn:active {
+  background: #6cb2eb;
+  box-shadow: 0px 0px 3px #000 inset;
+}
+
+html div.card .card-body table.table tbody tr td:not(.btn-group),
+body div.card .card-body table.table tbody tr td:not(.btn-group) {
+  width: 100%;
+}
+
 html div.card #gjs,
 body div.card #gjs {
   border: none;
@@ -17506,12 +17561,53 @@ body div.card .panel__right {
   overflow-y: auto;
 }
 
+html div.cc-template,
+body div.cc-template {
+  width: 300px;
+  height: 180px;
+  padding: 20px;
+}
+
+html div.cc-template i.fab,
+body div.cc-template i.fab {
+  font-size: 50px;
+  line-height: 50px;
+  margin-bottom: 30px;
+}
+
+html div.pulsate,
+body div.pulsate {
+  -webkit-animation: pulse 2s infinite;
+          animation: pulse 2s infinite;
+}
+
+html aside.control-sidebar,
+body aside.control-sidebar {
+  background: #0009;
+  box-shadow: 0px 0px 5px 0px #0005;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+
+html aside.main-sidebar,
+body aside.main-sidebar {
+  background: #d9dadaaa;
+  box-shadow: 0px 0px 5px 0px #0005;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+
 html aside.main-sidebar a.brand-link,
 body aside.main-sidebar a.brand-link {
+  color: white;
+  margin: 0px;
+  padding: 0px 5px;
   text-shadow: 1px 1px 2px #000;
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
+  background: #343a40 -webkit-gradient(linear, left top, left bottom, from(#52585d), to(#343a40)) repeat-x !important;
+  background: #343a40 linear-gradient(180deg, #52585d, #343a40) repeat-x !important;
 }
 
 html aside.main-sidebar a.brand-link i,
@@ -17530,10 +17626,27 @@ body aside.main-sidebar a.brand-link span.brand-text {
   letter-spacing: 0.1em;
 }
 
-html aside.main-sidebar ul.nav.nav-treeview,
-body aside.main-sidebar ul.nav.nav-treeview {
+html aside.main-sidebar div.sidebar > nav,
+body aside.main-sidebar div.sidebar > nav {
+  margin-top: 10px;
+}
+
+html aside.main-sidebar div.sidebar > nav ul li a.nav-link:not(.active):hover,
+body aside.main-sidebar div.sidebar > nav ul li a.nav-link:not(.active):hover {
+  color: #000;
+  background: #0001;
+  font-weight: bold;
+}
+
+html aside.main-sidebar div.sidebar > nav ul li ul.nav.nav-treeview,
+body aside.main-sidebar div.sidebar > nav ul li ul.nav.nav-treeview {
   border-bottom: 1px solid #0005;
   background: #fffb !important;
+}
+
+html aside.main-sidebar div.sidebar > nav ul li ul.nav.nav-treeview li a.nav-link,
+body aside.main-sidebar div.sidebar > nav ul li ul.nav.nav-treeview li a.nav-link {
+  padding-left: 25px;
 }
 
 html div.login-logo,
@@ -17590,5 +17703,77 @@ body nav.main-header ul.navbar-nav li.nav-item a.nav-link i.top-nav-icon {
 html nav.main-header ul.navbar-nav li.nav-item a.nav-link i.top-nav-icon:hover,
 body nav.main-header ul.navbar-nav li.nav-item a.nav-link i.top-nav-icon:hover {
   color: #fff;
+}
+
+html.www,
+body.www {
+  color: #636b6f;
+  font-family: "Nunito", sans-serif;
+  font-weight: 200;
+  height: 100vh;
+  margin: 0;
+}
+
+html.www .full-height,
+body.www .full-height {
+  height: 100vh;
+}
+
+html.www .flex-center,
+body.www .flex-center {
+  -webkit-box-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+html.www .position-ref,
+body.www .position-ref {
+  position: relative;
+}
+
+html.www .top-right,
+body.www .top-right {
+  position: absolute;
+  right: 10px;
+  top: 18px;
+}
+
+html.www .content,
+body.www .content {
+  text-align: center;
+}
+
+html.www .title,
+body.www .title {
+  font-size: 84px;
+}
+
+html.www .links > a,
+body.www .links > a {
+  color: #fff5;
+  padding: 0 25px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+html.www .links > a:hover,
+body.www .links > a:hover {
+  color: #fff;
+}
+
+html.www .m-b-md,
+body.www .m-b-md {
+  margin-bottom: 30px;
+}
+
+html.www #home,
+body.www #home {
+  padding: 200px 0px;
 }
 

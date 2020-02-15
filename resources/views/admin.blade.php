@@ -1,24 +1,8 @@
-@extends('core.app')
-
+@extends('layouts.app')
 @section('content')
-
-    <!-- Navbar -->
-    @include('layouts.admin.nav')
-    <!-- /.navbar -->
-
-    <!-- Main Sidebar Container -->
-    @include('layouts.admin.sidebar')
-    <!-- /.Main Sidebar Container -->
-
-    <!-- Content Wrapper. Contains page content -->
-    @include('layouts.admin.content')
-    <!-- /.content-wrapper -->
-
-    <!-- Control Sidebar -->
-    @include('layouts.admin.controlbar')
-    <!-- /.control-sidebar -->
-
-    <!-- Admin Footer -->
-    @include('layouts.admin.footer')
-
+    @include('admin.nav')
+    @include('admin.sidebar')
+    @include('admin.content')
+    @include('admin.controlbar')
+    @include('admin.footer')
 @endsection

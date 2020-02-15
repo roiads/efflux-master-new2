@@ -16,7 +16,59 @@ html, body {
 	font-weight: 200;
 	height: 100vh;
 	margin: 0;
+
 	div.card{
+
+		.card-header{
+			.card-title{
+				margin:0px;
+			}
+		}
+		.card-body{
+			table.table{
+				margin:0px;
+				thead{
+					tr{
+						th{
+							padding:0.25rem 0.5rem;
+						}
+					}
+				}
+				tbody{
+					tr{
+						td{
+							padding:0.5rem 0.5rem;
+						}
+						&:hover{
+							cursor:pointer;
+							td.btn-group{
+								button.btn{
+									opacity:.75;
+								}
+							}
+						}
+						td.btn-group{
+							padding:2px 2px 1px;
+							button.btn{
+								opacity:0.25;
+								padding: 0.25rem 0.5rem;
+								background:#fff;
+								&:hover,&:active{
+									background:$info;
+									box-shadow: 0px 0px 3px #000 inset;
+								}
+							}
+						}
+						td:not(.btn-group){
+							width:100%;
+						}
+					}
+				}
+			}
+		}
+		.card-footer{
+
+		}
 		#gjs {
 			border: none;
 		}
@@ -71,12 +123,38 @@ html, body {
 		  overflow-y: auto;
 		}
 	}
+	div.cc-template{
+		width:300px;
+		height:180px;
+		padding:20px;
+		i.fab{
+			font-size:50px;
+			line-height: 50px;
+			margin-bottom:30px;
+
+		}
+	}
+	div.pulsate{
+		animation: pulse 2s infinite;
+	}
+	aside.control-sidebar{
+		background:#0009;
+		box-shadow: 0px 0px 5px 0px #0005;
+		backdrop-filter: blur(10px);
+	}
 	aside.main-sidebar{
+		background:#d9dadaaa;
+		box-shadow: 0px 0px 5px 0px #0005;
+		backdrop-filter: blur(5px);
 		a.brand-link{
+			color:white;
+			margin:0px;
+			padding: 0px 5px;
 		  text-shadow: 1px 1px 2px #000;
 	  	-webkit-background-clip: text;
 	       -moz-background-clip: text;
 	          	background-clip: text;
+	    background:#343a40 linear-gradient(180deg, #52585d, #343a40) repeat-x !important;
 			i,span.brand-text{
 				font-size:45px;
 				line-height:47px;
@@ -88,9 +166,31 @@ html, body {
 		    letter-spacing: 0.1em;
 			}
 		}
-		ul.nav.nav-treeview{
-			border-bottom:1px solid #0005;
-			background: #fffb !important;
+		div.sidebar{
+			>nav{
+				margin-top:10px;
+				ul{
+					li{
+						a.nav-link:not(.active){
+							&:hover{
+								color:#000;
+								// background:#{$warning}50;
+								background:#0001;
+								font-weight: bold;
+							}
+						}
+						ul.nav.nav-treeview{
+							border-bottom:1px solid #0005;
+							background: #fffb !important;
+							li{
+								a.nav-link{
+									padding-left:25px;
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 	div.login-logo,div.title{
@@ -132,5 +232,54 @@ html, body {
 				}
 			}
 		}
+	}
+
+}
+html.www, body.www {
+	color: #636b6f;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 200;
+	height: 100vh;
+	margin: 0;
+	.full-height {
+	  height: 100vh;
+	}
+	.flex-center {
+	  align-items: center;
+	  display: flex;
+	  justify-content: center;
+	}
+	.position-ref {
+	  position: relative;
+	}
+	.top-right {
+	  position: absolute;
+	  right: 10px;
+	  top: 18px;
+	}
+	.content {
+	  text-align: center;
+	}
+	.title {
+	  font-size: 84px;
+	}
+
+	.links > a {
+	  color: #fff5;
+	  padding: 0 25px;
+	  font-size: 13px;
+	  font-weight: 600;
+	  letter-spacing: .1rem;
+	  text-decoration: none;
+	  text-transform: uppercase;
+	}
+	.links > a:hover {
+	  color: #fff;
+	}
+	.m-b-md {
+	  margin-bottom: 30px;
+	}
+	#home{
+	  padding:200px 0px;
 	}
 }

@@ -7,58 +7,10 @@
     <meta name="csrf-token" content="vZMAeflmdtEUrSh8OsRwUvrnwH32uarIWsO3DqcE">
     <title>Efflux</title>
     <link href="{{ url('/css/app.css') }}" rel="stylesheet">
-        <style>
-            html, body {
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-            .full-height {
-                height: 100vh;
-            }
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-            .position-ref {
-                position: relative;
-            }
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-            .content {
-                text-align: center;
-            }
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #fff5;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-            .links > a:hover {
-                color: #fff;
-            }
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-            #home{
-                padding:200px 0px;
-            }
-        </style>
     </head>
-    <body>
+    <body class="www">
+
+
         <div class="flex-center position-ref bg-gradient-dark" id="home">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -82,23 +34,20 @@
                     <a href="#">Home</a>
                     <a href="#about">About</a>
                     <a href="#services">Services</a>
+                    <a href="#features">Features</a>
                     <a href="#contact">Contact Us</a>
                 </div>
             </div>
         </div>
-
-
-
-
-        <div class="container bg-light my-5 py-3" id="about">
-            <h5 class="header">About</h5>
-            <div class="row">
-                <div class="col-8">
-                    <p>Some Content Here...</p>
-                </div>
-                <div class="col-4 bg-gradient-dark">
-                    &nbsp;
-                </div>
+        <div class="container" id="about" style="margin-top:50px;">
+            <div class="jumbotron border shadow-sm">
+              <h1 class="display-4">About Us</h1>
+              <p class="lead text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <hr class="my-4">
+              <p class="text-muted">It uses utility classes for typography and spacing to space content out within the larger container.</p>
+              <p class="lead">
+                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+              </p>
             </div>
         </div>
         <div class="container-fluid bg-secondary p-3">
@@ -107,81 +56,115 @@
         <div class="container bg-light my-5 py-3" id="services">
             <h5 class="header">Services</h5>
             <div class="row">
-                <div class="col-4">
-                    <div class="card">
-                        <div class="card-header bg-gradient-primary">
-                            Header
+                @for($i=1;$i<=4;$i++)
+                    <div class="col-12 col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-gradient-secondary">
+                                Header {{ $i }}
+                            </div>
+                            <div class="card-body">
+                                Body
+                            </div>
+                            <div class="card-footer bg-gradient-light">
+                                Footer
+                            </div>
                         </div>
-                        <div class="card-body">
-                            Body
-                        </div>
-                        <div class="card-footer bg-gradient-light">
-                            Footer
+                    </div>
+                @endfor
+            </div>
+        </div>
+        <div class="container bg-light my-5 py-3" id="features">
+            <h5 class="header">Features</h5>
+            <div class="row">
+
+<div class="card text-white bg-primary  col-sm-4 col-lg-3 mb-3" style="max-width: 18rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Primary card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+<div class="card text-white bg-secondary  col-sm-4 col-lg-3 mb-3 mb-3" style="max-width: 18rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Secondary card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+<div class="card text-white bg-success  col-sm-4 col-lg-3 mb-3 mb-3" style="max-width: 18rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Success card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+<div class="card text-white bg-danger  col-sm-4 col-lg-3 mb-3 mb-3" style="max-width: 18rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Danger card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+<div class="card text-white bg-warning  col-sm-4 col-lg-3 mb-3 mb-3" style="max-width: 18rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Warning card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+<div class="card text-white bg-info  col-sm-4 col-lg-3 mb-3 mb-3" style="max-width: 18rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Info card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+<div class="card bg-light mb-3" style="max-width: 18rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Light card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+<div class="card text-white bg-dark  col-sm-4 col-lg-3 mb-3 mb-3" style="max-width: 18rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Dark card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+
+            </div>
+        </div>
+        <div class="container bg-light my-5 py-3" id="testimonials">
+            <h5 class="header">Testimonials</h5>
+            <div class="row">
+                <div class="col-12 col-sm-8 col-md-9">
+                    <div class="row">
+                        <div class="col-12">
+                            @for($i=1;$i<=3;$i++)
+                                <div class="card bg-light mb-3">
+                                  <div class="card-header">Header</div>
+                                  <div class="card-body">
+                                    <h5 class="card-title">Light card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk oe quick example text to build on the card title and make up the bulk oe quick example text to build on the card title and make up the bulk oe quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                  </div>
+                                </div>
+
+                            @endfor
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="card">
-                        <div class="card-header bg-gradient-primary">
-                            Header
-                        </div>
-                        <div class="card-body">
-                            Body
-                        </div>
-                        <div class="card-footer bg-gradient-light">
-                            Footer
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card">
-                        <div class="card-header bg-gradient-primary">
-                            Header
-                        </div>
-                        <div class="card-body">
-                            Body
-                        </div>
-                        <div class="card-footer bg-gradient-light">
-                            Footer
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card">
-                        <div class="card-header bg-gradient-primary">
-                            Header
-                        </div>
-                        <div class="card-body">
-                            Body
-                        </div>
-                        <div class="card-footer bg-gradient-light">
-                            Footer
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card">
-                        <div class="card-header bg-gradient-primary">
-                            Header
-                        </div>
-                        <div class="card-body">
-                            Body
-                        </div>
-                        <div class="card-footer bg-gradient-light">
-                            Footer
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card">
-                        <div class="card-header bg-gradient-primary">
-                            Header
-                        </div>
-                        <div class="card-body">
-                            Body
-                        </div>
-                        <div class="card-footer bg-gradient-light">
-                            Footer
+                <div class="col-12 col-sm-4 col-md-3">
+                    <div class="row">
+                        <div class="col-6 col-sm-12 col-md-6">
+                            @for($i=1;$i<=6;$i++)
+                                <div class="card">
+                                    <div class="card-body bg-gradient-secondary">
+                                        Feature {{ $i }}
+                                    </div>
+                                </div>
+                            @endfor
                         </div>
                     </div>
                 </div>
@@ -194,16 +177,22 @@
             <h5 class="header">Contact Us</h5>
             <div class="row">
                 <div class="col-8 offset-2">
-                    <form class="form-control">
-                        <div class="input-group mb-3">
-                            <input class="form-control" type="text" name="name" placeholder="Name" />
-                            <div class="input-group-append"><div class="input-group-text"><span class="fas fa-user"></span></div></div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input class="form-control" type="text" name="email" placeholder="Email" />
-                            <div class="input-group-append"><div class="input-group-text"><span class="fas fa-envelope"></span></div></div>
-                        </div>
-                    </form>
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
                 </div>
             </div>
         </div>

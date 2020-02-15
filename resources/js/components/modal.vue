@@ -1,11 +1,11 @@
 <template>
 
     <div>
-        <div class="modal fade" id="editor" style="display: none;" aria-hidden="true">
+        <div class="modal fade" :id="id" style="display: none;" aria-hidden="true">
         <div class="modal-dialog modal-xl">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">Header</h4>
+              <h4 class="modal-title">{{ header }}</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
               </button>
@@ -28,6 +28,7 @@
 
 <script>
   export default {
+    props: ['id','header','footer'],
     mounted() {
     }
   }
