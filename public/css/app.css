@@ -17419,6 +17419,7 @@ body {
   font-weight: 200;
   height: 100vh;
   margin: 0;
+  background: #f4f6f9;
 }
 
 html div.page-header ol.breadcrumb li.breadcrumb-item a,
@@ -17612,17 +17613,23 @@ body aside.main-sidebar div.sidebar > nav ul li ul.nav.nav-treeview li a.nav-lin
   padding-left: 25px;
 }
 
-html div.login-logo,
-html div.title,
-body div.login-logo,
-body div.title {
+html div.login-box,
+body div.login-box {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+html div.login-box div.login-logo,
+html div.login-box div.title,
+body div.login-box div.login-logo,
+body div.login-box div.title {
   margin-bottom: 0px;
 }
 
-html div.login-logo a.brand-link,
-html div.title a.brand-link,
-body div.login-logo a.brand-link,
-body div.title a.brand-link {
+html div.login-box div.login-logo a.brand-link,
+html div.login-box div.title a.brand-link,
+body div.login-box div.login-logo a.brand-link,
+body div.login-box div.title a.brand-link {
   font-size: 90px;
   line-height: 50px;
   padding: 0px;
@@ -17633,10 +17640,10 @@ body div.title a.brand-link {
   background-clip: text;
 }
 
-html div.login-logo a.brand-link span.brand-text,
-html div.title a.brand-link span.brand-text,
-body div.login-logo a.brand-link span.brand-text,
-body div.title a.brand-link span.brand-text {
+html div.login-box div.login-logo a.brand-link span.brand-text,
+html div.login-box div.title a.brand-link span.brand-text,
+body div.login-box div.login-logo a.brand-link span.brand-text,
+body div.login-box div.title a.brand-link span.brand-text {
   margin-left: -10px;
   letter-spacing: 0.1em;
   font-size: 60px;
