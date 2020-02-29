@@ -1,8 +1,8 @@
 <template>
   <div class="col-md-8 col-lg-9" id="page-overview">
-    <div class="card animated fadeInUp fast card-light" v-if="page.name">
+    <div class="card animated fadeInUp fast card-light" v-if="page.title">
       <div class="card-header py-2">
-        <h3 class="card-title mb-0" v-html="page.name"></h3>
+        <h3 class="card-title mb-0" v-html="page.title"></h3>
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-toggle="modal" data-target="#domain_add"><i class="fas fa-plus"></i></button>
         </div>
@@ -41,9 +41,7 @@ export default {
       page: {}
     }
   },
-  created() {
-
-  },
+  created() {},
   watch: {
     id: function(newVal, oldVal) { // watch it
       this.getPage();
@@ -51,7 +49,7 @@ export default {
   },
   methods: {
     getPage() {
-      axios.get('/page/' + this.id)
+      axios.get('/content/page/' + this.id)
         .then(({
           data
         }) => this.$emit('setObj', (this.page = data)));

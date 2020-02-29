@@ -7,7 +7,7 @@
             <crumbs page="pages" :name="page.name"></crumbs>
             <tbar :id="page.id"></tbar>
           </div>
-          <h1>Page &amp; Post Manager</h1>
+          <h1>Pages</h1>
         </div>
         <div class="row">
           <xList @setId="setId"></xList>
@@ -42,14 +42,11 @@ export default {
       })
     }
   },
-  created() {
-    axios.get('/page')
-      .then(r => this.pages = r);
-  },
+  created() {},
   methods: {
     onSubmit() {
       this.form
-        .post('/page')
+        .post('/content/page')
         .then(r => this.pages.push(r));
     },
     setId(id) {
@@ -57,6 +54,10 @@ export default {
     },
     setObj(obj) {
       this.page = obj;
+      this.$store.commit('setData', {
+        name: 'page',
+        data: obj
+      })
     }
   }
 }

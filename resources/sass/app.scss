@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito|Raleway%20Dots');
+@import '~bootstrap/scss/functions';
 @import 'variables';
+$navbar-dark-toggler-icon-bg: none;
+$navbar-light-toggler-icon-bg: none;
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/brands';
 @import '~@fortawesome/fontawesome-free/scss/regular';
@@ -7,7 +10,7 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import '~admin-lte/dist/css/adminlte.min.css';
 @import '~icheck-bootstrap/icheck-bootstrap.min.css';
-@import '~grapesjs/dist/css/grapes.min.css';
+// @import '~grapesjs/dist/css/grapes.min.css';
 @import '~animate.css/animate.min.css';
 html, body {
 	font-family: 'Nunito', sans-serif;
@@ -15,6 +18,10 @@ html, body {
 	height: 100vh;
 	margin: 0;
 	background:#f4f6f9;
+	div.modal{
+		background: #0009;
+		display:block;
+	}
 	div.page-header{
 		ol.breadcrumb{
 			li.breadcrumb-item{

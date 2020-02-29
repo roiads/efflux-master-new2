@@ -6,7 +6,7 @@
           <tbody>
             <template v-for="page in pages">
               <tr>
-                <td @click="$emit('setId', page.id )">{{page.name}}</td>
+                <td @click="$emit('setId', page.id )">{{page.title}}</td>
                 <td class="btn-group">
                   <button class="btn" data-toggle="modal" data-target="#mdl-page">
                     <i class="fas fa-edit"></i>
@@ -22,18 +22,26 @@
 </template>
 <script>
 export default {
-  name: 'pagesList',
+  name: 'pageList',
   data() {
     return {
       pages: []
     }
   },
   created() {
-    axios.get('/page')
+    axios.get('/content/page')
       .then(({
         data
-      }) => this.pages = data);
+      }) => this.setList(data))
   },
-  mounted() {}
+  methods: {
+    setList: function(d) {
+      this.pages = d;
+      this.$store.commit('setList', {
+        name: 'pages',
+        data: d
+      });
+    }
+  }
 }
 </script>

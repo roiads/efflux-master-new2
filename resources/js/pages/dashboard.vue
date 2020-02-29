@@ -42,13 +42,16 @@ export default {
       .then(({
         data
       }) => this.domainCount = data.length);
-    axios.get('/page')
+    axios.get('/content/page')
       .then(({
         data
-      }) => this.pageCount = data.length);
+      }) => this.pageCount += data.length);
+    axios.get('/content/post')
+      .then(({
+        data
+      }) => this.pageCount += data.length);
   },
   methods: {
-
     domainOverview(id) {
       this.$router.push('/domains/' + id);
     }

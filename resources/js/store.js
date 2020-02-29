@@ -6,15 +6,23 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user : {}
+    user : {},
+    data: {},
+    list : {},
+    workspace: {
+    	data: {},
+    	list: {}
+    }
   },
   mutations: {
-
-  },
-  actions: {
-
-  },
-  getters : {
-    
+  	setUser(state,payload) {
+  		state.user = payload.data
+  	},
+  	setList(state,payload) {
+  		state.list[payload.name] = payload.data
+  	},
+  	setData(state,payload) {
+  		state.data[payload.name] = payload.data
+  	}
   }
 })

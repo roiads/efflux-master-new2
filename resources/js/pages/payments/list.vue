@@ -20,17 +20,26 @@
 </template>
 <script>
 export default {
+  name: 'paymentList',
   data() {
-      return {
-        payments: []
-      }
-    },
-    created() {
-      axios.get('/payment')
-        .then(({
-          data
-        }) => this.payments = data);
-    },
-    mounted() {}
+    return {
+      payments: []
+    }
+  },
+  created() {
+    axios.get('/account/cc')
+      .then(({
+        data
+      }) => this.setList(data));
+  },
+  methods: {
+    setList: function(d) {
+      this.payments = d;
+      this.$store.commit('setList', {
+        name: 'payments',
+        data: d
+      });
+    }
+  }
 }
 </script>

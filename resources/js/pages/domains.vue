@@ -1,30 +1,36 @@
 <template>
-  <div>
-    <section class="content">
-      <div class="container-fluid">
-        <div class="page-header">
-          <div class="row">
-            <crumbs page="domains" :name="domain.name"></crumbs>
-            <tbar :id="domain.id"></tbar>
-          </div>
-          <h1>Domain Manager</h1>
-        </div>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="page-header">
         <div class="row">
-          <xList @setId="setId"></xList>
-          <xOview :id="id" @setObj="setObj"></xOview>
+          <crumbs page="domains" :name="domain.name"></crumbs>
+          <tbar :id="domain.id" @xAdd="modal = 'add'" @xEdit="modal = 'edit'" @unsetId="unsetId"></tbar>
         </div>
+        <h1>Domain Manager</h1>
       </div>
-    </section>
-  </div>
+      <div class="row">
+        <xList @setId="setId"></xList>
+        <xOview :id="id" @setObj="setObj"></xOview>
+      </div>
+    </div>
+    <modal v-if="modal" @closeModal="closeModal">
+      <xAdd v-if="modal  == 'add'">test</xAdd>
+      <xEdit :id="id" v-if="modal  == 'edit'"></xEdit>
+    </modal>
+  </section>
 </template>
 <script>
 import xOview from './domains/overview'
+import xAdd from './domains/add'
+import xEdit from './domains/edit'
 import xList from './domains/list'
 import xTable from './domains/table'
 
 export default {
   name: 'domains',
   components: {
+    xAdd,
+    xEdit,
     xList,
     xTable,
     xOview
@@ -32,6 +38,7 @@ export default {
   data() {
     return {
       id: 0,
+      modal: 0,
       domain: [],
       domains: [],
       form: new Form({
@@ -51,6 +58,12 @@ export default {
     },
     setObj(obj) {
       this.domain = obj;
+    },
+    unsetId() {
+      this.id = null;
+    },
+    closeModal() {
+      this.modal = 0;
     }
   }
 }

@@ -32,24 +32,21 @@
 </template>
 <script>
 export default {
+  name: 'paymentOverview',
   props: ['id'],
   data() {
     return {
       payment: {}
     }
   },
-  created() {
-
-  },
   watch: {
-    id: function(newVal, oldVal) { // watch it
-
+    id: function(newVal, oldVal) {
       this.getPaymentMethod();
     }
   },
   methods: {
     getPaymentMethod() {
-      axios.get('/payment/' + this.id)
+      axios.get('/account/cc/' + this.id)
         .then(({
           data
         }) => this.$emit('setObj', (this.payment = data)));
