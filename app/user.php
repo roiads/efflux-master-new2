@@ -8,7 +8,7 @@ class user extends Authenticatable {
 	public $timestamps = true;
 	protected $table = 'users.users';
 	protected $guarded = [];
-	protected $attributes = ['first_name' => '', 'last_name' => '', 'username' => '', 'roles'];
+	protected $attributes = ['last_name' => ''];
 	protected $fillable = ['first_name', 'last_name', 'username', 'email', 'password'];
 	protected $hidden = ['password', 'remember_token', 'created_at', 'updated_at'];
 	protected $casts = ['email_verified_at' => 'datetime'];
