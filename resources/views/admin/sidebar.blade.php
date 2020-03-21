@@ -14,6 +14,7 @@
     @vLink(['title'=>'Waffles','icon'=>'stroopwafel fas','url'=>'/rules'])
   @endvLinks --}}
   @vLinks(['title'=>'Content Manager','icon'=>'edit fas'])
+    @vLink(['title'=>'Categories','icon'=>'tags fas','url'=>'/categories'])
     @vLink(['title'=>'Pages','icon'=>'newspaper far','url'=>'/pages'])
     @vLink(['title'=>'Posts','icon'=>'newspaper fas','url'=>'/posts'])
     @vLink(['title'=>'Menus','icon'=>'ellipsis-h fas','url'=>'/menus'])
