@@ -55,3 +55,32 @@
     }
   }
 </script>
+
+<style>
+ul.pagination{
+  margin-bottom: 0px;
+  padding: 2px;
+  background: #0001;
+}
+ul.pagination li{
+  padding: 2px;
+  width: auto;
+  display: flex;
+  flex-basis: auto;
+  flex-shrink: 1;
+  flex-grow: 1;
+  padding-bottom: 0px;
+}
+ul.pagination li a{
+  display: block;
+  width: 100%;
+  text-align: center;
+  border-radius: 3px;
+  padding:5px;
+  color:#0005;
+}
+ul.pagination li a:hover{
+  background:#0003;
+  color:#fff;
+}
+</style>

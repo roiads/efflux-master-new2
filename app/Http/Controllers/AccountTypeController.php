@@ -14,7 +14,10 @@ class AccountTypeController extends Controller
 		$this->middleware('auth');
 	}
     public function index(){
-        $types = account_type::where('active',1)->withCount('accounts')->paginate(2);
+        $ids = user::find(Auth::id())->accounts()->pluck('id')->toArray();
+        $types = account_type::where('active',1)
+            ->withCount('accounts')
+            ->paginate(10);
         return  response()->json($types);
     }
     public function create(){}

@@ -20,6 +20,7 @@
   </div>
 </template>
 <script>
+import VuePagination from '../../components/pagination.vue'
   export default {
   name: 'accountsTypeList',
     data() {
@@ -37,9 +38,12 @@
     mounted() {
       this.getAccountTypes();
     },
+    components: {
+        VuePagination,
+    },
     methods: {
       getAccountTypes() {
-        axios.get('/account/type')
+        axios.get(`/account/type?page=${this.accountTypes.current_page}`)
           .then(({data}) => this.accountTypes = data);
       }
     }

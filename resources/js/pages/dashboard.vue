@@ -47,15 +47,15 @@ export default {
     axios.get('/domain')
       .then(({
         data
-      }) => this.domainCount = data.length);
+      }) => this.domainCount = data.total);
     axios.get('/account')
       .then(({
         data
-      }) => this.accountCount = data.length);
+      }) => this.accountCount = data.total);
     axios.get('/content/post')
       .then(({
         data
-      }) => this.creativeCount = data.length);
+      }) => this.creativeCount = data.total);
   },
   methods: {
     domainOverview(id) {
