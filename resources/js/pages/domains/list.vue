@@ -7,29 +7,46 @@
       <div class="card-body p-0">
         <table class="table table-hover">
           <tbody>
-            <tr v-for="domain in domains">
+            <tr v-for="domain in domains.data">
               <td @click="$emit('setId', domain.id )">{{domain.name}}</td>
             </tr>
           </tbody>
         </table>
+        <vue-pagination :pagination="domains" @paginate="getDomains()"></vue-pagination>
       </div>
     </div>
   </div>
 </template>
 <script>
+import VuePagination from '../../components/pagination.vue'
 export default {
   name: 'domainsList',
   data() {
     return {
-      domains: [],
+      domains: {
+        total: 0,
+        per_page: 10,
+        from: 1,
+        to: 0,
+        current_page: 1
+      },
+      offset: 4,
       domain: []
     }
   },
-  created() {
-    axios.get('/domain')
-      .then(({
-        data
-      }) => this.domains = data);
+  mounted() {
+    this.getDomains();
+  },
+  components: {
+      VuePagination,
+  },
+  methods: {
+    getDomains() {
+      axios.get(`/domain?page=${this.domains.current_page}`)
+        .then(({
+          data
+        }) => this.domains = data);
+    }
   }
 }
 </script>

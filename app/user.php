@@ -18,4 +18,7 @@ class user extends Authenticatable {
 	public function accounts(){
 		return $this->belongsToMany(account::class, 'users.user_account', 'user_id', 'account_id');
 	}
+	public function domains(){
+		return $this->belongsToMany(domain::class, 'users.user_domain', 'user_id', 'domain_id');
+	}
 }

@@ -10,9 +10,6 @@ use App\account;
 
 class AccountTypeController extends Controller
 {
-	public function __construct(){
-		$this->middleware('auth');
-	}
     public function index(){
         $ids = user::find(Auth::id())->accounts()->pluck('id')->toArray();
         $types = account_type::where('active',1)

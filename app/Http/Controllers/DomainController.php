@@ -1,11 +1,14 @@
 <?php
 namespace App\Http\Controllers;
 use App\domain;
+use App\user;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class DomainController extends Controller {
 	public function index() {
-		return domain::all();
+		$domains = user::find(Auth::id())->domains()->paginate(10);
+		return response()->json($domains);
 	}
 	public function create() {}
 	public function store(Request $request) {}

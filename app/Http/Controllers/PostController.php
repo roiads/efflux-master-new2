@@ -5,7 +5,8 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller {
 	public function index() {
-		return post::select('id', 'title')->orderBy('id')->get();
+		$posts = user::find(Auth::id())->posts()->paginate(10);
+		return response()->json($posts);
 	}
 	public function create() {}
 	public function store(Request $request) {}

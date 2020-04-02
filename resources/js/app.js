@@ -15,7 +15,7 @@ import Form from "./utilities/Form";
 window.Form = Form;
 import tooltip from 'tooltip';
 window.tooltip = tooltip;
-import store from './store.js'
+import store from './store.js';
 window.store = store;
 Vue.use(VueRouter);
 Vue.component('vue-pagination', require('./components/pagination.vue').default);
