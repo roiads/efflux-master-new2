@@ -11,11 +11,13 @@ use App\account;
 class AccountTypeController extends Controller
 {
     public function index(){
-        $ids = user::find(Auth::id())->accounts()->pluck('id')->toArray();
-        $types = account_type::where('active',1)
-            ->withCount('accounts')
-            ->paginate(10);
-        return  response()->json($types);
+        if (!user::admin()) {
+            $r  = account_type::withCount('accounts')->paginate(10);
+        } else {
+            $r  = account_type::withCount('accounts')->paginate(10);
+        }
+            
+        return  response()->json($r);
     }
     public function create(){}
     public function store(Request $request){}

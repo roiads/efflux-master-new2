@@ -9,7 +9,7 @@
           <tbody>
             <template v-for="accountType in accountTypes.data">
               <tr>
-                <td @click="$emit('accountTypeOverview', accountType.id )">{{accountType.name}} <small class="text-muted">({{accountType.accounts_count}})</small></td>
+                <td @click="$emit('setId', accountType.id )">{{accountType.name}} <small class="text-muted">({{accountType.accounts_count}})</small></td>
               </tr>
             </template>
           </tbody>

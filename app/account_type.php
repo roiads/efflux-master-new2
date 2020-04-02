@@ -13,6 +13,6 @@ class account_type extends Model
 	protected $fillable = ['name', 'url','login','signup','notes'];
     protected $hidden = ['created_at', 'updated_at'];
 	public function accounts() {
-		return $this->hasMany(account::class,'type');
-	}
+		return $this->hasMany(account::class,'type_id');
+    }
 }

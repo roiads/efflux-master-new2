@@ -6,16 +6,27 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class DomainController extends Controller {
+
 	public function index() {
-		$domains = user::find(Auth::id())->domains()->paginate(10);
-		return response()->json($domains);
+		if(user::admin())
+			$r = domain::paginate(10);
+		else
+			$r = user::find(Auth::id())->domains()->paginate(10);
+		return response()->json($r);
 	}
+
 	public function create() {}
+
 	public function store(Request $request) {}
+
 	public function show(domain $domain) {
 		return $domain;
 	}
+
 	public function edit(domain $domain) {}
+
 	public function update(Request $request, domain $domain) {}
+
 	public function destroy(domain $domain) {}
+	
 }

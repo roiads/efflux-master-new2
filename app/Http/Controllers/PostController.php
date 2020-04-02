@@ -2,11 +2,15 @@
 namespace App\Http\Controllers;
 use App\post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller {
 	public function index() {
-		$posts = user::find(Auth::id())->posts()->paginate(10);
-		return response()->json($posts);
+		if(\App\user::admin())
+			$r = post::paginate(10);
+		else
+			$r = \App\user::find(Auth::id())->posts()->paginate(10);
+		return response()->json($r);
 	}
 	public function create() {}
 	public function store(Request $request) {}

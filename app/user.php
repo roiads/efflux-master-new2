@@ -2,6 +2,7 @@
 namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class user extends Authenticatable {
 	use Notifiable;
@@ -20,5 +21,14 @@ class user extends Authenticatable {
 	}
 	public function domains(){
 		return $this->belongsToMany(domain::class, 'users.user_domain', 'user_id', 'domain_id');
+	}
+	public function isRole($ids = null){
+		$r = $this->belongsToMany(role::class, 'users.user_role', 'user_id', 'role_id')
+			->wherePivotIn('role_id',$ids)
+			->count();
+		return $r ?true:false;
+	}
+	public static function admin(){
+		return user::find(Auth::id())->isRole([0,1]);
 	}
 }

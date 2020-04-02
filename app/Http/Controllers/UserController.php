@@ -7,7 +7,11 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller {
 	public function index() {
-		return user::all();
+		if(user::admin())
+			$r = user::paginate(10);
+		else
+			$r = user::find(Auth::id());
+		return response()->json($r);
 	}
 	public function create(Request $request) {
 		Validator::make($request->all(), [

@@ -61,10 +61,10 @@ export default {
     domainOverview(id) {
       this.$router.push('/domains/' + id);
     },
-    accountTypeOverview() {
-      this.$router.push('/accounttypes/' + id);
+    accountTypeOverview(id) {
+      this.$router.push('/accounts/type/' + id);
     },
-    accountOverview() {
+    accountOverview(id) {
       this.$router.push('/accounts/' + id);
     }
   }

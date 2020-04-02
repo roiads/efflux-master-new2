@@ -4,14 +4,13 @@
       <div class="container-fluid">
         <div class="page-header">
           <div class="row">
-            <crumbs page="accounts" name="Profiles" :view="fullName
-"></crumbs>
+            <crumbs page="accounts" name="Profiles" :view="fullName"></crumbs>
             <tbar :id="profile.id"></tbar>
           </div>
           <h1>Profile Manager</h1>
         </div>
         <div class="row">
-          <xList @setId="setId"></xList>
+          <xTable @setId="setId"></xTable>
           <xOverview :id="id" @setObj="setObj"></xOverview>
         </div>
       </div>
