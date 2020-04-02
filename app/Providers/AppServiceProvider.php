@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider {
 	public function boot() {
 		Blade::include('_.vueLink', 'vLink');
 		Blade::component('_.vueLinkGroup', 'vLinks');
-    Paginator::defaultView('vendor.pagination.bootstrap-4');
-    Paginator::defaultSimpleView('vendor.pagination.simple-bootstrap-4');
+    Paginator::defaultView('vendor.pagination.default');
+    Paginator::defaultSimpleView('vendor.pagination.simple-default');
 	}
 }

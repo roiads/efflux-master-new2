@@ -15,4 +15,10 @@ class account extends Model {
 	public function profile() {
 		return $this->belongsTo(profile::class);
 	}
+	public function type() {
+		return $this->belongsTo(account_type::class);
+	}
+	public function users() {
+		return $this->belongsToMany(user::class,'user_account','account_id','user_id');
+	}
 }

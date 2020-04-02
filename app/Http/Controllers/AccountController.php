@@ -6,13 +6,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller {
-	private $userID;
 	public function __construct(){
 		$this->middleware('auth');
 	}
 	public function index() {
-		$accounts = user::find(Auth::id())->accounts()->paginate(5);
-		dd($accounts);
+		$accounts = user::find(Auth::id())->accounts()->paginate(10);
 		return response()->json($accounts);
 	}
 	public function create() {}

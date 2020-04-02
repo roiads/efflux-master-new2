@@ -5,6 +5,7 @@ Auth::routes();
 Route::view('/admin/{page?}', 'admin');
 Route::middleware('auth')->resource('account/cc', 'CcController');
 Route::middleware('auth')->resource('account/profile', 'ProfileController');
+Route::middleware('auth')->resource('account/type', 'AccountTypeController');
 Route::middleware('auth')->resource('account', 'AccountController');
 Route::middleware('auth')->resource('campaign', 'CampaignController');
 Route::middleware('auth')->resource('content/menu', 'MenuController');

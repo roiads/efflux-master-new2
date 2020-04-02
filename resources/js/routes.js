@@ -2,6 +2,7 @@ let routes = [
   {path: '/dashboard',component: require('./pages/dashboard').default},
   {path: '/users*',component: require('./pages/users').default},
   {path: '/profiles*',component: require('./pages/profiles').default},
+  {path: '/accounttypes*',component: require('./pages/accounts').default},
   {path: '/accounts*',component: require('./pages/accounts').default},
   {path: '/payments*',component: require('./pages/payments').default},
   {path: '/domains*',component: require('./pages/domains').default},

@@ -14,9 +14,9 @@
             </template>
           </tbody>
         </table>
-        <vue-pagination  :pagination="accounts"
-                     @paginate="getAccounts()"
-                     :offset="4">
+        <vue-pagination :pagination="accounts"
+          @paginate="getAccounts()"
+          :offset="4">
         </vue-pagination>
       </div>
     </div>

@@ -10,15 +10,16 @@
           <stat-box size="col-6 col-sm-3 col-md-3 col-lg-2" bg="info" :header="creativeCount" url="/admin/pages" message="Creatives" icon="newspaper" footer="see more..."></stat-box>
         </div>
         <div class="row">
-          <accountList @setId="accountOverview"></accountList>
+          <accountTypeList @setId="accountTypeOverview"></accountTypeList>
           <domainList @setId="domainOverview"></domainList>
           <campaignsTable></campaignsTable>
         </div>
       </div>
     </section>
-  </div>
+  </div>   
 </template>
 <script>
+import accountTypeList from './accounts/typeList'
 import accountList from './accounts/list'
 import campaignsTable from './campaigns/table'
 import domainList from './domains/list'
@@ -27,6 +28,7 @@ export default {
   name: 'dashboard',
   components: {
     campaignsTable,
+    accountTypeList,
     accountList,
     domainList
   },
@@ -58,6 +60,9 @@ export default {
   methods: {
     domainOverview(id) {
       this.$router.push('/domains/' + id);
+    },
+    accountTypeOverview() {
+      this.$router.push('/accounttypes/' + id);
     },
     accountOverview() {
       this.$router.push('/accounts/' + id);

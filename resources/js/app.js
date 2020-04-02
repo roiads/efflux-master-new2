@@ -18,6 +18,7 @@ window.tooltip = tooltip;
 import store from './store.js'
 window.store = store;
 Vue.use(VueRouter);
+Vue.component('vue-pagination', require('./components/pagination.vue').default);
 Vue.component('crumbs', require('./components/crumbs.vue').default);
 Vue.component('tbar', require('./components/tbar.vue').default);
 Vue.component('modal', require('./components/modal.vue').default);
