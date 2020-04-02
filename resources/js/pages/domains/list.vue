@@ -1,16 +1,14 @@
 <template>
   <div class="col-sm-4 col-lg-3">
-    <div class="card animated fadeInLeft fast card-light">
+    <div class="card animated fadeIn fast card-light">
+      <div class="card-header py-2">
+        <h3 class="card-title">Sites</h3>
+      </div>
       <div class="card-body p-0">
         <table class="table table-hover">
           <tbody>
             <tr v-for="domain in domains">
               <td @click="$emit('setId', domain.id )">{{domain.name}}</td>
-              <td class="btn-group">
-                <button class="btn">
-                  <i class="fas fa-external-link-alt"></i>
-                </button>
-              </td>
             </tr>
           </tbody>
         </table>

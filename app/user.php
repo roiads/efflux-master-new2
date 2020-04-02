@@ -15,4 +15,7 @@ class user extends Authenticatable {
 	public function roles() {
 		return $this->belongsToMany(role::class, 'users.user_role', 'user_id', 'role_id');
 	}
+	public function accounts(){
+		return $this->belongsToMany(account::class, 'users.user_account', 'user_id', 'account_id');
+	}
 }

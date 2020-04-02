@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-8">
+    <div class="col-md-6">
         <div class="card animated fadeInUp fast card-light">
             <div class="card-header py-2">
                 <h3 class="card-title mb-0">Active campaigns</h3>

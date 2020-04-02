@@ -21,11 +21,12 @@ class RegisterController extends Controller {
 		]);
 	}
 	protected function create(array $data) {
-		return user::create([
+		return user::forceCreate([
 			'first_name' => $data['name'],
 			'email' => $data['email'],
 			'username' => $data['email'],
 			'password' => Hash::make($data['password']),
+			'api_token' => Str::random(80),
 		]);
 	}
 }

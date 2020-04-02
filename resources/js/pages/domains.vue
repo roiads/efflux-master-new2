@@ -6,7 +6,7 @@
           <crumbs page="domains" :name="domain.name"></crumbs>
           <tbar :id="domain.id" @xAdd="modal = 'add'" @xEdit="modal = 'edit'" @unsetId="unsetId"></tbar>
         </div>
-        <h1>Domain Manager</h1>
+        <h1>Site Manager</h1>
       </div>
       <div class="row">
         <xList @setId="setId"></xList>

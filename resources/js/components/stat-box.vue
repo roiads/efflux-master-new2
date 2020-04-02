@@ -1,6 +1,6 @@
 <template>
   <div :class="size">
-    <div :class="'small-box animated zoomInDown fast bg-gradient-'+bg">
+    <div :class="'small-box animated fadeIn fast bg-gradient-'+bg">
       <div class="inner">
         <h3>{{ header }}</h3>
         <p>{{ message }}</p>
