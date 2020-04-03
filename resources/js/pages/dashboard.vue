@@ -3,7 +3,7 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <stat-box size="col-6 col-sm-6 col-md-4 col-lg-3" bg="success" :header="revenueTotal" url="/admin/revenue" message="Revenue" icon="search-dollar" footer="see more..."></stat-box>
+          <stat-box size="col-6 col-sm-6 col-md-4 col-lg-3" bg="success" header="$12,987" url="/admin/revenue" message="Revenue" icon="search-dollar" footer="see more..."></stat-box>
           <stat-box size="col-6 col-sm-6 col-md-4 col-lg-2" bg="info" :header="campaignCount" url="/admin/campaigns" message="Campaigns" icon="chart-line" footer="see more..."></stat-box>
           <stat-box size="col-6 col-sm-3 col-md-3 col-lg-2" bg="info" :header="accountCount" url="/admin/accounts" message="Accounts" icon="id-card" footer="see more..."></stat-box>
           <stat-box size="col-6 col-sm-3 col-md-3 col-lg-2" bg="info" :header="domainCount" url="/admin/domains" message="Sites" icon="network-wired" footer="see more..."></stat-box>

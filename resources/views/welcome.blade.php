@@ -9,7 +9,7 @@
   <link href="{{ url('/css/app.css') }}" rel="stylesheet">
 </head>
 <body class="www">
-  <div class="flex-center full-height position-ref bg-gradient-dark" id="home">
+  <div class="flex-center full-height position-ref bg-gradient-gray" id="home">
     @if (Route::has('login'))
       <div class="top-right links">
         @auth

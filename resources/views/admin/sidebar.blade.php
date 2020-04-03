@@ -1,8 +1,10 @@
 <aside class="main-sidebar">
-<a href="/admin/dashboard" class="brand-link"><i class="fab fa-erlang"></i><span class="brand-text">fflux</span></a>
+  <a href="/admin/dashboard" class="brand-link">
+    <span class="brand-text">Efflux<small>LLC</small></span>
+  </a>
 <div class="sidebar">
 <nav>
-<ul class="nav nav-pills nav-sidebar flex-column nav-flat" data-accordion="true" data-widget="treeview">
+<ul class="nav nav-pills nav-sidebar flex-column nav-flat" data-accordion="false" data-widget="treeview">
   @vLink(['title'=>'Dashboard','icon'=>'tachometer-alt fas','url'=>'/dashboard'])
   @vLinks(['title'=>'Accounts','icon'=>'id-card fas'])
     @vLink(['title'=>'Profiles','icon'=>'caret-right fas','url'=>'/profiles'])

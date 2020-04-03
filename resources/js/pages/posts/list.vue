@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-4 col-lg-3">
+  <div class="col-sm-4">
     <div class="card animated fadeInLeft fast card-light">
       <div class="card-header py-2">
         <h3 class="card-title">Posts</h3>

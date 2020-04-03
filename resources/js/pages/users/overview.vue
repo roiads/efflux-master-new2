@@ -1,12 +1,12 @@
 <template>
   <div class="col-sm-8 col-lg-9" id="user-overview">
     <div class="row" v-if="user.id">
-      <stat-box bg="primary" size="col-sm-11 col-md-10" :header="user.first_name+' '+user.last_name" url="#" :message="user.email" icon="user" footer="Edit Permissions..."></stat-box>
+      <stat-box bg="gray" size="col-sm-11 col-md-10" :header="user.first_name+' '+user.last_name" url="#" :message="user.email" icon="user" footer="Edit Permissions..."></stat-box>
       
       <div class="col-sm-6 col-md-4">
         <div class="card animated fadeInUp fast card-light">
           <div class="card-body p-0">
-            <div class="card-header bg-gradient-dark py-1 px-3">
+            <div class="card-header py-1 px-3">
               <h3 class="card-title mb-0">Permissions:</h3>
             </div>
             <table class="table table-hover">
@@ -27,7 +27,7 @@
       <div class="col-sm-6 col-md-8">
         <div class="card animated fadeInUp fast card-light">
           <div class="card-body p-0">
-            <div class="card-header bg-gradient-dark py-1 px-3">
+            <div class="card-header py-1 px-3">
               <h3 class="card-title mb-0">Activity:</h3>
             </div>
             <table class="table table-hover">

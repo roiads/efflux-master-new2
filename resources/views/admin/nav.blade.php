@@ -1,4 +1,4 @@
-<nav class="main-header navbar navbar-expand shadow-sm bg-gradient-secondary">
+<nav class="main-header navbar navbar-expand shadow-sm bg-gradient-gray">
     <ul class="navbar-nav mr-3">
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" data-toggle="tooltip" data-placement="left" title="Toggle Navigation">

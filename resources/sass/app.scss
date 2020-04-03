@@ -1,16 +1,23 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito|Raleway%20Dots');
-@import '~bootstrap/scss/functions';
+@import url('https://fonts.googleapis.com/css?family=Nunito|Raleway+Dots');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@800&display=swap');
+
+@import "~bootstrap/scss/functions";
+
 @import 'variables';
-$navbar-dark-toggler-icon-bg: none;
-$navbar-light-toggler-icon-bg: none;
-@import '~bootstrap/scss/bootstrap';
+
+@import "~bootstrap/scss/bootstrap";
+
 @import '~@fortawesome/fontawesome-free/scss/brands';
 @import '~@fortawesome/fontawesome-free/scss/regular';
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
 @import '~admin-lte/dist/css/adminlte.min.css';
+
 @import '~icheck-bootstrap/icheck-bootstrap.min.css';
-// @import '~grapesjs/dist/css/grapes.min.css';
+
+@import '~grapesjs/dist/css/grapes.min.css';
+
 @import '~animate.css/animate.min.css';
 html, body {
 	font-family: 'Nunito', sans-serif;
@@ -66,19 +73,50 @@ html, body {
 			font-family:$header-font;
 		}
 	}
+	.small-box .inner{
+		h3{
+			font-weight: bold;
+			font-family: 'Exo 2';
+			text-transform: uppercase;
+			font-style: italic;
+			font-size: 3rem;
+			line-height: 30px;
+			margin: 5px 0px 20px;
+			color:white;
+		}
+		p{
+			margin:0px;
+		}
+	}
 	div.card{
-		.card-header .card-title{margin:0px;}
+		.card-header{
+			margin:0px;
+			background:#e0e0e0 !important;
+			.card-title{
+				margin:0px;
+				font-weight: bold;
+				font-family: 'Exo 2';
+				text-transform: uppercase;
+			}
+		}
 		.card-body{
 			table.table{
 				margin:0px;
 				tbody tr{
-					td{padding:0.5rem 0.5rem;}
+					td{
+						font-size: 0.7rem;
+    				padding: 5px 10px !important;
+					}
 					&:hover{
 						cursor:pointer;
 						background: $hover-highlight;
-						td.btn-group button.btn{opacity:.75;}
+						td.btn-group button.btn{
+							opacity:.75;
+						}
 					}
-					td:not(.btn-group){width:100%;}
+					td:not(.btn-group){
+						width:100%;
+					}
 					td.btn-group{
 						padding:2px 2px 1px;
 						button.btn{
@@ -88,7 +126,13 @@ html, body {
 							&:hover,&:active{
 								background:$info;
 								box-shadow: 0px 0px 3px #000 inset;
-	}}}}}}}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 	div.cc-template{
 		width:300px;
 		height:180px;
@@ -97,31 +141,45 @@ html, body {
 			font-size:50px;
 			line-height: 50px;
 			margin-bottom:30px;
-	}}
+		}
+	}
 	aside.control-sidebar{
 		background:#0009;
 		box-shadow: 0px 0px 5px 0px #0005;
 		backdrop-filter: blur(10px);
 	}
 	aside.main-sidebar{
-		background:#d9dadaaa;
+		background:#fff;
 		box-shadow: 0px 0px 5px 0px #0005;
 		backdrop-filter: blur(5px);
 		a.brand-link{
 			color:white;
 			margin:0px;
-			padding: 0px 5px;
-		  text-shadow: 1px 1px 2px #000;
-	  	-webkit-background-clip: text;
-	       -moz-background-clip: text;
-	          	background-clip: text;
-	    background:#343a40 linear-gradient(180deg, #52585d, #343a40) repeat-x !important;
-			i,span.brand-text{font-size:45px;line-height:47px;}
+			padding: 15px 5px 5px;
+			background-color: #5a5a5a;
+			color: transparent;
+			text-shadow: 1px 1px 3px rgba(255,255,255,0.2);
+			-webkit-background-clip: text;
+				 -moz-background-clip: text;
+							background-clip: text;
+			i,span.brand-text{
+				font-size:45px;
+				line-height:47px;
+				font-family:'Exo 2';
+				font-style: italic;
+			}
 			span.brand-text{
-				margin-left: 5px;
-		    font-size: 26px;
-		    line-height: 26px;
-		    letter-spacing: 0.1em;
+				margin-left: 10px;
+				font-size: 50px;
+				line-height: 42px;
+				letter-spacing: 0.15em;
+				font-style: italic;
+				small{
+					letter-spacing: 0.1em;
+					font-size: 12px;
+					font-family: sans-serif;
+					line-height: 10px;
+				}
 			}
 		}
 		div.sidebar>nav{
@@ -131,54 +189,105 @@ html, body {
 					&:hover{
 						color:#000;
 						background:$hover-highlight;
-						font-weight: bold;
-				}}
+					}
+				}
+				a.nav-link.active{
+					color:#000;
+					font-weight: bold;
+					background:#{$orange}50;
+					&:hover{
+						color:#000;
+						background:#{$orange}70;
+					}
+				}
 				ul.nav.nav-treeview{
 					border-bottom:1px solid #0005;
-					background: #fffb !important;
-					li a.nav-link{padding-left:25px;}
-	}}}}
+					background: #0001 !important;
+					li a.nav-link{
+						padding-left:15px;
+					}
+				}
+			}
+		}
+	}
 	div.login-box{
 		margin-left: auto;
     margin-right: auto;
 		div.login-logo,div.title{
-	  margin-bottom:0px;
-	  a.brand-link{
-	    font-size:90px;
-	    line-height: 50px;
-	    padding: 0px;
-	    margin-bottom: 0px;
-		  text-shadow: 1px 1px 2px #000;
-			-webkit-background-clip: text;
-		     -moz-background-clip: text;
-		        	background-clip: text;
-	    span.brand-text{
-				margin-left: -10px;
-		    letter-spacing: 0.1em;
-	      font-size:60px;
-	}}}}
+	  	margin-bottom:0px;
+	  	a.brand-link{
+	    	font-size:90px;
+	    	line-height: 50px;
+	    	padding: 0px;
+	    	margin-bottom: 0px;
+		  	text-shadow: 1px 1px 2px #000;
+				-webkit-background-clip: text;
+		    	 -moz-background-clip: text;
+		        		background-clip: text;
+				span.brand-text{
+					margin-left: -10px;
+					letter-spacing: 0.1em;
+					font-size:60px;
+					font-family: 'Exo 2';
+				}
+			}
+		}
+	}
 	nav.main-header{
 		form.search{opacity:0.5;&:hover{opacity:1;}}
 		ul.navbar-nav li.nav-item a.nav-link{
 			padding:5px 0px;
-			i.top-nav-icon{font-size:1.5rem;color:#fff9;&:hover{color:#fff;}
-}}}}
+			i.top-nav-icon{
+				font-size:1.5rem;
+				color:#fff9;
+				&:hover{
+					color:#fff;
+				}
+			}
+		}
+	}
+}
 html.www, body.www {
 	color: #636b6f;
 	font-family: 'Nunito', sans-serif;
 	font-weight: 200;
 	height: 100vh;
 	margin: 0;
-	.full-height {height: 100vh;}
-	.flex-center {align-items: center;display: flex;justify-content: center;}
-	.position-ref {position: relative;}
-	.top-right {position: absolute;right: 10px;top: 18px;}
-	.content {text-align: center;}
-	.title {font-size: 7rem;}
-	.brand-link {font-size: 7rem;}
-	.links > a:hover {color: #fff;}
-	.m-b-md {margin-bottom: 30px;}
-	#home{padding:200px 0px;}
+	.full-height {
+		height: 100vh;
+	}
+	.flex-center {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+	}
+	.position-ref {
+		position: relative;
+	}
+	.top-right {
+		position: absolute;
+		right: 10px;
+		top: 18px;
+	}
+	.content {
+		text-align: center;
+	}
+	.title {
+		font-size: 7rem;
+	}
+	.brand-link, .brand-text{
+		font-size: 7rem;
+		font-family: 'Exo 2';
+	}
+	.links > a:hover {
+		color: #fff;
+	}
+	.m-b-md {
+		margin-bottom: 30px;
+	}
+	#home{
+		padding:200px 0px;
+	}
 	.links > a {
 	  color: #fff5;
 	  padding: 0 25px;
@@ -187,4 +296,5 @@ html.www, body.www {
 	  letter-spacing: .1rem;
 	  text-decoration: none;
 	  text-transform: uppercase;
-}}
+	}
+}
