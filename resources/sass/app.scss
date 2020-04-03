@@ -1,24 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito|Raleway+Dots');
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@800&display=swap');
 
-@import "~bootstrap/scss/functions";
-
 @import 'variables';
 
 @import "~bootstrap/scss/bootstrap";
-
-@import '~@fortawesome/fontawesome-free/scss/brands';
-@import '~@fortawesome/fontawesome-free/scss/regular';
-@import '~@fortawesome/fontawesome-free/scss/solid';
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/code";
+@import "~bootstrap/scss/grid";
 
 @import '~admin-lte/dist/css/adminlte.min.css';
-
 @import '~icheck-bootstrap/icheck-bootstrap.min.css';
-
 @import '~grapesjs/dist/css/grapes.min.css';
-
 @import '~animate.css/animate.min.css';
+
 html, body {
 	font-family: 'Nunito', sans-serif;
 	font-weight: 200;
@@ -37,7 +36,7 @@ html, body {
 					text-transform: capitalize;
 					&:hover{
 						color:$primary;
-					}
+					} 
 				}
 			}
 			li.breadcrumb-item:last-of-type{
@@ -156,7 +155,7 @@ html, body {
 			color:white;
 			margin:0px;
 			padding: 15px 5px 5px;
-			background-color: #727272;
+			background-color: #9c9c9c;
 			color: transparent;
 			text-shadow: 1px 1px 3px rgba(255,255,255,0.2);
 			-webkit-background-clip: text;
@@ -199,6 +198,11 @@ html, body {
 						color:#000;
 						background:#{$orange}70;
 					}
+				}
+				a.nav-link p svg.bi-chevron-compact-down{
+					position: absolute; 
+					top: 10px; 
+					right: 10px;
 				}
 				ul.nav.nav-treeview{
 					border-bottom:1px solid #0005;
