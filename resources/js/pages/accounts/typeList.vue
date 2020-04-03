@@ -19,6 +19,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import VuePagination from '../../components/pagination.vue'
   export default {
@@ -49,3 +50,4 @@ import VuePagination from '../../components/pagination.vue'
     }
   }
 </script>
+

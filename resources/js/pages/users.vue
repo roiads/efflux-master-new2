@@ -5,6 +5,7 @@
         <div class="page-header">
           <div class="row">
             <crumbs page="users" :name="user.name"></crumbs>
+          <tbar :id="domain.id" @xAdd="modal = 'add'" @xEdit="modal = 'edit'" @unsetId="unsetId"></tbar>
             <tbar :id="user.id"></tbar>
           </div>
           <h1>Admin - Users Controller</h1>
@@ -56,6 +57,12 @@ export default {
     },
     setObj(obj) {
       this.user = obj;
+    },
+    unsetId() {
+      this.id = null;
+    },
+    closeModal() {
+      this.modal = 0;
     }
   }
 }
