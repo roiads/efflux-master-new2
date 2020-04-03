@@ -1,6 +1,6 @@
 @extends('layouts.web')
 @section('content')
-<body class="login-page bg-gradient-dark">
+<body class="login-page bg-gradient-gray">
 <div class="flex-center position-ref full-height">
     <div class="login-box">
         <div class="login-logo">
