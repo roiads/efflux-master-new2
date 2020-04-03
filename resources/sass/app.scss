@@ -193,10 +193,10 @@ html, body {
 				a.nav-link.active{
 					color:#000;
 					font-weight: bold;
-					background:#{$orange}50;
+					background:#{$blue}50;
 					&:hover{
 						color:#000;
-						background:#{$orange}70;
+						background:#{$blue}70;
 					}
 				}
 				a.nav-link p svg.bi-chevron-compact-down{
