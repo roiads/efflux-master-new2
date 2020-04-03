@@ -52,6 +52,14 @@ class user extends Authenticatable {
 			'domain_id'
 		);
 	}
+	public function posts(){
+		return $this->belongsToMany(
+			post::class, 
+			'users.user_post', 
+			'user_id', 
+			'post_id'
+		);
+	}
 	public function isRole($ids = null){
 		$r = $this->belongsToMany(
 			role::class, 
