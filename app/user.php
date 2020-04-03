@@ -29,6 +29,15 @@ class user extends Authenticatable {
 		return $r ?true:false;
 	}
 	public static function admin(){
-		return user::find(Auth::id())->isRole([0,1]);
+		return user::find(Auth::id())->isRole([1]);
+	}
+	public static function dev(){
+		return user::find(Auth::id())->isRole([2]);
+	}
+	public static function content(){
+		return user::find(Auth::id())->isRole([3]);
+	}
+	public static function mediaBuyer(){
+		return user::find(Auth::id())->isRole([4]);
 	}
 }
