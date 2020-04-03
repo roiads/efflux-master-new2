@@ -33,11 +33,11 @@
   @endvLinks  
   @vLinks(['title'=>'Reporting','icon'=>'chart-line fas'])
     @if($isAdmin) 
-      @vLink(['title'=>'Revenue/Spend','icon'=>'dollar-sign fas','url'=>'/reports/revenue'])
+      @vLink(['title'=>'Revenue/Spend','url'=>'/reports/revenue'])
     @endif
-    @vLink(['title'=>'Traffic Sources','icon'=>'traffic-light fas','url'=>'/reports/traffic'])
-    @vLink(['title'=>'Clicks','icon'=>'traffic-light fas','url'=>'/reports/clicks'])
-    @vLink(['title'=>'Leads','icon'=>'traffic-light fas','url'=>'/reports/leads'])
+    @vLink(['title'=>'Traffic Sources','url'=>'/reports/traffic'])
+    @vLink(['title'=>'Clicks','url'=>'/reports/clicks'])
+    @vLink(['title'=>'Leads','url'=>'/reports/leads'])
   @endvLinks
   @if($isAdmin) 
     @vLink(['title'=>'Users & Permissions','icon'=>'users-cog fas','url'=>'/users'])
