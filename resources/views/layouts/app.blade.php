@@ -10,7 +10,7 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link rel="manifest" href="/manifest.json">
 </head>
-<body class="sidebar-mini layout-fixed text-sm sidebar-collapse">
+<body class="sidebar-mini layout-fixed text-sm">
   <div class="wrapper" id="app">
     @yield('content')
   </div>

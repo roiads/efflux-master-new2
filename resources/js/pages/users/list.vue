@@ -1,6 +1,9 @@
 <template>
   <div class="col-md-4 col-lg-3">
     <div class="card animated fadeInUp fast card-light">
+      <div class="card-header py-2">
+        <h3 class="card-title">Users</h3>
+      </div>
       <div class="card-body p-0">
         <table class="table table-hover">
           <tbody>

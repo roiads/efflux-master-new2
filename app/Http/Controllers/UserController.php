@@ -13,7 +13,7 @@ class UserController extends Controller {
 	public function index() {
 		if(!user::admin())
 			return response('Permission Denied... ',401);
-		$r = user::paginate(10);
+		$r = user::with('roles')->paginate(10);
 		return response()->json($r);
 	}
 	public function create(Request $request) {
@@ -30,8 +30,9 @@ class UserController extends Controller {
 		]);
 	}
 	public function store(Request $request) {}
-	public function show(user $user) {
-		return $user;
+	public function show($id) {
+		$r = user::with('roles')->find($id);
+		return response()->json($r);
 	}
 	public function edit(user $user) {}
 	public function update(Request $request, user $user) {}

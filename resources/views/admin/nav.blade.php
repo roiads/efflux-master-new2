@@ -2,7 +2,7 @@
     <ul class="navbar-nav mr-3">
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" data-toggle="tooltip" data-placement="left" title="Toggle Navigation">
-                <i class="fas fa-indent top-nav-icon"></i>
+                <i class="fas fa-outdent top-nav-icon"></i>
             </a>
         </li>
     </ul>
