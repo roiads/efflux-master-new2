@@ -5,29 +5,43 @@
 <ul class="nav nav-pills nav-sidebar flex-column nav-flat" data-accordion="true" data-widget="treeview">
   @vLink(['title'=>'Dashboard','icon'=>'tachometer-alt fas','url'=>'/dashboard'])
   @vLinks(['title'=>'Accounts','icon'=>'id-card fas'])
-    @vLink(['title'=>'Profiles','icon'=>'id-card fas','url'=>'/profiles'])
-    @vLink(['title'=>'Accounts','icon'=>'user-tag fas','url'=>'/accounts'])
-    @vLink(['title'=>'Payment Methods','icon'=>'credit-card fas','url'=>'/payments'])
+    @vLink(['title'=>'Profiles','url'=>'/profiles'])
+    @vLink(['title'=>'Accounts','url'=>'/accounts'])
+    @if($isAdmin = auth()->user()->admin()) 
+      @vLink(['title'=>'Payment Methods','url'=>'/payments']) 
+    @endif
   @endvLinks
-{{--   @vLinks(['title'=>'Campaigns','icon'=>'bullhorn fas'])
-    @vLink(['title'=>'Campaign Manager','icon'=>'chart-line fas','url'=>'/campaigns'])
+  @vLinks(['title'=>'Campaigns','icon'=>'bullhorn fas'])
+    @vLink(['title'=>'Campaign Manager','url'=>'/campaigns'])
+    @vLink(['title'=>'Ad Manager','url'=>'/ads'])
     @vLink(['title'=>'Waffles','icon'=>'stroopwafel fas','url'=>'/rules'])
-  @endvLinks --}}
+  @endvLinks 
   @vLinks(['title'=>'Content Manager','icon'=>'edit fas'])
-    @vLink(['title'=>'Categories','icon'=>'tags fas','url'=>'/categories'])
-    @vLink(['title'=>'Pages','icon'=>'newspaper far','url'=>'/pages'])
-    @vLink(['title'=>'Posts','icon'=>'newspaper fas','url'=>'/posts'])
-    @vLink(['title'=>'Menus','icon'=>'ellipsis-h fas','url'=>'/menus'])
-    @vLink(['title'=>'Images','icon'=>'image fas','url'=>'/images'])
+    @vLink(['title'=>'Categories','url'=>'/categories'])
+    @vLink(['title'=>'Pages','url'=>'/pages'])
+    @vLink(['title'=>'Posts','url'=>'/posts'])
+    @vLink(['title'=>'Images','url'=>'/images'])
   @endvLinks
   @vLink(['title'=>'Domains & Routes','icon'=>'sitemap fas','url'=>'/domains'])
-{{--   @vLinks(['title'=>'Reporting','icon'=>'chart-line fas'])
-    @vLink(['title'=>'Spend','icon'=>'funnel-dollar fas','url'=>'/reports/spend'])
-    @vLink(['title'=>'Revenue','icon'=>'dollar-sign fas','url'=>'/reports/revenue'])
-    @vLink(['title'=>'Users','icon'=>'users fas','url'=>'/reports/user'])
-    @vLink(['title'=>'Traffic','icon'=>'traffic-light fas','url'=>'/reports/traffic'])
-  @endvLinks --}}
-  @vLink(['title'=>'Users & Permissions','icon'=>'users-cog fas','url'=>'/users'])
+  @vLinks(['title'=>'Tracking','icon'=>'search-location fas'])
+    @vLink(['title'=>'All Traffic','url'=>'/traffic'])
+    @vLinks(['title'=>'Traffic Sources'])
+      @vLink(['title'=>'Facebook','icon'=>'facebook fab','url'=>'/traffic/sources/facebook'])
+      @vLink(['title'=>'Taboola','icon'=>'adversal fab','url'=>'/traffic/sources/taboola'])
+      @vLink(['title'=>'System1','icon'=>'adversal fab','url'=>'/traffic/sources/system1'])
+    @endvLinks  
+  @endvLinks  
+  @vLinks(['title'=>'Reporting','icon'=>'chart-line fas'])
+    @if($isAdmin) 
+      @vLink(['title'=>'Revenue/Spend','icon'=>'dollar-sign fas','url'=>'/reports/revenue'])
+    @endif
+    @vLink(['title'=>'Traffic Sources','icon'=>'traffic-light fas','url'=>'/reports/traffic'])
+    @vLink(['title'=>'Clicks','icon'=>'traffic-light fas','url'=>'/reports/clicks'])
+    @vLink(['title'=>'Leads','icon'=>'traffic-light fas','url'=>'/reports/leads'])
+  @endvLinks
+  @if($isAdmin) 
+    @vLink(['title'=>'Users & Permissions','icon'=>'users-cog fas','url'=>'/users'])
+  @endif
 </ul>
 </nav>
 </div>
