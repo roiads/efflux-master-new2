@@ -25,7 +25,7 @@
     <div class="content py-5">
       <div class="title m-b-md">
         <a href="/" class="brand-link text-white pt-5">
-          <i class="fab fa-erlang"></i> <span class="brand-text">fflux</span>
+          <span class="brand-text">EFFLUX</span>
         </a>
       </div>
       <div class="links">

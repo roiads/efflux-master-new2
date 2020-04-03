@@ -1,6 +1,6 @@
 <aside class="main-sidebar">
   <a href="/admin/dashboard" class="brand-link">
-    <span class="brand-text">Efflux<small>LLC</small></span>
+    <span class="brand-text">EFFLUX<small>LLC</small></span>
   </a>
 <div class="sidebar">
 <nav>
