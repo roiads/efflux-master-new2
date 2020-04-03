@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 class user extends Authenticatable {
 	use Notifiable;
 	public $timestamps = true;
+	protected $connection = 'mysql';
 	protected $table = 'users.users';
 	protected $guarded = [];
 	protected $attributes = ['last_name' => ''];

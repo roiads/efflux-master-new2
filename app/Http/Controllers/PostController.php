@@ -11,6 +11,7 @@ class PostController extends Controller {
 			$r = post::paginate(10);
 		else
 			$r = user::find(Auth::id())->posts()->paginate(10);
+
 		return response()->json($r);
 	}
 	public function create() {}
