@@ -1,11 +1,16 @@
 <?php
 namespace App\Http\Controllers;
 use App\cc;
+use App\user;
 use Illuminate\Http\Request;
 
 class CcController extends Controller {
 	public function index() {
-		return cc::all();
+		if(user::admin())
+			$r = cc::paginate(10);
+		else
+			$r = user::find(Auth::id())->accounts()->paginate(10);
+		return response()->json($r);
 	}
 	public function create() {}
 	public function store(Request $request) {}

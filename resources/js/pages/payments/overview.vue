@@ -1,6 +1,6 @@
 <template>
   <div class="col-sm-8 col-md-7 col-lg-6" id="payment-overview">
-    <div class="jumbotron mx-auto bg-gradient-primary cc-template animated zoomInDown fast" v-if="payment.cc">
+    <div class="jumbotron mx-auto bg-gradient-primary cc-template animated fadeIn fast" v-if="payment.cc">
       <div class="row">
         <div class="col-12 text-right">
           <i :class="'fab fa-cc-'+payment.type"></i>
@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-    <div class="card animated fadeInDown fast card-light" v-if="payment.cc">
+    <div class="card animated fadeIn fast card-light" v-if="payment.cc">
       <div class="card-body">
         <h4>Balance: <span class="text-success">${{ payment.balance }}</span></h4>
         <hr>

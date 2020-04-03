@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class cc extends Model {
 	public $timestamps = true;
-	protected $table = 'accounts.cc';
+	protected $table = 'assets.cc';
 	protected $guarded = [];
 	protected $attributes = [];
 	protected $fillable = ['cc', 'type', 'exp', 'cvv'];
