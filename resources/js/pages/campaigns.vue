@@ -1,5 +1,4 @@
 <template>
-  <div>
     <section class="content">
       <div class="container-fluid">
         <div class="page-header">
@@ -11,7 +10,6 @@
         </div>
       </div>
     </section>
-  </div>
 </template>
 <script>
 import xAdd from './campaigns/add'

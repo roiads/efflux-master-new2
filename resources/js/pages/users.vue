@@ -1,5 +1,4 @@
 <template>
-  <div>
     <div class="content">
       <div class="container-fluid">
         <div class="page-header">
@@ -15,7 +14,6 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 <script>
 import xAdd from './users/add'

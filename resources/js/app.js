@@ -23,6 +23,7 @@ Vue.component('crumbs', require('./components/crumbs.vue').default);
 Vue.component('tbar', require('./components/tbar.vue').default);
 Vue.component('modal', require('./components/modal.vue').default);
 Vue.component('stat-box', require('./components/stat-box.vue').default);
+export const bus = new Vue();
 const app = new Vue({
   el: '#app',
   router,

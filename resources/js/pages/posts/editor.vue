@@ -1,12 +1,12 @@
 <template>
-    <div class="col-12">
-        <div class="card">
+    <div class="col-9 editor">
+        <div class="card" style="height: 100%">
             <div class="card-body table-responsive p-0">
               <div class="panel__top">
                   <div class="panel__basic-actions"></div>
               </div>
-              <div class="editor-row">
-                <div class="editor-canvas">
+              <div class="editor-row" style="height: 100%">
+                <div class="editor-canvas" style="height: calc(100% - 51px)">
                   <div id="gjs">
                     <div class="container">
                       <div class="jumbotron bg-dark text-light">
@@ -15,11 +15,12 @@
                     </div>
                   </div>
                 </div>
+                <div id="blocks"></div>
                 <div class="panel__right">
                   <div class="layers-container"></div>
                 </div>
               </div>
-              <div id="blocks"></div>
+              
             </div>
         </div>
     </div>
@@ -28,6 +29,7 @@
 
 <script>
 export default {
+    name: 'editor',
     mounted() {
 
       const editor = grapesjs.init({
@@ -118,3 +120,25 @@ export default {
     }
 }
 </script>
+<style src="../../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+
+</style>
+<style src='../../../../node_modules/grapesjs/dist/css/grapes.min.css'>
+</style>
+
+<style>
+    .gjs-block {
+  width: auto;
+  height: auto;
+  min-height: auto;
+}
+.panel__right{
+  top:0;
+  right: 0;
+  widows: 15%;
+}
+.editor{
+  height: 100%;
+  padding-bottom: 1rem;
+}
+</style>

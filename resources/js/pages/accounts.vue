@@ -1,5 +1,4 @@
 <template>
-  <div>
     <section class="content">
       <div class="container-fluid">
         <div class="page-header">
@@ -11,7 +10,6 @@
         </div>
       </div>
     </section>
-  </div>
 </template>
 <script>
 import xAdd from './accounts/add'
@@ -52,4 +50,18 @@ export default {
 }
 </script>
 <style>
+  .row{
+    flex-grow: 1;
+  }
+  .container-fluid{
+    display: flex;
+    flex-direction: column;
+  }
+  .content{
+    display: flex;
+    flex-grow: 1;
+  }
+  .content-wrapper{
+    display: flex;
+  }
 </style>

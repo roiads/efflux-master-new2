@@ -1,5 +1,4 @@
 <template>
-  <div>
     <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -15,8 +14,7 @@
           <campaignsTable></campaignsTable>
         </div>
       </div>
-    </section>
-  </div>   
+    </section> 
 </template>
 <script>
 import accountTypeList from './accounts/typeList'

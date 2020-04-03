@@ -1,27 +1,28 @@
 <template>
-  <div>
     <section class="content">
       <div class="container-fluid">
         <div class="page-header">
           <div class="row">
             <crumbs page="posts" :name="post.title"></crumbs>
-            <tbar :id="post.id"></tbar>
+            <tbar :id="post.id" @addClick="addClick" @editClick="editClick" @closeClick="closeClick"></tbar>
           </div>
           <h1>Posts</h1>
         </div>
         <div class="row">
           <xList @setId="setId"></xList>
+          <xEditor></xEditor>
           <xOverview :id="id" @setObj="setObj"></xOverview>
+          
         </div>
       </div>
     </section>
-  </div>
 </template>
 <script>
 import xAdd from './posts/add'
 import xOverview from './posts/overview'
 import xList from './posts/list'
 import xEditor from './posts/editor'
+import {bus} from '../app'
 export default {
   name: 'posts',
   components: {
@@ -29,6 +30,11 @@ export default {
     xOverview,
     xAdd,
     xEditor
+  },
+  created(){
+    bus.$on('x-add', (data) => {
+      console.log(data);
+    })
   },
   data() {
     return {
@@ -55,7 +61,16 @@ export default {
         name: 'post',
         data: obj
       })
-    }
+    },
+    addClick(){
+      console.log('add')
+    },
+    editClick (){
+      console.log('edit')
+    },
+    closeClick (){
+      console.log('close')
+    },
   }
 }
 </script>
