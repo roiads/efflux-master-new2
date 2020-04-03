@@ -7,7 +7,7 @@
     <div class="login-box">
         <div class="login-logo">
             <a href="/" class="brand-link text-white">
-                <i class="fab fa-erlang"></i> <span class="brand-text">fflux</span>
+                <span class="brand-text">EFFLUX</span>
             </a>
         </div>
         <div class="card">
