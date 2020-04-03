@@ -10,7 +10,7 @@
   @vLinks(['title'=>'Campaigns','icon'=>'briefcase'])
     @vLink(['title'=>'Campaign Manager','icon'=>'chevron-compact-right','url'=>'/campaigns'])
     @vLink(['title'=>'Ad Manager','icon'=>'chevron-compact-right','url'=>'/ads'])
-    @vLink(['title'=>'Waffles','icon'=>'columns-gap','url'=>'/rules'])
+    @vLink(['title'=>'Waffles','icon'=>'columns-gap','url'=>'/waffles'])
   @endvLinks 
   @vLinks(['title'=>'Site Manager','icon'=>'tools'])
     @vLink(['title'=>'Domains','icon'=>'chevron-compact-right','url'=>'/domains'])

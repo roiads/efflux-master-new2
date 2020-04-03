@@ -9,19 +9,7 @@
   <link href="{{ url('/css/app.css') }}" rel="stylesheet">
 </head>
 <body class="www">
-  <div class="flex-center full-height position-ref bg-gradient-gray" id="home">
-    @if (Route::has('login'))
-      <div class="top-right links">
-        @auth
-          <a href="/admin/dashboard">Admin</a>
-        @else
-          <a href="/login">Login</a>
-          @if (Route::has('register'))
-            <a href="/register">Register</a>
-          @endif
-        @endauth
-      </div>
-    @endif
+  <div class="flex-center full-height position-ref bg-gradient-backdrop" id="home">
     <div class="content py-5">
       <div class="title m-b-md">
         <a href="/" class="brand-link text-white pt-5">
@@ -29,11 +17,16 @@
         </a>
       </div>
       <div class="links">
-        <a href="#">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#features">Features</a>
-        <a href="#contact">Contact Us</a>
+        @if (Route::has('login'))
+          @auth
+            <a href="/admin/dashboard">Admin</a>
+          @else
+            <a href="/login">Login</a>
+            @if (Route::has('register'))
+              <a href="/register">Register</a>
+            @endif
+          @endauth
+        @endif
       </div>
     </div>
   </div>

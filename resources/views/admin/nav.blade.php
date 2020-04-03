@@ -1,4 +1,4 @@
-<nav class="main-header navbar navbar-expand shadow-sm bg-gradient-gray">
+<nav class="main-header navbar navbar-expand shadow-sm bg-gradient-backdrop">
   <ul class="navbar-nav mr-3">
     <li class="nav-item">
       <a class="nav-link h2" data-widget="pushmenu" href="#" data-toggle="tooltip" data-placement="left"
@@ -21,7 +21,7 @@
     <li class="nav-item">
     </li>
     <li class="nav-item">
-      <a class="nav-link h2" data-widget="control-sidebar" data-slide="true" href="#" data-toggle="tooltip"
+      <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" data-toggle="tooltip"
         data-placement="left" title="Settings">
         <b-icon icon="tools"></b-icon>
       </a>

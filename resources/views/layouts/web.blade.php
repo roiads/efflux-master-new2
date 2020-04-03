@@ -7,7 +7,11 @@
     <title>{{ config('app.name') }}</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-    @yield('content')
+
+<body class="login-page www">
+    <div class="flex-center position-ref full-height  bg-gradient-backdrop col">
+        @yield('content')
+    </div>
     <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 </html>

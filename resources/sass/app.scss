@@ -24,6 +24,13 @@ html, body {
 	height: 100vh;
 	margin: 0;
 	background:#f4f6f9;
+	.bg-gradient-backdrop{
+		background-image: radial-gradient(ellipse at 20% 0%, #364b71, #2b4066, rgb(20, 35, 61)) !important;
+	}
+	div#app div.content-wrapper{
+		background: rgb(255,255,255);
+		background: linear-gradient(180deg, #fff, #fff5, #fff0);
+	}
 	div.modal{
 		background: #0009;
 		display:block;
@@ -78,7 +85,7 @@ html, body {
 			font-family: 'Exo 2';
 			text-transform: uppercase;
 			font-style: italic;
-			font-size: 3rem;
+			font-size: 2.5rem;
 			line-height: 30px;
 			margin: 5px 0px 20px;
 			color:white;
@@ -196,7 +203,7 @@ html, body {
 					background:#{$blue}50;
 					&:hover{
 						color:#000;
-						background:#{$blue}70;
+						background:#{$orange}70;
 					}
 				}
 				a.nav-link p svg.bi-chevron-compact-down{
@@ -218,35 +225,42 @@ html, body {
 		margin-left: auto;
     margin-right: auto;
 		div.login-logo,div.title{
-	  	margin-bottom:0px;
+	  	margin-bottom:25px;
 	  	a.brand-link{
 	    	font-size:90px;
 	    	line-height: 50px;
 	    	padding: 0px;
 	    	margin-bottom: 0px;
 		  	text-shadow: 1px 1px 2px #000;
+				background-color: #9dddc9c9c;
 				-webkit-background-clip: text;
 		    	 -moz-background-clip: text;
 		        		background-clip: text;
 				span.brand-text{
 					margin-left: -10px;
 					letter-spacing: 0.1em;
-					font-size:60px;
+					font-size: 80px;
 					font-family: 'Exo 2';
 				}
 			}
 		}
 	}
 	nav.main-header{
-		form.search{opacity:0.5;&:hover{opacity:1;}}
+		form.search{
+			opacity:0.5;
+			&:hover{
+				opacity:1;
+			}
+		}
 		ul.navbar-nav li.nav-item a.nav-link{
 			padding:5px 0px;
-			i.top-nav-icon{
-				font-size:1.5rem;
-				color:#fff9;
-				&:hover{
-					color:#fff;
-				}
+			font-size: 2rem;
+			margin: -5px 5px 5px !important;
+			height: 45px;
+
+			color:#fffa;
+			&:hover{
+				color:#fff;
 			}
 		}
 	}
@@ -301,4 +315,24 @@ html.www, body.www {
 	  text-decoration: none;
 	  text-transform: uppercase;
 	}
+}
+
+
+div.bg-gradient-backdrop{
+	
+	height: 100vh;
+	span.brand-text{
+		background-color: #fff;
+		color: transparent;
+		text-shadow: 2px 2px 3px rgba(255,255,255,0.5);
+		-webkit-background-clip: text;
+			-moz-background-clip: text;
+						background-clip: text;
+	}
+}
+.login-box .card{
+	background-color: #ffff;
+	.card-body{
+		background-color: #fff5;
+	} 
 }

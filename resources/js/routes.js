@@ -9,6 +9,7 @@ let routes = [
   {path: '/campaigns*',component: require('./pages/campaigns').default},
   {path: '/reports*',component: require('./pages/reports').default},
   {path: '/pages*',component: require('./pages/pages').default},
+  {path: '/waffles*',component: require('./pages/waffles').default},
   {path: '/posts*',component: require('./pages/posts').default}
 ];
 import VueRouter from 'vue-router';
