@@ -1,11 +1,16 @@
 <?php
 namespace App\Http\Controllers;
 use App\page;
+use App\user;
 use Illuminate\Http\Request;
 
 class PageController extends Controller {
 	public function index() {
-		return page::all();
+		if(user::admin())
+			$r = page::paginate(10);
+		else
+			$r = user::find(Auth::id())->domains()->paginate(10);
+		return response()->json($r);
 	}
 	public function create() {}
 	public function store(Request $request) {}
