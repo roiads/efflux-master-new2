@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class domain extends Model {
 	public $timestamps = true;
 	protected $table = 'domains.domains';
+	protected $connection = 'content';
 	protected $guarded = [];
 	protected $attributes = [];
 	protected $fillable = ['name', 'path', 'registrar_id'];

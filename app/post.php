@@ -4,6 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class post extends Model {
 	public $timestamps = true;
+	protected $connection = 'content';
 	protected $table = 'content.posts';
 	protected $guarded = [];
 	protected $attributes = [];

@@ -4,6 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class menu extends Model {
 	public $timestamps = true;
+	protected $connection = 'content';
 	protected $table = 'content.menus';
 	protected $guarded = [];
 	protected $attributes = [];
