@@ -4,7 +4,7 @@
       <div class="card-body p-0">
         <table class="table table-hover">
           <tbody>
-            <template v-for="user in users">
+            <template v-for="user in users.data">
               <tr @click="$emit('setId', user.id )">
                 <td>{{user.first_name}}</td>
                 <td class="btn-group">
@@ -16,23 +16,41 @@
             </template>
           </tbody>
         </table>
+        <vue-pagination :pagination="users" @paginate="getUsers()"></vue-pagination>
       </div>
     </div>
   </div>
 </template>
 <script>
+import VuePagination from '../../components/pagination.vue'
 export default {
+  name: 'usersList',
   data() {
-      return {
-        users: [],
-        user: []
-      }
-    },
-    created() {
-      axios.get('/user')
+    return {
+      users: {
+        total: 0,
+        per_page: 10,
+        from: 1,
+        to: 0,
+        current_page: 1
+      },
+      user: {},
+      offset: 4      
+    }
+  },
+  mounted() {
+    this.getUsers();
+  },
+  components: {
+      VuePagination,
+  },
+  methods: {
+    getUsers() {
+      axios.get(`/user?page=${this.users.current_page}`)
         .then(({
           data
         }) => this.users = data);
     }
+  }
 }
 </script>

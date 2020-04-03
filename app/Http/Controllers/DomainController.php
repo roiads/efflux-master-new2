@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class DomainController extends Controller {
 
+	public function __construct(){
+		// CREATE MIDDLEWARE FOR EACH USER ROLE
+		// THIS NEEDS SITE/SERVER PERMISSIONS
+	}
 	public function index() {
 		if(user::admin())
 			$r = domain::paginate(10);

@@ -1,6 +1,4 @@
 <?php
-
-
 Auth::routes();
 Route::middleware(['auth'])->group(function () {
     Route::view('/admin/{page?}', 'admin');

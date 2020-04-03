@@ -7,11 +7,9 @@
       <div class="card-body p-0">
         <table class="table table-hover">
           <tbody>
-            <template v-for="account in accounts.data">
-              <tr>
-                <td @click="$emit('accountOverview', account.id )">{{account.type}} - {{account.username}}</td>
-              </tr>
-            </template>
+            <tr v-for="account in accounts.data">
+              <td @click="$emit('accountOverview', account.id )">{{account.type}} - {{account.username}}</td>
+            </tr>
           </tbody>
         </table>
         <vue-pagination :pagination="accounts"

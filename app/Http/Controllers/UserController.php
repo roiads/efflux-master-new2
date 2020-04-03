@@ -6,11 +6,14 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller {
+	public function __construct(){
+		// CREATE MIDDLEWARE FOR EACH USER ROLE
+		// THIS NEEDS USERS PERMISSIONS
+	}
 	public function index() {
-		if(user::admin())
-			$r = user::paginate(10);
-		else
-			$r = user::find(Auth::id());
+		if(!user::admin())
+			return response('Permission Denied... ',401);
+		$r = user::paginate(10);
 		return response()->json($r);
 	}
 	public function create(Request $request) {

@@ -5,8 +5,7 @@
         <div class="page-header">
           <div class="row">
             <crumbs page="users" :name="user.name"></crumbs>
-          <tbar :id="domain.id" @xAdd="modal = 'add'" @xEdit="modal = 'edit'" @unsetId="unsetId"></tbar>
-            <tbar :id="user.id"></tbar>
+            <tbar :id="user.id" @xAdd="modal = 'add'" @xEdit="modal = 'edit'" @unsetId="unsetId"></tbar>
           </div>
           <h1>Admin - Users Controller</h1>
         </div>
@@ -19,6 +18,7 @@
   </div>
 </template>
 <script>
+import xAdd from './users/add'
 import xOverview from './users/overview'
 import xList from './users/list'
 
@@ -26,6 +26,7 @@ export default {
   name: 'users',
   components: {
     xList,
+    xAdd,
     xOverview
   },
   data() {
@@ -57,6 +58,10 @@ export default {
     },
     setObj(obj) {
       this.user = obj;
+      this.$store.commit('setData', {
+        name: 'user',
+        data: obj
+      })
     },
     unsetId() {
       this.id = null;
