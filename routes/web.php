@@ -1,5 +1,6 @@
 <?php
 Auth::routes();
+Route::put('content/post/{id}', 'PostController@edit');
 Route::middleware(['auth'])->group(function () {
     Route::view('/admin/{page?}', 'admin');
     Route::resource('account/cc', 'CcController');

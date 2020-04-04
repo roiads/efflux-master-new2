@@ -19,7 +19,13 @@ class PostController extends Controller {
 	public function show(post $post) {
 		return $post;
 	}
-	public function edit(post $post) {}
+	public function edit(Request $request, $id) {
+		$post = $request->all();
+		$postUpdate = post::find($id);
+		$postUpdate->html = $post['html'];
+		$postUpdate->css = $post['css'];
+		return $postUpdate->save();
+	}
 	public function update(Request $request, post $post) {}
 	public function destroy(post $post) {}
 }

@@ -10,9 +10,7 @@
         </div>
         <div class="row">
           <xList @setId="setId"></xList>
-          <xEditor></xEditor>
-          <xOverview :id="id" @setObj="setObj"></xOverview>
-          
+          <xEditor :id="id" @setObj="setObj"></xEditor>
         </div>
       </div>
     </section>
