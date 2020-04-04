@@ -26,8 +26,10 @@ npm install
 
 *Build the project with 1 of the following*
 ```bash
-# this will include all developement esential packages and continue to watch all files in /resources/* for changes
-# once a change is detected, the js and css and assets with be compiled and positioned on the fly without having to rebuild
+# this will include all developement esential packages and 
+# continue to watch all files in /resources/* for changes
+# When a change is detected, the js, css and other assets with be 
+# compiled and positioned on the fly without having to rebuild
 npm run watch
 
 #build with telescope, tinker, and other providers to help in development without reloading on resource changes
