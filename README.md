@@ -18,14 +18,22 @@ git clone https://github.com/nickolastuttle/Efflux-Master.git
 cd ./Efflux-Master/
 ```
 
-*Install the vendor/files*
+*Install the dependencies*
 ```bash
 composer install
+npm install
 ```
 
-*Install all of the node modules and then build the files*
+*Build the project with 1 of the following*
 ```bash
-npm install
+# this will continure to watch all files in /resources/* for changes, 
+# once change is detected, the js and css and assets with be compiled and positioned
+npm run watch
+
+#build with telescope, tinker, and other providers to help in development 
+npm run dev
+
+#minimized js and css, complete cross-env for without the dev-tools
 npm run prod
 ```
 
