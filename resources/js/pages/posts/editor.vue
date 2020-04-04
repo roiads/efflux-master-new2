@@ -1,5 +1,5 @@
 <template>
-    <div class="col-9 editor">
+    <div class="col-sm-8 editor">
         <div class="card animated fadeInUp fast card-light" v-if="post.html" style="height: 100%">
           <div class="panel__top">
             <div class="panel__actions"></div>
