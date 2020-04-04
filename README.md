@@ -13,15 +13,33 @@
 ### Getting Started
 
 *copy the repo  and cd to the project*
-> git clone https://github.com/nickolastuttle/Efflux-Master.git
-> cd ./Efflux-Master/
+```bash
+git clone https://github.com/nickolastuttle/Efflux-Master.git
+cd ./Efflux-Master/
+```
 
-*Install the vendor/files*
-> composer install
+*Install the dependencies*
+```bash
+composer install
+npm install
+```
 
-*Install all of the node modules and then build the files*
-> npm install
-> npm run prod
+*Build the project with 1 of the following*
+```bash
+# this will include all developement esential packages and 
+# continue to watch all files in /resources/* for changes
+# When a change is detected, the js, css and other assets with be 
+# compiled and positioned on the fly without having to rebuild
+npm run watch
+
+#build with telescope, tinker, and other providers to help in development without reloading on resource changes
+npm run dev
+
+#minimized js and css, complete cross-env and without the development tools
+npm run prod
+```
 
 *Start a local instance of the site - http://127.0.0.1:8000*
-> php artisan serve
+```bash
+php artisan serve
+```
