@@ -5,10 +5,10 @@
         <h3>{{ header }}</h3>
         <p>{{ message }}</p>
       </div>
-      <div class="icon">
-        <i :class="'fa fa-'+icon"></i>
+      <div class="icon" v-if="icon">
+        <b-icon :icon="icon"></b-icon>
       </div>
-      <a :href="url" class="small-box-footer">{{ footer }} <i class="fas fa-arrow-circle-right"></i></a>
+      <a :href="url" class="small-box-footer">See More...</a>
     </div>
   </div>
 </template>

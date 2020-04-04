@@ -1,7 +1,7 @@
 <template>
   <div class="col-sm-8 col-lg-9" id="domain-overview">
     <div class="row" v-if="domain.id">
-      <stat-box bg="primary" size="col-sm-11 col-md-10 col-lg-9" :header="domain.name" :url="'https://'+domain.name" :message="domain.notes" icon="sitemap" footer="view live..."></stat-box>
+      <stat-box bg="gray" size="col-sm-11 col-md-10 col-lg-9" :header="domain.name" :url="'https://'+domain.name" :message="domain.notes" icon="sitemap" footer="view live..."></stat-box>
       <div class="col-sm-7 col-md-6">
         <div class="card animated fadeInUp fast card-light">
           <div class="card-body p-0">

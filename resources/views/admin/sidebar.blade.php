@@ -1,46 +1,44 @@
 <aside class="main-sidebar">
-<a href="/admin/dashboard" class="brand-link"><i class="fab fa-erlang"></i><span class="brand-text">fflux</span></a>
+  <a href="/admin/dashboard" class="brand-link">
+    <span class="brand-text">EFFLUX<small>LLC</small></span>
+  </a>
 <div class="sidebar">
 <nav>
-<ul class="nav nav-pills nav-sidebar flex-column nav-flat" data-accordion="true" data-widget="treeview">
-  @vLink(['title'=>'Dashboard','icon'=>'tachometer-alt fas','url'=>'/dashboard'])
-  @vLinks(['title'=>'Accounts','icon'=>'id-card fas'])
-    @vLink(['title'=>'Profiles','icon'=>'caret-right fas','url'=>'/profiles'])
-    @vLink(['title'=>'Accounts','icon'=>'caret-right fas','url'=>'/accounts'])
-    @if($isAdmin = auth()->user()->admin()) 
-      @vLink(['title'=>'Payment Methods','icon'=>'caret-right fas','url'=>'/payments']) 
-    @endif
-  @endvLinks
-  @vLinks(['title'=>'Campaigns','icon'=>'bullhorn fas'])
-    @vLink(['title'=>'Campaign Manager','icon'=>'caret-right fas','url'=>'/campaigns'])
-    @vLink(['title'=>'Ad Manager','icon'=>'caret-right fas','url'=>'/ads'])
-    @vLink(['title'=>'Waffles','icon'=>'stroopwafel fas','url'=>'/rules'])
+<ul class="nav nav-pills nav-sidebar flex-column nav-flat" data-accordion="false" data-widget="treeview">
+  @vLink(['title'=>'Dashboard','icon'=>'clipboard-data','url'=>'/dashboard'])
+  @vLink(['title'=>'Accounts','icon'=>'person-lines-fill','url'=>'/accounts'])
+  @vLinks(['title'=>'Campaigns','icon'=>'briefcase'])
+    @vLink(['title'=>'Campaign Manager','icon'=>'chevron-compact-right','url'=>'/campaigns'])
+    @vLink(['title'=>'Ad Manager','icon'=>'chevron-compact-right','url'=>'/ads'])
+    @vLink(['title'=>'Waffles','icon'=>'columns-gap','url'=>'/waffles'])
   @endvLinks 
-  @vLinks(['title'=>'Content Manager','icon'=>'edit fas'])
-    @vLink(['title'=>'Categories','icon'=>'caret-right fas','url'=>'/categories'])
-    @vLink(['title'=>'Pages','icon'=>'caret-right fas','url'=>'/pages'])
-    @vLink(['title'=>'Posts','icon'=>'caret-right fas','url'=>'/posts'])
-    @vLink(['title'=>'Images','icon'=>'caret-right fas','url'=>'/images'])
+  @vLinks(['title'=>'Site Manager','icon'=>'tools'])
+    @vLink(['title'=>'Domains','icon'=>'chevron-compact-right','url'=>'/domains'])
+    @vLink(['title'=>'Routes','icon'=>'chevron-compact-right','url'=>'/routes'])    
+    @vLink(['title'=>'Categories','icon'=>'chevron-compact-right','url'=>'/categories'])
+    @vLink(['title'=>'Pages','icon'=>'chevron-compact-right','url'=>'/pages'])
+    @vLink(['title'=>'Posts','icon'=>'chevron-compact-right','url'=>'/posts'])
+    @vLink(['title'=>'Images','icon'=>'chevron-compact-right','url'=>'/images'])
   @endvLinks
-  @vLink(['title'=>'Domains & Routes','icon'=>'sitemap fas','url'=>'/domains'])
-  @vLinks(['title'=>'Tracking','icon'=>'search-location fas'])
-    @vLink(['title'=>'All Traffic','icon'=>'caret-right fas','url'=>'/traffic'])
-    @vLinks(['title'=>'Traffic Sources','icon'=>'caret-right fas'])
+  @vLinks(['title'=>'Tracking','icon'=>'geo'])
+    @vLink(['title'=>'All Traffic','icon'=>'chevron-compact-right','url'=>'/traffic'])
+    @vLinks(['title'=>'Traffic Sources','icon'=>'chevron-compact-right'])
       @vLink(['title'=>'Facebook','icon'=>'facebook fab','url'=>'/traffic/sources/facebook'])
       @vLink(['title'=>'Taboola','icon'=>'adversal fab','url'=>'/traffic/sources/taboola'])
       @vLink(['title'=>'System1','icon'=>'adversal fab','url'=>'/traffic/sources/system1'])
     @endvLinks  
   @endvLinks  
-  @vLinks(['title'=>'Reporting','icon'=>'chart-line fas'])
-    @if($isAdmin) 
-      @vLink(['title'=>'Revenue/Spend','icon'=>'caret-right fas','url'=>'/reports/revenue'])
-    @endif
-    @vLink(['title'=>'Traffic Sources','icon'=>'caret-right fas','url'=>'/reports/traffic'])
-    @vLink(['title'=>'Clicks','icon'=>'caret-right fas','url'=>'/reports/clicks'])
-    @vLink(['title'=>'Leads','icon'=>'caret-right fas','url'=>'/reports/leads'])
+  @vLinks(['title'=>'Reporting','icon'=>'table'])
+    @vLink(['title'=>'Traffic Sources','icon'=>'chevron-compact-right','url'=>'/reports/traffic'])
+    @vLink(['title'=>'Clicks','icon'=>'chevron-compact-right','url'=>'/reports/clicks'])
+    @vLink(['title'=>'Leads','icon'=>'chevron-compact-right','url'=>'/reports/leads'])
   @endvLinks
-  @if($isAdmin) 
-    @vLink(['title'=>'Users & Permissions','icon'=>'users-cog fas','url'=>'/users'])
+  @if(auth()->user()->admin()) 
+    @vLinks(['title'=>'Admin','icon'=>'shield-lock-fill'])
+      @vLink(['title'=>'Revenue/Spend','icon'=>'chevron-compact-right','url'=>'/reports/revenue'])
+      @vLink(['title'=>'Payment Methods','icon'=>'chevron-compact-right','url'=>'/payments']) 
+      @vLink(['title'=>'Users & Permissions','icon'=>'chevron-compact-right','url'=>'/users'])
+    @endvLinks
   @endif
 </ul>
 </nav>

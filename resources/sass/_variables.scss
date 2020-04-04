@@ -20,5 +20,24 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+$primary: #b1b1b1;
+$secondary: #0bb2d4;
 
-$hover-highlight: #{$yellow}50;
+$hover-highlight: #{$cyan}25;
+$navbar-dark-toggler-icon-bg: none;
+$navbar-light-toggler-icon-bg: none;
+$grid-columns: 12;
+$grid-gutter-width: 10px;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 992px,
+  lg: 1200px,
+  xl: 1600px
+);
+$container-max-widths: (
+  sm: 540px,
+  md: 960px,
+  lg: 1140px,
+  xl: 1540px
+);

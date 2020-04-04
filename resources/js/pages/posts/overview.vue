@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-8 col-lg-9" id="post-overview">
+  <div class="col-sm-8" id="post-overview">
     <div class="card animated fadeInUp fast card-light" v-if="post.title">
       <div class="card-header py-2">
         <h3 class="card-title mb-0" v-html="post.title"></h3>

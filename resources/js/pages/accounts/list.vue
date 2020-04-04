@@ -8,7 +8,7 @@
         <table class="table table-hover">
           <tbody>
             <tr v-for="account in accounts.data">
-              <td @click="$emit('accountOverview', account.id )">{{account.type}} - {{account.username}}</td>
+              <td @click="$emit('accountOverview', account.id )" style="text-transform: uppercase;">{{account.type}} - {{account.username}}</td>
             </tr>
           </tbody>
         </table>

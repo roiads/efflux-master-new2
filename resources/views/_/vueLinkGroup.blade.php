@@ -1,7 +1,7 @@
 <li class="nav-item has-treeivew">
-  <a href="#" class="nav-link">
-    @isset($icon) <i class="nav-icon fa-{{ $icon }}"></i> @endisset
-    <p>{{ $title }} <i class="right fas fa-angle-left"></i></p>
+  <a href="#" class="nav-link h5">
+    @isset($icon) <b-icon icon="{{ $icon }}" variant="gray" class="mr-2"></b-icon> @endisset
+    <p>{{ $title }} <b-icon icon="chevron-compact-down" variant="gray"></b-icon> </p>
   </a>
   <ul class="nav nav-treeview">
     {{ $slot }}
