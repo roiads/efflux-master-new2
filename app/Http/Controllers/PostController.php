@@ -24,7 +24,8 @@ class PostController extends Controller {
 		$postUpdate = post::find($id);
 		$postUpdate->html = $post['html'];
 		$postUpdate->css = $post['css'];
-		return $postUpdate->save();
+		$state = $postUpdate->save();
+		return Response()->json(array('success' => $state), $state ? 200 : 400);
 	}
 	public function update(Request $request, post $post) {}
 	public function destroy(post $post) {}

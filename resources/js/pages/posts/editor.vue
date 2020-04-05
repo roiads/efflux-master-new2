@@ -2,9 +2,8 @@
     <div class="col-sm-8 editor">
         <div class="card animated fadeInUp fast card-light" v-if="post.html" style="height: 100%">
           <div class="panel__top">
-            <div class="panel__actions"></div>
             <div class="panel__devices"></div>
-            
+            <div class="panel__actions"></div>
             <div class="panel__switcher"></div>
           </div>
           <div class="editor-row">
@@ -179,13 +178,13 @@ export default {
         attributes: { class:'gjs-block-section' },
         content: `<section>
           <h1>This is a simple title</h1>
-          <div>This is just a Lorem text: Lorem ipsum dolor sit amet</div>
+          <p>This is just a Lorem text: Lorem ipsum dolor sit amet</p>
         </section>`,
       },
       {
         id: 'text',
         label: 'Text',
-        content: '<div data-gjs-type="text">Insert your text here</div>',
+        content: '<p data-gjs-type="text">Insert your text here</p>',
       }, {
         id: 'image',
         label: 'Image',
@@ -304,8 +303,9 @@ export default {
         this.editor.Commands.add('set-device-mobile', {
           run: editor => editor.setDevice('Mobile')
         });
+        const self = this;
         this.editor.Commands.add('save', {
-          run: editor => fetch(window.location.protocol  + "//" + window.location.host + '/content/post/' + data.id, {
+          run: editor => fetch(window.location.protocol  + "//" + window.location.host + '/content/post/' + self.post.id, {
             method: 'Put',
             headers:{
               'Content-Type': 'Application/json'

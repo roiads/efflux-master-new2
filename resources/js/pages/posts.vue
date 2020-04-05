@@ -20,7 +20,6 @@ import xAdd from './posts/add'
 import xOverview from './posts/overview'
 import xList from './posts/list'
 import xEditor from './posts/editor'
-import {bus} from '../app'
 export default {
   name: 'posts',
   components: {
@@ -30,9 +29,6 @@ export default {
     xEditor
   },
   created(){
-    bus.$on('x-add', (data) => {
-      console.log(data);
-    })
   },
   data() {
     return {
