@@ -8,8 +8,8 @@
         <table class="table table-hover">
           <tbody>
             <template v-for="user in users.data">
-              <tr @click="$emit('setId', user.id )">
-                <td>{{user.full_name}}</td>
+              <tr :key="user.id">
+                <td @click="$emit('setId', user.id )" v-html="user.first_name+' '+user.last_name"></td>
               </tr>
             </template>
           </tbody>
@@ -40,9 +40,7 @@ export default {
     this.getUsers();
   },
   computed: {
-    full_name: function () {
-      return this.first_name + ' ' + this.last_name;
-    }
+    
   },
   components: {
       VuePagination,

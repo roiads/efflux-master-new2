@@ -7,7 +7,7 @@
       <div class="card-body p-0">
         <table class="table table-hover">
           <tbody>
-            <tr v-for="domain in domains.data">
+            <tr v-for="domain in domains.data" :key="domain.id">
               <td @click="$emit('setId', domain.id )">{{domain.name}}</td>
             </tr>
           </tbody>
