@@ -1,21 +1,19 @@
 <template>
-  <div>
     <section class="content">
       <div class="container-fluid">
         <div class="page-header">
           <div class="row">
             <crumbs page="posts" :name="post.title"></crumbs>
-            <tbar :id="post.id"></tbar>
+            <tbar :id="post.id" @addClick="addClick" @editClick="editClick" @closeClick="closeClick"></tbar>
           </div>
           <h1>Posts</h1>
         </div>
         <div class="row">
-          <xList @setId="setId"></xList>
-          <xOverview :id="id" @setObj="setObj"></xOverview>
+          <xList @setPost="setPost"></xList>
+          <xEditor :post="post" @setObj="setObj"></xEditor>
         </div>
       </div>
     </section>
-  </div>
 </template>
 <script>
 import xAdd from './posts/add'
@@ -30,10 +28,11 @@ export default {
     xAdd,
     xEditor
   },
+  created(){
+  },
   data() {
     return {
-      id: 0,
-      post: [],
+      post: {},
       posts: [],
       form: new Form({
         'name': ''
@@ -46,8 +45,8 @@ export default {
         .post('/content/post')
         .then(r => this.posts.push(r));
     },
-    setId(id) {
-      this.id = id;
+    setPost(post) {
+      this.post = post;
     },
     setObj(obj) {
       this.post = obj;
@@ -55,7 +54,16 @@ export default {
         name: 'post',
         data: obj
       })
-    }
+    },
+    addClick(){
+      console.log('add')
+    },
+    editClick (){
+      console.log('edit')
+    },
+    closeClick (){
+      console.log('close')
+    },
   }
 }
 </script>
