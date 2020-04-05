@@ -9,12 +9,7 @@
           <tbody>
             <template v-for="user in users.data">
               <tr @click="$emit('setId', user.id )">
-                <td>{{user.first_name}}</td>
-                <td class="btn-group">
-                  <button class="btn">
-                    <i class="fa fa-edit"></i>
-                  </button>
-                </td>
+                <td>{{user.full_name}}</td>
               </tr>
             </template>
           </tbody>
@@ -43,6 +38,11 @@ export default {
   },
   mounted() {
     this.getUsers();
+  },
+  computed: {
+    full_name: function () {
+      return this.first_name + ' ' + this.last_name;
+    }
   },
   components: {
       VuePagination,
