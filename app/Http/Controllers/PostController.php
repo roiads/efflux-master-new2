@@ -27,6 +27,15 @@ class PostController extends Controller {
 		$state = $postUpdate->save();
 		return Response()->json(array('success' => $state), $state ? 200 : 400);
 	}
+	public function editMetadata(Request $request, $id) {
+		$post = $request->all();
+		$postUpdate = post::find($id);
+		$postUpdate->title = $post['title'];
+		$postUpdate->description = $post['description'];
+		$postUpdate->excerpt = $post['excerpt'];
+		$state = $postUpdate->save();
+		return Response()->json(array('success' => $state), $state ? 200 : 400);
+	}
 	public function update(Request $request, post $post) {}
 	public function destroy(post $post) {}
 }

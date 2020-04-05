@@ -1,6 +1,6 @@
 <template>
   <div class="col-sm-8 editor">
-    <div class="card animated fadeInUp fast card-light" v-if="post.html" style="height: 100%">
+    <div class="card animated fadeInRight fast card-light" v-if="post.html" style="height: 100%">
       <div class="panel__top">
         <div class="panel__devices"></div>
         <div class="panel__actions"></div>
@@ -25,30 +25,24 @@
 <script>
 import juice from "juice";
 export default {
-  props: ["id"],
+  props: ["post"],
   data() {
     return {
-      post: {},
       editor: undefined
     };
   },
   watch: {
-    id: function(newVal, oldVal) {
+    post: function(newVal, oldVal) {
       // watch it
-      this.getPost();
+      if (!this.editor) {
+        this.init(this.post);
+      } else {
+        this.editor.setComponents(this.post.html);
+        this.editor.setStyle(this.post.css);
+      }
     }
   },
   methods: {
-    async getPost() {
-      const { data } = await axios.get("/content/post/" + this.id);
-      this.post = data;
-      if (!this.editor) {
-        this.init(data);
-      } else {
-        this.editor.setComponents(data.html);
-        this.editor.setStyle(data.css);
-      }
-    },
     getEditor() {
       return grapesjs.init({
         container: "#gjs",
@@ -177,13 +171,13 @@ export default {
             {
               id: "title",
               label: "Title",
-              content: '<h1 data-gjs-type="title">Insert your title here</h1>'
+              content: '<h1>Insert your title here</h1>'
             },
             {
               id: "sub_title",
               label: "Sub Title",
               content:
-                '<h2 data-gjs-type="title">Insert your sub title here</h2>'
+                '<h2>Insert your sub title here</h2>'
             },
             {
               id: "section", // id is mandatory
@@ -258,10 +252,8 @@ export default {
       console.log(this);
       requestAnimationFrame(() => {
         this.editor = this.getEditor();
-        console.log(data);
         this.editor.setComponents(data.html);
         this.editor.setStyle(data.css);
-        console.log(this);
         this.editor.Commands.add("show-blocks", {
           getRowEl(editor) {
             return editor.getContainer().closest(".editor-row");
@@ -333,8 +325,7 @@ export default {
         });
         const self = this;
         this.editor.Commands.add("save", {
-          run: editor =>
-            fetch(
+          run: editor => fetch(
               window.location.protocol +
                 "//" +
                 window.location.host +

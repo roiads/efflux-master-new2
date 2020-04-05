@@ -9,8 +9,8 @@
           <h1>Posts</h1>
         </div>
         <div class="row">
-          <xList @setId="setId"></xList>
-          <xEditor :id="id" @setObj="setObj"></xEditor>
+          <xList @setPost="setPost"></xList>
+          <xEditor :post="post" @setObj="setObj"></xEditor>
         </div>
       </div>
     </section>
@@ -32,8 +32,7 @@ export default {
   },
   data() {
     return {
-      id: 0,
-      post: [],
+      post: {},
       posts: [],
       form: new Form({
         'name': ''
@@ -46,8 +45,8 @@ export default {
         .post('/content/post')
         .then(r => this.posts.push(r));
     },
-    setId(id) {
-      this.id = id;
+    setPost(post) {
+      this.post = post;
     },
     setObj(obj) {
       this.post = obj;
