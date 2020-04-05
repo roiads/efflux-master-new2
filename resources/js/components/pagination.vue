@@ -5,7 +5,7 @@
             <span aria-hidden="true">«</span>
             </a>
         </li>
-    <li v-for="page in pagesNumber" :class="{'active': page == pagination.current_page}">
+    <li v-for="(page,index) in pagesNumber" :class="{'active': page == pagination.current_page}" :key="index">
         <a href="javascript:void(0)" v-on:click.prevent="changePage(page)">{{ page }}</a>
         </li>
     <li v-if="pagination.current_page < pagination.last_page">

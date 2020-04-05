@@ -4,14 +4,16 @@
       <div class="card-header py-2">
         <h3 class="card-title">Domains</h3>
         <div class="card-tools">
-          <button type="button" class="btn btn-tool" data-toggle="modal" data-target="#domain_add"><i class="fas fa-plus"></i></button>
+          <button type="button" class="btn btn-tool" data-toggle="modal" data-target="#domain_add">
+            <i class="fas fa-plus"></i>
+          </button>
         </div>
       </div>
       <div class="card-body p-0">
         <table class="table table-hover">
           <tbody>
-            <template v-for="domain in domains">
-              <tr>
+            <template v-for="(domain,index) in domains.data">
+              <tr :key="index">
                 <td @click="$emit('domainOverview', domain.id )">{{domain.name}}</td>
                 <td class="btn-group">
                   <button class="btn" data-toggle="modal" data-target="#mdl-subdoms">
@@ -27,17 +29,17 @@
     <modal id="mdl-subdoms"></modal>
     <modal id="domain_add">
       <domain-add></domain-add>
-    </modal>    
+    </modal>
   </div>
 </template>
 <script>
-  export default {
-    data() {return {domains: [],domain:[]}},
-    created() {
-      axios.get('/domain')
-        .then(({data}) => this.domains = data);
-    },
-    mounted() {
-    }
-  }
+export default {
+  data() {
+    return { domains: [], domain: [] };
+  },
+  created() {
+    axios.get("/domain").then(({ data }) => (this.domains = data));
+  },
+  mounted() {}
+};
 </script>

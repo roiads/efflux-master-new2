@@ -1,0 +1,23 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreatePivotPostCategoryTable extends Migration {
+	public function up() {
+		Schema::create('efflux_content.post_tag', function (Blueprint $table) {
+			$table->id();
+			$table->foreignId('tag_id')->constrained()->onDelete('cascade');
+			$table->foreignId('post_id')->constrained()->onDelete('cascade');
+			$table->timestamps();
+		});
+	}
+	public function down() {
+		Schema::table('efflux_content.post_tag', function (Blueprint $table) {
+			$table->dropForeign(['tag_id']);
+			$table->dropForeign(['post_id']);
+		});
+		Schema::dropIfExists('efflux_content.post_tag');
+	}
+}
