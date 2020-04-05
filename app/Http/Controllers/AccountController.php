@@ -10,12 +10,22 @@ class AccountController extends Controller {
 		$accounts = user::find(Auth::id())->accounts()->paginate(10);
 		return response()->json($accounts);
 	}
-	public function create() {}
-	public function store(Request $request) {}
+	public function create() {
+
+	}
+	public function store(Request $request) {
+
+	}
 	public function show(account $account) {
 		return $account;
 	}
-	public function edit(account $account) {}
-	public function update(Request $request, account $account) {}
-	public function destroy(account $account) {}
+	public function edit(account $account) {
+
+	}
+	public function update(Request $request, account $account) {
+
+	}
+	public function destroy(account $account) {
+		
+	}
 }
