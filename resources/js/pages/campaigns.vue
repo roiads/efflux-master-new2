@@ -9,7 +9,7 @@
 </template>
 <script>
 export default {
-  name: "reports",
+  name: "campaigns",
   components: {},
   data() {
     return {};

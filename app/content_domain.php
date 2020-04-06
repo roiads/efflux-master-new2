@@ -5,7 +5,7 @@ use Collective\Html\Eloquent\FormAccessible;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class domain extends Model {
+class content_domain extends Model {
  use SoftDeletes;
  use FormAccessible;
  public $timestamps    = true;

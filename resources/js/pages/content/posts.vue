@@ -16,8 +16,8 @@
   </section>
 </template>
 <script>
-import xList from "./posts/list";
-import xEditor from "./posts/editor";
+import xList from "./post/list";
+import xEditor from "./post/editor";
 export default {
   name: "posts",
   components: {

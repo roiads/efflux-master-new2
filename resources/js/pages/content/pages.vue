@@ -16,8 +16,8 @@
   </section>
 </template>
 <script>
-import xList from "./pages/list";
-import xEditor from "./pages/editor";
+import xList from "./page/list";
+import xEditor from "./page/editor";
 export default {
   name: "pages",
   components: {

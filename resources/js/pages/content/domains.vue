@@ -20,8 +20,8 @@
   </section>
 </template>
 <script>
-import xOview from "./domains/overview";
-import xList from "./domains/list";
+import xOview from "./domain/overview";
+import xList from "./domain/list";
 
 export default {
   name: "domains",

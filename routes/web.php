@@ -1,16 +1,32 @@
 <?php
-Auth::routes();
+
+/**
+ * The main website url to access a vue-router and
+ * open the corrent component layout with all options
+ */
 Route::middleware(['auth'])->group(function () {
-    Route::view('/admin/{page?}', 'admin');
-    Route::resource('account/spendsource', 'AccountSpendsourceController');
-    Route::resource('account/profile', 'AccountProfileController');
-    Route::resource('account/type', 'AccountTypeController');
-    Route::resource('account', 'AccountController');
-    Route::resource('content/page', 'ContentPageController');
-    Route::resource('content/post', 'ContentPostController');
-    Route::put('content/post/metadata/{id}', 'ContentPostController@updateMetadata');
-    Route::resource('content/route', 'ContentRouteController');
-    Route::resource('content/domain', 'ContentDomainController');
-    Route::resource('user', 'UserController');
+ Route::view('/admin/{vue?}', 'admin');
+ Route::view('/admin/{group}/{vue?}', 'admin');
+ Route::view('/admin/{group}/{vue}/{id?}', 'admin');
+
+ Route::prefix('accounts')->namespace('Accounts')->group(function () {
+  Route::resource('account', 'AccountCtrl');
+  Route::resource('spendsource', 'SpendsourceCtrl');
+  Route::resource('profile', 'ProfileCtrl');
+  Route::resource('type', 'TypeCtrl');
+ });
+
+ Route::prefix('content')->namespace('Content')->group(function () {
+  Route::resource('page', 'PageCtrl');
+  Route::resource('post', 'PostCtrl');
+  Route::put('post/metadata/{id}', 'PostCtrl@updateMetadata');
+  Route::resource('route', 'RouteCtrl');
+  Route::resource('domain', 'DomainCtrl');
+ });
+ Route::namespace ('Users')->group(function () {
+  Route::resource('user', 'UserCtrl');
+ });
 });
+
+Auth::routes();
 Route::view('/{page?}', 'welcome');

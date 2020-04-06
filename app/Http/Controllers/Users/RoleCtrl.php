@@ -1,9 +1,10 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Users;
+use App\Http\Controllers\Controller;
 use App\user_role;
 use Illuminate\Http\Request;
 
-class UserRoleController extends Controller {
+class UserRoleCtrl extends Controller {
  public function index() {
   return user_role::all();
  }
