@@ -1,0 +1,19 @@
+INSERT INTO `efflux_accounts`.`types`
+(`name`,`url`,`login_url`,`signup_url`)
+VALUES
+('snapchat','https://www.snapchat.com/','https://accounts.snapchat.com/accounts/login','https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwi6h5WBvMXoAhUNFAwKHXehAkYYABACGgJxYg&ohost=www.google.com&cid=CAESQeD2E_1-58KvuuC4tJn7Y1Umv2qYtq1jpG5Z0_8GjTh6X6-J97tNzsUJm_Uo9GT-Fj1w8Il4Y5uvSvDJktPqoaOA&sig=AOD64_3mhDfrnq7ofUSXEBPd5kw4Zm1Ueg&adurl=&q=&ved=2ahUKEwiyj4qBvMXoAhUBlKwKHVcRD08QqyQoAXoECA0QCA'),
+('outlook','https://outlook.live.com/owa/','https://login.live.com/login.srf','https://signup.live.com/signup'),
+('botspot','https://bot-spot.io','https://admin.bot-spot.io/login','https://admin.bot-spot.io/register'),
+('facebook','https://www.facebook.com/','https://www.facebook.com/','https://www.facebook.com'),
+('gmail','https://gmail.com/','https://gmail.com/','https://gmail.com'),
+('taboola','','',''),
+('System1','','',''),
+('Instagram','','',''),
+('Spotify','https://www.spotify.com/','https://open.spotify.com/','https://www.spotify.com/us/signup/?forward_url=https%3A%2F%2Fopen.spotify.com%2F'),
+('FacebookAds','','',''),
+('tiktok','','',''),
+('Gemini','','',''),
+('Revcontent','','',''),
+('Content','",,','',''),
+('Outbrain','','',''),
+('Pontiac','','','');

@@ -2,7 +2,7 @@
   <section class="content">
     <div class="container-fluid">
       <div class="row">
-        <h3>Waffles</h3>
+        <h3>Site Manager</h3>
       </div>
     </div>
   </section>

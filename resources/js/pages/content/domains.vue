@@ -21,18 +21,12 @@
 </template>
 <script>
 import xOview from "./domains/overview";
-import xAdd from "./domains/add";
-import xEdit from "./domains/edit";
 import xList from "./domains/list";
-import xTable from "./domains/table";
 
 export default {
   name: "domains",
   components: {
-    xAdd,
-    xEdit,
     xList,
-    xTable,
     xOview
   },
   data() {

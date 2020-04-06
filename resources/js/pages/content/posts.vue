@@ -16,16 +16,12 @@
   </section>
 </template>
 <script>
-import xAdd from "./posts/add";
-import xOverview from "./posts/overview";
 import xList from "./posts/list";
 import xEditor from "./posts/editor";
 export default {
   name: "posts",
   components: {
     xList,
-    xOverview,
-    xAdd,
     xEditor
   },
   created() {},

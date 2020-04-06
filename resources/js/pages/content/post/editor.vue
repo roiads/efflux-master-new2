@@ -1,6 +1,6 @@
 <template>
   <div class="col-sm-8 editor">
-    <div class="card animated fadeInRight fast card-light" v-if="post.html" style="height: 100%">
+    <div class="card animated fadeInRight fast card-light" v-if="post.body" style="height: 100%">
       <div class="panel__top">
         <div class="panel__devices"></div>
         <div class="panel__actions"></div>
@@ -37,7 +37,7 @@ export default {
       if (!this.editor) {
         this.init(this.post);
       } else {
-        this.editor.setComponents(this.post.html);
+        this.editor.setComponents(this.post.body);
         this.editor.setStyle(this.post.css);
       }
     }
@@ -251,7 +251,7 @@ export default {
       console.log(this);
       requestAnimationFrame(() => {
         this.editor = this.getEditor();
-        this.editor.setComponents(data.html);
+        this.editor.setComponents(data.body);
         this.editor.setStyle(data.css);
         this.editor.Commands.add("show-blocks", {
           getRowEl(editor) {
@@ -337,7 +337,7 @@ export default {
                   "Content-Type": "Application/json"
                 },
                 body: JSON.stringify({
-                  html: juice(
+                  body: juice(
                     editor.getHtml() +
                       "<style>" +
                       editor.getCss().replace(/;/g, " !important;") +

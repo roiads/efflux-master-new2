@@ -1,7 +1,15 @@
 <template>
   <div class="col-sm-8 col-lg-9" id="domain-overview">
     <div class="row" v-if="domain.id">
-      <stat-box bg="gray" size="col-sm-11 col-md-10 col-lg-9" :header="domain.name" :url="'https://'+domain.name" :message="domain.notes" icon="sitemap" footer="view live..."></stat-box>
+      <stat-box
+        bg="gray"
+        size="col-sm-11 col-md-10 col-lg-9"
+        :header="domain.name"
+        :url="'https://'+domain.name"
+        :message="domain.notes"
+        icon="sitemap"
+        footer="view live..."
+      ></stat-box>
       <div class="col-sm-7 col-md-6">
         <div class="card animated fadeInUp fast card-light">
           <div class="card-body p-0">
@@ -10,11 +18,13 @@
             </div>
             <table class="table table-hover">
               <tbody>
-                <tr v-for="route in domain.routes">
+                <tr v-for="route in domain.routes" :key="route.id">
                   <td>{{route.name}}</td>
                   <td>{{route.page_id}}</td>
                   <td class="btn-group">
-                    <button class="btn"><i class="fas fa-edit"></i></button>
+                    <button class="btn">
+                      <i class="fas fa-edit"></i>
+                    </button>
                   </td>
                 </tr>
               </tbody>
@@ -44,25 +54,27 @@
 </template>
 <script>
 export default {
-  name: 'DomainOverview',
-  props: ['id'],
+  name: "DomainOverview",
+  props: ["id"],
   data() {
     return {
       domain: {}
-    }
+    };
   },
   watch: {
-    id: function(newVal, oldVal) { // watch it
+    id: function(newVal, oldVal) {
+      // watch it
       this.getDomain();
     }
   },
   methods: {
     getDomain() {
-      axios.get('/domain/' + this.id)
-        .then(({
-          data
-        }) => this.$emit('setObj', (this.domain = data)));
+      axios
+        .get("/domain/" + this.id)
+        .then(({ data }) => this.$emit("setObj", (this.domain = data)));
     }
   }
-}
+};
 </script>
+<style scoped>
+</style>
