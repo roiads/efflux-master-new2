@@ -7,14 +7,14 @@
       <div class="card-body p-0">
         <table class="table table-hover">
           <tbody>
-            <tr v-for="account in accounts.data">
-              <td @click="$emit('accountOverview', account.id )" style="text-transform: uppercase;">{{account.type}} - {{account.username}}</td>
-            </tr>
+            <template v-for="account in accounts.data">
+              <tr :key="account.id" @click="$emit('accountOverview', account.id )">
+                <td style="text-transform: uppercase;">{{account.type}} - {{account.username}}</td>
+              </tr>
+            </template>
           </tbody>
         </table>
-        <vue-pagination :pagination="accounts"
-          @paginate="getAccounts()"
-          :offset="4">
+        <vue-pagination :pagination="accounts" @paginate="getAccounts()" :offset="4">
         </vue-pagination>
       </div>
     </div>
