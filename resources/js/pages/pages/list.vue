@@ -7,8 +7,8 @@
       <div class="card-body p-0">
         <table class="table table-hover">
           <tbody>
-            <tr v-for="page in pages.data">
-              <td @click="$emit('setId', page.id )">{{ page.title }}</td>
+            <tr v-for="page in pages.data" :key="page.id">
+              <td @click="$emit('setPage', page )">{{ page.title }}</td>
             </tr>
           </tbody>
         </table>

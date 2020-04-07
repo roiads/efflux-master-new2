@@ -17,7 +17,14 @@ class PageController extends Controller {
 	public function show(page $page) {
 		return $page;
 	}
-	public function edit(page $page) {}
+	public function edit(Request $request, $id) {
+		$post = $request->all();
+		$postUpdate = page::find($id);
+		$postUpdate->html = $post['html'];
+		$postUpdate->css = $post['css'];
+		$state = $postUpdate->save();
+		return Response()->json(array('success' => $state), $state ? 200 : 400);
+	}
 	public function update(Request $request, page $page) {}
 	public function destroy(page $page) {}
 }
