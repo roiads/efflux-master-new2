@@ -10,13 +10,13 @@
     </div>
 
     <div class="row">
-      <accounts-account-list></accounts-account-list>
+      <accounts-profile-list></accounts-profile-list>
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: "accounts",
+  name: "accounts-profiles",
   components: {},
   data() {
     return {

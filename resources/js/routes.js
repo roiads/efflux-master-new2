@@ -11,6 +11,10 @@ let routes = [{
     component: require('./pages/accounts').default
   },
   {
+    path: '/account_profiles*',
+    component: require('./pages/profiles').default
+  },
+  {
     path: '/content_domains*',
     component: require('./pages/content/domains').default
   },

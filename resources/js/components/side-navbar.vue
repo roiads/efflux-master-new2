@@ -14,7 +14,20 @@
           data-widget="treeview"
         >
           <side-navbar-link title="Dashboard" icon="clipboard-data" url="/dashboard" />
-          <side-navbar-link title="Accounts" icon="person-lines-fill" url="/accounts" />
+          <li class="nav-item has-treeivew">
+            <a href="#" class="nav-link h5">
+              <b-icon icon="person-lines-fill" variant="gray" class="mr-2"></b-icon>
+              <p>
+                Account Manager
+                <b-icon icon="chevron-compact-down" variant="gray"></b-icon>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <side-navbar-link title="Profiles" url="/account_profiles" />
+              <side-navbar-link title="Accounts" url="/accounts" />
+              <side-navbar-link title="Account Types" url="/account_types" />
+            </ul>
+          </li>
           <li class="nav-item has-treeivew">
             <a href="#" class="nav-link h5">
               <b-icon icon="briefcase" variant="gray" class="mr-2"></b-icon>

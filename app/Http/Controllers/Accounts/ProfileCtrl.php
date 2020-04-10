@@ -21,7 +21,7 @@ class ProfileCtrl extends Controller {
   * @return \Illuminate\Http\Response
   */
  public function index() {
-  $r = account_profile::with('accounts')->paginate(1000);
+  $r = account_profile::with('accounts')->paginate(15);
   return response()->json($r);
  }
 
