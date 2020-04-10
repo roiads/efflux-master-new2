@@ -23,7 +23,7 @@
 </template>
 <script>
 export default {
-  name: "accounts-account-overview",
+  name: "accounts-account-show",
   components: {},
   data() {
     return {};

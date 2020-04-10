@@ -13,33 +13,17 @@
         <xOview :id="id" @setObj="setObj"></xOview>
       </div>
     </div>
-    <modal v-if="modal" @closeModal="closeModal">
-      <xAdd v-if="modal  == 'add'">test</xAdd>
-      <xEdit :id="id" v-if="modal  == 'edit'"></xEdit>
-    </modal>
+    <modal v-if="modal" @closeModal="closeModal"></modal>
   </section>
 </template>
 <script>
-import xOview from "./domain/overview";
-import xList from "./domain/list";
-
 export default {
   name: "domains",
-  components: {
-    xList,
-    xOview
-  },
+  components: {},
   data() {
     return {
-      id: 0,
-      modal: 0,
       domain: [],
-      domains: [],
-      form: new Form({
-        name: "",
-        registrar_id: 0,
-        notes: "..."
-      })
+      domains: []
     };
   },
   mounted() {

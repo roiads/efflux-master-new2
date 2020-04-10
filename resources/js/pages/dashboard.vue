@@ -2,65 +2,20 @@
   <div class="container-fluid">
     <div>
       <b-card-group deck>
-        <b-card border-variant="success" style="text-center" class="m-2">
-          <b-card-text>Revenue</b-card-text>
-          <b-card-text>Spend</b-card-text>
-          <b-card-text>Total</b-card-text>
-        </b-card>
-        <b-card border-variant="primary" style="text-center" class="m-2">
-          <b-card-text>Campaigns</b-card-text>
-          <b-card-text>Active</b-card-text>
-          <b-card-text>Complete</b-card-text>
-        </b-card>
-        <b-card border-variant="primary" style="text-center" class="m-2">
-          <b-card-text>Accounts</b-card-text>
-          <b-card-text>Active</b-card-text>
-          <b-card-text>Total</b-card-text>
-        </b-card>
-        <b-card border-variant="info" style="text-center" class="m-2">
-          <b-card-text>Sites</b-card-text>
-          <b-card-text>Active</b-card-text>
-          <b-card-text>Total</b-card-text>
-        </b-card>
+        <b-card bg-variant="success" style="text-center" class="m-2">Revenue</b-card>
+        <b-card bg-variant="info" style="text-center" class="m-2">Accounts {{topStats.account}}</b-card>
+        <b-card bg-variant="primary" style="text-center" class="m-2">Domains {{topStats.domain}}</b-card>
+        <b-card bg-variant="warning" style="text-center" class="m-2">Posts {{topStats.creative}}</b-card>
       </b-card-group>
-    </div>
-    <div>
-      <b-card-group deck>
-        <b-card border-variant="info" style="text-center">
-          <b-card-text>Views</b-card-text>
-          <b-card-text>Clicks</b-card-text>
-          <b-card-text>Leads</b-card-text>
-        </b-card>
-        <b-card border-variant="info" style="text-center">
-          <b-card-text>Views</b-card-text>
-          <b-card-text>Clicks</b-card-text>
-          <b-card-text>Leads</b-card-text>
-        </b-card>
-        <b-card border-variant="danger" style="text-center">
-          <b-card-text>Warnings</b-card-text>
-          <b-card-text>Alerts</b-card-text>
-          <b-card-text>Notices</b-card-text>
-        </b-card>
-      </b-card-group>
-    </div>
-    <div class="row">
-      <accountTypeList @setId="accountTypeOverview"></accountTypeList>
-      <domainList @setId="domainOverview"></domainList>
+
+      <b-card-group deck></b-card-group>
     </div>
   </div>
 </template>
 <script>
-import accountTypeList from "./accounts/account/type/list";
-import accountList from "./accounts/account/list";
-import domainList from "./content/domain/list";
-
 export default {
   name: "dashboard",
-  components: {
-    accountTypeList,
-    accountList,
-    domainList
-  },
+  components: {},
   data() {
     return {
       topStats: {
@@ -78,12 +33,12 @@ export default {
   created() {
     axios
       .get("/content/domain")
-      .then(({ data }) => (this.totStats.domain = data.total));
+      .then(({ data }) => (this.topStats.domain = data.total));
     axios
-      .get("/account")
+      .get("/accounts/account")
       .then(({ data }) => (this.topStats.account = data.total));
     axios
-      .get("/post")
+      .get("/content/post")
       .then(({ data }) => (this.topStats.creative = data.total));
   },
   methods: {

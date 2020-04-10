@@ -42,7 +42,6 @@
   </div>
 </template>
 <script>
-import VuePagination from "../../../components/pagination.vue";
 export default {
   name: "postsList",
   data() {
@@ -59,9 +58,6 @@ export default {
   },
   mounted() {
     this.getPosts();
-  },
-  components: {
-    VuePagination
   },
   methods: {
     updateCurrentPost() {

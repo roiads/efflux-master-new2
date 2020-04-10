@@ -28,7 +28,7 @@
 </template>
 <script>
 export default {
-  name: "reports",
+  name: "accounts-profile-show",
   components: {},
   data() {
     return {};

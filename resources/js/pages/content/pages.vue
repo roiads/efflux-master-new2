@@ -8,22 +8,14 @@
         </div>
         <h1>Pages</h1>
       </div>
-      <div class="row">
-        <xList @setId="setId"></xList>
-        <xOverview :id="id" @setObj="setObj"></xOverview>
-      </div>
+      <div class="row"></div>
     </div>
   </section>
 </template>
 <script>
-import xList from "./page/list";
-import xEditor from "./page/editor";
 export default {
   name: "pages",
-  components: {
-    xList,
-    xEditor
-  },
+  components: {},
   data() {
     return {
       id: 0,

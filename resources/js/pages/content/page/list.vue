@@ -20,7 +20,6 @@
   </div>
 </template>
 <script>
-import VuePagination from "../../../components/pagination.vue";
 export default {
   name: "pageList",
   data() {
@@ -31,9 +30,6 @@ export default {
   },
   mounted() {
     this.getPages();
-  },
-  components: {
-    VuePagination
   },
   methods: {
     getPages() {

@@ -11,7 +11,6 @@ Route::middleware(['auth'])->group(function () {
 
  Route::prefix('accounts')->namespace('Accounts')->group(function () {
   Route::resource('account', 'AccountCtrl');
-  Route::resource('spendsource', 'SpendsourceCtrl');
   Route::resource('profile', 'ProfileCtrl');
   Route::resource('type', 'TypeCtrl');
  });

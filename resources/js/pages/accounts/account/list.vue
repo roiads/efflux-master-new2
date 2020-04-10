@@ -1,20 +1,37 @@
 <template>
   <div>
-    <b-card title="Accounts" tag="account list" style="max-width: 20rem;" class="mb-2">
-      <b-card-text>show account list table here...</b-card-text>
-      <b-button variant="success">
-        Add New
-        <b-icon icon="plus-circle-fill"></b-icon>
-      </b-button>
+    <b-card no-body header="Accounts" class="mb-2 p-0">
+      <b-list-group v-for="account in items.data" :key="account.id" id="account-list">
+        <b-list-group-item :to="'/accounts/account/'+account.id" v-html="account.username"></b-list-group-item>
+      </b-list-group>
+      <vue-pagination :pagination="items" @paginate="getAccounts()"></vue-pagination>
     </b-card>
   </div>
 </template>
 <script>
 export default {
-  name: "reports",
-  components: {},
+  name: "accounts-account-list",
+  mounted() {
+    this.getAccounts();
+  },
   data() {
-    return {};
+    return {
+      perPage: 10,
+      currentPage: 1,
+      items: {}
+    };
+  },
+  methods: {
+    getAccounts() {
+      axios
+        .get(`/accounts/account?page=${this.items.current_page}`)
+        .then(({ data }) => (this.items = data));
+    }
+  },
+  computed: {
+    rows() {
+      return this.items.length;
+    }
   }
 };
 </script>

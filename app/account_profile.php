@@ -4,11 +4,9 @@ namespace App;
 
 use Collective\Html\Eloquent\FormAccessible;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class account_profile extends Model {
  use FormAccessible;
- use SoftDeletes;
  public $timestamps    = true;
  protected $table      = 'efflux_accounts.profiles';
  protected $guarded    = [];
@@ -16,6 +14,6 @@ class account_profile extends Model {
  protected $fillable   = ['status', 'firstname', 'lastname', 'dob', 'gender', 'country', 'city', 'post_code'];
  protected $hidden     = ['created_at', 'updated_at'];
  public function accounts() {
-  return $this->hasMany(account::class);
+  return $this->hasMany(account::class, 'profile_id');
  }
 }

@@ -7,22 +7,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AccountCtrl extends Controller {
-
- /**
-  * Instantiate a new controller instance.
-  *
-  * @return void
-  */
  public function __construct() {
-  // Additional Middleware here../
+
  }
- /**
-  * Display a listing of the resource.
-  *
-  * @return \Illuminate\Http\Response
-  */
  public function index() {
-  $accounts = user::find(Auth::id())->accounts()->paginate(10);
+  $accounts = user::admin() ? account::paginate(10) : user::find(Auth::id())->accounts()->paginate(10);
   return response()->json($accounts);
  }
 

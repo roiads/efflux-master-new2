@@ -42,6 +42,7 @@
 
 <script>
 export default {
+  name: "accounts-profile-create",
   data() {
     return {
       form: {

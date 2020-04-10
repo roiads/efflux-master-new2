@@ -18,7 +18,6 @@
   </div>
 </template>
 <script>
-import VuePagination from "../../../components/pagination.vue";
 export default {
   name: "domainsList",
   data() {
@@ -36,9 +35,6 @@ export default {
   },
   mounted() {
     this.getDomains();
-  },
-  components: {
-    VuePagination
   },
   methods: {
     getDomains() {

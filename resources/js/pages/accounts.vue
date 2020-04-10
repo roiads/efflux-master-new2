@@ -1,15 +1,18 @@
 <template>
-  <section class="content">
-    <div class="container-fluid">
-      <div class="page-header">
-        <div class="row">
-          <crumbs page="accounts" :name="account.name"></crumbs>
-          <tbar :id="account.id"></tbar>
-        </div>
-        <h1>Account Manager</h1>
+  <div class="container-fluid">
+    <div class="page-header">
+      <div class="row">
+        <breadcrumbs page="accounts" :name="account.name"></breadcrumbs>
+        <toolbar :id="account.id">
+          <accounts-type-list></accounts-type-list>
+        </toolbar>
       </div>
     </div>
-  </section>
+
+    <div class="row">
+      <accounts-profile-list></accounts-profile-list>
+    </div>
+  </div>
 </template>
 <script>
 export default {
@@ -19,22 +22,13 @@ export default {
     return {
       account: [],
       accounts: [],
-      form: new Form({
-        name: "",
-        email: "",
-        password: "",
-        type: ""
-      })
+      profile: [],
+      profiles: {},
+      types: []
     };
   },
-  created() {
-    axios.get("/account").then(r => (this.accounts = r));
-  },
-  methods: {
-    onSubmit() {
-      this.form.post("/account").then(r => this.accounts.push(r));
-    }
-  }
+  mounted() {},
+  methods: {}
 };
 </script>
 <style>

@@ -21,9 +21,8 @@
   </div>
 </template>
 <script>
-import VuePagination from "../../components/pagination.vue";
 export default {
-  name: "usersList",
+  name: "users-list",
   data() {
     return {
       users: {
@@ -41,9 +40,7 @@ export default {
     this.getUsers();
   },
   computed: {},
-  components: {
-    VuePagination
-  },
+  components: {},
   methods: {
     getUsers() {
       axios
