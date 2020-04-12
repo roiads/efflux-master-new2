@@ -1,68 +1,56 @@
 @extends('layouts.web')
 @section('content')
-<div class="login-box">
-    <div class="login-logo">
-        <a href="/" class="brand-link text-white">
-            <span class="brand-text">EFFLUX</span>
-        </a>
-    </div>
-    <div class="card">
-        <div class="card-body login-card-body py-2">
-            <p class="login-box-msg mt-2">Register a New Account</p>
-            <form method="POST" action="{{ route('register') }}">
-                @csrf
-                <div class="input-group mb-3">
-                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Full name">
-                    <div class="input-group-append"><div class="input-group-text"><span class="fas fa-user"></span></div></div>
-                    @error('name') <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span> @enderror
-                </div>
-                <div class="input-group mb-3">
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email address">
-                    <div class="input-group-append"><div class="input-group-text"><span class="fas fa-envelope"></span></div></div>
-                    @error('email') <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span> @enderror
-                </div>
-                <div class="input-group mb-3">
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
-                    <div class="input-group-append"><div class="input-group-text"><span class="fas fa-lock"></span></div></div>
-                    @error('password') <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span> @enderror
-                </div>
-                <div class="input-group mb-3">
-                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Retype password">
-                    <div class="input-group-append"><div class="input-group-text"><span class="fas fa-lock"></span></div></div>
-                </div>
-                <div class="row">
-                    <div class="col-8">
-                        <div class="icheck-primary">
-                            <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-                            <label for="agreeTerms">I agree to the <a href="#">terms</a></label>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block">Register</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    <p class="text-center mt-5 mb-3">- OR -</p>
-    <div class="social-auth-links text-center m-0 p-0">
-        <div class="row">
-            <div class="col-6 p-1">
-                <a href="#" class="btn btn-block btn-dark social-auth" style="background:#4267b2;">
-                    <i class="fab fa-facebook mr-2"></i> Facebook
-                </a>
-            </div>
-            <div class="col-6 p-1">
-                <a href="#" class="btn btn-block btn-dark social-auth" style="background:#d14538;">
-                    <i class="fab fa-google-plus mr-2"></i> Google+
-                </a>
-            </div>
-            <div class="col-8 offset-2 p-1">
-                <a href="{{ route('login') }}" class="btn btn-block btn-warning">
-                    <i class="fas fa-undo mr-2"></i> I already have an account
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+<b-container fluid>
+    <b-row align-v="center" align-h="center" class="h-75">
+        <b-col cols="10" sm="8" md="6" lg="4" xl="3">
+            <b-link href="/" class="big-logo">EFFLUX</b-link>
+            <b-card class="elevation-3" no-body>
+                <b-form action="{{ route('register') }}" method="POST">
+                    @csrf
+                    <b-card-body>
+                        <b-form-group id="name">
+                            <b-input required autofocus name="name" placeholder="Your Name"></b-input>
+                        </b-form-group>
+                        <b-form-group id="email">
+                            <b-input required type="email" 
+                                name="email" placeholder="Enter email"
+                                @error('email') class="is-invalid" @enderror></b-input>
+                            @error('email') <b-form-invalid-feedback>{{ $message }}</b-form-invalid-feedback> @enderror
+                        </b-form-group>
+                        <b-form-group id="password">
+                            <b-input required type="password" 
+                                name="password" placeholder="password"
+                                @error('password') class="is-invalid" @enderror></b-input>
+                        </b-form-group>
+                        <b-form-group id="password-confirm">
+                            <b-input required type="password" 
+                                name="password_confirmation" placeholder="password"
+                                @error('password') class="is-invalid" @enderror></b-input>
+                            @error('password') <b-form-invalid-feedback>{{ $message }}</b-form-invalid-feedback> @enderror
+                        </b-form-group>
+                    </b-card-body>
+                    <b-card-footer>
+                        <b-row>
+                            <b-col cols="auto" class="mr-auto">
+                                <b-form-group id="terms">
+                                    <b-checkbox name="terms" class="text-muted mt-1 ml-3">
+                                        <small>I agree to the <a href="#">terms</a></small>
+                                    </b-checkbox>
+                                </b-form-group>
+                            </b-col>
+                            <b-col cols="auto" class="ml-auto">
+                                <b-btn type="submit" variant="success" class="px-3 btn-sm">Register</b-btn>
+                            </b-col>
+                        </b-row>
+                    </b-card-footer>
+                </b-form>
+            </b-card>
+            <b-row>
+                <b-col cols="auto" class="mx-auto">
+                    <b-btn href="{{ route('login') }}" variant="outline-primary" size="sm">Go Back</b-btn>
+                </b-col>
+            </b-row>
+        </b-col>
+    </b-row>
+</b-container>
 @endsection

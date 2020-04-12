@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name') }}</title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <title>{{ config('app.name') }}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="copyright" content="">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <link rel="stylesheet" href="/css/web.css">
 </head>
-
-<body class="login-page www">
-    <div class="flex-center position-ref full-height  bg-gradient-backdrop col">
+<body class="web">
+    <div id="app" class="wrapper">
         @yield('content')
     </div>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="/js/web.js" defer></script>
 </body>
 </html>

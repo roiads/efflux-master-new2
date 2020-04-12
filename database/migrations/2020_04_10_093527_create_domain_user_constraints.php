@@ -9,7 +9,7 @@ class CreateDomainUserConstraints extends Migration {
   Schema::create('efflux_users.user_domain', function (Blueprint $table) {
    $table->id();
    $table->foreignId('user_id')->constrained()->onDelete('cascade');
-   $table->foreignId('domain_id')->references('id')->on('efflux_content.domains')->onDelete('cascade');
+   $table->foreignId('domain_id')->references('id')->on('efflux_site.domains')->onDelete('cascade');
    $table->timestamps();
   });
  }
