@@ -21,3 +21,4 @@ Route::middleware(['auth'])->group(function () {
  Route::view('/{page?}', 'home');
  Route::view('/{page}/{subpage?}', 'home');
 });
+Route::view('/', 'web');
