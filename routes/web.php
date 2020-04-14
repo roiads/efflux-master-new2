@@ -1,8 +1,16 @@
 <?php
+<<<<<<< HEAD
 Auth::routes();
 Route::put('content/post/{id}', 'PostController@edit');
 Route::put('content/page/{id}', 'PageController@edit');
 Route::put('content/post/metadata/{id}', 'PostController@editMetadata');
+=======
+
+/**
+ * The main website url to access a vue-router and
+ * open the corrent component layout with all options
+ */
+>>>>>>> develop
 Route::middleware(['auth'])->group(function () {
     Route::view('/admin/{page?}', 'admin');
     Route::resource('account/cc', 'CcController');
