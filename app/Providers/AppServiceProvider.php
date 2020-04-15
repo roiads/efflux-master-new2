@@ -11,8 +11,6 @@ class AppServiceProvider extends ServiceProvider {
     
   }
 	public function boot() {
-		Blade::include('_.vueLink', 'vLink');
-		Blade::component('_.vueLinkGroup', 'vLinks');
     Paginator::defaultView('vendor.pagination.default');
     Paginator::defaultSimpleView('vendor.pagination.simple-default');
 	}

@@ -1,25 +1,20 @@
 <template>
-  <div class="col-sm-4">
-    <div class="card animated fadeInLeft fast card-light">
-      <div class="card-header py-2">
-        <h3 class="card-title">Waffles</h3>24/7 Watch Bots
-      </div>
+  <section class="content">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-12 animated fadeInUp fast d-flex align-items-center">
-          
-        </div>
+        <h3>Waffles</h3>
       </div>
     </div>
-  </div>
+  </section>
 </template>
-
 <script>
-  export default {
-    data() {
-      return {}
-    },
-    mounted() {
-
-    },
+export default {
+  name: "reports",
+  components: {},
+  data() {
+    return {};
   }
+};
 </script>
+<style>
+</style>
