@@ -15,7 +15,7 @@ class CreateFbAddSetTable extends Migration
     {
         Schema::create('efflux_accounts.FbAdSet', function (Blueprint $table) {
             $table->string('id');
-            $table->string('campaign_id')->references('id')->on('FbCampaign');
+            $table->string('campaign_id')->references('id')->on('FbCampaign')->onDelete('cascade');
             $table->string('name');
             $table->timestamps();
             $table->primary('id');
@@ -30,6 +30,6 @@ class CreateFbAddSetTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('FbAdSet');
+        Schema::dropIfExists('efflux_accounts.FbAdSet');
     }
 }

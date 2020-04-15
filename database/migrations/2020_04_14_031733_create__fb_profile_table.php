@@ -14,13 +14,13 @@ class CreateFbProfileTable extends Migration
     public function up()
     {
         Schema::create('efflux_accounts.FbProfile', function (Blueprint $table) {
-            $table->string('business_id');
+            $table->increments('id');
+            $table->string('business_id')->unique();
             $table->string('username');
             $table->string('password');
             $table->string('fullname');
             $table->binary('gender');
             $table->timestamps();
-            $table->primary('business_id');
         });
     }
 
@@ -31,6 +31,6 @@ class CreateFbProfileTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('FbProfile');
+        Schema::dropIfExists('efflux_accounts.FbProfile');
     }
 }

@@ -23,12 +23,12 @@ class PostCtrl extends Controller {
   * @return \Illuminate\Http\Response
   */
  public function index() {
-  if (user::admin()) {
-   $r = content_post::paginate(10);
-  } else {
-   $r = user::find(Auth::id())->posts()->paginate(10);
-  }
-
+//   if (user::admin()) {
+//    $r = content_post::paginate(10);
+//   } else {
+//    $r = user::find(Auth::id())->posts()->paginate(10);
+//   }
+$r = content_post::paginate(10);
   return response()->json($r);
  }
 

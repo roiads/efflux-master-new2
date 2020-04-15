@@ -15,7 +15,8 @@ class CreateFbAddAccountTable extends Migration
     {
         Schema::create('efflux_accounts.FbAdAccount', function (Blueprint $table) {
             $table->string('id');
-            $table->string('business_id')->references('business_id')->on('efflux_accounts.FbProfile');
+            $table->string('name');
+            $table->string('business_id')->references('business_id')->on('efflux_accounts.FbProfile')->onDelete('cascade');
             $table->timestamps();
             $table->primary('id');
         });
@@ -28,6 +29,6 @@ class CreateFbAddAccountTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('FbAdAccount');
+        Schema::dropIfExists('efflux_accounts.FbAdAccount');
     }
 }

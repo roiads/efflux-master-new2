@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class FbAd extends Model {
  use FormAccessible;
- use SoftDeletes;
  public $timestamps    = true;
  protected $table      = 'efflux_accounts.fbad';
  protected $guarded    = [];

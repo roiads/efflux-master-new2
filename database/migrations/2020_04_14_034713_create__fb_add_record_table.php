@@ -14,7 +14,7 @@ class CreateFbAddRecordTable extends Migration
     public function up()
     {
         Schema::create('efflux_accounts.FbAdRecord', function (Blueprint $table) {
-            $table->string('ad_id')->references('id')->on('FbAd');
+            $table->string('ad_id')->references('id')->on('FbAd')->onDelete('cascade');
             $table->date('from');
             $table->date('to');
             $table->float('budget');
@@ -35,6 +35,6 @@ class CreateFbAddRecordTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('FbAdRecord');
+        Schema::dropIfExists('efflux_accounts.FbAdRecord');
     }
 }
