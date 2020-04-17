@@ -2,15 +2,14 @@ let routes = [{
     path: '/',
     component: require('../views/pages/home').default,
     props: true
-  }, {
-    path: '/home',
-    component: require('../views/pages/home').default,
-    props: true
+  },
+  {
+    path: '/home/',
+    redirect: '/'
   },
   {
     path: '/dashboard',
-    component: require('../views/pages/home').default,
-    props: true
+    redirect: '/'
   },
   {
     path: '/users',
@@ -19,6 +18,11 @@ let routes = [{
   },
   {
     path: '/entourage',
+    component: require('../views/pages/entourage').default,
+    props: true
+  },
+  {
+    path: '/entourage/:type',
     component: require('../views/pages/entourage').default,
     props: true
   },

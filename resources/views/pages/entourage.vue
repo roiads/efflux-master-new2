@@ -2,15 +2,13 @@
   <div>
     <div class="content-header">
       <b-container fluid class="row">
-        <x-breadcrumb page="entourage"></x-breadcrumb>
+        <x-breadcrumb page="entourage" :view="type"></x-breadcrumb>
         <x-toolbar></x-toolbar>
       </b-container>
     </div>
     <section class="content">
       <div class="container-fluid">
-        <b-card-group deck>
-          <entourage-profile-list></entourage-profile-list>
-        </b-card-group>
+        <entourage-profile-list></entourage-profile-list>
       </div>
     </section>
   </div>
@@ -18,9 +16,16 @@
 <script>
 export default {
   name: "entourage",
-  props: [],
+  props: ["type"],
   data() {
-    return {};
+    return {
+      profile: {},
+      profiles: [],
+      account: {},
+      accounts: [],
+      type: {},
+      types: []
+    };
   },
   mounted() {},
   created() {},
