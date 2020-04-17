@@ -12,7 +12,7 @@ class AddMlProfileId extends Migration {
  }
  public function down() {
   Schema::table('efflux_entourage.FbProfile', function (Blueprint $table) {
-   //
+   $table->$table->dropColumn('ml_profile_id');
   });
  }
 }
