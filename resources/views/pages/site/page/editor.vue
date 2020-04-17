@@ -45,8 +45,7 @@ export default {
   },
   methods: {
     sanitize(data) {
-      if(data[0] != '<')
-        return `<p>${data}</p>`;
+      if (data[0] != "<") return `<p>${data}</p>`;
       return data;
     },
     getEditor() {
@@ -177,13 +176,12 @@ export default {
             {
               id: "title",
               label: "Title",
-              content: '<h1>Insert your title here</h1>'
+              content: "<h1>Insert your title here</h1>"
             },
             {
               id: "sub_title",
               label: "Sub Title",
-              content:
-                '<h2>Insert your sub title here</h2>'
+              content: "<h2>Insert your sub title here</h2>"
             },
             {
               id: "section", // id is mandatory
@@ -330,7 +328,8 @@ export default {
         });
         const self = this;
         this.editor.Commands.add("save", {
-          run: editor => fetch(
+          run: editor =>
+            fetch(
               window.location.protocol +
                 "//" +
                 window.location.host +
@@ -352,9 +351,9 @@ export default {
                 })
               }
             ).then(resp => {
-              if(resp.ok){
-                self.page.html = self.editor.getHtml()
-                self.page.css = self.editor.getCss()
+              if (resp.ok) {
+                self.page.html = self.editor.getHtml();
+                self.page.css = self.editor.getCss();
               }
             })
         });
@@ -368,8 +367,7 @@ export default {
 };
 </script>
  
-<style src='../../../../node_modules/grapesjs/dist/css/grapes.min.css'>
-</style>
+<style src='../../../../../node_modules/grapesjs/dist/css/grapes.min.css'></style>
 
 <style>
 .panel__devices,
