@@ -248,7 +248,6 @@ export default {
       });
     },
     init(data) {
-      console.log(this);
       requestAnimationFrame(() => {
         this.editor = this.getEditor();
         this.editor.setComponents(data.body);
@@ -346,7 +345,12 @@ export default {
                   css: editor.getCss()
                 })
               }
-            ).then(console.log)
+            ).then(resp => {
+              if(resp.ok){
+                self.post.html = self.editor.getHtml();
+                self.post.css = self.editor.getCss();
+              }
+            })
         });
       });
     }

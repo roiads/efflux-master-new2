@@ -1,6 +1,15 @@
 <?php
-Auth::routes();
 
+
+Auth::routes();
+Route::prefix('accounts')->namespace('Accounts')->group(function () {
+    Route::resource('fb/profile', 'FbProfileCtrl');
+    Route::resource('fb/adaccount', 'FbAdAccountCtrl');
+    Route::resource('fb/campaign', 'FbCampaignCtrl');
+    Route::resource('fb/adset', 'FbAdSetCtrl');
+    Route::resource('fb/ad', 'FbAdCtrl');
+    Route::resource('fb/adrecord', 'FbAdRecordCtrl');
+});
 Route::middleware(['auth'])->group(function () {
  Route::prefix('entourage')->namespace('Entourage')->group(function () {
   Route::resource('account', 'AccountCtrl');
