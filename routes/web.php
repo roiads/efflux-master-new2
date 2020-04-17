@@ -1,18 +1,24 @@
 <?php
-Route::middleware(['auth'])->group(function () {
-	Route::view('/admin/{page?}', 'admin');
-	Route::resource('account/cc', 'CcController');
-	Route::resource('account/profile', 'ProfileController');
-	Route::resource('account', 'AccountController');
-	Route::resource('campaign', 'CampaignController');
-	Route::resource('content/menu', 'MenuController');
-	Route::resource('content/page', 'PageController');
-	Route::resource('content/post', 'PostController');
-	Route::resource('domain/registrar', 'RegistrarController');
-	Route::resource('domain/route', 'RouteController');
-	Route::resource('domain', 'DomainController');
-	Route::resource('user/roles', 'RoleController');
-	Route::resource('user', 'UserController');
-});
 Auth::routes();
-Route::view('/{page?}', 'welcome');
+
+Route::middleware(['auth'])->group(function () {
+ Route::prefix('entourage')->namespace('Entourage')->group(function () {
+  Route::resource('account', 'AccountCtrl');
+  Route::resource('profile', 'ProfileCtrl');
+  Route::resource('type', 'TypeCtrl');
+ });
+ Route::prefix('site')->namespace('Site')->group(function () {
+  Route::resource('page', 'PageCtrl');
+  Route::resource('post', 'PostCtrl');
+  Route::put('post/metadata/{id}', 'PostCtrl@updateMetadata');
+  Route::resource('route', 'RouteCtrl');
+  Route::resource('domain', 'DomainCtrl');
+ });
+ Route::namespace ('Users')->group(function () {
+  Route::resource('user', 'UserCtrl');
+ });
+ Route::view('/', 'web');
+ Route::view('/{page?}', 'home');
+ Route::view('/{page}/{subpage?}', 'home');
+});
+Route::view('/', 'web');

@@ -1,26 +1,20 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <title>{{ config('app.name') }}</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="copyright" content="">
+  <meta name="robots" content="noindex,nofollow">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <meta name="Description" content="Efflux - Media Manager">
-  <meta name="theme-color" content="Efflux - Media Manager">
-  <title>{{ config('app.name') }}</title>
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/css/app.css">
 </head>
-<body class="sidebar-mini layout-fixed text-sm sidebar-collapse">
-  <div class="wrapper" id="app">
+<body class="layout-fixed">
+  <div id="app" class="wrapper">
     @yield('content')
   </div>
-  <script src="{{ asset('js/app.js') }}" defer></script>
-  <script>
-		window.addEventListener("load", function(event) {
-  		store.commit('setUser', {
-	      data: {!! Auth::user() !!}
-	    });
-		});
-  </script>
+  <script src="/js/app.js" defer></script>
 </body>
 </html>

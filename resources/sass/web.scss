@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+@import 'variables';
+@import "~bootstrap/scss/bootstrap";
+@import '~admin-lte/dist/css/adminlte.min.css';
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 200;
+  height: 100vh;
+  margin: 0;
+
+  div#app {
+    height: 100vh;
+    @include gradient-radial(#2f559a, #001946);
+
+    div.container-fluid {
+      height: 100vh;
+
+      a.big-logo {
+        font-size: 5rem;
+        font-family: 'Exo 2';
+        color: #fff;
+        display: block;
+        text-align: center;
+        text-shadow: 2px 5px 0.5rem #0005;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      .links {
+        text-align: center;
+        margin-top: 2rem;
+
+        a {
+          color: #fff5;
+          padding: 0 25px;
+          font-size: 13px;
+          font-weight: 600;
+          letter-spacing: .1rem;
+          text-decoration: none;
+          text-transform: uppercase;
+
+          &:hover {
+            color: #fff;
+          }
+        }
+      }
+
+      div.card {
+
+        div.card-body {
+          padding: 1rem;
+        }
+
+        .card-footer {
+          padding-bottom: 2px;
+        }
+      }
+    }
+  }
+}

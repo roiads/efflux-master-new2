@@ -1,14 +1,11 @@
-$navbar-dark-toggler-icon-bg: none;
-$navbar-light-toggler-icon-bg: none;
-// Body
 $body-bg: #fff;
-
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
-$header-font: 'Raleway Dots';
-$font-size-base: 0.9rem;
-$line-height-base: 1.2;
-$enable-gradients: true;
+$font-family-sans-serif: 'Nunito',
+sans-serif;
+$header-font: 'Exo 2';
+$font-size-base: 0.8rem;
+$line-height-base: 1.1;
+
 // Colors
 $blue: #3490dc;
 $indigo: #6574cd;
@@ -20,5 +17,17 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+$primary: #b1b1b1;
+$secondary: #0bb2d4;
 
-$hover-highlight: #{$yellow}50;
+$hover-highlight: #{$cyan}25;
+$input-bg:#0001;
+$card-spacer-x:0.8rem;
+$enable-gradients: true;
+$enable-rounded: true;
+
+
+$grid-columns: 12;
+$grid-gutter-width: 10px;
+//$grid-breakpoints: (xs: 0, sm: 576px, md: 992px, lg: 1200px, xl: 1600px);
+//$container-max-widths: (sm: 540px, md: 960px, lg: 1140px, xl: 1540px);
