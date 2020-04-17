@@ -37,5 +37,6 @@ class AddProfileDetailsColumns extends Migration {
   Schema::table('efflux_entourage.profiles', function (Blueprint $table) {
    $table->dropColumn(['title', 'middlename', 'address', 'state', 'occupation', 'height', 'weight', 'browser', 'proxy_id', 'useragent_id']);
   });
+  Schema::dropIfExists('efflux_assets.useragents');
  }
 }
