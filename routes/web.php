@@ -1,22 +1,13 @@
 <?php
+Auth::routes();
 
-/**
- * The main website url to access a vue-router and
- * open the corrent component layout with all options
- */
 Route::middleware(['auth'])->group(function () {
- Route::view('/admin/{vue?}', 'admin');
- Route::view('/admin/{group}/{vue?}', 'admin');
- Route::view('/admin/{group}/{vue}/{id?}', 'admin');
-
- Route::prefix('accounts')->namespace('Accounts')->group(function () {
+ Route::prefix('entourage')->namespace('Entourage')->group(function () {
   Route::resource('account', 'AccountCtrl');
-  Route::resource('spendsource', 'SpendsourceCtrl');
   Route::resource('profile', 'ProfileCtrl');
   Route::resource('type', 'TypeCtrl');
  });
-
- Route::prefix('content')->namespace('Content')->group(function () {
+ Route::prefix('site')->namespace('Site')->group(function () {
   Route::resource('page', 'PageCtrl');
   Route::resource('post', 'PostCtrl');
   Route::put('post/metadata/{id}', 'PostCtrl@updateMetadata');
@@ -26,7 +17,8 @@ Route::middleware(['auth'])->group(function () {
  Route::namespace ('Users')->group(function () {
   Route::resource('user', 'UserCtrl');
  });
+ Route::view('/', 'web');
+ Route::view('/{page?}', 'home');
+ Route::view('/{page}/{subpage?}', 'home');
 });
-
-Auth::routes();
-Route::view('/{page?}', 'welcome');
+Route::view('/', 'web');

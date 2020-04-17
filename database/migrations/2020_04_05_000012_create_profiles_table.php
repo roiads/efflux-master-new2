@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProfilesTable extends Migration {
  public function up() {
-  Schema::create('efflux_accounts.profiles', function (Blueprint $table) {
+  Schema::create('efflux_entourage.profiles', function (Blueprint $table) {
    $table->id();
    $table->integer('status')->default(0);
    $table->string('firstname', 100);
@@ -21,6 +21,6 @@ class CreateProfilesTable extends Migration {
   });
  }
  public function down() {
-  Schema::dropIfExists('efflux_accounts.profiles');
+  Schema::dropIfExists('efflux_entourage.profiles');
  }
 }

@@ -23,13 +23,13 @@ class CreateUserAccountPivotTable extends Migration {
     ->nullable()
     ->default(null)
     ->references('id')
-    ->on('efflux_accounts.accounts')
+    ->on('efflux_entourage.accounts')
     ->onDelete('cascade');
    $table->foreignId('profile_id')
     ->nullable()
     ->default(null)
     ->references('id')
-    ->on('efflux_accounts.profiles')
+    ->on('efflux_entourage.profiles')
     ->onDelete('cascade');
    $table->timestamps();
   });

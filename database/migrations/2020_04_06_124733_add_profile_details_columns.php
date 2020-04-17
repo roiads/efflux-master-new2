@@ -14,7 +14,7 @@ class AddProfileDetailsColumns extends Migration {
    $table->text('notes');
    $table->timestamps();
   });
-  Schema::table('efflux_accounts.profiles', function (Blueprint $table) {
+  Schema::table('efflux_entourage.profiles', function (Blueprint $table) {
    $table->string('title', 25)->nullable()->after('status');
    $table->string('middlename', 100)->nullable()->after('firstname');
    $table->string('address', 255)->nullable()->after('country');
@@ -28,13 +28,13 @@ class AddProfileDetailsColumns extends Migration {
   });
  }
  public function down() {
-  Schema::table('efflux_accounts.profiles', function (Blueprint $table) {
-   $table->dropForeign('efflux_accounts_profiles_proxy_id_foreign');
-   $table->dropForeign('efflux_accounts_profiles_useragent_id_foreign');
-   $table->dropIndex('efflux_accounts_profiles_proxy_id_foreign');
-   $table->dropIndex('efflux_accounts_profiles_useragent_id_foreign');
+  Schema::table('efflux_entourage.profiles', function (Blueprint $table) {
+   $table->dropForeign('efflux_entourage_profiles_proxy_id_foreign');
+   $table->dropForeign('efflux_entourage_profiles_useragent_id_foreign');
+   $table->dropIndex('efflux_entourage_profiles_proxy_id_foreign');
+   $table->dropIndex('efflux_entourage_profiles_useragent_id_foreign');
   });
-  Schema::table('efflux_accounts.profiles', function (Blueprint $table) {
+  Schema::table('efflux_entourage.profiles', function (Blueprint $table) {
    $table->dropColumn(['title', 'middlename', 'address', 'state', 'occupation', 'height', 'weight', 'browser', 'proxy_id', 'useragent_id']);
   });
  }

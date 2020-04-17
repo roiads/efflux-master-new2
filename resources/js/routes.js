@@ -1,43 +1,45 @@
 let routes = [{
+    path: '/',
+    component: require('../views/pages/home').default,
+    props: true
+  },
+  {
+    path: '/home/',
+    redirect: '/'
+  },
+  {
     path: '/dashboard',
-    component: require('./pages/dashboard').default
+    redirect: '/'
   },
   {
-    path: '/users*',
-    component: require('./pages/users').default
+    path: '/users',
+    component: require('../views/pages/users').default,
+    props: true
   },
   {
-    path: '/accounts*',
-    component: require('./pages/accounts').default
+    path: '/entourage',
+    component: require('../views/pages/entourage').default,
+    props: true
   },
   {
-    path: '/content_domains*',
-    component: require('./pages/content/domains').default
+    path: '/entourage/:type',
+    component: require('../views/pages/entourage').default,
+    props: true
   },
   {
-    path: '/content_pages*',
-    component: require('./pages/content/pages').default
+    path: '/site-manager',
+    component: require('../views/pages/site-manager').default,
+    props: true
   },
   {
-    path: '/content_posts*',
-    component: require('./pages/content/posts').default
-  },
-  {
-    path: '/campaigns*',
-    component: require('./pages/campaigns').default
-  },
-  {
-    path: '/reports*',
-    component: require('./pages/reports').default
-  },
-  {
-    path: '/waffles*',
-    component: require('./pages/waffles').default
-  },
+    path: '/sites/posts',
+    component: require('../views/pages/site/posts').default,
+    props: true
+  }
 ];
 import VueRouter from 'vue-router';
 export default new VueRouter({
-  base: '/admin/',
+  base: '/',
   mode: 'history',
   routes,
   linkActiveClass: 'active'

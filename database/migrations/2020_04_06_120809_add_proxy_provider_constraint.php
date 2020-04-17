@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class AddProxyProviderConstraint extends Migration {
  public function up() {
   Schema::table('efflux_assets.proxies', function (Blueprint $table) {
-   $table->foreignId('provider_id')->nullable()->default(null)->references('id')->on('efflux_accounts.accounts')->onDelete('cascade');
+   $table->foreignId('provider_id')->nullable()->default(null)->references('id')->on('efflux_entourage.accounts')->onDelete('cascade');
   });
  }
  public function down() {
