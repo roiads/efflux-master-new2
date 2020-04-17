@@ -12,7 +12,7 @@ class FbAdAccount extends Model {
  protected $table      = 'efflux_accounts.fbadaccount';
  protected $guarded    = [];
  protected $attributes = [];
- protected $fillable   = ['id', 'business_id'];
+ protected $fillable   = ['id', 'name', 'business_id'];
  protected $hidden     = ['created_at', 'updated_at'];
  public function FbCampaigns() {
   return $this->hasMany(FbCampaign::class);

@@ -12,7 +12,7 @@ class FbAdSet extends Model {
  protected $table      = 'efflux_accounts.fbadset';
  protected $guarded    = [];
  protected $attributes = [];
- protected $fillable   = ['id', 'campaign_id', 'name'];
+ protected $fillable   = ['id', 'campaign_id', 'name', 'budget'];
  protected $hidden     = ['created_at', 'updated_at'];
  public function FbAds() {
   return $this->hasMany(FbAd::class);

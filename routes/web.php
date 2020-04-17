@@ -11,7 +11,8 @@ Route::prefix('content')->namespace('Content')->group(function () {
     Route::resource('route', 'RouteCtrl');
     Route::resource('domain', 'DomainCtrl');
    });
-   Route::prefix('accounts')->namespace('Accounts')->group(function () {
+
+Route::prefix('accounts')->namespace('Accounts')->group(function () {
     Route::resource('account', 'AccountCtrl');
     Route::resource('spendsource', 'SpendsourceCtrl');
     Route::resource('profile', 'ProfileCtrl');
@@ -23,16 +24,13 @@ Route::prefix('content')->namespace('Content')->group(function () {
     Route::resource('fb/ad', 'FbAdCtrl');
     Route::resource('fb/adrecord', 'FbAdRecordCtrl');
    });
+
 Route::middleware(['auth'])->group(function () {
- Route::view('/admin/{vue?}', 'admin');
- Route::view('/admin/{group}/{vue?}', 'admin');
- Route::view('/admin/{group}/{vue}/{id?}', 'admin');
-
-
-
-
- Route::namespace ('Users')->group(function () {
-  Route::resource('user', 'UserCtrl');
+    Route::view('/admin/{vue?}', 'admin');
+    Route::view('/admin/{group}/{vue?}', 'admin');
+    Route::view('/admin/{group}/{vue}/{id?}', 'admin');
+    Route::namespace ('Users')->group(function () {
+    Route::resource('user', 'UserCtrl');
  });
 });
 
