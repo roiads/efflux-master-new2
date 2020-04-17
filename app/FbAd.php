@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class FbAd extends Model {
  use FormAccessible;
  public $timestamps    = true;
- protected $table      = 'efflux_accounts.fbad';
+ protected $table      = 'efflux_entourage.fbad';
  protected $guarded    = [];
  protected $attributes = [];
  protected $fillable   = ['id', 'adSet_id', 'budget', 'started_at', 'ended_at', 'name'];

@@ -12,7 +12,7 @@ class AddBudgetToAdSet extends Migration {
  }
  public function down() {
   Schema::table('efflux_entourage.FbAdSet', function (Blueprint $table) {
-   $table->$table->dropColumn('budget');
+   $table->dropColumn('budget');
   });
  }
 }

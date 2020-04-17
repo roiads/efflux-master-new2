@@ -9,10 +9,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class FbProfile extends Model {
  use FormAccessible;
  public $timestamps    = true;
- protected $table      = 'efflux_accounts.fbprofile';
+ protected $table      = 'efflux_entourage.fbprofile';
  protected $guarded    = [];
  protected $attributes = [];
- protected $fillable   = ['business_id', 'username', 'password', 'fullname', 'gender'];
+ protected $fillable   = ['business_id', 'username', 'password', 'fullname', 'gender', 'ml_profile_id'];
  protected $hidden     = ['created_at', 'updated_at'];
  public function FbAdAccounts() {
   return $this->hasMany(FbAdAccount::class);

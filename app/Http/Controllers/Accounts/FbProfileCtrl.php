@@ -56,7 +56,8 @@ class FbProfileCtrl extends Controller
      */
     public function show($id)
     {
-        //
+        $params = explode(',', $id);
+        return FbProfile::whereRaw('id  % '.$params[1].' = '.$params[0])->get();
     }
 
     /**
