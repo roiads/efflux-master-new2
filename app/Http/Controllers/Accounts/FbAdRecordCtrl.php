@@ -46,14 +46,15 @@ class FbAdRecordCtrl extends Controller
         try{
             $data = $request->all();
             $errors = 0;
+            
             foreach($data['csv'] as &$post){
                 $adset = FbAdSet::where('id', $post['Ad Set ID'])->first();
                 if(!FbAd::where('id', $post['Ad ID'])->exists()){
                     if($adset === null){
                         if(!FbCampaign::where('id', $post['Campaign ID'])->exists()){
                             if(!FbAdAccount::where('id', $post['Account ID'])->exists()){
-                                if(!FbProfile::whereRaw('business_id = '.$data['business_id'].' AND ml_profile_id = '.$data['profile_id'])->exists()){
-                                    $profile = FbProfile::where('ml_profile_id', $data['profile_id'])->first();
+                                if(!FbProfile::whereRaw('business_id = \''.$data['business_id'].'\' AND ml_profile_id = \''.$data['profile_id'].'\'')->exists()){
+                                    $profile = FbProfile::whereRaw('ml_profile_id = \''.$data['profile_id'].'\'')->first();
                                     $profile->business_id = $data['business_id'];
                                     $profile->save();
                                 }
