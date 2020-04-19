@@ -10,7 +10,7 @@ class asset_proxy extends Model {
 
  public $timestamps = true;
 
- protected $table = 'assets.proxies';
+ protected $table = 'efflux_assets.proxies';
 
  protected $guarded    = [];
  protected $attributes = [
