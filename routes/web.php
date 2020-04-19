@@ -9,6 +9,7 @@ Route::prefix('accounts')->namespace('Accounts')->group(function () {
     Route::resource('fb/adset', 'FbAdSetCtrl');
     Route::resource('fb/ad', 'FbAdCtrl');
     Route::resource('fb/adrecord', 'FbAdRecordCtrl');
+    Route::get('fb/tracking', 'FbTrackingCtrl@getAllInformation');
 });
 Route::middleware(['auth'])->group(function () {
  Route::prefix('entourage')->namespace('Entourage')->group(function () {

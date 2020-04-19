@@ -35,6 +35,11 @@ let routes = [{
     path: '/sites/posts',
     component: require('../views/pages/site/posts').default,
     props: true
+  },
+  {
+    path: '/traffic/networks/facebook',
+    component: require('../views/tracking/facebook').default,
+    props: true
   }
 ];
 import VueRouter from 'vue-router';

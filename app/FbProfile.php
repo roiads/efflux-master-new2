@@ -4,7 +4,6 @@ namespace App;
 
 use Collective\Html\Eloquent\FormAccessible;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class FbProfile extends Model {
  use FormAccessible;

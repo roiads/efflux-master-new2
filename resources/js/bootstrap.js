@@ -18,5 +18,8 @@ import {
   BootstrapVueIcons
 } from 'bootstrap-vue';
 
+import VueTableDynamic from 'vue-table-dynamic'
+
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
+Vue.use(VueTableDynamic)
