@@ -9,8 +9,8 @@ class CreateDomainsTable extends Migration {
   Schema::create('efflux_assets.domains', function (Blueprint $table) {
    $table->id();
    $table->tinyInteger('status')->default(1);
-   $table->tinyInteger('ssl')->default(0);
    $table->string('name', 100)->unique();
+   $table->tinyInteger('ssl')->default(0);
    $table->string('path', 100)->nullable();
    $table->string('repository', 200)->nullable();
    $table->softDeletes();

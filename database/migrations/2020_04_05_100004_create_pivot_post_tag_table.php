@@ -4,13 +4,12 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePivotPostCategoryTable extends Migration {
+class CreatePivotPostTagTable extends Migration {
  public function up() {
   Schema::create('efflux_site.post_tag', function (Blueprint $table) {
    $table->id();
    $table->foreignId('tag_id')->constrained()->onDelete('cascade');
    $table->foreignId('post_id')->constrained()->onDelete('cascade');
-   $table->timestamps();
   });
  }
  public function down() {

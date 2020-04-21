@@ -9,15 +9,21 @@ class CreateProfilesTable extends Migration {
   Schema::create('efflux_entourage.profiles', function (Blueprint $table) {
    $table->id();
    $table->integer('status')->default(0);
-   $table->string('firstname', 100);
-   $table->string('lastname', 100);
-   $table->date('dob');
-   $table->string('gender', 25);
-   $table->string('country', 2);
-   $table->string('city', 100);
-   $table->string('postcode', 25);
-   $table->text('notes');
-   $table->timestamps();
+   $table->string('title', 25)->nullable();
+   $table->string('firstname', 100)->nullable();
+   $table->string('middlename', 100)->nullable();
+   $table->string('lastname', 100)->nullable();
+   $table->string('occupation', 100)->nullable();
+   $table->date('dob')->nullable();
+   $table->string('gender', 25)->nullable();
+   $table->decimal('height', 10, 2)->nullable();
+   $table->decimal('weight', 10, 2)->nullable();
+   $table->string('country', 2)->nullable();
+   $table->string('address', 255)->nullable();
+   $table->string('city', 100)->nullable();
+   $table->string('state', 100)->nullable();
+   $table->string('postcode', 25)->nullable();
+   $table->text('notes')->nullable();
   });
  }
  public function down() {

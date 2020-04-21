@@ -10,11 +10,9 @@ class CreateTypesTable extends Migration {
    $table->id();
    $table->string('name', 100);
    $table->string('url', 255);
-   $table->string('login_url', 255);
-   $table->string('signup_url', 255);
-   $table->binary('logo');
-   $table->timestamps();
+   $table->text('notes');
   });
+  DB::statement("ALTER TABLE `efflux_entourage`.`types` ADD `logo` MEDIUMBLOB");
  }
  public function down() {
   Schema::dropIfExists('efflux_entourage.types');

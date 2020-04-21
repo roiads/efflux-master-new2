@@ -9,8 +9,7 @@ class CreateNewslettersTable extends Migration {
   Schema::create('efflux_track.newsletters', function (Blueprint $table) {
    $table->id();
    $table->string('name');
-   $table->string('email')->unique();
-   $table->rememberToken();
+   $table->string('email');
    $table->timestamps();
   });
  }

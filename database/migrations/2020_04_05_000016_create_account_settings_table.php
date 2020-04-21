@@ -8,12 +8,16 @@ class CreateAccountSettingsTable extends Migration {
  public function up() {
   Schema::create('efflux_entourage.account_settings', function (Blueprint $table) {
    $table->id();
-   $table->string('name', 100);
-   $table->text('value', 100);
-   $table->timestamps();
+   $table->string('setting', 100);
+   $table->text('value');
+   $table->foreignId('account_id')->constrained()->onDelete('cascade');
   });
  }
  public function down() {
+
+  Schema::table('efflux_users.user_account', function (Blueprint $table) {
+   $table->dropForeign(['account_id']);
+  });
   Schema::dropIfExists('efflux_entourage.account_settings');
  }
 }

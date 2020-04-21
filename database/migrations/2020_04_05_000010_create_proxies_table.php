@@ -9,8 +9,8 @@ class CreateProxiesTable extends Migration {
   Schema::create('efflux_assets.proxies', function (Blueprint $table) {
    $table->id();
    $table->ipAddress('ip')->unique();
-   $table->integer('port');
-   $table->string('country', 2);
+   $table->integer('port')->default(80);
+   $table->string('country', 2)->nullable();
    $table->string('user', 50)->nullable();
    $table->string('pass', 50)->nullable();
    $table->tinyInteger('https')->default(0);

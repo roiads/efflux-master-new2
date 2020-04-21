@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddContentTagImageConstraints extends Migration {
+class AddSiteTagImageConstraints extends Migration {
  public function up() {
   Schema::table('efflux_site.tags', function (Blueprint $table) {
    $table->foreignId('image_id')->nullable()->default(null)->constrained();

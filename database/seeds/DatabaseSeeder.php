@@ -9,6 +9,11 @@ class DatabaseSeeder extends Seeder {
    RoleSeeder::class,
    ServerSeeder::class,
    DomainSeeder::class,
+   ProxySeeder::class,
+   UserAgentSeeder::class,
+   EntourageProfileSeeder::class,
+   EntourageTypeSeeder::class,
+   EntourageAccountSeeder::class,
   ]);
  }
 }

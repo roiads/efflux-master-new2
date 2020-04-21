@@ -9,7 +9,6 @@ class CreateRoutesTable extends Migration {
   Schema::create('efflux_site.routes', function (Blueprint $table) {
    $table->id();
    $table->string('uri', 255);
-   $table->string('pattern', 255);
    $table->tinyInteger('status')->default(1);
    $table->softDeletes();
    $table->timestamps();

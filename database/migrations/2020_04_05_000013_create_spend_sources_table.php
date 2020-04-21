@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateSpendSourcesTable extends Migration {
  public function up() {
-  Schema::create('efflux_entourage.spendsources', function (Blueprint $table) {
+  Schema::create('efflux_assets.spendsources', function (Blueprint $table) {
    $table->id();
    $table->integer('status')->default(0);
    $table->string('source', 100);
@@ -15,6 +15,6 @@ class CreateSpendSourcesTable extends Migration {
   });
  }
  public function down() {
-  Schema::dropIfExists('efflux_entourage.spendsources');
+  Schema::dropIfExists('efflux_assets.spendsources');
  }
 }
