@@ -16,7 +16,7 @@
           <x-sidebar-link title="Dashboard" icon="house-fill" url="/home"></x-sidebar-link>
           <x-sidebar-link title="Entourage" icon="person-lines-fill" url="/entourage"></x-sidebar-link>
           <x-sidebar-link title="Site Manager" icon="tools" url="/site-manager"></x-sidebar-link>
-          <x-sidebar-link title="Traffic Tracker" icon="tools" url="/tracker"></x-sidebar-link>
+          <x-sidebar-link title="Traffic Monitor" icon="geo" url="/tracker"></x-sidebar-link>
         </ul>
       </nav>
     </div>
