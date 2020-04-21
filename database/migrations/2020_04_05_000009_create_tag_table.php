@@ -4,17 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRoutesTable extends Migration {
+class CreateTagTable extends Migration {
  public function up() {
-  Schema::create('efflux_site.routes', function (Blueprint $table) {
+  Schema::create('efflux_site.tags', function (Blueprint $table) {
    $table->id();
-   $table->string('uri', 255);
    $table->tinyInteger('status')->default(1);
-   $table->softDeletes();
-   $table->timestamps();
+   $table->string('name', 100)->unique();
+   $table->string('tagline', 100)->nullable();
   });
  }
  public function down() {
-  Schema::dropIfExists('efflux_site.routes');
+  Schema::dropIfExists('efflux_site.tags');
  }
 }

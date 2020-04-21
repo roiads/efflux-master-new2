@@ -8,3 +8,4 @@
 /storage
 npm-debug.log
 .env
+public/

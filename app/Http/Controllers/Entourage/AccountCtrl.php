@@ -1,21 +1,19 @@
 <?php
 namespace App\Http\Controllers\Entourage;
-use App\entourage_account as account;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use \App\entourage_account as x;
 
 class AccountCtrl extends Controller {
- public function __construct() {}
  public function index() {
-  $r = account::paginate(10);
-  return response()->json($r);
+  $Q = x::paginate(10)
+   ->toJson();
+  return $Q;
+ }
+ public function show(x $x) {
+  return $x;
  }
  public function create() {}
- public function store(Request $R) {}
- public function show(account $account) {
-  return $account;
- }
- public function edit(account $account) {}
- public function update(Request $R, account $account) {}
- public function destroy(account $account) {}
+ public function update(Request $R, x $x) {}
+ public function destroy(x $x) {}
 }

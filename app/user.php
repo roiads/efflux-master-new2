@@ -25,13 +25,13 @@ class user extends Authenticatable {
   return $this->belongsToMany(user_role::class, 'efflux_users.user_role', 'user_id', 'role_id');
  }
  public function accounts() {
-  return $this->belongsToMany(account::class, 'efflux_users.user_account', 'user_id', 'account_id');
+  return $this->belongsToMany(entourage_account::class, 'efflux_users.user_account', 'user_id', 'account_id');
  }
  public function domains() {
-  return $this->belongsToMany(content_domain::class, 'efflux_users.user_domain', 'user_id', 'domain_id');
+  return $this->belongsToMany(assets_domain::class, 'efflux_users.user_domain', 'user_id', 'domain_id');
  }
  public function posts() {
-  return $this->belongsToMany(content_post::class, 'efflux_users.user_post', 'user_id', 'post_id');
+  return $this->belongsToMany(site_post::class, 'efflux_users.user_post', 'user_id', 'post_id');
  }
  public function isRole($ids = null) {
   return $this->belongsToMany(user_role::class, 'efflux_users.user_role', 'user_id', 'role_id')
@@ -41,13 +41,7 @@ class user extends Authenticatable {
  public static function admin() {
   return user::find(Auth::id())->isRole([1]);
  }
- public static function dev() {
+ public static function site() {
   return user::find(Auth::id())->isRole([2]);
- }
- public static function content() {
-  return user::find(Auth::id())->isRole([3]);
- }
- public static function mediaBuyer() {
-  return user::find(Auth::id())->isRole([4]);
  }
 }
