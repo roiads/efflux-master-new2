@@ -2,9 +2,9 @@
 namespace App\Http\Controllers\Assets;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use \App\asset_useragent as x;
+use \App\assets_server as x;
 
-class UseragentCtrl extends Controller {
+class ServerCtrl extends Controller {
  public function index() {
   $Q = x::paginate(10)
    ->toJson();

@@ -17,4 +17,7 @@ class site_route extends Model {
  public function page() {
   return $this->belongsTo(site_page::class);
  }
+ public function domain() {
+  return $this->belongsTo(assets_domain::class);
+ }
 }

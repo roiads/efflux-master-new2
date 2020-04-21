@@ -1,26 +1,26 @@
 <?php
 
 return [
-    'default' => env('BROADCAST_DRIVER', 'null'),
+    'default'     => env('BROADCAST_DRIVER', 'null'),
     'connections' => [
         'pusher' => [
-            'driver' => 'pusher',
-            'key' => env('PUSHER_APP_KEY'),
-            'secret' => env('PUSHER_APP_SECRET'),
-            'app_id' => env('PUSHER_APP_ID'),
+            'driver'  => 'pusher',
+            'key'     => env('PUSHER_APP_KEY'),
+            'secret'  => env('PUSHER_APP_SECRET'),
+            'app_id'  => env('PUSHER_APP_ID'),
             'options' => [
-                'cluster' => env('PUSHER_APP_CLUSTER'),
-                'useTLS' => true,
+                'cluster' => 'us3',
+                'useTLS'  => true,
             ],
         ],
-        'redis' => [
-            'driver' => 'redis',
+        'redis'  => [
+            'driver'     => 'redis',
             'connection' => 'default',
         ],
-        'log' => [
+        'log'    => [
             'driver' => 'log',
         ],
-        'null' => [
+        'null'   => [
             'driver' => 'null',
         ],
     ],

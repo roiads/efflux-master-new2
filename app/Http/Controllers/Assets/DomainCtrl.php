@@ -2,12 +2,12 @@
 namespace App\Http\Controllers\Assets;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use \App\asset_useragent as x;
+use \App\assets_domain as x;
 
-class UseragentCtrl extends Controller {
+class DomainCtrl extends Controller {
  public function index() {
   $Q = x::paginate(10)
-   ->toJson();
+   ->toJson($Q);
   return $Q;
  }
  public function show(x $x) {

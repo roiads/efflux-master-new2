@@ -4,7 +4,7 @@ use Collective\Html\Eloquent\FormAccessible;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class entourage_spendsource extends Model {
+class assets_spendsource extends Model {
  use FormAccessible;
  use SoftDeletes;
  public $timestamps  = true;
