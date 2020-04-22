@@ -1,5 +1,5 @@
 <template>
-  <nav class="main-header navbar navbar-expand shadow-sm">
+  <nav class="main-header navbar navbar-expand shadow-sm bg-dark">
     <ul class="navbar-nav mr-3">
       <li class="nav-item">
         <a
