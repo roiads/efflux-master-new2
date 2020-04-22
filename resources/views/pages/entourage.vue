@@ -10,7 +10,7 @@
       <div class="container-fluid">
         <!--<entourage-type-list></entourage-type-list>-->
         <!--<entourage-profile-list></entourage-profile-list>-->
-        <entourage-account></entourage-account>
+        <entourage-profile-list></entourage-profile-list>
         <!--<entourage-profile></entourage-profile>-->
         <!--<entourage-account></entourage-account>-->
       </div>
