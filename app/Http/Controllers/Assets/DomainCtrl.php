@@ -6,9 +6,8 @@ use \App\assets_domain as x;
 
 class DomainCtrl extends Controller {
  public function index() {
-  $Q = x::paginate(10)
-   ->toJson($Q);
-  return $Q;
+  $Q = x::with('server')->where('status', '>', 0)->paginate(10);
+  return response()->json($Q);
  }
  public function show(x $x) {
   return $x;

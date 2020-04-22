@@ -8,22 +8,23 @@
     </div>
     <section class="content">
       <div class="container-fluid">
-        <entourage-profile-list></entourage-profile-list>
+        <!--<entourage-type-list></entourage-type-list>-->
+        <!--<entourage-profile-list></entourage-profile-list>-->
+        <entourage-account></entourage-account>
+        <!--<entourage-profile></entourage-profile>-->
+        <!--<entourage-account></entourage-account>-->
       </div>
     </section>
   </div>
 </template>
 <script>
 export default {
-  name: "entourage",
-  props: ["type"],
+  name: "entourage-page",
+  props: ["user", "type", "profile", "account"],
   data() {
     return {
-      profile: {},
       profiles: [],
-      account: {},
       accounts: [],
-      type: {},
       types: []
     };
   },

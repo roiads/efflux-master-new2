@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <b-modal id="entourage-account-create">
     <b-form @submit="onSubmit" @reset="onReset" v-if="show">
       <b-form-group
         id="input-group-1"
@@ -37,48 +37,21 @@
     <b-card class="mt-3" header="Form Data Result">
       <pre class="m-0">{{ form }}</pre>
     </b-card>
-  </div>
+  </b-modal>
 </template>
-
 <script>
 export default {
-  name: "accounts-account-create",
+  name: "entourage-account-create",
+  prop: ["type", "profile", "user"],
   data() {
     return {
-      form: {
-        email: "",
-        name: "",
-        food: null,
-        checked: []
-      },
-      foods: [
-        { text: "Select One", value: null },
-        "Carrots",
-        "Beans",
-        "Tomatoes",
-        "Corn"
-      ],
-      show: true
+      account: []
     };
   },
-  methods: {
-    onSubmit(evt) {
-      evt.preventDefault();
-      alert(JSON.stringify(this.form));
-    },
-    onReset(evt) {
-      evt.preventDefault();
-      // Reset our form values
-      this.form.email = "";
-      this.form.name = "";
-      this.form.food = null;
-      this.form.checked = [];
-      // Trick to reset/clear native browser form validation state
-      this.show = false;
-      this.$nextTick(() => {
-        this.show = true;
-      });
-    }
-  }
+  mounted() {},
+  computed: {},
+  methods: {}
 };
 </script>
+<style scoped>
+</style>
