@@ -1,6 +1,7 @@
 <?php
 
 Route::view('/', 'web');
+Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
 
@@ -33,5 +34,3 @@ Route::middleware(['auth'])->group(function () {
  Route::view('/', 'home');
 
 });
-
-Auth::routes();
