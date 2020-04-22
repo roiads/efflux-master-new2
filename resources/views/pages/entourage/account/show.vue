@@ -23,7 +23,7 @@
 </template>
 <script>
 export default {
-  name: "accounts-account-show",
+  name: "entourage-account-show",
   components: {},
   data() {
     return {};

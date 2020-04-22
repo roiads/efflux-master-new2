@@ -14,7 +14,7 @@
 </template>
 <script>
 export default {
-  name: "users",
+  name: "users-page",
   data() {
     return {
       id: 0,

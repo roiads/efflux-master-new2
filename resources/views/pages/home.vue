@@ -30,12 +30,13 @@
           >Posts {{topStats.creative}}</b-card>
         </b-card-group>
       </div>
+      <assets-domain-list></assets-domain-list>
     </section>
   </div>
 </template>
 <script>
 export default {
-  name: "home",
+  name: "home-page",
   components: {},
   data() {
     return {
@@ -53,24 +54,24 @@ export default {
   mounted() {},
   created() {
     axios
-      .get("/content/domain")
+      .get("/assets/domain")
       .then(({ data }) => (this.topStats.domain = data.total));
     axios
-      .get("/accounts/account")
+      .get("/entourage/account")
       .then(({ data }) => (this.topStats.account = data.total));
     axios
-      .get("/content/post")
+      .get("/site-manager/post")
       .then(({ data }) => (this.topStats.creative = data.total));
   },
   methods: {
     domainOverview(id) {
-      this.$router.push("/content/domains/" + id);
+      this.$router.push("/assets/domains/" + id);
     },
     accountTypeOverview(id) {
-      this.$router.push("/accounts/type/" + id);
+      this.$router.push("/entourage/type/" + id);
     },
     accountOverview(id) {
-      this.$router.push("/accounts/" + id);
+      this.$router.push("/entourage/account/" + id);
     }
   }
 };

@@ -15,6 +15,6 @@
     <div id="app" class="wrapper">
         @yield('content')
     </div>
-    <script src="/js/web.js" defer></script>
+    <script src="/js/app.js" defer></script>
 </body>
 </html>
