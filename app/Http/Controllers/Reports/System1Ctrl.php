@@ -24,11 +24,9 @@ class System1Ctrl extends Controller {
   $q    = 'auth_key=' . env('SYSTEM1_KEY');
   $file = file_get_contents($url . '?' . $q);
   $file = json_decode($file);
-
   if (empty($file)) {
    return 'failed to connect to system1...';
   }
-
   for ($i = 1; $i <= count($file); $i++) {
    reports_system1::updateOrInsert(
     [
