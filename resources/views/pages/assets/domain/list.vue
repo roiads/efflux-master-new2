@@ -1,32 +1,33 @@
 <template>
   <b-container fluid>
-    <b-row>
-      <b-col cols="4">
-        <b-card
-          :header="domain.name"
-          no-body
-          v-for="domain in items.data"
-          :key="domain.id"
-          class="m-2 elevation-1"
-        >
+    <b-row cols="3">
+      <b-col v-for="domain in items.data" :key="domain.id">
+        <b-card no-body class="m-2 elevation-1">
+          <b-card-header>
+            <h4>
+              <span style="text-transform:uppercase;">{{ domain.name }}</span>
+              <small>
+                <small class="text-muted">
+                  CPU:
+                  <span class="text-dark">{{ domain.server.sys_cpus }}</span> -
+                  SSD:
+                  <span class="text-dark">{{ domain.server.sys_harddrive }}</span> -
+                  RAM:
+                  <span class="text-dark">{{ domain.server.sys_memory }}</span>
+                </small>
+              </small>
+            </h4>
+          </b-card-header>
           <b-card-body>
-            <trend
-              :data="[3, 2, 5, 3, 5, 2, 3, 5, 3, 4, 3,4]"
-              :gradient="['#fc9d03', '#fcca03', '#fc9d03']"
-              :height="50"
-              auto-draw
-              smooth
-            ></trend>
-
             <b-form>
               <b-row>
                 <b-col>
                   <label for="input-none">SSH:</label>
                 </b-col>
-                <b-col cols="5">
+                <b-col cols="4">
                   <b-form-input v-model="domain.server.user" placeholder="User"></b-form-input>
                 </b-col>
-                <b-col cols="5">
+                <b-col cols="6">
                   <b-input-group>
                     <b-form-input
                       type="password"
@@ -43,12 +44,12 @@
               </b-row>
               <b-row class="mt-2">
                 <b-col>
-                  <label for="input-none">Database:</label>
+                  <label for="input-none">DB:</label>
                 </b-col>
-                <b-col cols="5">
+                <b-col cols="4">
                   <b-form-input v-model="domain.server.db_user" placeholder="DB User"></b-form-input>
                 </b-col>
-                <b-col cols="5">
+                <b-col cols="6">
                   <b-input-group>
                     <b-form-input
                       type="password"
@@ -65,22 +66,23 @@
               </b-row>
 
               <b-row class="mt-2">
-                <b-col sm="2">
+                <b-col sm="3">
                   <label for="input-none">Repository:</label>
                 </b-col>
-                <b-col sm="7">
-                  <b-form-input
-                    v-model="domain.repository"
-                    id="input-none"
-                    :state="null"
-                    placeholder="Repository"
-                  ></b-form-input>
-                </b-col>
-                <b-col sm="3">
-                  <b-button block small variant="primary">
-                    Sync
-                    <b-icon icon="box-arrow-in-up-right"></b-icon>
-                  </b-button>
+                <b-col sm="9">
+                  <b-input-group>
+                    <b-form-input
+                      v-model="domain.repository"
+                      id="input-none"
+                      :state="null"
+                      placeholder="Repository"
+                    ></b-form-input>
+                    <b-input-group-append>
+                      <b-button size="sm" text="Button" variant="outline-primary">
+                        <b-icon icon="box-arrow-in-up-right"></b-icon>
+                      </b-button>
+                    </b-input-group-append>
+                  </b-input-group>
                 </b-col>
               </b-row>
             </b-form>

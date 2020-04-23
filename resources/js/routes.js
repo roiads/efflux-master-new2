@@ -25,6 +25,11 @@ let routes = [{
     path: '/site-manager',
     component: require('../views/pages/site-manager').default,
     props: true
+  },
+  {
+    path: '/tracker',
+    component: require('../views/pages/tracker').default,
+    props: true
   }
 ];
 import VueRouter from 'vue-router';
