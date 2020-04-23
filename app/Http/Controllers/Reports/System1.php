@@ -30,9 +30,14 @@ class System1Ctrl extends Controller {
 
   for ($i = 1; $i <= count($file); $i++) {
    reports_system1::updateOrInsert(
-    ['date' => $file[0]],
+    ['date' => $file[$i][0]],
     [
-     'campaign_domain' => '2',
+     'mobile' => $file[$i][1],
+     'mobile_unique' => $file[$i][1],
+     'campaign_domain' => $file[$i][1],
+     'campaign_domain' => $file[$i][1],
+     'campaign_domain' => $file[$i][1],
+     'campaign_domain' => $file[$i][1],
     ]
    );
 

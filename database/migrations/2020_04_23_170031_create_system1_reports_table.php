@@ -12,9 +12,9 @@ class CreateSystem1ReportsTable extends Migration {
    $table->date('date');
    $table->integer('campaign_domain')->default(0);
 
-   $table->integer('mobile_total')->default(0);
+   $table->integer('mobile')->default(0);
    $table->integer('mobile_unique')->default(0);
-   $table->integer('desktop_total')->default(0);
+   $table->integer('desktop')->default(0);
    $table->integer('desktop_unique')->default(0);
    $table->integer('searches')->default(0);
    $table->integer('clicks')->default(0);
