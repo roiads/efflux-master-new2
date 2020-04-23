@@ -9,7 +9,7 @@
     <section class="content">
       <div class="container-fluid">
         <b-card-group deck>
-          <domain-list></domain-list>
+          <assets-domain-list></assets-domain-list>
         </b-card-group>
       </div>
     </section>
@@ -18,13 +18,13 @@
 <script>
 export default {
   name: "site-manager-page",
-  props: ["domain"],
   data() {
     return {
-      domain: {}
+      domains: {},
+      domain: []
     };
   }
 };
 </script>
-<style>
+<style scoped>
 </style>

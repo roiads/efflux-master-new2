@@ -9,12 +9,9 @@ import {
 
 import VueTableDynamic from 'vue-table-dynamic'
 
-
-import Trend from "vuetrend"
 import VueRouter from "vue-router"
 import router from './routes'
 
-Vue.use(Trend)
 Vue.use(VueRouter);
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
@@ -24,6 +21,7 @@ files.keys().map(function (key) {
   var name = files(key).default.name || key.replace(/.*\/([a-zA-Z0-9\-]+)\.(vue)$/, '$1');
   Vue.component(name, files(key).default)
 });
+
 const app = new Vue({
   el: '#app',
   router
