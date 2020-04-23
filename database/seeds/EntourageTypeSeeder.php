@@ -17,6 +17,10 @@ class EntourageTypeSeeder extends Seeder {
     'id'   => 3,
     'name' => 'spotify',
    ],
+   [
+    'id'   => 4,
+    'name' => 'system1',
+   ],
   ]);
  }
 }

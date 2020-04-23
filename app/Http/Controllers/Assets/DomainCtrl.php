@@ -9,6 +9,14 @@ class DomainCtrl extends Controller {
   $Q = x::with('server')->where('status', '>', 0)->paginate(10);
   return response()->json($Q);
  }
+ public function search($args = null) {
+  $Q = x::with('server');
+  foreach ($args as $k => $v) {
+   $Q = $Q->where($k, (key($v) ?? '='), ($v[key($v)] ?? $v));
+  }
+  $Q = $Q->get();
+  return response()->json($Q);
+ }
  public function show(x $x) {
   return $x;
  }
