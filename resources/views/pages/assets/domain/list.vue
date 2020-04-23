@@ -3,7 +3,7 @@
     <b-row cols="3">
       <b-col v-for="domain in items.data" :key="domain.id">
         <b-card no-body class="m-2 elevation-1">
-          <b-card-header>
+          <b-card-header :header-bg-variant="(domain.status == 1 ? 'success' : 'warning')">
             <h4>
               <span style="text-transform:uppercase;">{{ domain.name }}</span>
               <small>
@@ -138,7 +138,7 @@ export default {
   methods: {
     getItems() {
       axios
-        .get(`/assets/domain?page=${this.items.current_page}`)
+        .get(`/api/assets/domain?page=${this.items.current_page}`)
         .then(({ data }) => (this.items = data));
     }
   }

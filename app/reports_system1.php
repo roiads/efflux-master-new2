@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class reports_system1 extends Model {
- protected $table      = 'efflux_entourage.types';
+ protected $table      = 'efflux_track.system1_reports';
  protected $guarded    = [];
  protected $attributes = [];
  protected $fillable   = [

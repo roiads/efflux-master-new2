@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Reports;
 
-use App\reports_system1;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use \App\reports_system1;
 
 class System1Ctrl extends Controller {
  public function index() {}
@@ -18,7 +19,7 @@ class System1Ctrl extends Controller {
   * @param String $type
   * @return void
   */
- public function system1($type = null) {
+ public function report($type = null) {
   $url  = 'https://' . env('SYSTEM1_REPORTING_URL') . $type . '.json';
   $q    = 'auth_key=' . env('SYSTEM1_KEY');
   $file = file_get_contents($url . '?' . $q);
@@ -30,14 +31,18 @@ class System1Ctrl extends Controller {
 
   for ($i = 1; $i <= count($file); $i++) {
    reports_system1::updateOrInsert(
-    ['date' => $file[$i][0]],
     [
-     'mobile' => $file[$i][1],
-     'mobile_unique' => $file[$i][1],
+     'date'            => $file[$i][0],
      'campaign_domain' => $file[$i][1],
-     'campaign_domain' => $file[$i][1],
-     'campaign_domain' => $file[$i][1],
-     'campaign_domain' => $file[$i][1],
+    ],
+    [
+     'mobile'         => $file[$i][3],
+     'mobile_unique'  => $file[$i][7],
+     'desktop'        => $file[$i][4],
+     'desktop_unique' => $file[$i][8],
+     'searches'       => $file[$i][10],
+     'clicks'         => $file[$i][11],
+     'revenue'        => $file[$i][12],
     ]
    );
 
