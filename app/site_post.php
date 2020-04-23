@@ -16,6 +16,15 @@ class site_post extends Model {
  public function routes() {
   return $this->hasMany(site_route::class);
  }
+ public function tags() {
+  return $this->belongsToMany(site_tag::class, 'efflux_site.post_tag', 'post_id', 'tag_id');
+ }
+ public function image() {
+  return $this->belongsTo(site_image::class);
+ }
+ public function images() {
+  return $this->belongsToMany(site_image::class, 'efflux_site.image_page', 'post_id', 'image_id');
+ }
  public function users() {
   return $this->belongsToMany(user::class);
  }
