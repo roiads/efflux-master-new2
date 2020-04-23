@@ -14,6 +14,12 @@ class site_page extends Model {
  public function routes() {
   return $this->hasMany(site_route::class);
  }
+ public function image() {
+  return $this->belongsTo(Image::class);
+ }
+ public function images() {
+  return $this->belongsToMany(Image::class, 'efflux_site.image_page', 'page_id', 'image_id');
+ }
  public function users() {
   return $this->belongsToMany(user::class);
  }
