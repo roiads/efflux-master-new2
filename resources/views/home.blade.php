@@ -7,4 +7,5 @@
   </div>
   <x-ctrlbar></x-ctrlbar>
   <x-footer></x-footer>
+  
 @endsection

@@ -54,24 +54,24 @@ export default {
   mounted() {},
   created() {
     axios
-      .get("/assets/domain")
+      .get("/api/assets/domain")
       .then(({ data }) => (this.topStats.domain = data.total));
     axios
-      .get("/entourage/account")
+      .get("/api/entourage/account")
       .then(({ data }) => (this.topStats.account = data.total));
     axios
-      .get("/site-manager/post")
+      .get("/api/site-manager/post")
       .then(({ data }) => (this.topStats.creative = data.total));
   },
   methods: {
     domainOverview(id) {
-      this.$router.push("/assets/domains/" + id);
+      this.$router.push("/api/assets/domains/" + id);
     },
     accountTypeOverview(id) {
-      this.$router.push("/entourage/type/" + id);
+      this.$router.push("/api/entourage/type/" + id);
     },
     accountOverview(id) {
-      this.$router.push("/entourage/account/" + id);
+      this.$router.push("/api/entourage/account/" + id);
     }
   }
 };

@@ -193,7 +193,7 @@ export default {
     },
     getProfiles() {
       axios
-        .get(`/entourage/profile?page=${this.profiles.current_page}`)
+        .get(`/api/entourage/profile?page=${this.profiles.current_page}`)
         .then(({ data }) => (this.profiles = data));
     }
   }
