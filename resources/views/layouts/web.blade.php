@@ -9,6 +9,7 @@
   <meta name="copyright" content="">
   <meta name="robots" content="noindex,nofollow">
   <meta name="csrf-token" content="{{ csrf_token() }}">
+
   <link rel="stylesheet" href="/css/web.css">
 </head>
 <body class="web">
@@ -16,5 +17,6 @@
         @yield('content')
     </div>
     <script src="/js/app.js" defer></script>
+
 </body>
 </html>
