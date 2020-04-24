@@ -9,7 +9,15 @@
     <section class="content">
       <div class="container-fluid">
         <b-card-group deck>
-          <assets-domain-list></assets-domain-list>
+
+
+
+          <assets-domain-list :id="id"></assets-domain-list>
+
+
+
+
+
         </b-card-group>
       </div>
     </section>
@@ -20,6 +28,7 @@ export default {
   name: "site-manager-page",
   data() {
     return {
+      id: 1,
       domains: {},
       domain: []
     };

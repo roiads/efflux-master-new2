@@ -127,8 +127,6 @@ export default {
   props: ["server"],
   data() {
     return {
-      perPage: 10,
-      currentPage: 1,
       items: {}
     };
   },

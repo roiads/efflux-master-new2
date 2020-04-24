@@ -8,6 +8,9 @@
     </b-card>
   </div>
 </template>
+
+
+
 <script>
 export default {
   name: "accounts-account-list",
@@ -24,7 +27,7 @@ export default {
   methods: {
     getAccounts() {
       axios
-        .get(`/accounts/account?page=${this.items.current_page}`)
+        .get(`/api/entourage/account?page=${this.items.current_page}`)
         .then(({ data }) => (this.items = data));
     }
   },

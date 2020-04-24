@@ -5,7 +5,6 @@ use Illuminate\Database\Seeder;
 class EntourageProfileSeeder extends Seeder {
  public function run() {
   DB::table('efflux_entourage.profiles')->insertOrIgnore([
-    ['id'=>0, 'title' => 'Mr.', '']
    ['id' => 1, 'title' => 'Mr.', 'firstname' => 'Ronald', 'middlename' => 'M', 'lastname' => 'Judd', 'occupation' => 'Crop scientist', 'dob' => '0000-00-00', 'gender' => 'male', 'height' => 9.99, 'weight' => 9.99, 'country' => 'US', 'address' => '4546 Lamberts Branch Road', 'city' => 'North Dadea', 'state' => 'FL', 'postcode' => 33180, 'proxy_id' => 169, 'useragent_id' => 1],
    ['id' => 2, 'title' => 'Mrs.', 'firstname' => 'Miriam', 'middlename' => 'A', 'lastname' => 'Bean', 'occupation' => 'Transmission engineer', 'dob' => '0000-00-00', 'gender' => 'female', 'height' => 9.99, 'weight' => 9.99, 'country' => 'US', 'address' => '2443 Polk Street', 'city' => 'Tempea', 'state' => 'AZ', 'postcode' => 85282, 'proxy_id' => 43, 'useragent_id' => 2],
    ['id' => 3, 'title' => 'Mrs.', 'firstname' => 'Laura', 'middlename' => 'M', 'lastname' => 'Crider', 'occupation' => 'Geotechnical engineer', 'dob' => '0000-00-00', 'gender' => 'female', 'height' => 9.99, 'weight' => 9.99, 'country' => 'US', 'address' => '2873 Tenmile Road', 'city' => 'Walthama', 'state' => 'MA', 'postcode' => 2154, 'proxy_id' => 44, 'useragent_id' => 3],
