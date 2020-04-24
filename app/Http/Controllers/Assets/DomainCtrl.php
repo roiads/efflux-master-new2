@@ -18,10 +18,17 @@ class DomainCtrl extends Controller {
   return response()->json($Q);
  }
  public function show(x $x, $id = null) {
-  return $x->find($id);
+  if (is_numeric($id)) {
+   $result = $x->find($id);
+
+  } else {
+   $result = $x->where('name', '=', $id)->orWhere('id', '=', $id)->get();
+  }
+  return response()->json($result);
+
  }
  public function create() {
-   return view('pages.v');
+  return view('pages.v');
  }
  public function update(Request $R, x $x) {}
  public function destroy(x $x) {}

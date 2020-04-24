@@ -31,6 +31,7 @@
         </b-card-group>
       </div>
       <assets-domain-list></assets-domain-list>
+      <tracking-system1></tracking-system1>
     </section>
   </div>
 </template>

@@ -23,5 +23,9 @@ Route::prefix('assets')->namespace('Assets')->group(function () {
 Route::namespace ('Users')->group(function () {
  Route::resource('user', 'UserCtrl');
 });
+
+Route::namespace ('Tracking')->group(function () {
+ Route::resource('system1', 'System1Ctrl');
+});
 Route::get('system1', 'Reports\System1Ctrl@index');
 Route::get('system1/{report_type}', 'Reports\System1Ctrl@index');

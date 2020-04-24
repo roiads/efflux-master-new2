@@ -36,14 +36,14 @@ class DomainSeeder extends Seeder {
    'id'         => 5,
    'name'       => 'getavio.com',
    'path'       => null,
-   'server_id'  => null,
+   'server_id'  => 4,
    'ssl'        => 0,
    'repository' => null,
   ], [
    'id'         => 6,
    'name'       => 'test4dough.com',
    'path'       => null,
-   'server_id'  => null,
+   'server_id'  => 4,
    'ssl'        => 0,
    'repository' => 'https://github.com/nickolastuttle/t4d.git',
   ], [

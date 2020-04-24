@@ -17,7 +17,9 @@ export default {
   },
   methods: {
     getPosts() {
-      return 1;
+      axios
+        .get(`/api/site-manager/profile?page=${this.profiles.current_page}`)
+        .then(({ data }) => (this.profiles = data));
     }
   }
 };

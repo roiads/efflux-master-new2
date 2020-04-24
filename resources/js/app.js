@@ -31,21 +31,21 @@ const app = new Vue({
   router
 });
 
-//https://github.com/artf/grapesjs-preset-webpage
-var editor = grapesjs.init({
-  container : '#gjs',
+https: //github.com/artf/grapesjs-preset-webpage
+  var editor = grapesjs.init({
+    container: '#gjs',
 
-  plugins: ['gjs-preset-webpage'],
-  pluginsOpts: {
-    'gjs-preset-webpage': {
-      // options
-    }
-  },
-  //getting ready for endpoint
-  // storageManager: {
-  //     type: 'remote',
-  //     urlStore: 'http://store/endpoint',
-  //     urlLoad: 'http://load/endpoint',
-  //     params: {},   // For custom values on requests
-  // }
-});
+    plugins: ['gjs-preset-webpage'],
+    pluginsOpts: {
+      'gjs-preset-webpage': {
+        // options
+      }
+    },
+    //getting ready for endpoint
+    // storageManager: {
+    //     type: 'remote',
+    //     urlStore: 'http://store/endpoint',
+    //     urlLoad: 'http://load/endpoint',
+    //     params: {},   // For custom values on requests
+    // }
+  });
