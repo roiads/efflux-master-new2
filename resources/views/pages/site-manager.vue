@@ -11,8 +11,9 @@
         <b-card-group v-if="!domain" deck>
           <assets-domain-list :id="id"></assets-domain-list>
         </b-card-group>
+
         <b-card-group v-if="domain" deck>
-          <assets-domain-show :domain="domain"></assets-domain-show>
+          <assets-domain-show :domain="domain">{{domain}}</assets-domain-show>
         </b-card-group>
       </div>
     </section>

@@ -8,7 +8,7 @@
     </div>
     <section class="content">
       <div class="container-fluid">
-        <system1-subids></system1-subids>
+        <tracking-system1></tracking-system1>
       </div>
     </section>
   </div>

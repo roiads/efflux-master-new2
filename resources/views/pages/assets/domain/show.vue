@@ -1,6 +1,9 @@
 <template>
-  <div v-if="domain">
-    <b-table :items="domain"></b-table>
+  <div>
+    <h1>TEST</h1>
+    <div v-if="domain">
+      <b-table :items="domain"></b-table>
+    </div>
   </div>
 </template>
 <script>

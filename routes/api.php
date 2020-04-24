@@ -9,7 +9,7 @@ Route::prefix('entourage')->namespace('Entourage')->group(function () {
 Route::prefix('site-manager')->namespace('Site')->group(function () {
  Route::resource('page', 'PageCtrl');
  Route::resource('post', 'PostCtrl');
- Route::put('post/metadata/{id}', 'PostCtrl@updateMetadata');
+ Route::resource('tag', 'TagCtrl');
  Route::resource('route', 'RouteCtrl');
 });
 
@@ -24,7 +24,7 @@ Route::namespace ('Users')->group(function () {
  Route::resource('user', 'UserCtrl');
 });
 
-Route::namespace ('Tracking')->group(function () {
+Route::namespace ('Reports')->group(function () {
  Route::resource('system1', 'System1Ctrl');
 });
 Route::get('system1', 'Reports\System1Ctrl@index');
