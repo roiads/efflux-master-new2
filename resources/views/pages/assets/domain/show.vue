@@ -1,26 +1,18 @@
 <template>
-  <b-table>HELLO</b-table>
+  
 </template>
+<p>Test</p>
 <script>
 export default {
-  name: "assets-domain-show",
-  props: ["id"],
+  name: 'assets-domain-show',
+  props: [],
   data() {
     return {
-      item: {}
-    };
-  },
-  mounted() {
-    this.getItem();
-  },
-  methods: {
-    getItem() {
-      axios
-        .get(`/api/assets/domain/${this.id}`)
-        .then(({ data }) => (this.item = data));
+      
     }
-  }
-};
+  },
+}
 </script>
 <style scoped>
+
 </style>
