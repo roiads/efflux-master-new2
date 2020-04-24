@@ -2,20 +2,22 @@
   <div>
     <div class="content-header">
       <b-container fluid class="row">
-        <x-breadcrumb page="inside-page-domain"></x-breadcrumb>
-        
+        <x-breadcrumb page="site-manager"></x-breadcrumb>
+        <x-toolbar></x-toolbar>
       </b-container>
     </div>
     <section class="content">
       <div class="container-fluid">
-       
+        <b-card-group deck>
+          <assets-domain-list></assets-domain-list>
+        </b-card-group>
       </div>
     </section>
   </div>
 </template>
 <script>
 export default {
-  name: "site-manager-show",
+  name: "site-manager-page",
   data() {
     return {
       domains: {},

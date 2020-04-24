@@ -27,6 +27,26 @@ let routes = [{
     props: true
   },
   {
+    path: '/site-manager/:id',
+    component: require('../views/pages/site-manager/domain-view').default,
+    props: true
+  },
+  {
+    path: '/addpost/:domain',
+    component: require('../views/pages/site-manager/post/create').default,
+    props: true
+  },
+  {
+    path: '/posts/edit/:id/:domain',
+    component: require('../views/pages/site-manager/domain-view').default,
+    props: true
+  },
+  {
+    path: '/editor/:id',
+    component: require('../views/pages/site-manager/post/editor2').default,
+    props: true
+  },
+  {
     path: '/tracker',
     component: require('../views/pages/tracker').default,
     props: true
