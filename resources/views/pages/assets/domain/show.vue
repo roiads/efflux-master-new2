@@ -15,7 +15,7 @@
                     
                    <b-table striped hover :items="itemspost">
                    <template v-slot:cell(actions)="data">
-                      <b-link :to="{ path: '/site-manager/' + data.value}" replace>Test</b-link>
+                      <span v-html="data.value"></span>
                     </template>
                    </b-table>
                 </b-card-text>
@@ -51,16 +51,16 @@ export default {
   data() {
     return {
       itemspost: [
-          { post_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', post_url: 'https://sevenbars.com/weight-loss-guide', actions: '' },          
-          { post_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', post_url: 'https://sevenbars.com/weight-loss-guide', actions: '' },          
-          { post_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', post_url: 'https://sevenbars.com/weight-loss-guide', actions: '' },          
-          { post_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', post_url: 'https://sevenbars.com/weight-loss-guide', actions: '' },          
+          { post_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', post_url: 'https://sevenbars.com/weight-loss-guide', actions: '<a href="/editpost/1">Edit</a>' },          
+          { post_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', post_url: 'https://sevenbars.com/weight-loss-guide', actions: '<a href="/editpost/1">Edit</a>' },          
+          { post_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', post_url: 'https://sevenbars.com/weight-loss-guide', actions: '<a href="/editpost/1">Edit</a>' },          
+          { post_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', post_url: 'https://sevenbars.com/weight-loss-guide', actions: '<a href="/editpost/1">Edit</a>' },          
         ],
         itemspages: [
-          { page_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', page_url: 'https://sevenbars.com/weight-loss-guide', actions: '<a href="">Edit</a>' },          
-          { page_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', page_url: 'https://sevenbars.com/weight-loss-guide', actions: '<a href="">Edit</a>' },          
-          { page_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', page_url: 'https://sevenbars.com/weight-loss-guide', actions: '<a href="">Edit</a>' },          
-          { page_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', page_url: 'https://sevenbars.com/weight-loss-guide', actions: '<a href="">Edit</a>' },          
+          { page_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', page_url: 'https://sevenbars.com/weight-loss-guide', actions: '<a href="/editpost/1">Edit</a>' },          
+          { page_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', page_url: 'https://sevenbars.com/weight-loss-guide', actions: '<a href="/editpost/1">Edit</a>' },          
+          { page_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', page_url: 'https://sevenbars.com/weight-loss-guide', actions: '<a href="/editpost/1">Edit</a>' },          
+          { page_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', page_url: 'https://sevenbars.com/weight-loss-guide', actions: '<a href="/editpost/1">Edit</a>' },          
         ]
     };
   },

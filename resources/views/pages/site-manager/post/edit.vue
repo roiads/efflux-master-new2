@@ -8,7 +8,7 @@
     </div>
     <section class="content">
       <div class="container-fluid">
-      <b-card title="Add Post">
+      <b-card title="Edit Post">
       <div class="clearfix"></div>
         <b-row>
           <b-col md="12">
