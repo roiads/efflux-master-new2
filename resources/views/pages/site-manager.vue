@@ -16,6 +16,10 @@
           <assets-domain-show :domain="domain">{{domain}}</assets-domain-show>
         </b-card-group>
 
+        <b-modal v-show="addDomain">
+          <assets-domain-create :domain="domain">{{domain}}</assets-domain-create>
+        </b-modal>
+
         
       </div>
     </section>
@@ -27,8 +31,16 @@ export default {
   props: ["domain"],
   data() {
     return {
+
+      addDomain: false,
+      editDomain: false,
+
+
     };
-  }
+  },
+  methods:{
+
+  },
 };
 </script>
 <style scoped>
