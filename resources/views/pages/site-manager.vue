@@ -15,6 +15,8 @@
         <b-card-group v-if="domain" deck>
           <assets-domain-show :domain="domain">{{domain}}</assets-domain-show>
         </b-card-group>
+
+        
       </div>
     </section>
   </div>
@@ -24,7 +26,8 @@ export default {
   name: "site-manager-page",
   props: ["domain"],
   data() {
-    return {};
+    return {
+    };
   }
 };
 </script>

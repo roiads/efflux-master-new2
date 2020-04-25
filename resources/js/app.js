@@ -15,6 +15,9 @@ import router from './routes'
 import grapesjs from 'grapesjs'
 import "grapesjs-preset-webpage"
 
+// import tinymce from 'tinymce'
+// import CKEditor from '@ckeditor/ckeditor5-vue';
+// Vue.use( CKEditor );
 
 Vue.use(VueRouter);
 Vue.use(BootstrapVue)
@@ -28,19 +31,25 @@ files.keys().map(function (key) {
 
 const app = new Vue({
   el: '#app',
-  router
+  router,
+  
 });
 
-https: //github.com/artf/grapesjs-preset-webpage
+//https: //github.com/artf/grapesjs-preset-webpage
   var editor = grapesjs.init({
     container: '#gjs',
-
     plugins: ['gjs-preset-webpage'],
     pluginsOpts: {
       'gjs-preset-webpage': {
-        // options
+        blocks: [],
+        blocksBasicOpts: true,
+        navbarOpts: false,
+        countdownOpts: false,
+        formsOpts: false,
+        exportOpts: false,
+        aviaryOpts: false,
       }
-    },
+    }
     //getting ready for endpoint
     // storageManager: {
     //     type: 'remote',
@@ -49,3 +58,18 @@ https: //github.com/artf/grapesjs-preset-webpage
     //     params: {},   // For custom values on requests
     // }
   });
+
+  // editor.BlockManager.add('test-block', {
+  //   label: 'Test block',
+  //   attributes: {class: 'fa fa-text'},
+  //   content: {
+  //     // Add some style just to make the component visible
+  //     style: {
+  //       width: '100px',
+  //       height: '100px',
+  //       'background-color': 'red',
+  //     }
+  //   }
+  // });
+
+

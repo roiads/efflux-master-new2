@@ -26,6 +26,11 @@ let routes = [{
     component: require('../views/pages/site-manager').default,
     props: true
   },
+   {
+    path: '/addpost/:domain?',
+    component: require('../views/pages/site-manager/post/create').default,
+    props: true
+  },
   /*
   {
     path: '/site-manager/:id',
