@@ -3,7 +3,7 @@
     <b-row cols="3">
       <b-col v-for="domain in items.data" :key="domain.id">
         <b-card no-body class="m-2 elevation-1">
-          <b-card-header :header-bg-variant="(domain.status == 1 ? 'success' : 'warning')">
+          <b-card-header header-bg-variant="info">
             <h4>
               <span style="text-transform:uppercase;">{{ domain.name }}</span>
               <small>
@@ -127,8 +127,6 @@ export default {
   props: ["server"],
   data() {
     return {
-      perPage: 10,
-      currentPage: 1,
       items: {}
     };
   },

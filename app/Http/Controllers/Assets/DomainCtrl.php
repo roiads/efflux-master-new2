@@ -6,7 +6,7 @@ use \App\assets_domain as x;
 
 class DomainCtrl extends Controller {
  public function index() {
-  $Q = x::with('server')->where('status', '>', 0)->paginate(10);
+  $Q = x::with('server')->where('status', '>', 0)->where('server_id', '>', 0)->paginate(10);
   return response()->json($Q);
  }
  public function search($args = null) {
@@ -17,10 +17,14 @@ class DomainCtrl extends Controller {
   $Q = $Q->get();
   return response()->json($Q);
  }
- public function show(x $x) {
-  return $x;
+ public function show(x $x, $id = null) {
+  $result = $x->where('name', '=', $id)->orWhere('id', '=', $id)->first();
+  return response()->json($result);
+
  }
- public function create() {}
+ public function create() {
+  return view('pages.v');
+ }
  public function update(Request $R, x $x) {}
  public function destroy(x $x) {}
 }

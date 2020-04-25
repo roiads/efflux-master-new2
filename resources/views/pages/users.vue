@@ -36,16 +36,6 @@ export default {
       this.form.password_confirmation = this.form.password;
       this.form.post("/user").then(data => this.users.push(data));
     },
-    setId(id) {
-      this.id = id;
-    },
-    setObj(obj) {
-      this.user = obj;
-      this.$store.commit("setData", {
-        name: "user",
-        data: obj
-      });
-    },
     unsetId() {
       this.id = null;
     },

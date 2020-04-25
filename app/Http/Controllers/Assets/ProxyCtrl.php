@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\Assets;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use \App\asset_proxy as x;
+use \App\assets_proxy as x;
 
 class ProxyCtrl extends Controller {
  public function index() {

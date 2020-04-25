@@ -22,10 +22,11 @@ let routes = [{
     props: true
   },
   {
-    path: '/site-manager',
+    path: '/site-manager/:domain?',
     component: require('../views/pages/site-manager').default,
     props: true
   },
+  /*
   {
     path: '/site-manager/:id',
     component: require('../views/pages/site-manager/domain-view').default,
@@ -46,6 +47,7 @@ let routes = [{
     component: require('../views/pages/site-manager/post/editor2').default,
     props: true
   },
+  */
   {
     path: '/tracker',
     component: require('../views/pages/tracker').default,

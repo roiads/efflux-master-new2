@@ -8,8 +8,12 @@
     </div>
     <section class="content">
       <div class="container-fluid">
-        <b-card-group deck>
-          <assets-domain-list></assets-domain-list>
+        <b-card-group v-if="!domain" deck>
+          <assets-domain-list :id="id"></assets-domain-list>
+        </b-card-group>
+
+        <b-card-group v-if="domain" deck>
+          <assets-domain-show :domain="domain">{{domain}}</assets-domain-show>
         </b-card-group>
       </div>
     </section>
@@ -18,11 +22,9 @@
 <script>
 export default {
   name: "site-manager-page",
+  props: ["domain"],
   data() {
-    return {
-      domains: {},
-      domain: []
-    };
+    return {};
   }
 };
 </script>
