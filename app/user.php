@@ -39,9 +39,15 @@ class user extends Authenticatable {
    ->count() ? true : false;
  }
  public static function admin() {
-  return user::find(Auth::id())->isRole([1]);
+  if (Auth::id()) {
+   return user::find(Auth::id())->isRole([1]);
+  }
+  return false;
  }
  public static function site() {
-  return user::find(Auth::id())->isRole([2]);
+  if (Auth::id()) {
+   return user::find(Auth::id())->isRole([2]);
+  }
+  return false;
  }
 }
