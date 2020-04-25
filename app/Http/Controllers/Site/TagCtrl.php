@@ -1,85 +1,21 @@
 <?php
-
 namespace App\Http\Controllers;
-
-use App\site_tag;
+use App\Model;
 use Illuminate\Http\Request;
 
-class SiteTagController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\site_tag  $site_tag
-     * @return \Illuminate\Http\Response
-     */
-    public function show(site_tag $site_tag)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\site_tag  $site_tag
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(site_tag $site_tag)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\site_tag  $site_tag
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, site_tag $site_tag)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\site_tag  $site_tag
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(site_tag $site_tag)
-    {
-        //
-    }
+class ModelCtrl extends Controller {
+ // Display a listing of the resource.
+ public function index() {}
+ // Show the form for creating a new resource.
+ public function create() {}
+ // Store a newly created resource in storage.
+ public function store(Request $r) {}
+ // Display the specified resource.
+ public function show(Model $m) {}
+ // Show the form for editing the specified resource.
+ public function edit(Model $m) {}
+ // Update the specified resource in storage.
+ public function update(Request $r, sModel $m) {}
+ // Remove the specified resource from storage.
+ public function destroy(Model $m) {}
 }

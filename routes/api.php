@@ -19,13 +19,12 @@ Route::prefix('assets')->namespace('Assets')->group(function () {
  Route::resource('proxy', 'ProxyCtrl');
  Route::resource('useragent', 'UseragentCtrl');
 });
-
+Route::prefix('reports')->namespace('Reports')->group(function () {
+ Route::resource('system1', 'System1Ctrl');
+});
 Route::namespace ('Users')->group(function () {
  Route::resource('user', 'UserCtrl');
 });
 
-Route::namespace ('Reports')->group(function () {
- Route::resource('system1', 'System1Ctrl');
-});
 Route::get('system1', 'Reports\System1Ctrl@index');
 Route::get('system1/{report_type}', 'Reports\System1Ctrl@index');
