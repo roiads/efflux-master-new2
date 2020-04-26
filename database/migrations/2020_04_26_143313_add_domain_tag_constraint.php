@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class AddDomainTagConstraint extends Migration {
  public function up() {
-  foreach (['posts', 'pages', 'images', 'tags'] as $t) {
+  foreach (['posts', 'pages', 'images', 'tags', 'post_image'] as $t) {
    Schema::table("efflux_site.$t", function (Blueprint $table) {
     $table->foreignId('domain_id')->nullable()->default(null)
      ->reference('id')->on('efflux_assets.domains')

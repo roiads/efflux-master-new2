@@ -6,14 +6,14 @@ use \App\Models\Assets\Domain;
 
 class DomainCtrl extends Controller {
  public function index(Request $R) {
-  $Q = Domain::with('server', 'routes');
+  $Q = Domain::with('server', 'routes', 'posts', 'pages', 'tags', 'images');
   if ($R->type) {
    $Q = $Q->where('type', '=', $R->type);
   }
   return $Q->get();
  }
- public function show(Domain $X) {
-  return $X->with('server', 'routes');
+ public function show($id) {
+  return Domain::with('server', 'routes', 'posts', 'pages', 'tags', 'images')->where('id', $id)->orWhere('name', $id)->first();
  }
  public function create() {
   return 'CREATED Domain';
