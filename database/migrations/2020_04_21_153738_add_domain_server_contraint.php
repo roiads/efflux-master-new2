@@ -7,7 +7,11 @@ use Illuminate\Support\Facades\Schema;
 class AddDomainServerContraint extends Migration {
  public function up() {
   Schema::table('efflux_assets.domains', function (Blueprint $table) {
-   $table->foreignId('server_id')->nullable()->default(null)->constrained()->onDelete('cascade');
+   $table->foreignId('server_id')
+    ->nullable()
+    ->default(null)
+    ->constrained()
+    ->onDelete('cascade');
   });
  }
  public function down() {

@@ -15,6 +15,8 @@ import router from './routes'
 import grapesjs from 'grapesjs'
 import "grapesjs-preset-webpage"
 
+// import tinymce from 'tinymce'
+
 
 Vue.use(VueRouter);
 Vue.use(BootstrapVue)
@@ -28,24 +30,45 @@ files.keys().map(function (key) {
 
 const app = new Vue({
   el: '#app',
-  router
+  router,
+  
 });
 
-https: //github.com/artf/grapesjs-preset-webpage
-  var editor = grapesjs.init({
-    container: '#gjs',
+//https: //github.com/artf/grapesjs-preset-webpage
+  // var editor = grapesjs.init({
+  //   container: '#gjs',
+  //   plugins: ['gjs-preset-webpage'],
+  //   pluginsOpts: {
+  //     'gjs-preset-webpage': {
+  //       blocks: [],
+  //       blocksBasicOpts: true,
+  //       navbarOpts: false,
+  //       countdownOpts: false,
+  //       formsOpts: false,
+  //       exportOpts: false,
+  //       aviaryOpts: false,
+  //     }
+  //   }
+  //   //getting ready for endpoint
+  //   // storageManager: {
+  //   //     type: 'remote',
+  //   //     urlStore: 'http://store/endpoint',
+  //   //     urlLoad: 'http://load/endpoint',
+  //   //     params: {},   // For custom values on requests
+  //   // }
+  // });
 
-    plugins: ['gjs-preset-webpage'],
-    pluginsOpts: {
-      'gjs-preset-webpage': {
-        // options
-      }
-    },
-    //getting ready for endpoint
-    // storageManager: {
-    //     type: 'remote',
-    //     urlStore: 'http://store/endpoint',
-    //     urlLoad: 'http://load/endpoint',
-    //     params: {},   // For custom values on requests
-    // }
-  });
+  // // editor.BlockManager.add('test-block', {
+  // //   label: 'Test block',
+  // //   attributes: {class: 'fa fa-text'},
+  // //   content: {
+  // //     // Add some style just to make the component visible
+  // //     style: {
+  // //       width: '100px',
+  // //       height: '100px',
+  // //       'background-color': 'red',
+  // //     }
+  // //   }
+  // // });
+
+

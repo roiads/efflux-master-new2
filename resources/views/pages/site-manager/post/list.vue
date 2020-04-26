@@ -1,11 +1,12 @@
 <template>
   <div>
+    <b-button @click="this.$emit('myEvent')">TEST</b-button>
     <b-table striped hover :items="posts"></b-table>
   </div>
 </template>
 <script>
 export default {
-  name: "site-post-list",
+  name: "site-manager-post-list",
   props: ["domain"],
   data() {
     return {
@@ -18,8 +19,8 @@ export default {
   methods: {
     getPosts() {
       axios
-        .get(`/api/site-manager/profile?page=${this.profiles.current_page}`)
-        .then(({ data }) => (this.profiles = data));
+        .get(`/api/site-manager/post?page=${this.posts.current_page}`)
+        .then(({ data }) => (this.posts = data));
     }
   }
 };

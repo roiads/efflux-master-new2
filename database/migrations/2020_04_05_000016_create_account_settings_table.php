@@ -10,7 +10,11 @@ class CreateAccountSettingsTable extends Migration {
    $table->id();
    $table->string('setting', 100);
    $table->text('value');
-   $table->foreignId('account_id')->constrained()->onDelete('cascade');
+   $table->foreignId('account_id')
+    ->constrained()
+    ->onDelete('cascade');
+   $table->timestamps();
+   $table->softDeletes();
   });
  }
  public function down() {

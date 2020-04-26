@@ -7,12 +7,26 @@ use Illuminate\Support\Facades\Schema;
 class AddContentRouteConstraints extends Migration {
  public function up() {
   Schema::table('efflux_site.posts', function (Blueprint $table) {
-   $table->foreignId('image_id')->nullable()->default(null)->constrained()->onDelete('cascade');
+   $table->foreignId('image_id')
+    ->nullable()->default(null)
+    ->constrained()
+    ->onDelete('cascade');
   });
   Schema::table('efflux_site.routes', function (Blueprint $table) {
-   $table->foreignId('post_id')->nullable()->default(null)->constrained()->onDelete('cascade');
-   $table->foreignId('page_id')->nullable()->default(null)->constrained()->onDelete('cascade');
-   $table->foreignId('domain_id')->references('id')->on('efflux_assets.domains')->onDelete('cascade');
+   $table->foreignId('post_id')
+    ->nullable()
+    ->default(null)
+    ->constrained()
+    ->onDelete('cascade');
+   $table->foreignId('page_id')
+    ->nullable()
+    ->default(null)
+    ->constrained()
+    ->onDelete('cascade');
+   $table->foreignId('domain_id')
+    ->references('id')
+    ->on('efflux_assets.domains')
+    ->onDelete('cascade');
   });
  }
  public function down() {

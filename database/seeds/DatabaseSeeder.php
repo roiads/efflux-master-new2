@@ -14,6 +14,12 @@ class DatabaseSeeder extends Seeder {
    EntourageProfileSeeder::class,
    EntourageTypeSeeder::class,
    EntourageAccountSeeder::class,
+   SiteTagSeeder::class,
+   SiteImageSeeder::class,
+   SitePageSeeder::class,
+   SitePostSeeder::class,
+   SiteRouteSeeder::class,
+   SitePivotsSeeder::class,
   ]);
  }
 }

@@ -7,7 +7,11 @@ use Illuminate\Support\Facades\Schema;
 class AddSiteTagImageConstraints extends Migration {
  public function up() {
   Schema::table('efflux_site.tags', function (Blueprint $table) {
-   $table->foreignId('image_id')->nullable()->default(null)->constrained();
+   $table->foreignId('image_id')
+    ->nullable()
+    ->default(null)
+    ->constrained()
+    ->onDelete('cascade');
   });
  }
  public function down() {

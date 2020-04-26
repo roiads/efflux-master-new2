@@ -24,6 +24,8 @@ class CreateProfilesTable extends Migration {
    $table->string('state', 100)->nullable();
    $table->string('postcode', 25)->nullable();
    $table->text('notes')->nullable();
+   $table->timestamps();
+   $table->softDeletes();
   });
  }
  public function down() {

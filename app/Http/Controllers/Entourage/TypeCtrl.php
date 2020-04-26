@@ -1,21 +1,23 @@
 <?php
 namespace App\Http\Controllers\Entourage;
-use App\account_type as type;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use \App\Models\Entourage\Type;
 
 class TypeCtrl extends Controller {
- public function __construct() {}
- public function index() {
-  $r = type::withCount('accounts')->paginate(10);
-  return response()->json($r);
+ public function index(Request $R) {
+  return Type::all();
  }
- public function create() {}
- public function store(Request $R) {}
- public function show(type $type) {
-  return $type;
+ public function show(Type $X) {
+  return $X;
  }
- public function edit(type $type) {}
- public function update(Request $R, type $type) {}
- public function destroy(type $type) {}
+ public function create() {
+  return 'CREATED Type';
+ }
+ public function update(Request $R, Type $X) {
+  return 'UPDATED Type';
+ }
+ public function destroy(Type $X) {
+  return 'DELETED Type';
+ }
 }

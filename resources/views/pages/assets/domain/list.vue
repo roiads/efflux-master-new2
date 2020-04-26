@@ -1,9 +1,9 @@
 <template>
   <b-container fluid>
-    <b-row cols="3">
-      <b-col v-for="domain in items.data" :key="domain.id">
+    <b-row cols="2">
+      <b-col v-for="domain in domains" :key="domain.id">
         <b-card no-body class="m-2 elevation-1">
-          <b-card-header header-bg-variant="info">
+          <b-card-header :header-bg-variant="statusColor(domain.status)">
             <h4>
               <span style="text-transform:uppercase;">{{ domain.name }}</span>
               <small>
@@ -100,7 +100,7 @@
               <b-button
                 text-variant="light"
                 variant="outline-secondary"
-                :to="'site-manager/'+domain.name+'/'"
+                @click="setDomain(domain.name)"
               >
                 <b-icon icon="display" class="mr-1"></b-icon>Content Editor
               </b-button>
@@ -119,6 +119,12 @@
         </b-card>
       </b-col>
     </b-row>
+    <b-modal id="createDomainForm">
+      <assets-domain-create></assets-domain-create>
+    </b-modal>
+    <b-modal id="editDomainForm">
+      <assets-domain-edit></assets-domain-edit>
+    </b-modal>
   </b-container>
 </template>
 <script>
@@ -127,17 +133,26 @@ export default {
   props: ["server"],
   data() {
     return {
-      items: {}
+      domains: {}
     };
   },
   mounted() {
     this.getItems();
   },
   methods: {
+    setDomain(id) {
+      this.$emit("set-domain", id);
+    },
     getItems() {
       axios
-        .get(`/api/assets/domain?page=${this.items.current_page}`)
-        .then(({ data }) => (this.items = data));
+        .get(`/api/assets/domain?type=content`)
+        .then(({ data }) => (this.domains = data));
+    },
+    statusColor(status) {
+      if (status == 1) {
+        return "success";
+      }
+      return "warning";
     }
   }
 };

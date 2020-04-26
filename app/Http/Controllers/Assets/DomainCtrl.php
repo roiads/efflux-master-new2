@@ -2,29 +2,26 @@
 namespace App\Http\Controllers\Assets;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use \App\assets_domain as x;
+use \App\Models\Assets\Domain;
 
 class DomainCtrl extends Controller {
- public function index() {
-  $Q = x::with('server')->where('status', '>', 0)->where('server_id', '>', 0)->paginate(10);
-  return response()->json($Q);
- }
- public function search($args = null) {
-  $Q = x::with('server');
-  foreach ($args as $k => $v) {
-   $Q = $Q->where($k, (key($v) ?? '='), ($v[key($v)] ?? $v));
+ public function index(Request $R) {
+  $Q = Domain::with('server', 'routes', 'posts', 'pages', 'tags', 'images');
+  if ($R->type) {
+   $Q = $Q->where('type', '=', $R->type);
   }
-  $Q = $Q->get();
-  return response()->json($Q);
+  return $Q->get();
  }
- public function show(x $x, $id = null) {
-  $result = $x->where('name', '=', $id)->orWhere('id', '=', $id)->first();
-  return response()->json($result);
-
+ public function show($id) {
+  return Domain::with('server', 'routes', 'posts', 'pages', 'tags', 'images')->where('id', $id)->orWhere('name', $id)->first();
  }
  public function create() {
-  return view('pages.v');
+  return 'CREATED Domain';
  }
- public function update(Request $R, x $x) {}
- public function destroy(x $x) {}
+ public function update(Request $R, Domain $X) {
+  return 'UPDATED Domain';
+ }
+ public function destroy(Domain $X) {
+  return 'DELETED Domain';
+ }
 }
