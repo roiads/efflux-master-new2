@@ -119,6 +119,12 @@
         </b-card>
       </b-col>
     </b-row>
+    <b-modal id="createDomainForm">
+      <assets-domain-create></assets-domain-create>
+    </b-modal>
+    <b-modal id="editDomainForm">
+      <assets-domain-edit></assets-domain-edit>
+    </b-modal>
   </b-container>
 </template>
 <script>

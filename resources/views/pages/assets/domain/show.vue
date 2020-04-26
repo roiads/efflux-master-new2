@@ -58,6 +58,18 @@
         </b-tab>
       </b-tabs>
     </b-card>
+    <b-modal id="createPostForm" hide-footer title="Create New Post">
+      <site-manager-post-create></site-manager-post-create>
+    </b-modal>
+    <b-modal id="createPageForm" hide-footer title="Create New Page">
+      <site-manager-page-create></site-manager-page-create>
+    </b-modal>
+    <b-modal id="editPostForm" hide-footer title="Edit Post">
+      <site-manager-post-edit :post="post"></site-manager-post-edit>
+    </b-modal>
+    <b-modal id="editPageForm" hide-footer title="Edit Page">
+      <site-manager-page-edit :page="page"></site-manager-page-edit>
+    </b-modal>
   </div>
 </template>
 <script>
@@ -66,7 +78,11 @@ export default {
   props: ["domain"],
   data() {
     return {
-      domain: {}
+      domain: {},
+      post: {},
+      posts: [],
+      page: {},
+      pages: []
     };
   },
   mounted() {
@@ -77,18 +93,21 @@ export default {
       this.$bvModal.show("createPostForm");
     },
     editPost(post) {
+      this.post = post;
       this.$bvModal.show("editPostForm");
     },
     createPage() {
-      this.$bvModal.show("createPostForm");
+      this.$bvModal.show("createPageForm");
     },
     editPage(page) {
-      this.$bvModal.show("editPostForm");
+      this.page = page;
+      this.$bvModal.show("editPageForm");
     },
     createDomain() {
       this.$bvModal.show("createDomainForm");
     },
     editDomain(domain) {
+      this.domain = domain;
       this.$bvModal.show("editDomainForm");
     },
     getDomain(domain) {
@@ -99,5 +118,3 @@ export default {
   }
 };
 </script>
-<style scoped>
-</style>

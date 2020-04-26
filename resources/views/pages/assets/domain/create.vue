@@ -1,17 +1,21 @@
 <template>
-  <div>SAMPLE COMPONENT</div>
+  <div>
+    <b-form>CREATE DOMAIN FORM</b-form>
+  </div>
 </template>
 <script>
 export default {
   name: "assets-domain-create",
-  props: ["domain"],
   data() {
-    return {};
+    return {
+      form: {}
+    };
   },
-  created() {},
-  watch: {},
-  methods: {}
+  mounted() {},
+  methods: {
+    submitForm() {
+      return true;
+    }
+  }
 };
 </script>
-<style scoped>
-</style>
