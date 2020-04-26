@@ -136,7 +136,7 @@ export default {
   methods: {
     getItems() {
       axios
-        .get(`/api/assets/domain?page=${this.items.current_page}`)
+        .get(`/api/assets/domain?type=content&page=${this.items.current_page}`)
         .then(({ data }) => (this.items = data));
     }
   }

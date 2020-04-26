@@ -5,8 +5,12 @@ use Illuminate\Http\Request;
 use \App\assets_domain as x;
 
 class DomainCtrl extends Controller {
- public function index() {
-  $Q = x::with('server')->where('status', '>', 0)->where('server_id', '>', 0)->paginate(10);
+ public function index(Request $r) {
+  $Q = x::with('server')->where('status', '>', 0);
+  if ($r->type) {
+   $Q = $Q->where('type', '=', $r->type);
+  }
+  $Q = $Q->paginate(10);
   return response()->json($Q);
  }
  public function search($args = null) {

@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Site;
+namespace App\Http\Controllers\SiteManager;
 use App\Http\Controllers\Controller;
 use App\site_page;
 use Illuminate\Http\Request;

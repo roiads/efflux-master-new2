@@ -6,7 +6,7 @@ Route::prefix('entourage')->namespace('Entourage')->group(function () {
  Route::resource('type', 'TypeCtrl');
 });
 
-Route::prefix('site-manager')->namespace('Site')->group(function () {
+Route::prefix('site-manager')->namespace('SiteManager')->group(function () {
  Route::resource('page', 'PageCtrl');
  Route::resource('post', 'PostCtrl');
  Route::resource('tag', 'TagCtrl');

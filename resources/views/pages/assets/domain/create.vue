@@ -4,7 +4,7 @@
 <script>
 export default {
   name: "assets-domain-create",
-  props: [],
+  props: ["domain"],
   data() {
     return {};
   },
