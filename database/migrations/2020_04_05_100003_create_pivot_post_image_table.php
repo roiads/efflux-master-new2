@@ -7,9 +7,20 @@ class CreatePivotPostImageTable extends Migration {
  public function up() {
   Schema::create('efflux_site.post_image', function (Blueprint $table) {
    $table->id();
-   $table->foreignId('image_id')->constrained()->onDelete('cascade');
-   $table->foreignId('post_id')->nullable()->default(NULL)->constrained()->onDelete('cascade');
-   $table->foreignId('page_id')->nullable()->default(NULL)->constrained()->onDelete('cascade');
+   $table->foreignId('image_id')
+    ->constrained()
+    ->onDelete('cascade');
+   $table->foreignId('post_id')
+    ->nullable()
+    ->default(NULL)
+    ->constrained()
+    ->onDelete('cascade');
+   $table->foreignId('page_id')
+    ->nullable()
+    ->default(NULL)
+    ->constrained()
+    ->onDelete('cascade');
+   $table->timestamps();
   });
  }
  public function down() {

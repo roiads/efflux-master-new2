@@ -16,6 +16,7 @@ class CreateProxiesTable extends Migration {
    $table->tinyInteger('https')->default(0);
    $table->tinyInteger('status')->default(1);
    $table->timestamps();
+   $table->softDeletes();
   });
  }
  public function down() {

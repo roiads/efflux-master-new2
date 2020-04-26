@@ -11,6 +11,7 @@ class CreateAccountsTable extends Migration {
    $table->string('username', 100);
    $table->string('password', 100);
    $table->timestamps();
+   $table->softDeletes();
   });
  }
  public function down() {

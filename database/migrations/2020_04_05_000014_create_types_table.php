@@ -11,6 +11,8 @@ class CreateTypesTable extends Migration {
    $table->string('name', 100);
    $table->string('url', 255);
    $table->text('notes');
+   $table->timestamps();
+   $table->softDeletes();
   });
   DB::statement("ALTER TABLE `efflux_entourage`.`types` ADD `logo` MEDIUMBLOB");
  }

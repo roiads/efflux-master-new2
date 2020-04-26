@@ -11,6 +11,8 @@ class CreateTagTable extends Migration {
    $table->tinyInteger('status')->default(1);
    $table->string('name', 100)->unique();
    $table->string('tagline', 100)->nullable();
+   $table->timestamps();
+   $table->softDeletes();
   });
  }
  public function down() {

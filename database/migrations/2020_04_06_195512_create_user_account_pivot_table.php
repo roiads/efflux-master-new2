@@ -8,9 +8,23 @@ class CreateUserAccountPivotTable extends Migration {
  public function up() {
   Schema::create('efflux_users.user_entourage', function (Blueprint $table) {
    $table->id();
-   $table->foreignId('user_id')->constrained()->onDelete('cascade');
-   $table->foreignId('account_id')->nullable()->default(null)->references('id')->on('efflux_entourage.accounts')->onDelete('cascade');
-   $table->foreignId('profile_id')->nullable()->default(null)->references('id')->on('efflux_entourage.profiles')->onDelete('cascade');
+   $table->foreignId('user_id')
+    ->constrained()
+    ->onDelete('cascade');
+   $table->foreignId('account_id')
+    ->nullable()
+    ->default(null)
+    ->references('id')
+    ->on('efflux_entourage.accounts')
+    ->onDelete('cascade');
+   $table->foreignId('profile_id')
+    ->nullable()
+    ->default(null)
+    ->references('id')
+    ->on('efflux_entourage.profiles')
+    ->onDelete('cascade');
+   $table->timestamps();
+   $table->softDeletes();
   });
  }
  public function down() {

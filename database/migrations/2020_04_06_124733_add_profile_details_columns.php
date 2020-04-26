@@ -12,10 +12,20 @@ class AddProfileDetailsColumns extends Migration {
    $table->string('name', 100)->nullable();
    $table->string('string', 255);
    $table->text('notes')->nullable();
+   $table->timestamps();
+   $table->softDeletes();
   });
   Schema::table('efflux_entourage.profiles', function (Blueprint $table) {
-   $table->foreignId('proxy_id')->nullable()->default(null)->references('id')->on('efflux_assets.proxies');
-   $table->foreignId('useragent_id')->nullable()->default(null)->references('id')->on('efflux_assets.useragents');
+   $table->foreignId('proxy_id')
+    ->nullable()
+    ->default(null)
+    ->references('id')
+    ->on('efflux_assets.proxies');
+   $table->foreignId('useragent_id')
+    ->nullable()
+    ->default(null)
+    ->references('id')
+    ->on('efflux_assets.useragents');
   });
  }
  public function down() {

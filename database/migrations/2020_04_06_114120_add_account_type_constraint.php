@@ -7,8 +7,12 @@ use Illuminate\Support\Facades\Schema;
 class AddAccountTypeConstraint extends Migration {
  public function up() {
   Schema::table('efflux_entourage.accounts', function (Blueprint $table) {
-   $table->foreignId('type_id')->constrained()->onDelete('cascade');
-   $table->foreignId('profile_id')->constrained()->onDelete('cascade');
+   $table->foreignId('type_id')
+    ->constrained()
+    ->onDelete('cascade');
+   $table->foreignId('profile_id')
+    ->constrained()
+    ->onDelete('cascade');
   });
  }
  public function down() {

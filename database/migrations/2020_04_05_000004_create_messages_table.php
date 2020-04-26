@@ -13,6 +13,7 @@ class CreateMessagesTable extends Migration {
    $table->string('email', 100);
    $table->text('message');
    $table->timestamps();
+   $table->softDeletes();
   });
  }
  public function down() {
