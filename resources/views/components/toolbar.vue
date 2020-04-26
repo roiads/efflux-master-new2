@@ -17,7 +17,7 @@
 <script>
 export default {
   name: "x-toolbar",
-  props: ["search", "buttons"],
+  props: [],
   data() {
     return {};
   }

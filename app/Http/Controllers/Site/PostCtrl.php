@@ -10,9 +10,16 @@ class PostCtrl extends Controller {
   $r = site_post::paginate(10);
   return response()->json($r);
  }
+<<<<<<< Updated upstream
  public function create() {
  }
  public function store(Request $R) {}
+=======
+ public function create() {}
+ public function store(Request $R) {
+  return 'test';
+ }
+>>>>>>> Stashed changes
  public function show(site_post $post) {
   return $post;
  }
