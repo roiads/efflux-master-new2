@@ -9,7 +9,7 @@
     <section class="content">
       <div class="container-fluid">
         <b-card-group v-if="!domain" deck>
-          <assets-domain-list :id="id"></assets-domain-list>
+          <assets-domain-list @setDomainID="setDomainID"></assets-domain-list>
         </b-card-group>
 
         <b-card-group v-if="domain" deck>
@@ -17,10 +17,8 @@
         </b-card-group>
 
         <b-modal v-show="addDomain">
-          <assets-domain-create :domain="domain">{{domain}}</assets-domain-create>
+          <assets-domain-create></assets-domain-create>
         </b-modal>
-
-        
       </div>
     </section>
   </div>
@@ -31,16 +29,15 @@ export default {
   props: ["domain"],
   data() {
     return {
-
       addDomain: false,
-      editDomain: false,
-
-
+      editDomain: false
     };
   },
-  methods:{
-
-  },
+  methods: {
+    setDomainID: function(id) {
+      this.domain_id = id;
+    }
+  }
 };
 </script>
 <style scoped>

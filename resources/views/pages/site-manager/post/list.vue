@@ -1,5 +1,7 @@
 <template>
   <div>
+
+    <b-button @click="this.$emit('myEvent')"></b-button>
     <b-table striped hover :items="posts"></b-table>
   </div>
 </template>
