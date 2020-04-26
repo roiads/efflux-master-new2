@@ -30,15 +30,12 @@
           >Posts {{topStats.creative}}</b-card>
         </b-card-group>
       </div>
-      <assets-domain-list></assets-domain-list>
-      <tracking-system1></tracking-system1>
     </section>
   </div>
 </template>
 <script>
 export default {
   name: "home-page",
-  components: {},
   data() {
     return {
       topStats: {
@@ -52,28 +49,17 @@ export default {
       }
     };
   },
-  mounted() {},
-  created() {
+  mounted() {
     axios
       .get("/api/assets/domain")
-      .then(({ data }) => (this.topStats.domain = data.total));
+      .then(({ data }) => (this.topStats.domain = data.length));
     axios
       .get("/api/entourage/account")
       .then(({ data }) => (this.topStats.account = data.total));
     axios
       .get("/api/site-manager/post")
-      .then(({ data }) => (this.topStats.creative = data.total));
+      .then(({ data }) => (this.topStats.creative = data.length));
   },
-  methods: {
-    domainOverview(id) {
-      this.$router.push("/api/assets/domains/" + id);
-    },
-    accountTypeOverview(id) {
-      this.$router.push("/api/entourage/type/" + id);
-    },
-    accountOverview(id) {
-      this.$router.push("/api/entourage/account/" + id);
-    }
-  }
+  methods: {}
 };
 </script>

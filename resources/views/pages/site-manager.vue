@@ -12,11 +12,25 @@
         <assets-domain-list @set-domain="setDomain"></assets-domain-list>
       </b-card-group>
       <assets-domain-show v-if="domain" :domain="domain" @create-post="createPost"></assets-domain-show>
+
       <b-modal id="createDomainForm">
         <assets-domain-create></assets-domain-create>
       </b-modal>
       <b-modal id="createPostForm">
         <site-manager-post-create></site-manager-post-create>
+      </b-modal>
+      <b-modal id="createPageForm">
+        <site-manager-page-create></site-manager-page-create>
+      </b-modal>
+
+      <b-modal id="editDomainForm">
+        <assets-domain-edit></assets-domain-edit>
+      </b-modal>
+      <b-modal id="editPostForm">
+        <site-manager-post-edit></site-manager-post-edit>
+      </b-modal>
+      <b-modal id="editPageForm">
+        <site-manager-page-edit></site-manager-page-edit>
       </b-modal>
     </section>
   </div>

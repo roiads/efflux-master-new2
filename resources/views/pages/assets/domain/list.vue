@@ -1,9 +1,9 @@
 <template>
   <b-container fluid>
-    <b-row cols="3">
-      <b-col v-for="domain in items.data" :key="domain.id">
+    <b-row cols="2">
+      <b-col v-for="domain in domains" :key="domain.id">
         <b-card no-body class="m-2 elevation-1">
-          <b-card-header header-bg-variant="info">
+          <b-card-header :header-bg-variant="statusColor(domain.status)">
             <h4>
               <span style="text-transform:uppercase;">{{ domain.name }}</span>
               <small>
@@ -127,7 +127,7 @@ export default {
   props: ["server"],
   data() {
     return {
-      items: {}
+      domains: {}
     };
   },
   mounted() {
@@ -139,8 +139,14 @@ export default {
     },
     getItems() {
       axios
-        .get(`/api/assets/domain?type=content&page=${this.items.current_page}`)
-        .then(({ data }) => (this.items = data));
+        .get(`/api/assets/domain?type=content`)
+        .then(({ data }) => (this.domains = data));
+    },
+    statusColor(status) {
+      if (status == 1) {
+        return "success";
+      }
+      return "warning";
     }
   }
 };
