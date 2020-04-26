@@ -100,7 +100,7 @@
               <b-button
                 text-variant="light"
                 variant="outline-secondary"
-                :to="'site-manager/'+domain.name+'/'"
+                @click="setDomain(domain.name)"
               >
                 <b-icon icon="display" class="mr-1"></b-icon>Content Editor
               </b-button>
@@ -134,6 +134,9 @@ export default {
     this.getItems();
   },
   methods: {
+    setDomain(id) {
+      this.$emit("set-domain", id);
+    },
     getItems() {
       axios
         .get(`/api/assets/domain?type=content&page=${this.items.current_page}`)

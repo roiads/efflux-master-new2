@@ -14,7 +14,7 @@ class site_post extends Model {
  protected $fillable   = ['title', 'status', 'body'];
  protected $hidden     = ['created_at', 'updated_at', 'deleted_at'];
  public function routes() {
-  return $this->hasMany(site_route::class);
+  return $this->hasMany(site_route::class, 'post_id', 'id');
  }
  public function tags() {
   return $this->belongsToMany(site_tag::class, 'efflux_site.post_tag', 'post_id', 'tag_id');

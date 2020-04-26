@@ -12,7 +12,7 @@ class site_page extends Model {
  protected $fillable   = ['title', 'body'];
  protected $hidden     = ['created_at', 'updated_at', 'deleted_at'];
  public function routes() {
-  return $this->hasMany(site_route::class);
+  return $this->hasMany(site_route::class, 'page_id', 'id');
  }
  public function image() {
   return $this->belongsTo(Image::class);

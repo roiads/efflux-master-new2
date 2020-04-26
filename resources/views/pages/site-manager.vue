@@ -2,40 +2,47 @@
   <div>
     <div class="content-header">
       <b-container fluid class="row">
-        <x-breadcrumb page="site-manager"></x-breadcrumb>
+        <x-breadcrumb page="site-manager" :view="domain"></x-breadcrumb>
         <x-toolbar></x-toolbar>
       </b-container>
     </div>
+
     <section class="content">
-      <div class="container-fluid">
-        <b-card-group v-if="!domain" deck>
-          <assets-domain-list @setDomainID="setDomainID"></assets-domain-list>
-        </b-card-group>
-
-        <b-card-group v-if="domain" deck>
-          <assets-domain-show :domain="domain">{{domain}}</assets-domain-show>
-        </b-card-group>
-
-        <b-modal v-show="addDomain">
-          <assets-domain-create></assets-domain-create>
-        </b-modal>
-      </div>
+      <b-card-group v-if="!domain" deck>
+        <assets-domain-list @set-domain="setDomain"></assets-domain-list>
+      </b-card-group>
+      <assets-domain-show v-if="domain" :domain="domain" @create-post="createPost"></assets-domain-show>
+      <b-modal id="createDomainForm">
+        <assets-domain-create></assets-domain-create>
+      </b-modal>
+      <b-modal id="createPostForm">
+        <site-manager-post-create></site-manager-post-create>
+      </b-modal>
     </section>
   </div>
 </template>
 <script>
 export default {
   name: "site-manager-page",
-  props: ["domain"],
+  props: ["domain", "post"],
   data() {
     return {
-      addDomain: false,
-      editDomain: false
+      createDomainForm: false,
+      editDomainForm: false,
+      createPostForm: false,
+      editPostForm: false,
+      domain: [],
+      posts: [],
+      pages: [],
+      tags: []
     };
   },
   methods: {
-    setDomainID: function(id) {
-      this.domain_id = id;
+    setDomain(domain) {
+      this.domain = domain;
+    },
+    createPost() {
+      this.$bvModal.show("createPostForm");
     }
   }
 };

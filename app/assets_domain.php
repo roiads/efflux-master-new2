@@ -12,7 +12,7 @@ class assets_domain extends Model {
  protected $table    = 'efflux_assets.domains';
  protected $fillable = ['name', 'path', 'repository'];
  public function routes() {
-  return $this->hasMany(site_route::class, 'domain_id');
+  return $this->hasMany(site_route::class, 'domain_id', 'id');
  }
  public function server() {
   return $this->belongsTo(assets_server::class);

@@ -6,7 +6,7 @@ use \App\assets_domain as x;
 
 class DomainCtrl extends Controller {
  public function index(Request $r) {
-  $Q = x::with('server')->where('status', '>', 0);
+  $Q = x::with('server', 'routes')->where('status', '>', 0);
   if ($r->type) {
    $Q = $Q->where('type', '=', $r->type);
   }
@@ -21,9 +21,9 @@ class DomainCtrl extends Controller {
   $Q = $Q->get();
   return response()->json($Q);
  }
- public function show(x $x, $id = null) {
-  $result = $x->where('name', '=', $id)->orWhere('id', '=', $id)->first();
-  return response()->json($result);
+ public function show($id) {
+  $result = x::with('server', 'routes')->where('id', '=', $id)->orWhere('name', '=', $id)->first();
+  return $result;
 
  }
  public function create() {

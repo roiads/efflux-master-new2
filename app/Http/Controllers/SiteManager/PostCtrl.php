@@ -6,12 +6,13 @@ use Illuminate\Http\Request;
 
 class PostCtrl extends Controller {
  public function index() {
-  $r = post::paginate(10);
+  $r = post::with('routes')->get();
   return response()->json($r);
  }
  public function create() {}
  public function store(Request $R) {}
- public function show(post $post) {
+ public function show($id) {
+  $post = post::with('routes')->find($id);
   return $post;
  }
  public function edit(Request $R, post $post) {}
