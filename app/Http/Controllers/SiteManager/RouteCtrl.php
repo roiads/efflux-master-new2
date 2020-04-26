@@ -1,21 +1,23 @@
 <?php
 namespace App\Http\Controllers\SiteManager;
 use App\Http\Controllers\Controller;
-use App\site_route;
 use Illuminate\Http\Request;
+use \App\Models\SiteManager\Route;
 
 class RouteCtrl extends Controller {
- public function __construct() {}
- public function index() {
-  $r = site_route::paginate(10);
-  return response()->json($r);
+ public function index(Request $R) {
+  return Route::with('post', 'page')->get();
  }
- public function create() {}
- public function store(Request $R) {}
- public function show(site_route $route) {
-  return $route;
+ public function show(Route $X) {
+  return $X;
  }
- public function edit(site_route $route) {}
- public function update(Request $R, site_route $route) {}
- public function destroy(site_route $route) {}
+ public function create() {
+  return 'CREATED Route';
+ }
+ public function update(Request $R, Route $X) {
+  return 'UPDATED Route';
+ }
+ public function destroy(Route $X) {
+  return 'DELETED Route';
+ }
 }

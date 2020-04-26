@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 
 class SitePivotsSeeder extends Seeder {
  public function run() {
-  DB::table('efflux_site.image_post')->insertOrIgnore([
+  DB::table('efflux_site.post_image')->insertOrIgnore([
    ['id' => 1, 'image_id' => 1, 'post_id' => 1, 'page_id' => NULL],
    ['id' => 2, 'image_id' => 2, 'post_id' => 2, 'page_id' => NULL],
    ['id' => 3, 'image_id' => 3, 'post_id' => 3, 'page_id' => NULL],

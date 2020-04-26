@@ -2,28 +2,26 @@
 namespace App\Http\Controllers\Assets;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use \App\assets_domain as domain;
+use \App\Models\Assets\Domain;
 
 class DomainCtrl extends Controller {
- public function index(Request $r) {
-  $Q = domain::with('server', 'routes');
-  if ($r->type) {
-   $Q = $Q->where('type', '=', $r->type);
+ public function index(Request $R) {
+  $Q = Domain::with('server', 'routes');
+  if ($R->type) {
+   $Q = $Q->where('type', '=', $R->type);
   }
-  $Q = $Q->get();
-  return $Q;
+  return $Q->get();
  }
- public function show($id) {
-  $result = domain::with('server', 'routes')
-   ->where('id', '=', $id)
-   ->orWhere('name', '=', $id)
-   ->first();
-  return $result;
-
+ public function show(Domain $X) {
+  return $X->with('server', 'routes');
  }
  public function create() {
-  return view('pages.v');
+  return 'CREATED Domain';
  }
- public function update(Request $R, x $x) {}
- public function destroy(x $x) {}
+ public function update(Request $R, Domain $X) {
+  return 'UPDATED Domain';
+ }
+ public function destroy(Domain $X) {
+  return 'DELETED Domain';
+ }
 }

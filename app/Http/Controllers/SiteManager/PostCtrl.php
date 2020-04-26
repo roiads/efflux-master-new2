@@ -1,34 +1,33 @@
 <?php
 namespace App\Http\Controllers\SiteManager;
 use App\Http\Controllers\Controller;
-use App\site_post as post;
 use Illuminate\Http\Request;
+use \App\Models\SiteManager\Post;
 
 class PostCtrl extends Controller {
- public function index() {
-  $r = post::with('routes')->get();
-  return response()->json($r);
+ public function index(Request $R) {
+  $X = Post::with('domain', 'routes', 'image', 'images', 'tags');
+  if ($R->status) {
+   $X = $X->where('status', $R->status);
+  }
+  return $X->get();
  }
- public function create() {}
- public function store(Request $R) {}
  public function show($id) {
-  $post = post::with('routes')->find($id);
-  return $post;
+  $X = Post::with('domain', 'routes', 'image', 'images', 'tags')->where('id', $id)->first();
+  return $X;
  }
- public function edit(Request $R, post $post) {}
- public function updateMetadata(Request $R, post $post) {
-  $post->title       = $R->title;
-  $post->description = $R->description;
-  $post->excerpt     = $R->excerpt;
-  $result            = $post->save();
-  $status            = $result ? 200 : 400;
-  return Response()->json(['success' => $result], $status);
+ public function create() {
+  return 'CREATED Post';
  }
- public function update(Request $R, post $post) {
-  $post->body = $R->body;
-  $result     = $post->save();
-  $status     = $result ? 200 : 400;
-  return Response()->json(['success' => $result], $status);
+ public function update(Request $R, Post $X) {
+  $X->title       = $R->title;
+  $X->description = $R->description;
+  $X->excerpt     = $R->excerpt;
+
+  $X = $X->save();
+  return $X;
  }
- public function destroy(post $post) {}
+ public function destroy(Post $X) {
+  return 'DELETED Post';
+ }
 }

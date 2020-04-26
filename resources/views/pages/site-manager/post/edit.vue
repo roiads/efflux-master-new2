@@ -40,6 +40,7 @@
       </b-form-group>
       <label>Body:</label>
       <div id="editor"></div>
+      <b-button class="btn-block btn-lg" type="submit" variant="primary">Submit</b-button>
     </b-form>
   </div>
 </template>
@@ -54,7 +55,7 @@ export default {
   methods: {
     onSubmit(evt) {
       axios
-        .post(`/api/site-manager/post/${this.post.id}`)
+        .post(`/api/site-manager/post/`)
         .then(({ data }) => (this.post = data));
     },
     getPost() {
@@ -64,7 +65,9 @@ export default {
     }
   },
   mounted() {
-    this.getPost();
+    if (!this.post.id) {
+      this.getPost();
+    }
     ClassicEditor.create(document.querySelector("#editor"))
       .then(editor => {
         console.log(editor);
