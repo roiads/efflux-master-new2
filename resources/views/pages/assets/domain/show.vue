@@ -7,17 +7,30 @@
             <b-tabs pills card>
               <b-tab title="Posts" active>
                 <b-card-text>
-                  <div class="pull-right">
+                  <div style="float:right;">
                     <b-button :to="{ path: '/addpost/sevenbars.com/'}">Add Post</b-button>
                   </div>
                   <div class="clearfix"></div>
-                    <div class="divide20"></div>
-                    
-                   <b-table striped hover :items="itemspost">
-                   <template v-slot:cell(actions)="data">
-                      <span v-html="data.value"></span>
-                    </template>
-                   </b-table>
+                  <div class="divide20"></div>
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Post ID</th>
+                          <th>Title</th>
+                          <th>URL</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr  v-for="post in posts.data" :key="post.id">
+                          <th>{{ post.id }}</th>
+                          <td>{{ post.title }}</td>
+                          <td><a :href="'https://' + domain" target="_blank">{{domain}}</a></td>
+                          <td><a :href="'/editpost/' + post.id"><i class="fa fa-pencil"></i> Edit</a></td>
+                       </tr>
+                      </tbody>
+                    </table>
+                  
                 </b-card-text>
 
               </b-tab>
@@ -39,7 +52,6 @@
           </b-card>
         </div>
 
-        <b-table :items="domain"></b-table>
       </div>
     </div>
   </div>
@@ -50,12 +62,8 @@ export default {
   props: ["domain"],
   data() {
     return {
-      itemspost: [
-          { post_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', post_url: 'https://sevenbars.com/weight-loss-guide', actions: '<a href="/editpost/1">Edit</a>' },          
-          { post_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', post_url: 'https://sevenbars.com/weight-loss-guide', actions: '<a href="/editpost/1">Edit</a>' },          
-          { post_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', post_url: 'https://sevenbars.com/weight-loss-guide', actions: '<a href="/editpost/1">Edit</a>' },          
-          { post_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', post_url: 'https://sevenbars.com/weight-loss-guide', actions: '<a href="/editpost/1">Edit</a>' },          
-        ],
+      posts: [],
+    
         itemspages: [
           { page_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', page_url: 'https://sevenbars.com/weight-loss-guide', actions: '<a href="/editpost/1">Edit</a>' },          
           { page_title: 'Weight Loss Is Hard | The No Nonsense Guide To Seeing Results', page_url: 'https://sevenbars.com/weight-loss-guide', actions: '<a href="/editpost/1">Edit</a>' },          
@@ -66,13 +74,15 @@ export default {
   },
   computed: {},
   methods: {
-    getItem() {
+    getPosts() {
       axios
-        .get(`/api/assets/domain/${this.domain}`)
-        .then(({ data }) => (this.item = data));
+        .get(`/api/site-manager/post`)
+        .then(({ data }) => ( this.posts = data ));
     }
   },
-  mounted() {},
+  mounted() {
+    this.getPosts();
+  },
   created() {}
 };
 </script>
