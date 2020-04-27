@@ -13,6 +13,6 @@ class Models extends Model {
  public $hidden     = ['created_at', 'updated_at', 'deleted_at'];
 
  public function Table($table) {
-  return $this->table = config('app.name') . '_' . $table;
+  return $this->table = 'efflux_' . $table;
  }
 }

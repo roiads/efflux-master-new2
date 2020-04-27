@@ -13,10 +13,13 @@ class DomainCtrl extends Controller {
   return $Q->get();
  }
  public function show($id) {
-  return Domain::with('server', 'routes', 'posts', 'pages', 'tags', 'images')->where('id', $id)->orWhere('name', $id)->first();
+  return Domain::with('server', 'routes', 'posts', 'pages', 'tags', 'images')
+  ->where('id', $id)
+  ->orWhere('name', $id)
+  ->first();
  }
  public function create() {
-  return 'CREATED Domain';
+  return '<assets-domain-create></assets-domain-create>';
  }
  public function update(Request $R, Domain $X) {
   return 'UPDATED Domain';

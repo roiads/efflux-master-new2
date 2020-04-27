@@ -1,7 +1,7 @@
 <template>
   <b-card :header="domain.name" no-body>
     <b-tabs pills>
-      <b-tab title="Posts" active @click="$emit('load-modal','site-post-create')">
+      <b-tab title="Posts" active>
         <site-post-list :posts="domain.posts"></site-post-list>
       </b-tab>
       <b-tab title="Pages">
@@ -16,15 +16,23 @@
 <script>
 export default {
   name: "assets-domain-show",
-  props: ["domain"],
+  props: ["id"],
   data() {
     return {
-      posts: []
+      domain: {}
     };
   },
-  mounted() {},
+  mounted() {
+    this.getDomain();
+  },
   computed: {},
-  methods: {}
+  methods: {
+    getDomain() {
+      axios
+        .get(`/api/assets/domain/${this.id}`)
+        .then(({ data }) => (this.domain = data));
+    }
+  }
 };
 </script>
 <style scoped>

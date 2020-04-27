@@ -1,8 +1,11 @@
 <template>
   <b-card header="Domain Names" no-body>
     <b-table
-      responsive="sm"
+      responsive
       selectable
+      select-mode="single"
+      striped
+      hover
       :items="items"
       :fields="fields"
       :tbody-tr-class="rowClass"
