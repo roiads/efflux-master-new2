@@ -19,7 +19,7 @@ let routes = [{
     props: true
   },
   {
-    path: '/tracker',
+    path: '/tracker/:resource?/:id?',
     component: require('../views/pages/tracker').default,
     props: true
   }

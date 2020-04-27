@@ -1,5 +1,5 @@
 <template>
-  <b-card header="Domain Names" no-body>
+  <b-card no-body>
     <b-table
       responsive
       selectable
@@ -42,8 +42,9 @@ export default {
       this.domain = domain;
     },
     rowClass(item, type) {
-      if (!item || type !== "row") return;
+      if (!item || type !== "row") return "table-warning";
       if (item.status === 1) return "table-success";
+      if (item.status == -1) return "table-gray";
     }
   }
 };
