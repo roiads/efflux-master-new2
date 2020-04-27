@@ -42,7 +42,7 @@
 
 <script>
 export default {
-  name: "accounts-profile-create",
+  name: "entourage-profile-create",
   data() {
     return {
       form: {

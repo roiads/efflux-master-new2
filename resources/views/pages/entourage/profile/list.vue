@@ -84,19 +84,23 @@
     <!-- Main table element -->
     <b-card no-body>
       <b-table
+        responsive
+        selectable
+        select-mode="single"
+        striped
+        hover
         show-empty
-        small
-        stacked="md"
-        :items="profiles.data"
+        :items="profiles"
         :fields="fields"
         :current-page="currentPage"
-        :per-page="perPage"
         :filter="filter"
         :filterIncludedFields="filterOn"
         :sort-by.sync="sortBy"
         :sort-desc.sync="sortDesc"
         :sort-direction="sortDirection"
         @filtered="onFiltered"
+        @row-selected="$emit('set-profile', $event)"
+        primary-key="id"
       >
         <template v-slot:cell(actions)="row">
           <b-button
@@ -116,7 +120,6 @@
           </b-card>
         </template>
       </b-table>
-      <x-pagination :pagination="profiles" @paginate="getProfiles()"></x-pagination>
     </b-card>
   </b-container>
 </template>
@@ -126,7 +129,7 @@ export default {
   name: "entourage-profile-list",
   data() {
     return {
-      profiles: {},
+      profiles: [],
       fields: [
         {
           key: "id",
@@ -175,7 +178,7 @@ export default {
   },
   mounted() {
     this.getProfiles();
-    this.totalRows = this.data.length;
+    this.totalRows = this.profiles.length;
   },
   methods: {
     info(item, index, button) {

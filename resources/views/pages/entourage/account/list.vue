@@ -1,10 +1,24 @@
 <template>
   <div>
-    <b-card no-body header="Accounts" class="mb-2 p-0">
-      <b-list-group v-for="account in items.data" :key="account.id" id="account-list">
-        <b-list-group-item :to="'/accounts/account/'+account.id" v-html="account.username"></b-list-group-item>
-      </b-list-group>
-      <vue-pagination :pagination="items" @paginate="getAccounts()"></vue-pagination>
+    <b-card no-body>
+      <b-table
+        responsive
+        selectable
+        select-mode="single"
+        striped
+        hover
+        show-empty
+        :items="accounts"
+        :fields="fields"
+        :current-page="currentPage"
+        :filter="filter"
+        :filterIncludedFields="filterOn"
+        :sort-by.sync="sortBy"
+        :sort-desc.sync="sortDesc"
+        :sort-direction="sortDirection"
+        @row-selected="$emit('set-account', $event)"
+        primary-key="id"
+      ></b-table>
     </b-card>
   </div>
 </template>
@@ -13,27 +27,23 @@
 
 <script>
 export default {
-  name: "accounts-account-list",
+  name: "entourage-account-list",
   mounted() {
     this.getAccounts();
   },
+  props: ["id"],
   data() {
     return {
-      perPage: 10,
-      currentPage: 1,
-      items: {}
+      accounts: {}
     };
   },
   methods: {
     getAccounts() {
       axios
-        .get(`/api/entourage/account?page=${this.items.current_page}`)
-        .then(({ data }) => (this.items = data));
-    }
-  },
-  computed: {
-    rows() {
-      return this.items.length;
+        .get(
+          `/api/entourage/account?profile_id=${this.id}&page=${this.accounts.current_page}`
+        )
+        .then(({ data }) => (this.accounts = data));
     }
   }
 };

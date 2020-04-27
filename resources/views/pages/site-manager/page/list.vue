@@ -1,31 +1,28 @@
 <template>
-  <div>
-    <b-dropdown :id="name" text="Account Types" class="m-md-2">
-      <b-dropdown-item :key="type.id" v-for="type in items.data">{{type.name}}</b-dropdown-item>
-    </b-dropdown>
-  </div>
+  <b-card header="Pages" no-body>
+    <b-table striped hover :items="pages" :fields="['title','image','routes']"></b-table>
+  </b-card>
 </template>
 <script>
 export default {
-  name: "accounts-type-list",
-  mounted() {
-    this.getItems();
-  },
-  methods: {
-    getItems() {
-      axios
-        .get(`/accounts/type?page=${this.items.current_page}`)
-        .then(({ data }) => (this.items = data));
-    }
-  },
+  name: "site-page-list",
+  props: ["domain"],
   data() {
     return {
-      perPage: 10,
-      currentPage: 1,
-      items: {}
+      pages: []
     };
+  },
+  mounted() {
+    this.getPosts();
+  },
+  methods: {
+    getPosts() {
+      axios
+        .get(`/api/site-manager/page?page=${this.pages.current_page}`)
+        .then(({ data }) => (this.pages = data));
+    }
   }
 };
 </script>
-<style>
+<style scoped>
 </style>

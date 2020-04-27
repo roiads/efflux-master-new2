@@ -75,7 +75,7 @@
 
 <script>
 export default {
-  name: "site-manager-post-create",
+  name: "site-post-create",
   props: ["domain"],
   data() {
     return {

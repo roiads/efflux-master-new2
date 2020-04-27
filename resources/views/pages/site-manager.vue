@@ -1,39 +1,65 @@
 <template>
-  <div>
-    <div class="content-header">
-      <b-container fluid class="row">
-        <x-breadcrumb page="site-manager" :view="domain"></x-breadcrumb>
-        <x-toolbar></x-toolbar>
-      </b-container>
+  <div class="container-fluid">
+    <!-- HEADER -->
+    <div class="page-header">
+      <div class="row">
+        <x-breadcrumb page="site-manager" :name="domain.name"></x-breadcrumb>
+        <!-- TOOLBAR -->
+        <b-btn-toolbar size="sm" class="m-2">
+          <b-btn size="sm" class="m-1" @click="createDomain" variant="success">New</b-btn>
+          <template v-if="domain.id">
+            <b-btn size="sm" class="m-1" @click="editDomain">Edit</b-btn>
+            <b-btn size="sm" class="m-1" @click="closeDomain" variant="danger">Close</b-btn>
+          </template>
+        </b-btn-toolbar>
+        <!-- END TOOLBAR -->
+      </div>
+      <h1>{{domainName}}</h1>
     </div>
-
+    <!-- END HEADER -->
     <section class="content">
-      <b-card-group v-if="!domain" deck>
-        <assets-domain-list @set-domain="setDomain"></assets-domain-list>
-      </b-card-group>
-      <assets-domain-show v-if="domain" :domain="domain" @create-post="createPost"></assets-domain-show>
+      <assets-domain-list v-if="!domain.id" @set-domain="setDomain"></assets-domain-list>
+      <assets-domain-show v-if="domain.id" :id="domain.id"></assets-domain-show>
+      <!-- MODALS -->
+      <b-modal no-stacking id="assets-domain-edit" size="lg" :title="'Edit '+domain.name">
+        <assets-domain-edit :id="domain.id"></assets-domain-edit>
+      </b-modal>
+      <b-modal no-stacking id="assets-domain-create" size="lg" title="New Domain">
+        <assets-domain-create></assets-domain-create>
+      </b-modal>
+      <!-- END MODALS -->
     </section>
   </div>
 </template>
 <script>
 export default {
-  name: "site-manager-page",
-  props: ["domain", "post"],
+  name: "site-manager",
   data() {
     return {
-      createDomainForm: false,
-      editDomainForm: false,
-      createPostForm: false,
-      editPostForm: false,
-      domain: [],
-      posts: [],
-      pages: [],
-      tags: []
+      domain: {},
+      domains: []
     };
   },
+  computed: {
+    domainName() {
+      return this.domain.name ?? "Domain Names";
+    }
+  },
   methods: {
+    loadModal(modal) {
+      this.modal = modal;
+    },
     setDomain(domain) {
-      this.domain = domain;
+      this.domain = domain[0] ?? domain;
+    },
+    editDomain() {
+      this.$bvModal.show("assets-domain-edit");
+    },
+    createDomain() {
+      this.$bvModal.show("assets-domain-create");
+    },
+    closeDomain() {
+      this.domain = "";
     }
   }
 };

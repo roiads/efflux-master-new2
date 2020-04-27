@@ -1,24 +1,37 @@
 <template>
   <div>
-    <b-form>EDIT DOMAIN FORM</b-form>
+    <b-form></b-form>
   </div>
 </template>
 <script>
+import { required, minLength, between } from "vuelidate/lib/validators";
 export default {
   name: "assets-domain-edit",
-  props: ["domain"],
+  props: ["id"],
   data() {
-    return {};
+    return {
+      submitStatus: null,
+      domain: {}
+    };
   },
   mounted() {
-    if (!this.domain.id) {
-      this.getDomain(this.domain);
+    this.getDomain();
+  },
+  validations: {
+    domain: {
+      name: {
+        required,
+        minLength: minLength(4)
+      }
+    },
+    age: {
+      between: between(20, 30)
     }
   },
   methods: {
-    getDomain(domain) {
+    getDomain() {
       axios
-        .get(`/api/assets/domain/${domain}`)
+        .get(`/api/assets/domain/${this.id}`)
         .then(({ data }) => (this.domain = data));
     }
   }

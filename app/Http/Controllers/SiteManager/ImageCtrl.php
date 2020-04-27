@@ -13,20 +13,20 @@ class ImageCtrl extends Controller {
   $images = $images->get();
   return $images;
  }
- public function show(Image $X) {
-  return $X->with('posts', 'pages', 'domains');
+ public function show(Image $Image) {
+  return $Image->with('posts', 'pages', 'domains');
  }
  public function create() {
   return 'CREATED Image';
  }
- public function update(Request $R, Image $X) {
-  $X->title = $R->title;
-  $X->alt   = $R->alt;
-  $X->path  = $R->path;
-  $X        = $X->save();
-  return $X;
+ public function update(Request $R, Image $Image) {
+  $Image->title = $R->title;
+  $Image->alt   = $R->alt;
+  $Image->path  = $R->path;
+  $Image        = $Image->save();
+  return $Image;
  }
- public function destroy(Image $X) {
+ public function destroy(Image $Image) {
   return 'DELETED Image';
  }
 }

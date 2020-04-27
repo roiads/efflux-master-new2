@@ -1,161 +1,51 @@
 <template>
-  <b-container fluid>
-    <b-row cols="2">
-      <b-col v-for="domain in domains" :key="domain.id">
-        <b-card no-body class="m-2 elevation-1">
-          <b-card-header :header-bg-variant="statusColor(domain.status)">
-            <h4>
-              <span style="text-transform:uppercase;">{{ domain.name }}</span>
-              <small>
-                <small class="text-muted">
-                  CPU:
-                  <span class="text-dark">{{ domain.server.sys_cpus }}</span> -
-                  SSD:
-                  <span class="text-dark">{{ domain.server.sys_harddrive }}</span> -
-                  RAM:
-                  <span class="text-dark">{{ domain.server.sys_memory }}</span>
-                </small>
-              </small>
-            </h4>
-          </b-card-header>
-          <b-card-body>
-            <b-form>
-              <b-row>
-                <b-col>
-                  <label for="input-none">SSH:</label>
-                </b-col>
-                <b-col cols="4">
-                  <b-form-input v-model="domain.server.user" placeholder="User"></b-form-input>
-                </b-col>
-                <b-col cols="6">
-                  <b-input-group>
-                    <b-form-input
-                      type="password"
-                      v-model="domain.server.sudo_pass"
-                      placeholder="Sudo Pass"
-                    ></b-form-input>
-                    <b-input-group-append>
-                      <b-button size="sm" text="Button" variant="outline-primary ">
-                        <b-icon icon="eye-fill"></b-icon>
-                      </b-button>
-                    </b-input-group-append>
-                  </b-input-group>
-                </b-col>
-              </b-row>
-              <b-row class="mt-2">
-                <b-col>
-                  <label for="input-none">DB:</label>
-                </b-col>
-                <b-col cols="4">
-                  <b-form-input v-model="domain.server.db_user" placeholder="DB User"></b-form-input>
-                </b-col>
-                <b-col cols="6">
-                  <b-input-group>
-                    <b-form-input
-                      type="password"
-                      v-model="domain.server.db_pass"
-                      placeholder="DB Pass"
-                    ></b-form-input>
-                    <b-input-group-append>
-                      <b-button size="sm" text="Button" variant="outline-primary">
-                        <b-icon icon="eye-fill"></b-icon>
-                      </b-button>
-                    </b-input-group-append>
-                  </b-input-group>
-                </b-col>
-              </b-row>
-
-              <b-row class="mt-2">
-                <b-col sm="3">
-                  <label for="input-none">Repository:</label>
-                </b-col>
-                <b-col sm="9">
-                  <b-input-group>
-                    <b-form-input
-                      v-model="domain.repository"
-                      id="input-none"
-                      :state="null"
-                      placeholder="Repository"
-                    ></b-form-input>
-                    <b-input-group-append>
-                      <b-button size="sm" text="Button" variant="outline-primary">
-                        <b-icon icon="box-arrow-in-up-right"></b-icon>
-                      </b-button>
-                    </b-input-group-append>
-                  </b-input-group>
-                </b-col>
-              </b-row>
-            </b-form>
-          </b-card-body>
-
-          <b-card-footer no-padding>
-            <b-button-group size="sm" justify>
-              <b-button
-                variant="outline-primary"
-                :href="'https://'+ domain.name +'/'"
-                target="_blank"
-              >
-                <b-icon icon="display" class="mr-1"></b-icon>View
-              </b-button>
-              <b-button
-                text-variant="light"
-                variant="outline-secondary"
-                @click="setDomain(domain.name)"
-              >
-                <b-icon icon="display" class="mr-1"></b-icon>Content Editor
-              </b-button>
-              <b-button
-                variant="outline-success"
-                :href="'https://status.'+ domain.name +'/'"
-                target="_blank"
-              >
-                <b-icon icon="pie-chart-fill" class="mr-1"></b-icon>Performance
-              </b-button>
-              <b-button variant="outline-danger" href="#">
-                <b-icon icon="exclamation-circle-fill" class="mr-1"></b-icon>Alerts
-              </b-button>
-            </b-button-group>
-          </b-card-footer>
-        </b-card>
-      </b-col>
-    </b-row>
-    <b-modal id="createDomainForm">
-      <assets-domain-create></assets-domain-create>
-    </b-modal>
-    <b-modal id="editDomainForm">
-      <assets-domain-edit></assets-domain-edit>
-    </b-modal>
-  </b-container>
+  <b-card no-body>
+    <b-table
+      responsive
+      selectable
+      select-mode="single"
+      striped
+      hover
+      :items="items"
+      :fields="fields"
+      :tbody-tr-class="rowClass"
+      @row-selected="$emit('set-domain', $event)"
+      primary-key="id"
+    ></b-table>
+  </b-card>
 </template>
+
 <script>
 export default {
   name: "assets-domain-list",
-  props: ["server"],
+  props: ["domain"],
   data() {
     return {
-      domains: {}
+      fields: [
+        { key: "id", label: "Domain Name" },
+        "id",
+        "type",
+        { key: "name", label: "Domain Name" },
+        "repository"
+      ],
+      items: []
     };
   },
   mounted() {
-    this.getItems();
+    this.getDomainList();
   },
   methods: {
-    setDomain(id) {
-      this.$emit("set-domain", id);
+    getDomainList() {
+      axios.get(`/api/assets/domain`).then(({ data }) => (this.items = data));
     },
-    getItems() {
-      axios
-        .get(`/api/assets/domain?type=content`)
-        .then(({ data }) => (this.domains = data));
+    setDomain(domain) {
+      this.domain = domain;
     },
-    statusColor(status) {
-      if (status == 1) {
-        return "success";
-      }
-      return "warning";
+    rowClass(item, type) {
+      if (!item || type !== "row") return "table-warning";
+      if (item.status === 1) return "table-success";
+      if (item.status == -1) return "table-gray";
     }
   }
 };
 </script>
-<style>
-</style>

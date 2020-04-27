@@ -1,5 +1,5 @@
 <template>
-  <b-breadcrumb class="col">
+  <b-breadcrumb>
     <b-breadcrumb-item to="/">
       <b-icon icon="house-fill" scale="1.25" shift-v="1.75" aria-hidden="true"></b-icon>Home
     </b-breadcrumb-item>
@@ -18,6 +18,9 @@ export default {
 };
 </script>
 <style scoped>
+ol.breadcrumb {
+  margin: 10px;
+}
 li.breadcrumb-item {
   text-transform: capitalize;
 }

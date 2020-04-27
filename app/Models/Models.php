@@ -10,9 +10,9 @@ class Models extends Model {
  use FormAccessible, SoftDeletes;
  public $timestamps = true;
  public $guarded    = [];
- public $hidden     = ['status', 'created_at', 'updated_at', 'deleted_at'];
+ public $hidden     = ['created_at', 'updated_at', 'deleted_at'];
 
  public function Table($table) {
-  return $this->table = config('app.name') . '_' . $table;
+  return $this->table = 'efflux_' . $table;
  }
 }
