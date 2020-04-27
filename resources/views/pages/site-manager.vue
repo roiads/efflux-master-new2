@@ -5,11 +5,20 @@
       <div class="row">
         <x-breadcrumb page="site-manager" :name="domain.name"></x-breadcrumb>
         <!-- TOOLBAR -->
-        <b-btn-toolbar size="sm" class="m-2">
-          <b-btn size="sm" class="m-1" @click="createDomain" variant="success">New</b-btn>
+        <b-btn-toolbar class="py-2">
+          <b-btn size="sm" class="m-1" @click="createDomain" variant="success">New Domain</b-btn>
           <template v-if="domain.id">
-            <b-btn size="sm" class="m-1" @click="editDomain">Edit</b-btn>
-            <b-btn size="sm" class="m-1" @click="closeDomain" variant="danger">Close</b-btn>
+            <b-btn-group size="sm" class="site-manager-toolbar p-2">
+              <b-btn @click="createPost">+ Post</b-btn>
+              <b-btn @click="createPage">+ Page</b-btn>
+              <b-btn @click="createImage">+ Image</b-btn>
+              <b-btn @click="createImage">+ Route</b-btn>
+              <b-btn @click="createTag">+ Tag</b-btn>
+            </b-btn-group>
+            <b-btn-group>
+              <b-btn size="sm" class="m-1" @click="editDomain">Edit</b-btn>
+              <b-btn size="sm" class="m-1" @click="closeDomain" variant="danger">Close</b-btn>
+            </b-btn-group>
           </template>
         </b-btn-toolbar>
         <!-- END TOOLBAR -->
@@ -46,9 +55,6 @@ export default {
     }
   },
   methods: {
-    loadModal(modal) {
-      this.modal = modal;
-    },
     setDomain(domain) {
       this.domain = domain[0] ?? domain;
     },
