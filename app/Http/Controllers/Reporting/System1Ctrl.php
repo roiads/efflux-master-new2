@@ -43,13 +43,13 @@ class System1Ctrl extends Controller {
     'date'            => $report[$i][0],
     'campaign_domain' => $report[$i][1],
     'subid'           => $report[$i][2],
-    'mobile'          => $report[$i][3],
-    'mobile_unique'   => $report[$i][7],
-    'desktop'         => $report[$i][4],
-    'desktop_unique'  => $report[$i][8],
-    'searches'        => $report[$i][10],
-    'clicks'          => $report[$i][11],
-    'revenue'         => $report[$i][12],
+    'mobile'          => $report[$i][4],
+    'mobile_unique'   => $report[$i][8],
+    'desktop'         => $report[$i][5],
+    'desktop_unique'  => $report[$i][9],
+    'searches'        => $report[$i][11],
+    'clicks'          => $report[$i][12],
+    'revenue'         => $report[$i][13],
    ]
    );
   }
