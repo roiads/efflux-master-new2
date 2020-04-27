@@ -4,6 +4,14 @@ let routes = [{
     props: true
   },
   {
+    path: '/home/',
+    redirect: '/'
+  },
+  {
+    path: '/dashboard',
+    redirect: '/'
+  },
+  {
     path: '/users',
     component: require('../views/pages/users').default,
     props: true
