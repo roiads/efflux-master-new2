@@ -2,7 +2,7 @@
   <b-card :header="profile.firstname+' ' +profile.lastname" no-body>
     <b-tabs pills>
       <b-tab title="Accounts" active>
-        <entourage-account-list :id="profile.id"></entourage-account-list>
+        <entourage-account-list :id="id"></entourage-account-list>
       </b-tab>
       <b-tab title="History">
         <!-- <entourage-profile-list :pages="profile.pages"></site-page-list> -->

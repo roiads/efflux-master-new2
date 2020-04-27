@@ -2,8 +2,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Users\User;
 use App\Providers\RouteServiceProvider;
-use App\user;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -23,8 +23,11 @@ class RegisterController extends Controller {
   ]);
  }
  protected function create(array $data) {
-  list($firstname, $lastname) = @explode(' ', $data['name'], 2);
-  return user::forceCreate([
+
+  $name      = explode(' ', $data['name'], 2);
+  $firstname = $name[0] ?? '';
+  $lastname  = $name[1] ?? '';
+  return User::forceCreate([
    'firstname' => $firstname,
    'lastname'  => $lastname,
    'email'     => $data['email'],

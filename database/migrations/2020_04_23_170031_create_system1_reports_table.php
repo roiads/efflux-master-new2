@@ -6,21 +6,24 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateSystem1ReportsTable extends Migration {
  public function up() {
-  Schema::create('efflux_track.api_system1', function (Blueprint $t) {
+  Schema::create('efflux_report.api_system1', function (Blueprint $t) {
    $t->id();
    $t->date('date');
-   $t->integer('campaign_domain')->default(0);
+   $t->string('campaign_domain', 100);
+   $t->string('subid', 100);
    $t->integer('mobile')->default(0);
    $t->integer('mobile_unique')->default(0);
    $t->integer('desktop')->default(0);
    $t->integer('desktop_unique')->default(0);
    $t->integer('searches')->default(0);
    $t->integer('clicks')->default(0);
-   $t->decimal('revenue', 10, 2);
-   $t->unique('date', 'campaign_domain');
+   $t->decimal('revenue', 10, 2)->default(0.0);
+   $t->unique(['date', 'campaign_domain', 'subid']);
+   $t->softDeletes();
+   $t->timestamps();
   });
  }
  public function down() {
-  Schema::dropIfExists('efflux_track.api_system1');
+  Schema::dropIfExists('efflux_report.api_system1');
  }
 }
