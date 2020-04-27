@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: "tracking-system1",
+  name: "reporting-system1",
   props: ["items"],
   data() {
     return {

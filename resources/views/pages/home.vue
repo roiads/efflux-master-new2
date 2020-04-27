@@ -29,6 +29,8 @@
             class="m-2 elevation-2"
           >Posts {{topStats.creative}}</b-card>
         </b-card-group>
+
+        <reporting-system1></reporting-system1>
       </div>
     </section>
   </div>

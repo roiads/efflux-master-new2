@@ -61,6 +61,9 @@ export default {
     editProfile() {
       this.$bvModal.show("entourage-profile-edit");
     },
+    createAccount() {
+      this.$bvModal.show("entourage-account-create");
+    },
     createProfile() {
       this.$bvModal.show("entourage-profile-create");
     },

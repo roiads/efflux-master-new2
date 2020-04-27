@@ -9,7 +9,7 @@ class CreateUsersTable extends Migration {
   Schema::create('efflux_users.users', function (Blueprint $table) {
    $table->id();
    $table->tinyInteger('status')->default(1);
-   $table->string('username', 100)->unique();
+   $table->string('username', 100)->nullable()->default(NULL)->unique();
    $table->string('password');
    $table->string('api_token', 80)->nullable();
    $table->string('firstname', 100)->nullable();
