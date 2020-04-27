@@ -1,37 +1,36 @@
 <template>
-  <div>
-    <div class="content-header">
-      <b-container fluid class="row">
-        <x-breadcrumb page="site-manager" :view="domain"></x-breadcrumb>
-        <x-toolbar></x-toolbar>
-      </b-container>
-    </div>
+  <section class="content">
+    <h1>Domain Names</h1>
+    <template v-if="domain">
+      <assets-domain-show :domain="domain" @load-modal="loadModal"></assets-domain-show>
+    </template>
 
-    <section class="content">
-      <b-card-group v-if="!domain" deck>
-        <assets-domain-list @set-domain="setDomain"></assets-domain-list>
-      </b-card-group>
-      <assets-domain-show v-if="domain" :domain="domain" @create-post="createPost"></assets-domain-show>
-    </section>
-  </div>
+    <assets-domain-list v-else @set-domain="setDomain"></assets-domain-list>
+
+    <b-modal v-show="modal" id="mdl">
+      <component v-bind:is="currentTabComponent"></component>
+    </b-modal>
+  </section>
 </template>
 <script>
 export default {
-  name: "site-manager-page",
-  props: ["domain", "post"],
+  name: "SiteManager",
+  props: ["domain"],
   data() {
     return {
-      createDomainForm: false,
-      editDomainForm: false,
-      createPostForm: false,
-      editPostForm: false,
-      domain: [],
-      posts: [],
-      pages: [],
-      tags: []
+      modal: false,
+      domains: []
     };
   },
+  computed: {
+    currentTabComponent() {
+      return this.modal;
+    }
+  },
   methods: {
+    loadModal(modal) {
+      this.modal = modal;
+    },
     setDomain(domain) {
       this.domain = domain;
     }

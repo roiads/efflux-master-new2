@@ -1,12 +1,11 @@
 <template>
-  <div>
-    <b-button @click="this.$emit('myEvent')">TEST</b-button>
-    <b-table striped hover :items="posts"></b-table>
-  </div>
+  <b-card header="Posts" no-body>
+    <b-table striped hover :items="posts" :fields="['title','image','routes']"></b-table>
+  </b-card>
 </template>
 <script>
 export default {
-  name: "site-manager-post-list",
+  name: "site-post-list",
   props: ["domain"],
   data() {
     return {

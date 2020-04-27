@@ -6,7 +6,7 @@ use \App\Models\Assets\Domain;
 
 class DomainCtrl extends Controller {
  public function index(Request $R) {
-  $Q = Domain::with('server', 'routes', 'posts', 'pages', 'tags', 'images');
+  $Q = Domain::with('server', 'routes', 'tags');
   if ($R->type) {
    $Q = $Q->where('type', '=', $R->type);
   }
