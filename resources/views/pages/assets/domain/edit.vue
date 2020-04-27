@@ -4,6 +4,7 @@
   </div>
 </template>
 <script>
+import { required, minLength, between } from "vuelidate/lib/validators";
 export default {
   name: "assets-domain-edit",
   props: ["id"],

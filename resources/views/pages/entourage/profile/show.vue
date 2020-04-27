@@ -1,39 +1,36 @@
 <template>
-  <div>
-    <b-card title="Profiles" tag="profile list" style="max-width: 20rem;" class="mb-2">
-      <b-jumbotron>
-        <template v-slot:header>Profile Name</template>
-
-        <template v-slot:lead>show some details</template>
-
-        <hr class="my-4" />
-        <b-list-group>
-          <b-list-group-item>Some Account</b-list-group-item>
-          <b-list-group-item>Some Account</b-list-group-item>
-          <b-list-group-item>Some Account</b-list-group-item>
-          <b-list-group-item>Some Account</b-list-group-item>
-          <b-list-group-item>Some Account</b-list-group-item>
-        </b-list-group>
-
-        <b-button variant="primary" href="#">Do Something</b-button>
-        <b-button variant="success" href="#">Do Something Else</b-button>
-      </b-jumbotron>
-
-      <b-button variant="success">
-        Add New
-        <b-icon icon="plus-circle-fill"></b-icon>
-      </b-button>
-    </b-card>
-  </div>
+  <b-card :header="profile.firstname+' ' +profile.lastname" no-body>
+    <b-tabs pills>
+      <b-tab title="Accounts" active>
+        <entourage-account-list :id="profile.id"></entourage-account-list>
+      </b-tab>
+      <b-tab title="History">
+        <!-- <entourage-profile-list :pages="profile.pages"></site-page-list> -->
+      </b-tab>
+    </b-tabs>
+  </b-card>
 </template>
 <script>
 export default {
-  name: "accounts-profile-show",
-  components: {},
+  name: "entourage-profile-show",
+  props: ["id"],
   data() {
-    return {};
+    return {
+      profile: {}
+    };
+  },
+  mounted() {
+    this.getProfile();
+  },
+  computed: {},
+  methods: {
+    getProfile() {
+      axios
+        .get(`/api/entourage/profile/${this.id}`)
+        .then(({ data }) => (this.profile = data));
+    }
   }
 };
 </script>
-<style>
+<style scoped>
 </style>

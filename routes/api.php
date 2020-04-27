@@ -10,6 +10,7 @@ Route::prefix('site-manager')->namespace('SiteManager')->group(function () {
  Route::resource('page', 'PageCtrl');
  Route::resource('post', 'PostCtrl');
  Route::resource('tag', 'TagCtrl');
+ Route::resource('image', 'ImageCtrl');
  Route::resource('route', 'RouteCtrl');
 });
 

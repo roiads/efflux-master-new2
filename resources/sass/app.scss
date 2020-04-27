@@ -4,20 +4,9 @@
 @import 'variables';
 
 @import "~bootstrap/scss/bootstrap";
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-@import "~bootstrap/scss/reboot";
-@import "~bootstrap/scss/type";
-@import "~bootstrap/scss/images";
-@import "~bootstrap/scss/code";
-@import "~bootstrap/scss/grid";
-
 @import '~icheck-bootstrap/icheck-bootstrap.min.css';
-
-
 @import '~grapesjs/dist/css/grapes.min.css';
-@import '~animate.css/animate.min.css';
+
 @import '~admin-lte/dist/css/adminlte.min.css';
 
 html,
@@ -410,14 +399,28 @@ div.bg-gradient-backdrop {
 }
 
 
-.divide20{margin-bottom:20px;}
-.divide40{margin-bottom:40px;}
-.divide60{margin-bottom:60px;}
-.divide80{margin-bottom:80px;}
-.divide100{margin-bottom:100px;}
+.divide20 {
+	margin-bottom: 20px;
+}
+
+.divide40 {
+	margin-bottom: 40px;
+}
+
+.divide60 {
+	margin-bottom: 60px;
+}
+
+.divide80 {
+	margin-bottom: 80px;
+}
+
+.divide100 {
+	margin-bottom: 100px;
+}
 
 .gjs-cv-canvas {
-  top: 40px!important;
-  width: 85%!important;
-  height: 100%!important;
+	top: 40px !important;
+	width: 85% !important;
+	height: 100% !important;
 }

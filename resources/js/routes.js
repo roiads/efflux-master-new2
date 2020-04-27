@@ -4,25 +4,17 @@ let routes = [{
     props: true
   },
   {
-    path: '/home/',
-    redirect: '/'
-  },
-  {
-    path: '/dashboard',
-    redirect: '/'
-  },
-  {
     path: '/users',
     component: require('../views/pages/users').default,
     props: true
   },
   {
-    path: '/entourage',
+    path: '/entourage/:resource?/:id?',
     component: require('../views/pages/entourage').default,
     props: true
   },
   {
-    path: '/site-manager/:domain?/:post?',
+    path: '/site-manager/:resource?/:id?',
     component: require('../views/pages/site-manager').default,
     props: true
   },
