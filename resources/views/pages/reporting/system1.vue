@@ -1,12 +1,11 @@
 <template>
-  <div>
-    <b-table :items="system1"></b-table>
-  </div>
+  <b-card header="System1 Raw DATA" no-body>
+    <b-table striped hover sortable :items="system1"></b-table>
+  </b-card>
 </template>
 <script>
 export default {
   name: "reporting-system1",
-  props: ["items"],
   data() {
     return {
       system1: {}
@@ -14,11 +13,8 @@ export default {
   },
   created() {
     axios
-      .get(
-        "https://reports.openmail.com/vv2/subid_estimated_intraday.json?auth_key=O5nGAFSEpO8spOYvmZ1a"
-      )
+      .get(`/api/reporting/system1?page=${this.system1.current_page}`)
       .then(({ data }) => (this.system1 = data));
-    alert(system1);
   }
 };
 </script>
