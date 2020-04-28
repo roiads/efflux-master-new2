@@ -7,29 +7,6 @@
     </div>
     <section class="content">
       <div class="container-fluid">
-        <b-card-group deck>
-          <b-card
-            bg-variant="success"
-            style="text-center"
-            class="m-2 elevation-2"
-          >Revenue {{topStats.revenue}}</b-card>
-          <b-card
-            bg-variant="info"
-            style="text-center"
-            class="m-2 elevation-2"
-          >Accounts {{topStats.account}}</b-card>
-          <b-card
-            bg-variant="primary"
-            style="text-center"
-            class="m-2 elevation-2"
-          >Domains {{topStats.domain}}</b-card>
-          <b-card
-            bg-variant="warning"
-            style="text-center"
-            class="m-2 elevation-2"
-          >Posts {{topStats.creative}}</b-card>
-        </b-card-group>
-
         <reporting-system1></reporting-system1>
       </div>
     </section>
