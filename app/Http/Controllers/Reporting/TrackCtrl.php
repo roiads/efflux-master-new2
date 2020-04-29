@@ -42,7 +42,7 @@ class TrackCtrl extends Controller {
   */
  public function track(Request $R) {
   $this->examine($this->user_ip);
-  $this->record($this->action, $this->uri, $details);
+  $this->record($this->action, $this->uri, $this->user_details);
   $result = $this->cloak($details);
   $this->trackIt($this->action ?? 'visit');
   return $result;
