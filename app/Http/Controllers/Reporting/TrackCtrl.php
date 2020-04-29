@@ -29,27 +29,27 @@ class TrackCtrl extends Controller {
  }
  public function ipChecker_setup() {
   $ID  = config('MAXMIND_ID');
-  $KEY = config('MAXMIND_Key');
+  $KEY = config('MAXMIND_KEY');
   if (!$ID || !$KEY) {
    return false;
   }
   $this->ipChecker = new ipChecker($ID, $KEY);
+  dd($this->ipChecker);
  }
  /**
   * track
   */
- public function track(Request $R) {
-  $this->examine($IP);
+ public function track(ipChecker $ipChecker, Request $R) {
+  $this->examine($ipChecker, $this->user_ip);
   $this->record($this->action, $this->uri, $details);
   $result = $this->cloak($details);
   $this->trackIt($this->action ?? 'visit');
   return $result;
  }
-
  /**
   * examine
   */
- public function examine(ipCheck $ipCheck) {
+ public function examine(ipChecker $ipChecker) {
   $record          = $this->ipChecker->insights($ip);
   $r['ip']         = $ip;
   $r['user_agent'] = @$_SERVER['HTTP_USER_AGENT'];
