@@ -42,6 +42,7 @@
         "vue-table-dynamic": "^0.2.1",
         "vue-template-compiler": "^2.6.11",
         "vuelidate": "^0.7.5",
+        "vuetify": "^2.2.26",
         "vuetrend": "^0.3.4",
         "vuex": "^3.1.3"
     }

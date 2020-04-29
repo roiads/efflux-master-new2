@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class TrackCtrl extends Controller {
 
  private $user_ip;
+ private $user_details;
  private $cid; // campaign id
  private $sid; // sub id
  private $action; // action to record
@@ -17,39 +18,43 @@ class TrackCtrl extends Controller {
  private $ipChecker;
 
  public function __construct(Request $R) {
-  $this->request = $R;
-  $this->uri     = trim($R->getPathInfo(), '/');
-  $this->host    = $_SERVER['HTTP_HOST'];
-  $this->user_ip = $_SERVER['REMOTE_ADDR'];
+     $this->request = $R;
+     $this->uri     = trim($R->getPathInfo(), '/');
+     $this->host    = $_SERVER['HTTP_HOST'];
+     $this->user_ip = $_SERVER['REMOTE_ADDR'];
+     // WHat are the variables that are expected as part of the tracking request?
+     $this->action = $R->action ?? 'visit';
+     $this->cid = $R->cid ?? null;
+     $this->sid = $R->sid ?? null;
  }
- /**
-  * track
-  */
- public function track(Request $R) {
-  $details = $MM->examine($IP);
-
-  // WHat are the variables that are expected as part of the tracking request?
-  $this->cid = $R->cid ?? null;
-  $this->sid = $this->saveAction($type, $this->uri, $details);
-
-  $details = $this->examine();
-  $result  = $this->cloak($details);
-  $this->trackIt($this->action ?? 'visit');
-  return $result;
- }
-
- /**
-  * report
-  */
- public function examine(ipCheck $ipCheck) {
+ public function ipChecker_setup() {   
   $ID  = config('MAXMIND_ID');
   $KEY = config('MAXMIND_Key');
   if (!$ID || !$KEY) {
    return false;
   }
-
   $this->ipChecker = new ipChecker($ID, $KEY);
-  $record          = $this->GeoIp->insights($ip);
+ }
+ /**
+  * track
+  */
+ public function track(Request $R) {
+  $this->examine($IP);  
+  $this->record($this->action, $this->uri, $details);
+  $result  = $this->cloak($details);
+  $this->trackIt($this->action ?? 'visit');
+  return $result;
+ }
+
+
+
+
+
+ /**
+  * examine
+  */
+ public function examine(ipCheck $ipCheck) {
+  $record          = $this->ipChecker->insights($ip);
   $r['ip']         = $ip;
   $r['user_agent'] = @$_SERVER['HTTP_USER_AGENT'];
   $r['referrer']   = @$_SERVER['HTTP_REFERER'];
@@ -62,12 +67,20 @@ class TrackCtrl extends Controller {
   return $r;
  }
 
+
+
+
  /**
   * cloak
   */
  public function cloak($details) {
-
+  return '<script>window.location.href = \''.$dirty.'\'</script>'
  }
+
+
+
+
+
  /**
   * record
   */
