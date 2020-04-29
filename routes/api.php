@@ -28,4 +28,4 @@ Route::prefix('reporting')->namespace('Reporting')->group(function () {
 Route::namespace ('Users')->group(function () {
  Route::resource('user', 'UserCtrl');
 });
-Route::get('track/{cid}/{sid?}/{action?}', 'Reporting\TrackCtrl@track');
+Route::get('track/{cid}/{sid?}/{action?}', 'Reporting\TrackCtrl@track')->middleware(['cors']);
