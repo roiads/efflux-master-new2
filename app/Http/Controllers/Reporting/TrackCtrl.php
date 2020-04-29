@@ -18,16 +18,16 @@ class TrackCtrl extends Controller {
  private $ipChecker;
 
  public function __construct(Request $R) {
-     $this->request = $R;
-     $this->uri     = trim($R->getPathInfo(), '/');
-     $this->host    = $_SERVER['HTTP_HOST'];
-     $this->user_ip = $_SERVER['REMOTE_ADDR'];
-     // WHat are the variables that are expected as part of the tracking request?
-     $this->action = $R->action ?? 'visit';
-     $this->cid = $R->cid ?? null;
-     $this->sid = $R->sid ?? null;
+  $this->request = $R;
+  $this->uri     = trim($R->getPathInfo(), '/');
+  $this->host    = $_SERVER['HTTP_HOST'];
+  $this->user_ip = $_SERVER['REMOTE_ADDR'];
+  // WHat are the variables that are expected as part of the tracking request?
+  $this->action = $R->action ?? 'visit';
+  $this->cid    = $R->cid ?? null;
+  $this->sid    = $R->sid ?? null;
  }
- public function ipChecker_setup() {   
+ public function ipChecker_setup() {
   $ID  = config('MAXMIND_ID');
   $KEY = config('MAXMIND_Key');
   if (!$ID || !$KEY) {
@@ -39,16 +39,12 @@ class TrackCtrl extends Controller {
   * track
   */
  public function track(Request $R) {
-  $this->examine($IP);  
+  $this->examine($IP);
   $this->record($this->action, $this->uri, $details);
-  $result  = $this->cloak($details);
+  $result = $this->cloak($details);
   $this->trackIt($this->action ?? 'visit');
   return $result;
  }
-
-
-
-
 
  /**
   * examine
@@ -67,19 +63,12 @@ class TrackCtrl extends Controller {
   return $r;
  }
 
-
-
-
  /**
   * cloak
   */
  public function cloak($details) {
-  return '<script>window.location.href = \''.$dirty.'\'</script>'
+  return '<script>window.location.href = \'' . $dirty . '\'</script>';
  }
-
-
-
-
 
  /**
   * record
