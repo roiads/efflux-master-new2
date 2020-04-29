@@ -28,19 +28,20 @@ class TrackCtrl extends Controller {
   $this->sid    = $R->sid ?? null;
  }
  public function ipChecker_setup() {
-  $ID  = config('MAXMIND_ID');
-  $KEY = config('MAXMIND_KEY');
+  $ID  = config('MAXMIND_ID') ?? 105994;
+  $KEY = config('MAXMIND_KEY') ?? 'Eh5m8iQCRk9rtoW2';
   if (!$ID || !$KEY) {
    return false;
   }
-  $this->ipChecker = new ipChecker($ID, $KEY);
-  dd($this->ipChecker);
+  $ipChecker       = new ipChecker($ID, $KEY);
+  $this->ipChecker = $ipChecker;
+  return $ipChecker;
  }
  /**
   * track
   */
- public function track(ipChecker $ipChecker, Request $R) {
-  $this->examine($ipChecker, $this->user_ip);
+ public function track(Request $R) {
+  $this->examine($this->user_ip);
   $this->record($this->action, $this->uri, $details);
   $result = $this->cloak($details);
   $this->trackIt($this->action ?? 'visit');
@@ -49,9 +50,10 @@ class TrackCtrl extends Controller {
  /**
   * examine
   */
- public function examine(ipChecker $ipChecker) {
-  $record          = $this->ipChecker->insights($ip);
-  $r['ip']         = $ip;
+ public function examine() {
+  $ipChecker       = $this->ipChecker_setup();
+  $record          = $ipChecker->insights($this->user_ip);
+  $r['ip']         = $this->user_ip;
   $r['user_agent'] = @$_SERVER['HTTP_USER_AGENT'];
   $r['referrer']   = @$_SERVER['HTTP_REFERER'];
   $r['isp']        = $record->traits->isp;
