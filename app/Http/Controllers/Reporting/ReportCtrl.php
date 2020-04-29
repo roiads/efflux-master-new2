@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Reporting;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class FacebookAdsCtrl extends Controller {
+class ReportCtrl extends Controller {
  public function index() {}
  public function store(Request $r) {}
  public function show($id) {}

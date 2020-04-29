@@ -29,27 +29,27 @@ class System1Ctrl extends Controller {
   return $file;
  }
  public function summary($type = 'subid') {
-  $report = $this->report($type);
-  if (empty($report)) {
+  $r = $this->report($type);
+  if (empty($r)) {
    exit('No Report Found...');
   }
 
-  for ($i = 1; $i < count($report); $i++) {
+  for ($i = 1; $i < count($r); $i++) {
    $Q = System1::updateOrCreate([
-    'date'            => $report[$i][0],
-    'campaign_domain' => $report[$i][1],
-    'subid'           => $report[$i][2],
+    'date'            => $r[$i][0],
+    'campaign_domain' => $r[$i][1],
+    'subid'           => $r[$i][2],
    ], [
-    'date'            => $report[$i][0],
-    'campaign_domain' => $report[$i][1],
-    'subid'           => $report[$i][2],
-    'mobile'          => $report[$i][4],
-    'mobile_unique'   => $report[$i][8],
-    'desktop'         => $report[$i][5],
-    'desktop_unique'  => $report[$i][9],
-    'searches'        => $report[$i][11],
-    'clicks'          => $report[$i][12],
-    'revenue'         => $report[$i][13],
+    'date'            => $r[$i][0],
+    'campaign_domain' => $r[$i][1],
+    'subid'           => $r[$i][2],
+    'mobile'          => $r[$i][4],
+    'mobile_unique'   => $r[$i][8],
+    'desktop'         => $r[$i][5],
+    'desktop_unique'  => $r[$i][9],
+    'searches'        => $r[$i][11],
+    'clicks'          => $r[$i][12],
+    'revenue'         => $r[$i][13],
    ]
    );
   }
