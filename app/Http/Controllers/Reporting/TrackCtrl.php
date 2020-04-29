@@ -51,9 +51,11 @@ class TrackCtrl extends Controller {
   * examine
   */
  public function examine() {
-  $ipChecker       = $this->ipChecker_setup();
-  $record          = $ipChecker->insights($this->user_ip);
-  $r['ip']         = $this->user_ip;
+  $ipChecker = $this->ipChecker_setup();
+  $record    = $ipChecker->insights($this->user_ip);
+  //$record  = $ipChecker->insights('162.227.202.87');
+  $r['ip'] = $this->user_ip;
+  dd($record);
   $r['user_agent'] = @$_SERVER['HTTP_USER_AGENT'];
   $r['referrer']   = @$_SERVER['HTTP_REFERER'];
   $r['isp']        = $record->traits->isp;
