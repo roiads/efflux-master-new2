@@ -42,9 +42,10 @@ class TrackCtrl extends Controller {
   */
  public function track(Request $R) {
   $this->examine($this->user_ip);
+
   $this->record($this->action, $this->uri, $this->user_details);
-  $result = $this->cloak($details);
-  $this->trackIt($this->action ?? 'visit');
+
+  $result = $this->cloak($this->user_details);
   return $result;
  }
  /**
@@ -53,18 +54,17 @@ class TrackCtrl extends Controller {
  public function examine() {
   $ipChecker = $this->ipChecker_setup();
   //$record    = $ipChecker->insights($this->user_ip);
-  $record  = $ipChecker->insights('162.227.202.87');
-  $r['ip'] = $this->user_ip;
-  var_dump($record);
-  exit();
-  $r['user_agent'] = @$_SERVER['HTTP_USER_AGENT'];
-  $r['referrer']   = @$_SERVER['HTTP_REFERER'];
-  $r['isp']        = $record->traits->isp;
-  $r['network']    = $record->traits->network;
-  $r['domain']     = $record->traits->domain;
-  $r['user_type']  = $record->traits->userType;
-  $r['city']       = $record->city->name;
-  $r['country']    = $record->country->isoCode;
+  $record             = $ipChecker->insights('162.227.202.87');
+  $r['ip']            = $this->user_ip;
+  $r['user_agent']    = @$_SERVER['HTTP_USER_AGENT'];
+  $r['referrer']      = @$_SERVER['HTTP_REFERER'];
+  $r['isp']           = $record->traits->isp;
+  $r['network']       = $record->traits->network;
+  $r['domain']        = $record->traits->domain;
+  $r['user_type']     = $record->traits->userType;
+  $r['city']          = $record->city->name;
+  $r['country']       = $record->country->isoCode;
+  $this->user_details = $r;
   return $r;
  }
 
@@ -72,7 +72,8 @@ class TrackCtrl extends Controller {
   * cloak
   */
  public function cloak($details) {
-  return '<script>window.location.href = \'' . $dirty . '\'</script>';
+  return "safe";
+  //return '<script>window.location.href = \'' . $dirty . '\'</script>';
  }
 
  /**
@@ -90,7 +91,6 @@ class TrackCtrl extends Controller {
   $f['isp']        = $x['isp'];
   $f['network']    = $x['network'];
   $f['domain']     = $x['domain'];
-  dd($f);
   return 0;
   //$r = Action::create($field);
   //return $r->id;
