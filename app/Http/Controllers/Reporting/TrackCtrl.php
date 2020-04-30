@@ -71,10 +71,10 @@ class TrackCtrl extends Controller {
   * cloak
   */
  public function cloak($details) {
-  if ($details['user_type'] == 'server') {
-   $details['state'] = "dirty";
+  if ($details['user_type'] !== 'residential') {
+   $details['state'] = "safe";
   }
-  $details['state'] = "safe";
+  $details['state'] = "money";
   return $details;
  }
 
