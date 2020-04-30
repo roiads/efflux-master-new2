@@ -21,10 +21,10 @@ Route::prefix('assets')->namespace('Assets')->group(function () {
  Route::resource('useragent', 'UseragentCtrl');
 });
 Route::prefix('reporting')->namespace('Reporting')->group(function () {
- Route::resource('reporting', 'ReportsCtrl');
- Route::resource('system1', 'System1Ctrl');
- Route::get('system1/summary/{type?}', 'System1Ctrl@summary');
-})->middleware(['cors']);
+ Route::resource('reporting', 'ReportsCtrl')->middleware(['cors']);
+ Route::resource('system1', 'System1Ctrl')->middleware(['cors']);
+ Route::get('system1/summary/{type?}', 'System1Ctrl@summary')->middleware(['cors']);
+});
 Route::namespace ('Users')->group(function () {
  Route::resource('user', 'UserCtrl');
 });
