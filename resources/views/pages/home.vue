@@ -7,6 +7,7 @@
     </div>
     <section class="content">
       <div class="container-fluid">
+        <b-card>OK!</b-card>
         <reporting-system1></reporting-system1>
       </div>
     </section>

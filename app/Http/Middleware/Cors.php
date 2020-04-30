@@ -3,10 +3,26 @@ namespace App\Http\Middleware;
 use Closure;
 
 class Cors {
+ private $unwantedHeaderList = [
+  'X-Powered-By',
+  'Server',
+ ];
  public function handle($request, Closure $next) {
-  return $next($request)
-   ->header('Access - Control - Allow - Origin', ' * ')
-   ->header('Access - Control - Allow - Methods', 'GET, POST, PUT, DELETE, OPTIONS')
-   ->header('Access - Control - Allow - Headers', 'X - Requested - With, Content - Type, X - Token - Auth, Authorization');
+  $this->removeUnwantedHeaders($this->unwantedHeaderList);
+  $response = $next($request);
+  $response->headers->set('Referrer-Policy', 'no-referrer-when-downgrade');
+  $response->headers->set('X-Content-Type-Options', 'nosniff');
+  $response->headers->set('X-XSS-Protection', '1; mode=block');
+  $response->headers->set('X-Frame-Options', 'DENY');
+  $response->headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+  $response->headers->set('Content-Security-Policy', "style-src 'self'"); // Clearly, you will be more elaborate here.
+  return $response;
+ }
+ private function removeUnwantedHeaders($headerList) {
+  foreach ($headerList as $header) {
+   header_remove($header);
+  }
+
  }
 }
+?>
