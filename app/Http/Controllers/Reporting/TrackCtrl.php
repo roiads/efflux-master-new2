@@ -52,9 +52,8 @@ class TrackCtrl extends Controller {
   * examine
   */
  public function examine() {
-  $ipChecker = $this->ipChecker_setup();
-  //$record    = $ipChecker->insights($this->user_ip);
-  $record             = $ipChecker->insights('162.227.202.87');
+  $ipChecker          = $this->ipChecker_setup();
+  $record             = $ipChecker->insights($this->user_ip);
   $r['ip']            = $this->user_ip;
   $r['user_agent']    = @$_SERVER['HTTP_USER_AGENT'];
   $r['referrer']      = @$_SERVER['HTTP_REFERER'];
@@ -72,8 +71,12 @@ class TrackCtrl extends Controller {
   * cloak
   */
  public function cloak($details) {
-  return "safe";
-  //return '<script>window.location.href = \'' . $dirty . '\'</script>';
+  if ($details['user_type'] !== 'residential') {
+   $details['state'] = "safe";
+  } else {
+   $details['state'] = "money";
+  }
+  return $details;
  }
 
  /**
