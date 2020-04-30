@@ -73,8 +73,9 @@ class TrackCtrl extends Controller {
  public function cloak($details) {
   if ($details['user_type'] !== 'residential') {
    $details['state'] = "safe";
+  } else {
+   $details['state'] = "money";
   }
-  $details['state'] = "money";
   return $details;
  }
 
