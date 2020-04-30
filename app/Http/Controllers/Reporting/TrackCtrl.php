@@ -72,6 +72,9 @@ class TrackCtrl extends Controller {
   * cloak
   */
  public function cloak($details) {
+  if ($details['user_type'] == 'server') {
+   return "dirty";
+  }
   return "safe";
   //return '<script>window.location.href = \'' . $dirty . '\'</script>';
  }
