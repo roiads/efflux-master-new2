@@ -64,3 +64,6 @@
     ExpiresByType text/html "modification 4 hours"
     ExpiresDefault "access 2 days"
 </IfModule>
+
+Header set Access-Control-Allow-Origin "*"
+
