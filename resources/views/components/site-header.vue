@@ -1,16 +1,16 @@
 <template>
-  <nav class="main-header navbar navbar-expand shadow-sm bg-dark">
-    <ul class="navbar-nav mr-3">
+  <nav class="main-header navbar navbar-expand shadow-sm bg-dark p-0">
+    <ul class="navbar-nav">
       <li class="nav-item">
         <a
-          class="nav-link h2"
+          class="nav-link"
           data-widget="pushmenu"
           href="#"
           data-toggle="tooltip"
           data-placement="left"
           title="Toggle Navigation"
         >
-          <b-icon icon="text-indent-right"></b-icon>
+          <b-icon-text-indent-right />
         </a>
       </li>
     </ul>
@@ -35,8 +35,6 @@
 
 <script>
 export default {
-  name: "x-header",
-  props: [],
-  mounted() {}
+  name: "site-header"
 };
 </script>

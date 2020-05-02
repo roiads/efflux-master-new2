@@ -30,6 +30,10 @@ let routes = [{
     path: '/tracker/:resource?/:id?',
     component: require('../views/pages/tracker').default,
     props: true
+  },
+  {
+    path: '/:uri',
+    redirect: '/'
   }
 ];
 import VueRouter from 'vue-router';

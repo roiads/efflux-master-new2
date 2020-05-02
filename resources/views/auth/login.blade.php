@@ -1,4 +1,4 @@
-@extends('layouts.web')
+@extends('layouts.app')
 @section('content')
 <b-container fluid>
   <b-row align-v="center" align-h="center" class="h-75">

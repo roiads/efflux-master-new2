@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateAccountsTable extends Migration {
  public function up() {
+  Schema::dropIfExists('efflux_entourage.accounts');
   Schema::create('efflux_entourage.accounts', function (Blueprint $table) {
    $table->id();
    $table->string('username', 100);

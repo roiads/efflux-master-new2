@@ -15,7 +15,7 @@
 </template>
 <script>
 export default {
-  name: "x-ctrlbar",
+  name: "sidebar-right",
   mounted() {},
   data() {
     return {

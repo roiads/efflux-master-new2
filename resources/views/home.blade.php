@@ -1,11 +1,11 @@
 @extends('layouts.app')
 @section('content')
-  <x-header></x-header>
-  <x-sidebar></x-sidebar>
+  <site-header></site-header>
+  <sidebar-left></sidebar-left>
   <div class="content-wrapper p-3">
     <router-view></router-view>
   </div>
-  <x-ctrlbar></x-ctrlbar>
-  <x-footer></x-footer>
+  <sidebar-right></sidebar-right>
+  <site-footer></site-footer>
   
 @endsection
