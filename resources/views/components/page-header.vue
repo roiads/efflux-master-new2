@@ -25,6 +25,7 @@ export default {
         this.addBreadcrumb(crumb);
       });
     },
+    makeToolbar() {},
     addBreadcrumb(crumb) {
       let breadcrumb = {};
       if (typeof crumb === "object") {

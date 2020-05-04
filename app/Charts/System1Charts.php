@@ -12,26 +12,32 @@ class System1Charts extends Chart {
 
  public function __construct() {
   $this->days   = 30;
-  $this->labelY = 'Date';
-  $this->labelX = 'Totals';
   $this->title  = 'System1 Daily Reports';
   $this->fields = [
-   'searches',
    'clicks',
    'revenue',
    'sessions',
-   'sessions_mobile',
-   'sessions_desktop',
-   'unique',
-   'unique_mobile',
-   'unique_desktop'];
+   'unique'];
  }
  public function __invoke($args = null) {
   $args = parseArgs($args);
   $this->getData($args);
   $this->makeLabels();
   foreach ($this->fields as $field) {
-   $this->dataset($field, 'line', $this->data->pluck($field));
+   $opt                = [];
+   $opt['borderColor'] = null;
+   $opt['yAxisID']     = 'counts';
+   $opt['type']        = 'line';
+   if ($field == 'revenue') {
+    $opt['backgroundColor'] = 'lime';
+    $opt['type']            = 'bar';
+    $opt['yAxisID']         = 'revenue';
+   } elseif (stristr($field, 'sessions')) {
+    $opt['borderColor'] = 'yellow';
+   } elseif (stristr($field, 'unique')) {
+    $opt['borderColor'] = 'blue';
+   }
+   $this->dataset($field, $this->data->pluck($field), $opt);
   }
   return $this->anyErrors() ?: response()->json($this);
  }
