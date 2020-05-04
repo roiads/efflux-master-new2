@@ -1,7 +1,7 @@
 <?php
 Auth::routes();
 
-Route::get('track/{cid}/{sid?}/{action?}/{...args?}', 'Tracker\TrafficCtrl@track');
+Route::get('track/{cid}/{sid?}/{action?}/{args?}', 'Tracker\TrafficCtrl@track')->where('args', '(.*)');
 
 Route::middleware(['auth'])->group(function () {
  Route::prefix('api')->group(function () {
@@ -24,16 +24,22 @@ Route::middleware(['auth'])->group(function () {
    Route::resource('useragent', 'UseragentCtrl');
   });
   Route::prefix('reporting')->namespace('Reporting')->group(function () {
-   Route::resource('reporting', 'ReportsCtrl');
+   Route::resource('traffic', 'TrafficCtrl');
    Route::resource('system1', 'System1Ctrl');
   });
   Route::namespace ('Users')->group(function () {
    Route::resource('user', 'UserCtrl');
   });
-  Route::get('system1/import', '\App\Api\System1Api@import');
  });
  Route::prefix('chartdata')->group(function () {
-  Route::get('system1', '\App\Charts\System1Charts@getData');
+  /**
+   * System1 ChartData Calls
+   * dataset = total | mobile | desktop | clicks | renevue
+   * column = null | domain | subid
+   * args = key=value/key>value/...
+   */
+  Route::get('system1/{dataset}/{grouping?}/{args?}', '\App\Charts\System1Charts@getData')->where('args', '(.*)');
+  Route::get('traffic/{dataset}/{grouping?}/{args?}', '\App\Charts\TrafficCharts@getData')->where('args', '(.*)');
  });
  Route::view('/{page?}/{subpage?}', 'home');
 });

@@ -9,8 +9,8 @@ class CreateSystem1ReportsTable extends Migration {
   Schema::create('efflux_report.api_system1', function (Blueprint $t) {
    $t->id();
    $t->timestampTz('date');
-   $t->string('campaign_domain', 100);
-   $t->string('subid', 100);
+   $t->string('campaign_domain', 100)->nullable()->default(NULL);
+   $t->string('subid', 100)->nullable()->default(NULL);
    $t->integer('mobile')->default(0);
    $t->integer('mobile_unique')->default(0);
    $t->integer('desktop')->default(0);
