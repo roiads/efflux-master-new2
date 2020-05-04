@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Reporting;
+namespace App\Http\Controllers\Tracker;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controller\Tracker\CloakCtrl as Cloak;
-use App\Models\Tracker\Action;
-use GeoIp2\WebService\Client as ipChecker;
+use GeoIp2\WebService\Client as MaxMind;
 use Illuminate\Http\Request;
+use \App\Http\Controller\Tracker\CloakCtrl as Cloak;
+use \App\Models\Tracker\Traffic;
 
-class ActionCtrl extends Controller {
+class TrafficCtrl extends Controller {
 
  private $user_ip;
  private $user_details;
@@ -16,7 +16,8 @@ class ActionCtrl extends Controller {
  private $sid; // sub id
  private $action;
  private $request;
- private $ipChecker;
+ private $MaxMind;
+ private $run_cloak = false;
 
  public function __construct(Request $R) {
   $this->request = $R;
@@ -30,13 +31,11 @@ class ActionCtrl extends Controller {
  /**
   * Setup the API to MaxMind IP Insights
   */
- public function ipChecker_setup() {
+ public function MaxMind_setup() {
   $ID  = config('MAXMIND_ID') ?? 105994;
   $KEY = config('MAXMIND_KEY') ?? 'Eh5m8iQCRk9rtoW2';
-  if (!$ID || !$KEY) {
-   return false;
-  }
-  $this->ipChecker = new ipChecker($ID, $KEY);
+
+  $this->MaxMind = new MaxMind($ID, $KEY);
  }
  /**
   * track
@@ -51,7 +50,8 @@ class ActionCtrl extends Controller {
   * examine
   */
  public function examine() {
-  $x                  = $this->ipChecker->insights($this->user_ip);
+  $this->MaxMind_setup();
+  $x                  = $this->MaxMind->insights($this->user_ip);
   $r['ip']            = $this->user_ip;
   $r['user_agent']    = @$_SERVER['HTTP_USER_AGENT'];
   $r['referrer']      = @$_SERVER['HTTP_REFERER'];
@@ -79,14 +79,15 @@ class ActionCtrl extends Controller {
   $field['isp']        = $x['isp'];
   $field['network']    = $x['network'];
   $field['domain']     = $x['domain'];
-  $r                   = Action::create($field);
+
+  $r = Traffic::create($field);
   return $r->id;
  }
  /**
   * cloak
   */
  public function cloak($details) {
-  if ($this->cloak === true) {
+  if ($this->run_cloak === true) {
    return new Cloak($details);
   }
  }

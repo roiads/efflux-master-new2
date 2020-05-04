@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Reporting;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use \App\Models\Tracker\Traffic;
 
-class ReportCtrl extends Controller {
- public function index() {}
- public function store(Request $r) {}
- public function show($id) {}
- public function update(Request $r, $id) {}
- public function destroy($id) {}
+class TrafficCtrl extends Controller {
+ public function makeReport() {
+  $traffic = Traffic::all();
+  return $traffic;
+ }
 }

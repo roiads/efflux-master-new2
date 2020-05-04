@@ -4,9 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTrackingTable extends Migration {
+class CreateTrafficTable extends Migration {
  public function up() {
-  Schema::create('efflux_track.actions', function (Blueprint $t) {
+  Schema::create('efflux_track.traffic', function (Blueprint $t) {
    $t->id();
    $t->string('action', 50)->index();
    $t->string('ip', 25)->index();
@@ -24,6 +24,6 @@ class CreateTrackingTable extends Migration {
   });
  }
  public function down() {
-  Schema::dropIfExists('efflux_track.actions');
+  Schema::dropIfExists('efflux_track.traffic');
  }
 }

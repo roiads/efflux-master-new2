@@ -1,7 +1,9 @@
 <?php
 Auth::routes();
+
+Route::get('track/{cid}/{sid?}/{action?}/{...args?}', 'Tracker\TrafficCtrl@track');
+
 Route::middleware(['auth'])->group(function () {
- Route::get('track/{cid}/{sid?}/{action?}/{...args?}', 'Tracker\ActionCtrl@track')->middleware(['cors']);
  Route::prefix('api')->group(function () {
   Route::prefix('entourage')->namespace('Entourage')->group(function () {
    Route::resource('account', 'AccountCtrl');
