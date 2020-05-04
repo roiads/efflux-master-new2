@@ -2,13 +2,16 @@
   <div>
     <div class="content-header">
       <b-container fluid class="row">
-        <x-breadcrumb page="tracker" :view="type"></x-breadcrumb>
-        <x-toolbar></x-toolbar>
+        <x-breadcrumb page="tracker"></x-breadcrumb>
+        <!-- TOOLBAR -->
+        <b-btn-toolbar size="sm" class="m-2">
+          <b-btn size="sm" class="m-1" @click="domain = ''">All Time</b-btn>
+        </b-btn-toolbar>
       </b-container>
     </div>
     <section class="content">
       <div class="container-fluid">
-        <tracking-system1></tracking-system1>
+        <reporting-system1></reporting-system1>
       </div>
     </section>
   </div>
@@ -16,25 +19,11 @@
 <script>
 export default {
   name: "tracker",
-  props: [],
   data() {
-    return {};
-  },
-  methods: {
-    reverseMessage: function() {
-      return this.message
-        .split("")
-        .reverse()
-        .join("");
-    }
-  },
-  created() {},
-  computed: {
-    data: function() {
-      return "data";
-    }
-  },
-  mounted() {}
+    return {
+      domain: ""
+    };
+  }
 };
 </script>
 <style scoped>

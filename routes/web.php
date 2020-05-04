@@ -1,6 +1,6 @@
 <?php
 Auth::routes();
 Route::middleware(['auth'])->group(function () {
- Route::view('/{page?}/{subpage?}', 'home');
+ Route::view('/{args?}', 'home')->where('args', '(.*)');
 });
 Route::view('/', 'web');
