@@ -1,4 +1,19 @@
 <?php
+function parseArgs($args) {
+ if (!empty($args)) {
+  $args = str_replace('/', '|', $args);
+  $args = explode('|', $args);
+  foreach ($args as $arg) {
+   if (stristr($arg, '=')) {
+    list($k, $v) = explode('=', $arg, 2);
+    $_[$k]       = $v;
+   } else {
+    $_[] = $arg;
+   }
+  }
+ }
+ return $_ ?? [];
+}
 return [
  'name'            => env('APP_NAME', 'Laravel'),
  'env'             => env('APP_ENV', 'production'),
@@ -41,7 +56,7 @@ return [
   App\Providers\AuthServiceProvider::class,
   App\Providers\EventServiceProvider::class,
   App\Providers\RouteServiceProvider::class,
-        App\Providers\TelescopeServiceProvider::class,
+  App\Providers\TelescopeServiceProvider::class,
  ],
  'aliases'         => [
   'App'          => Illuminate\Support\Facades\App::class,

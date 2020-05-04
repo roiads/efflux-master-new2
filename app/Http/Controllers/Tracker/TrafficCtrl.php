@@ -19,6 +19,12 @@ class TrafficCtrl extends Controller {
  private $MaxMind;
  private $run_cloak = false;
 
+ public function __invoke(Request $R) {
+  $this->examine($this->user_ip);
+  $this->record($this->action, $this->uri, $this->user_details);
+  $result = $this->cloak($this->user_details);
+  return $result;
+ }
  public function __construct(Request $R) {
   $this->request = $R;
   $this->uri     = trim($R->getPathInfo(), '/');
@@ -36,15 +42,6 @@ class TrafficCtrl extends Controller {
   $KEY = config('MAXMIND_KEY') ?? 'Eh5m8iQCRk9rtoW2';
 
   $this->MaxMind = new MaxMind($ID, $KEY);
- }
- /**
-  * track
-  */
- public function track(Request $R) {
-  $this->examine($this->user_ip);
-  $this->record($this->action, $this->uri, $this->user_details);
-  $result = $this->cloak($this->user_details);
-  return $result;
  }
  /**
   * examine

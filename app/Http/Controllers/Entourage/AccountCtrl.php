@@ -6,11 +6,12 @@ use \App\Models\Entourage\Account;
 
 class AccountCtrl extends Controller {
  public function index(Request $R) {
-  $r = Account::with('profile');
-  if ($R->profile_id) {
-   $r = $r->where('profile_id', $R->profile_id)->get();
+  $args = $R->args ?? [];
+  $r    = Account::with('profile');
+  foreach ($this->parseArgs($args) as $k => $v) {
+   $r = $r->where($k, $v);
   }
-  return $r;
+  return response()->json($r->get());
  }
  public function show(Account $X) {
   return $X;

@@ -13,24 +13,24 @@ class Controller extends BaseController {
 
  public $errors = [];
 
- public function parseArgs(&$A) {
-  if (!empty($A)) {
-   $A = str_replace('/', '|', $A);
-   $A = explode('|', $A);
-   foreach ($A as $a) {
-    if (stristr($a, '=')) {
-     list($k, $v) = explode('=', $a, 2);
+ public function parseArgs(&$args) {
+  if (!empty($args)) {
+   $args = str_replace('/', '|', $args);
+   $args = explode('|', $args);
+   foreach ($args as $arg) {
+    if (stristr($arg, '=')) {
+     list($k, $v) = explode('=', $arg, 2);
      $_[$k]       = $v;
     } else {
-     $_[] = $a;
+     $_[] = $arg;
     }
    }
   }
-  return $_;
+  return $_ ?? [];
  }
  public function anyErrors() {
   if (empty($this->errors)) {
-    unset($this->errors);
+   unset($this->errors);
    return false;
   }
   $e = implode($this->errors);

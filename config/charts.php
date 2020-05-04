@@ -1,5 +1,5 @@
 <?php
 
 return [
- 'default_library' => 'Chartjs',
+ 'default_library' => 'Highcharts',
 ];
