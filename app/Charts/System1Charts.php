@@ -1,64 +1,64 @@
 <?php
 namespace App\Charts;
-use ConsoleTVs\Charts\Classes\Chartjs\Chart;
+use App\Http\Controllers\ChartController as Chart;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 use \App\Models\Reporting\System1;
 
 class System1Charts extends Chart {
 
- public $days = 30;
-
- public $domains;
- public $dates;
-
- public $labels;
- public $series;
- public $options = [];
+ private $fields;
+ private $data;
 
  public function __construct() {
-  //$this->options['name'] = '';
-  parent::__construct();
+  $this->days   = 30;
+  $this->labelY = 'Date';
+  $this->labelX = 'Totals';
+  $this->title  = 'System1 Daily Reports';
+  $this->fields = [
+   'searches',
+   'clicks',
+   'revenue',
+   'sessions',
+   'sessions_mobile',
+   'sessions_desktop',
+   'unique',
+   'unique_mobile',
+   'unique_desktop'];
  }
  public function __invoke($args = null) {
-  $dataset = [2, 3, 1, 2, 3, 1, 2, 3, 1, 1, 2, 3, 1, 2, 3, 1];
-
   $args = parseArgs($args);
   $this->getData($args);
-
   $this->makeLabels();
-  $this->dataset('Mobile', 'bar', $dataset);
-  $this->dataset('Desktop', 'bar', $dataset);
-  $this->dataset('Revenue', 'line', $dataset);
-  $this->dataset('Clicks', 'line', $dataset);
-
-  dd($this);
+  foreach ($this->fields as $field) {
+   $this->dataset($field, 'line', $this->data->pluck($field));
+  }
+  return $this->anyErrors() ?: response()->json($this);
  }
-
  public function getData($args) {
-  $data = System1::select('date',
-   'campaign_domain as domain',
-   'subid',
-   'revenue',
-   'clicks as clickthrough',
-   'mobile_unique as mobile',
-   'desktop_unique as desktop')
-   ->where('date', '>=', today()->subDays($this->days))
+  $start  = today()->subDays($this->days);
+  $domain = $args['domain'] ?? null;
+  $subid  = $args['subid'] ?? null;
+  $x      = System1::select('date');
+  foreach ($this->fields as $f) {
+   $x = $x->addSelect(DB::raw('sum(`' . $f . '`) as `' . $f . '`'));
+  }
+  $x = $x->where('subid', $subid)
+   ->where('domain', $domain)
+   ->where('date', '>=', $start)
    ->orderByDesc('date')
+   ->groupBy('date')
    ->get();
-  return $this->data = $data;
- }
- public function getDomains() {
-  $data                 = data_get($this->data, '*.domain');
-  $data                 = array_unique($data);
-  return $this->domains = $data;
+  return $this->data = $x;
  }
  public function makeLabels() {
-  $dates = data_get($this->data, '*.date');
-  $dates = array_unique($dates);
-  $dates = Arr::flatten($dates);
-  foreach ($dates as &$date) {
-   $date = date('m-d', strtotime($date));
+  $x = data_get($this->data, '*.date');
+  $x = array_unique($x);
+  asort($x);
+  $x = Arr::flatten($x);
+  foreach ($x as $d) {
+   $date = date('m-d', strtotime($d));
   }
-  return $this->labels = $dates;
+  $this->labels($x);
  }
 }

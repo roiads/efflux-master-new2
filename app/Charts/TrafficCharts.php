@@ -1,9 +1,9 @@
 <?php
 namespace App\Charts;
-use ConsoleTVs\Charts\Classes\Chartjs\Chart;
+use App\Http\Controllers\Controller as ChartController;
 use \App\Models\Reporting\Traffic;
 
-class TrafficCharts extends Chart {
+class TrafficCharts extends ChartController {
 
  public $days;
 
@@ -12,7 +12,7 @@ class TrafficCharts extends Chart {
  public $options;
 
  public function __construct() {
-  parent::__construct();
+
  }
  public function __invoke() {
   $this->days = 30;

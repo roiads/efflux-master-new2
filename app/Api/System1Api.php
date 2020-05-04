@@ -7,6 +7,7 @@ class System1Api extends Controller {
 
  private $reportUrl;
  private $report;
+ public $changes;
  private $types = ['subid', 'summary', 'campaign'];
 
  public function __construct($type) {
@@ -29,7 +30,7 @@ class System1Api extends Controller {
   if (!in_array($type, $this->types)) {
    $this->error('Unknow type: ' . $type);
   }
-  $this->type     = $type;
+  $this->type      = $type;
   $this->reportUrl = 'https://' . trim($url, '/ ') . '/' . $type . '.json?auth_key=' . $key;
   return $this->anyErrors() ?: true;
  }
@@ -43,7 +44,7 @@ class System1Api extends Controller {
   $file = file_get_contents($this->reportUrl);
   if (!empty($file)) {
    $file = json_decode($file);
-    unset($file[0]);
+   unset($file[0]);
    $this->report[$this->type] = $file;
    return true;
   }
@@ -63,66 +64,75 @@ class System1Api extends Controller {
   $this->$method($rows);
  }
  public function record_summary($rows) {
+  $v = $k = [];
   foreach ($rows as $row) {
-   System1::updateOrCreate([
-    'date'            => $row[0],
-    'campaign_domain' => null,
-    'subid'           => null,
-   ], [
-    'date'            => $row[0],
-    'campaign_domain' => null,
-    'subid'           => null,
-    'mobile'          => $row[2],
-    'mobile_unique'   => $row[6],
-    'desktop'         => $row[3],
-    'desktop_unique'  => $row[7],
-    'searches'        => $row[9],
-    'clicks'          => $row[10],
-    'revenue'         => $row[11],
-   ]
-   );
-  }
- }
- public function record_subid($rows) {
-  foreach ($rows as $row) {
-   System1::updateOrCreate([
-    'date'            => $row[0],
-    'campaign_domain' => $row[1],
-    'subid'           => $row[2],
-   ], [
-    'date'            => $row[0],
-    'campaign_domain' => $row[1],
-    'subid'           => $row[2],
-    'mobile'          => $row[4],
-    'mobile_unique'   => $row[8],
-    'desktop'         => $row[5],
-    'desktop_unique'  => $row[9],
-    'searches'        => $row[11],
-    'clicks'          => $row[12],
-    'revenue'         => $row[13],
-   ]
-   );
+   $k['date']   = $date   = $row[0];
+   $k['domain'] = $dom = null;
+   $k['subid']  = $sid  = null;
+
+   $v['searches'] = $row[9] ?: null;
+   $v['clicks']   = $row[10] ?: null;
+   $v['revenue']  = $row[11] ?: null;
+   $v['sessions'] = $row[1] ?: null;
+   $v['unique']   = $row[5] ?: null;
+
+   $v['sessions_mobile']  = $row[2] ?: null;
+   $v['sessions_desktop'] = $row[3] ?: null;
+   $v['unique_mobile']    = $row[6] ?: null;
+   $v['unique_desktop']   = $row[7] ?: null;
+
+   $r = System1::updateOrCreate($k, array_merge($k, $v));
+   if ($x = $r->getChanges()) {
+    $this->changes[$date]['TOTAL'] = [$k, $x];
+   }
   }
  }
  public function record_campaign($rows) {
+  $v = $k = [];
   foreach ($rows as $row) {
-   System1::updateOrCreate([
-    'date'            => $row[0],
-    'campaign_domain' => $row[1],
-    'subid'           => null,
-   ], [
-    'date'            => $row[0],
-    'campaign_domain' => $row[1],
-    'subid'           => null,
-    'mobile'          => $row[3],
-    'mobile_unique'   => $row[7],
-    'desktop'         => $row[4],
-    'desktop_unique'  => $row[8],
-    'searches'        => $row[10],
-    'clicks'          => $row[11],
-    'revenue'         => $row[12],
-   ]
-   );
+   $k['date']   = $date   = $row[0];
+   $k['domain'] = $dom = $row[1];
+   $k['subid']  = $sid  = null;
+
+   $v['searches'] = $row[10] ?: null;
+   $v['clicks']   = $row[11] ?: null;
+   $v['revenue']  = $row[12] ?: null;
+   $v['sessions'] = $row[2] ?: null;
+   $v['unique']   = $row[6] ?: null;
+
+   $v['sessions_mobile']  = $row[3] ?: null;
+   $v['unique_mobile']    = $row[7] ?: null;
+   $v['sessions_desktop'] = $row[4] ?: null;
+   $v['unique_desktop']   = $row[8] ?: null;
+
+   $r = System1::updateOrCreate($k, array_merge($k, $v));
+   if ($x = $r->getChanges()) {
+    $this->changes[$date][$dom]['TOTAL'] = [$k, $x];
+   }
+  }
+ }
+ public function record_subid($rows) {
+  $v = $k = [];
+  foreach ($rows as $row) {
+   $k['date']   = $date   = $row[0];
+   $k['domain'] = $dom = $row[1];
+   $k['subid']  = $sid  = $row[2];
+
+   $v['searches'] = $row[11] ?: null;
+   $v['clicks']   = $row[12] ?: null;
+   $v['revenue']  = $row[13] ?: null;
+   $v['sessions'] = $row[3] ?: null;
+   $v['unique']   = $row[7] ?: null;
+
+   $v['sessions_mobile']  = $row[4] ?: null;
+   $v['sessions_desktop'] = $row[5] ?: null;
+   $v['unique_mobile']    = $row[8] ?: null;
+   $v['unique_desktop']   = $row[9] ?: null;
+
+   $r = System1::updateOrCreate($k, array_merge($k, $v));
+   if ($x = $r->getChanges()) {
+    $this->changes[$date][$dom][$sid] = [$k, $x];
+   }
   }
  }
 }

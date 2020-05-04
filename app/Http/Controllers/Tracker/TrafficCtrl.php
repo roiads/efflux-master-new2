@@ -28,8 +28,8 @@ class TrafficCtrl extends Controller {
  public function __construct(Request $R) {
   $this->request = $R;
   $this->uri     = trim($R->getPathInfo(), '/');
-  $this->host    = $_SERVER['HTTP_HOST'];
-  $this->user_ip = $_SERVER['REMOTE_ADDR'];
+  $this->host    = $_SERVER['HTTP_HOST'] ?? null;
+  $this->user_ip = $_SERVER['REMOTE_ADDR'] ?? null;
   $this->action  = $R->action ?? 'visit';
   $this->cid     = $R->cid ?? null;
   $this->sid     = $R->sid ?? null;

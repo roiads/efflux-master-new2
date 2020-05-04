@@ -15,8 +15,8 @@ class System1Ctrl extends Controller {
  }
  public function store(Request $R) {
   $data = $R->validate([
-   'campaign_domain' => 'required',
-   'date'            => 'required',
+   'domain' => 'required',
+   'date'   => 'required',
   ]);
   return response('System1 API data has been saved...', 422);
  }
@@ -25,9 +25,9 @@ class System1Ctrl extends Controller {
  }
  public function update(Request $R, System1 $s1) {
   $data = $R->validate([
-   'id'              => 'required',
-   'campaign_domain' => 'required',
-   'date'            => 'required',
+   'id'     => 'required',
+   'domain' => 'required',
+   'date'   => 'required',
   ]);
 
  }

@@ -2,7 +2,8 @@
   <div>
     <page-header :crumbs="crumbs" :tools="tools"></page-header>
     <section>
-      <reporting-system1 />
+      <reporting-system1-table />
+      <reporting-system1-chart />
     </section>
   </div>
 </template>
