@@ -1,11 +1,13 @@
 <?php
-namespace App\Api;
+namespace App\Providers;
 use App\Http\Controllers\Controller;
 use \App\Models\Reporting\System1;
 
-class System1Api extends Controller {
+class System1ServiceProvider extends Controller {
+
  protected $key;
  protected $url;
+
  public function __construct() {
   $this->key = env('SYSTEM1_KEY');
   $this->url = env('SYSTEM1_REPORTING_URL');

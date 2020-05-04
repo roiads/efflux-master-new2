@@ -1,29 +1,25 @@
 <?php
 namespace App\Charts;
 use ConsoleTVs\Charts\Classes\Chartjs\Chart;
+use Illuminate\Support\Facades\DB;
 use \App\Models\Reporting\System1;
 
 class System1Charts extends Chart {
+
+ public $content_domains = [];
+
  public function __construct() {
   parent::__construct();
  }
  public function getData(System1 $s1) {
-  $Q = System1::whereDate('date', '>=', today()->subDays(7));
-  $Q = $Q->select('date', 'campaign_domain as domain', 'subid',
-   DB::raw('SUM(`mobile_unique`) as `mobile`'),
-   DB::raw('SUM(`desktop_unique`) as `desktop`'),
-   DB::raw('SUM(`revenue`) as `revenue`'),
-   DB::raw('SUM(`clicks`) as `clicks`'),
-  );
-  $Q = $Q->groupBy(['domain', 'subid', 'date']);
-  $Q = $Q->orderBy(['date' => 'desc', 'domain']);
-  $Q = $Q->pluck('date', 'domain', 'subid', 'mobile', 'desktop', 'revenue', 'clicks');
-  $Q = $this->prepareData($Q);
-  return $Q;
- }
- public function prepareData($data) {
-  $data = Arr::collapse($data);
-  dd($data);
+  $data = $s1->select('date', 'campaign_domain as domain', 'subid',
+   DB::raw('mobile_unique as mobile, desktop_unique as desktop, revenue'),
+   DB::raw('clicks as clicks'))
+   ->where('date', '>=', today()->subDays(30))
+   ->get();
+  $this->content_domains = array_unique(data_get($data, '*.domain'));
+  dd($domains);
+
   $chart = new System1Charts;
   dd($chart);
 

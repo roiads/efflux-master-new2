@@ -12,8 +12,7 @@ class TrackCtrl extends Controller {
  private $user_details;
  private $cid; // campaign id
  private $sid; // sub id
- private $action; // action to record
-
+ private $action;
  private $request;
  private $ipChecker;
 
@@ -22,29 +21,27 @@ class TrackCtrl extends Controller {
   $this->uri     = trim($R->getPathInfo(), '/');
   $this->host    = $_SERVER['HTTP_HOST'];
   $this->user_ip = $_SERVER['REMOTE_ADDR'];
-  // WHat are the variables that are expected as part of the tracking request?
-  $this->action = $R->action ?? 'visit';
-  $this->cid    = $R->cid ?? null;
-  $this->sid    = $R->sid ?? null;
+  $this->action  = $R->action ?? 'visit';
+  $this->cid     = $R->cid ?? null;
+  $this->sid     = $R->sid ?? null;
  }
+ /**
+  * Setup the API to MaxMind IP Insights
+  */
  public function ipChecker_setup() {
   $ID  = config('MAXMIND_ID') ?? 105994;
   $KEY = config('MAXMIND_KEY') ?? 'Eh5m8iQCRk9rtoW2';
   if (!$ID || !$KEY) {
    return false;
   }
-  $ipChecker       = new ipChecker($ID, $KEY);
-  $this->ipChecker = $ipChecker;
-  return $ipChecker;
+  $this->ipChecker = new ipChecker($ID, $KEY);
  }
  /**
   * track
   */
  public function track(Request $R) {
   $this->examine($this->user_ip);
-
   $this->record($this->action, $this->uri, $this->user_details);
-
   $result = $this->cloak($this->user_details);
   return $result;
  }
@@ -52,31 +49,20 @@ class TrackCtrl extends Controller {
   * examine
   */
  public function examine() {
-  $ipChecker          = $this->ipChecker_setup();
-  $record             = $ipChecker->insights($this->user_ip);
-  $r['ip']            = $this->user_ip;
-  $r['user_agent']    = @$_SERVER['HTTP_USER_AGENT'];
-  $r['referrer']      = @$_SERVER['HTTP_REFERER'];
-  $r['isp']           = $record->traits->isp;
-  $r['network']       = $record->traits->network;
-  $r['domain']        = $record->traits->domain;
-  $r['user_type']     = $record->traits->userType;
-  $r['city']          = $record->city->name;
-  $r['country']       = $record->country->isoCode;
+  $x = $this->ipChecker->insights($this->user_ip);
+
+  $r['ip']         = $this->user_ip;
+  $r['user_agent'] = @$_SERVER['HTTP_USER_AGENT'];
+  $r['referrer']   = @$_SERVER['HTTP_REFERER'];
+  $r['isp']        = $x->traits->isp;
+  $r['network']    = $x->traits->network;
+  $r['domain']     = $x->traits->domain;
+  $r['user_type']  = $x->traits->userType;
+  $r['city']       = $x->city->name;
+  $r['country']    = $x->country->isoCode;
+
   $this->user_details = $r;
   return $r;
- }
-
- /**
-  * cloak
-  */
- public function cloak($details) {
-  if ($details['user_type'] !== 'residential') {
-   $details['state'] = "safe";
-  } else {
-   $details['state'] = "money";
-  }
-  return $details;
  }
 
  /**
@@ -94,8 +80,20 @@ class TrackCtrl extends Controller {
   $f['isp']        = $x['isp'];
   $f['network']    = $x['network'];
   $f['domain']     = $x['domain'];
-  return 0;
-  //$r = Action::create($field);
-  //return $r->id;
+
+  $r = Action::create($field);
+  return $r->id;
+ }
+
+ /**
+  * cloak
+  */
+ public function cloak($details) {
+  if ($details['user_type'] !== 'residential') {
+   $details['state'] = "safe";
+  } else {
+   $details['state'] = "money";
+  }
+  return $details;
  }
 }
