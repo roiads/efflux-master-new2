@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Reporting;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controller\Tracker\CloakCtrl as Cloak;
+use App\Models\Tracker\Action;
 use GeoIp2\WebService\Client as ipChecker;
 use Illuminate\Http\Request;
 
-class TrackCtrl extends Controller {
+class ActionCtrl extends Controller {
 
  private $user_ip;
  private $user_details;
@@ -49,51 +51,43 @@ class TrackCtrl extends Controller {
   * examine
   */
  public function examine() {
-  $x = $this->ipChecker->insights($this->user_ip);
-
-  $r['ip']         = $this->user_ip;
-  $r['user_agent'] = @$_SERVER['HTTP_USER_AGENT'];
-  $r['referrer']   = @$_SERVER['HTTP_REFERER'];
-  $r['isp']        = $x->traits->isp;
-  $r['network']    = $x->traits->network;
-  $r['domain']     = $x->traits->domain;
-  $r['user_type']  = $x->traits->userType;
-  $r['city']       = $x->city->name;
-  $r['country']    = $x->country->isoCode;
-
+  $x                  = $this->ipChecker->insights($this->user_ip);
+  $r['ip']            = $this->user_ip;
+  $r['user_agent']    = @$_SERVER['HTTP_USER_AGENT'];
+  $r['referrer']      = @$_SERVER['HTTP_REFERER'];
+  $r['isp']           = $x->traits->isp;
+  $r['network']       = $x->traits->network;
+  $r['domain']        = $x->traits->domain;
+  $r['user_type']     = $x->traits->userType;
+  $r['city']          = $x->city->name;
+  $r['country']       = $x->country->isoCode;
   $this->user_details = $r;
   return $r;
  }
-
  /**
   * record
   */
  public function record($action, $uri, $x) {
-  $f['action']     = $action;
-  $f['uri']        = $uri;
-  $f['ip']         = $x['ip'];
-  $f['user_type']  = $x['user_type'];
-  $f['city']       = $x['city'];
-  $f['country']    = $x['country'];
-  $f['user_agent'] = $x['user_agent'];
-  $f['referrer']   = $x['referrer'];
-  $f['isp']        = $x['isp'];
-  $f['network']    = $x['network'];
-  $f['domain']     = $x['domain'];
-
-  $r = Action::create($field);
+  $field['action']     = $action;
+  $field['uri']        = $uri;
+  $field['ip']         = $x['ip'];
+  $field['user_type']  = $x['user_type'];
+  $field['city']       = $x['city'];
+  $field['country']    = $x['country'];
+  $field['user_agent'] = $x['user_agent'];
+  $field['referrer']   = $x['referrer'];
+  $field['isp']        = $x['isp'];
+  $field['network']    = $x['network'];
+  $field['domain']     = $x['domain'];
+  $r                   = Action::create($field);
   return $r->id;
  }
-
  /**
   * cloak
   */
  public function cloak($details) {
-  if ($details['user_type'] !== 'residential') {
-   $details['state'] = "safe";
-  } else {
-   $details['state'] = "money";
+  if ($this->cloak === true) {
+   return new Cloak($details);
   }
-  return $details;
  }
 }

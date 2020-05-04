@@ -1,6 +1,7 @@
 <?php
 Auth::routes();
 Route::middleware(['auth'])->group(function () {
+ Route::get('track/{cid}/{sid?}/{action?}/{...args?}', 'Tracker\ActionCtrl@track')->middleware(['cors']);
  Route::prefix('api')->group(function () {
   Route::prefix('entourage')->namespace('Entourage')->group(function () {
    Route::resource('account', 'AccountCtrl');
@@ -27,7 +28,6 @@ Route::middleware(['auth'])->group(function () {
   Route::namespace ('Users')->group(function () {
    Route::resource('user', 'UserCtrl');
   });
-  Route::get('track/{cid}/{sid?}/{action?}/{...args?}', 'Reporting\TrackCtrl@track')->middleware(['cors']);
   Route::get('system1/import', '\App\Api\System1Api@import');
  });
  Route::prefix('chartdata')->group(function () {
