@@ -1,5 +1,7 @@
 <template>
-  <chart-line :chartData="chartData" :options="options" />
+  <b-card no-body>
+    <chart-line :chartData="chartData" :options="options" />
+  </b-card>
 </template>
 <script>
 export default {
