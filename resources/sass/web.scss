@@ -13,6 +13,7 @@ body {
   font-weight: 200;
   height: 100vh;
   margin: 0;
+  @include gradient-radial(#2f559a, #001946);
 
   div#app {
     height: 100vh;
