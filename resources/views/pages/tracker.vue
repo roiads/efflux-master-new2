@@ -1,6 +1,7 @@
 <template>
   <div>
     <page-header :crumbs="crumbs" :tools="tools"></page-header>
+
     <b-container tag="section" fluid>
       <b-card no-body>
         <reporting-system1-chart style="position: relative; height:35vh;" />
@@ -18,13 +19,21 @@ export default {
     crumbs: [["tracker", "/"], ["system1"]],
     tools: [
       {
-        title: "Week"
+        title: "Run API Now...",
+        variant: "warning",
+        href: "/api/system1/summary"
       },
       {
-        title: "2 Weeks"
+        title: "Week",
+        variant: "success"
       },
       {
-        title: "Month"
+        title: "2 Weeks",
+        variant: "success"
+      },
+      {
+        title: "Month",
+        variant: "success"
       }
     ]
   }),
