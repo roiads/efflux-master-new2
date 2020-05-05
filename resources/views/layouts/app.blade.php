@@ -9,7 +9,14 @@
   <meta name="keywords" content="{{ $keywords ?? '' }}">
   <meta name="description" content="{{ $description ?? '' }}">
   <meta name="copyright" content="{{ $copyright ?? '' }}">
+  
+  @auth()
   <link rel="stylesheet" href="/css/app.css">
+  @endauth
+  @guest()
+  <link rel="stylesheet" href="/css/web.css">
+  @endguest
+  
 </head>
 <body class="layout-fixed">
   <div id="app" class="wrapper">
