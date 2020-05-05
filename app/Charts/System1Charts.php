@@ -1,64 +1,70 @@
 <?php
 namespace App\Charts;
-use ConsoleTVs\Charts\Classes\Chartjs\Chart;
 use Illuminate\Support\Arr;
 use \App\Models\Reporting\System1;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\ChartController as Chart;
 
 class System1Charts extends Chart {
 
- public $days = 30;
+    private $fields;
+    private $data;
 
- public $domains;
- public $dates;
-
- public $labels;
- public $series;
- public $options = [];
-
- public function __construct() {
-  //$this->options['name'] = '';
-  parent::__construct();
- }
- public function __invoke($args = null) {
-  $dataset = [2, 3, 1, 2, 3, 1, 2, 3, 1, 1, 2, 3, 1, 2, 3, 1];
-
-  $args = parseArgs($args);
-  $this->getData($args);
-
-  $this->makeLabels();
-  $this->dataset('Mobile', 'bar', $dataset);
-  $this->dataset('Desktop', 'bar', $dataset);
-  $this->dataset('Revenue', 'line', $dataset);
-  $this->dataset('Clicks', 'line', $dataset);
-
-  dd($this);
- }
-
- public function getData($args) {
-  $data = System1::select('date',
-   'campaign_domain as domain',
-   'subid',
-   'revenue',
-   'clicks as clickthrough',
-   'mobile_unique as mobile',
-   'desktop_unique as desktop')
-   ->where('date', '>=', today()->subDays($this->days))
-   ->orderByDesc('date')
-   ->get();
-  return $this->data = $data;
- }
- public function getDomains() {
-  $data                 = data_get($this->data, '*.domain');
-  $data                 = array_unique($data);
-  return $this->domains = $data;
- }
- public function makeLabels() {
-  $dates = data_get($this->data, '*.date');
-  $dates = array_unique($dates);
-  $dates = Arr::flatten($dates);
-  foreach ($dates as &$date) {
-   $date = date('m-d', strtotime($date));
-  }
-  return $this->labels = $dates;
- }
+    public function __construct() {
+        $this->days = 30;
+        $this->title = 'System1 Daily Reports';
+        $this->fields = [
+            'clicks',
+            'revenue',
+            'sessions',
+            'unique'];
+    }
+    public function __invoke($args = null) {
+        $args = parseArgs($args);
+        $this->getData($args);
+        $this->makeLabels();
+        foreach ($this->fields as $field) {
+            $opt = [];
+            $opt['borderColor'] = null;
+            $opt['yAxisID'] = 'counts';
+            $opt['type'] = 'line';
+            if ($field == 'revenue') {
+                $opt['backgroundColor'] = 'lime';
+                $opt['type'] = 'bar';
+                $opt['yAxisID'] = 'revenue';
+            } elseif (stristr($field, 'sessions')) {
+                $opt['borderColor'] = 'yellow';
+            } elseif (stristr($field, 'unique')) {
+                $opt['borderColor'] = 'blue';
+            }
+            $this->dataset($field, $this->data->pluck($field), $opt);
+        }
+        return $this->anyErrors() ?: response()->json($this);
+    }
+    public function getData($args) {
+        $start = today()->subDays($this->days);
+        $domain = $args['domain'] ?? null;
+        $subid = $args['subid'] ?? null;
+        $x = System1::select('date');
+        foreach ($this->fields as $f) {
+            $x = $x->addSelect(DB::raw('sum(`' . $f . '`) as `' . $f . '`'));
+        }
+        $x = $x->where('subid', $subid)
+            ->where('domain', $domain)
+            ->where('date', '>=', $start)
+            ->orderByDesc('date')
+            ->groupBy('date')
+            ->get();
+        return $this->data = $x;
+    }
+    public function makeLabels() {
+        $x = data_get($this->data, '*.date');
+        $x = array_unique($x);
+        asort($x);
+        $x = Arr::flatten($x);
+        foreach ($x as $d) {
+            $date = date('m-d', strtotime($d));
+        }
+        $this->labels($x);
+    }
 }

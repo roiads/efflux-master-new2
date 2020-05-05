@@ -8,17 +8,19 @@ class CreateSystem1ReportsTable extends Migration {
  public function up() {
   Schema::create('efflux_report.api_system1', function (Blueprint $t) {
    $t->id();
-   $t->timestampTz('date');
-   $t->string('campaign_domain', 100)->nullable()->default(NULL);
-   $t->string('subid', 100)->nullable()->default(NULL);
-   $t->integer('mobile')->default(0);
-   $t->integer('mobile_unique')->default(0);
-   $t->integer('desktop')->default(0);
-   $t->integer('desktop_unique')->default(0);
-   $t->integer('searches')->default(0);
-   $t->integer('clicks')->default(0);
-   $t->decimal('revenue', 10, 2)->default(0.0);
-   $t->unique(['date', 'campaign_domain', 'subid']);
+   $t->date('date');
+   $t->string('domain', 100)->nullable();
+   $t->string('subid', 100)->nullable();
+   $t->integer('sessions')->nullable();
+   $t->integer('sessions_mobile')->nullable();
+   $t->integer('sessions_desktop')->nullable();
+   $t->integer('unique')->nullable();
+   $t->integer('unique_mobile')->nullable();
+   $t->integer('unique_desktop')->nullable();
+   $t->integer('searches')->nullable();
+   $t->integer('clicks')->nullable();
+   $t->decimal('revenue', 10, 2)->nullable();
+   $t->unique(['date', 'domain', 'subid']);
    $t->softDeletes();
    $t->timestamps();
   });
