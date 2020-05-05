@@ -22,6 +22,11 @@ let routes = [{
     props: true
   },
   {
+    path: '/assets/domains/:domain?',
+    component: require('../views/pages/assets').default,
+    props: true
+  },
+  {
     path: '/site-manager/:resource?/:id?',
     component: require('../views/pages/site-manager').default,
     props: true
