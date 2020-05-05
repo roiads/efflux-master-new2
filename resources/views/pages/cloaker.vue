@@ -1,9 +1,10 @@
 <template>
   <div>
     <page-header :crumbs="crumbs" :tools="tools"></page-header>
+
     <b-container tag="section" fluid>
       <b-card no-body>
-        <reporting-system1-chart style="position: relative; height:35vh;" />
+        <b-alert variant="danger">Coming Soon!</b-alert>
       </b-card>
 
       <reporting-system1-table type="domain" />
@@ -13,18 +14,17 @@
 </template>
 <script>
 export default {
-  name: "tracker-page",
+  name: "cloacker-page",
   data: () => ({
-    crumbs: [["tracker", "/"], ["system1"]],
+    crumbs: [["tracker", "tracker"], ["Cloak Controller"]],
     tools: [
       {
-        title: "Week"
+        title: "blacklist",
+        variant: "danger"
       },
       {
-        title: "2 Weeks"
-      },
-      {
-        title: "Month"
+        title: "Actively Cloaked Cmapgins",
+        variant: "success"
       }
     ]
   }),

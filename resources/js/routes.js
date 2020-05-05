@@ -27,6 +27,11 @@ let routes = [{
     props: true
   },
   {
+    path: '/tracker/cloak/:id?',
+    component: require('../views/pages/cloaker').default,
+    props: true
+  },
+  {
     path: '/tracker/:resource?/:id?',
     component: require('../views/pages/tracker').default,
     props: true

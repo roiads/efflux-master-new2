@@ -20,6 +20,7 @@ Route::prefix('assets')->namespace('Assets')->group(function () {
 Route::prefix('reporting')->namespace('Reporting')->group(function () {
  Route::resource('traffic', 'TrafficCtrl');
  Route::resource('system1', 'System1Ctrl');
+ Route::get('system1/table/{type?}', 'System1Ctrl@table');
 });
 Route::namespace ('Users')->group(function () {
  Route::resource('user', 'UserCtrl');
