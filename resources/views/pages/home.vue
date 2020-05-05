@@ -16,20 +16,20 @@
             <b-col>
               <p>Some things that are ready but need some design help...</p>
 
-              <b-button block variant="success" to="/tracker/system1/">System1 Reports</b-button>
+              <b-button block variant="light" to="/tracker/system1/">System1 Reports</b-button>
               <b-button
                 block
-                variant="success"
+                variant="light"
                 to="/tracker/system1/a-snag-psoriasistreatment.zone/"
               >System1 Domain Reports</b-button>
 
-              <b-button block variant="success" to="/site-manager/">Site Manager</b-button>
-              <b-button block variant="success" to="/assets/domains/">Domain Manager</b-button>
+              <b-button block variant="light" to="/site-manager/">Site Manager</b-button>
+              <b-button block variant="light" to="/assets/domains/">Domain Manager</b-button>
             </b-col>
             <b-col>
               <p>Not quite ready, but need some design help!</p>
               <b-row>
-                <b-button block variant="warning" to="/tracker/cloak/">Cloaker Controller</b-button>
+                <b-button block variant="danger" to="/tracker/cloak/">Cloaker Controller</b-button>
                 <b-button block variant="warning" to="/tracker/traffic/">Traffic Tracker</b-button>
                 <b-button block variant="warning" to="/entourage/">Entourage Accounts Manager</b-button>
               </b-row>
