@@ -3,12 +3,17 @@
     <page-header :crumbs="crumbs" :tools="tools"></page-header>
 
     <b-container tag="section" fluid>
-      <b-card no-body>
-        <b-alert variant="danger">Coming Soon!</b-alert>
-      </b-card>
-
-      <reporting-system1-table type="domain" />
-      <reporting-system1-table type="date" />
+      <b-alert variant="warning" show>Landing page Cloaker... Coming Soon!</b-alert>
+      <div>
+        <b-alert show variant="primary">Primary Alert</b-alert>
+        <b-alert show variant="secondary">Secondary Alert</b-alert>
+        <b-alert show variant="success">Success Alert</b-alert>
+        <b-alert show variant="danger">Danger Alert</b-alert>
+        <b-alert show variant="warning">Warning Alert</b-alert>
+        <b-alert show variant="info">Info Alert</b-alert>
+        <b-alert show variant="light">Light Alert</b-alert>
+        <b-alert show variant="dark">Dark Alert</b-alert>
+      </div>
     </b-container>
   </div>
 </template>
