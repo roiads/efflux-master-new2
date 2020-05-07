@@ -18,13 +18,7 @@ export default {
     this.getData();
   },
   computed: {},
-  methods: {
-    getData() {
-      axios
-        .get(`/api/reporting/system1/table/${this.type}`)
-        .then(({ data }) => (this.s1 = data));
-    }
-  }
+  methods: {}
 };
 </script>
 <style lang="scss">

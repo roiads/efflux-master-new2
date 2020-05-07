@@ -37,6 +37,12 @@
               <p>Traffic Monitor</p>
             </b-link>
           </li>
+          <li class="nav-item">
+            <b-link to="/users" class="nav-link">
+              <b-icon-gear-fill />
+              <p>Users</p>
+            </b-link>
+          </li>
         </ul>
       </nav>
     </div>

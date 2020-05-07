@@ -1,49 +1,32 @@
 <template>
-  <div class="container-fluid">
-    <div class="page-header">
-      <div class="row">
-        <crumbs page="users" :name="user.name"></crumbs>
-        <tbar :id="user.id" @xAdd="modal = 'add'" @xEdit="modal = 'edit'" @unsetId="unsetId"></tbar>
-      </div>
-      <h1>Admin - Users Controller</h1>
-    </div>
-    <div class="row">
-      <users-list></users-list>
-    </div>
+  <div>
+    <page-header :crumbs="crumbs">
+      <b-btn variant="success" @click="user-create">Add User</b-btn>
+      <b-btn v-if="user.id" @click="user-edit">Edit {{user.id}}</b-btn>
+    </page-header>
+    <page-body>
+      <user-index :users="users" />
+    </page-body>
   </div>
 </template>
 <script>
 export default {
   name: "users-page",
-  data() {
-    return {
-      id: 0,
-      user: [],
-      users: [],
-      form: new Form({
-        name: "",
-        email: "",
-        password: "",
-        password_confirmation: ""
-      })
-    };
-  },
-  created() {
-    axios.get("/user").then(r => (this.users = r));
+  data: () => ({
+    crumbs: [["user manager", "/users"]],
+    users: [],
+    user: []
+  }),
+  mounted() {
+    this.getUsers();
   },
   methods: {
-    onSubmit() {
-      this.form.password_confirmation = this.form.password;
-      this.form.post("/user").then(data => this.users.push(data));
+    getUsers() {
+      axios.get(`/api/user`).then(({ data }) => (this.users = data));
     },
-    unsetId() {
-      this.id = null;
-    },
-    closeModal() {
-      this.modal = 0;
+    getUser(id) {
+      axios.get(`/api/user${id}`).then(({ data }) => (this.user = data));
     }
   }
 };
 </script>
-<style>
-</style>
