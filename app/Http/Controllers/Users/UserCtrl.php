@@ -48,6 +48,7 @@ class UserCtrl extends Controller {
                 $response = ['success' => true];
 
             } catch(\Exception $ex) {
+                echo $ex->getMessage();
                 $response = ['success' => false];
             }
 
