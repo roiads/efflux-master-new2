@@ -11,7 +11,9 @@ class User extends Authenticatable {
 
 	use Notifiable, SoftDeletes, FormAccessible;
 
-	protected $connection = 'efflux_users';
+	//protected $connection = 'efflux_users';
+
+	protected $table = config('app.name') . '_users.users'
 
 	protected $appends = ['full_name'];
 
