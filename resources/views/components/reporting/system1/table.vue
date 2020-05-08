@@ -1,6 +1,10 @@
 <template>
   <b-card no-body>
-    <b-table responsive small striped hover :items="s1"></b-table>
+    <b-table sticky-header="300px" responsive="lg" small striped hover :items="s1">
+      <template v-slot:head(name)="data">
+        <span class="text-info">{{ data.label.toUpperCase() }}</span>
+      </template>
+    </b-table>
   </b-card>
 </template>
 <script>
@@ -13,13 +17,8 @@ export default {
   mounted() {
     this.getData();
   },
-  methods: {
-    getData() {
-      axios
-        .get(`/api/reporting/system1/table/${this.type}`)
-        .then(({ data }) => (this.s1 = data));
-    }
-  }
+  computed: {},
+  methods: {}
 };
 </script>
 <style lang="scss">

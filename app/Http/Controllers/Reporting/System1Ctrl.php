@@ -27,18 +27,21 @@ class System1Ctrl extends Controller {
             'domain' => 'required',
             'date' => 'required',
         ]);
-
     }
     public function destroy(System1 $s1) {
         $s1->delete();
     }
+
     public function table($type, $days = 30) {
         $this->days = $days;
         $this->fields = ['clicks',
-            'sessions',
-            'unique',
+            'searches',
+            'sessions' => 'total',
             'sessions_mobile' => 'mobile',
             'sessions_desktop' => 'desktop',
+            'unique',
+            'unique_mobile' => 'unique_m',
+            'unique_desktop' => 'unique_d',
             'revenue'];
         $s1 = System1::select($type);
         foreach ($this->fields as $k => $v) {

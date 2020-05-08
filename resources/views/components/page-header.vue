@@ -5,7 +5,15 @@
     </b-col>
     <b-col>
       <b-btn-group size="sm" class="float-right">
-        <b-button v-for="(tool,i) in tools" :variant="tool.variant" :key="i">{{ tool.title }}</b-button>
+        <slot>
+          <b-button
+            v-for="(tool,i) in tools"
+            :to="tool.to"
+            :href="tool.href"
+            :variant="tool.variant"
+            :key="i"
+          >{{ tool.title }}</b-button>
+        </slot>
       </b-btn-group>
     </b-col>
   </b-row>
