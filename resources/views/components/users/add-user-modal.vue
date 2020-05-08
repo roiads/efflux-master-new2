@@ -118,7 +118,9 @@
 
 									this.$emit('add-success')
 								} else {
+									console.log(response.data.errors);
 									if (typeof response.data.errors != 'undefined') {
+										console.log(Object.keys(response.data.errors).length);
 										if (Object.keys(response.data.errors).length > 0) {
 											let vaidation_errors = 	response.data.errors
 
