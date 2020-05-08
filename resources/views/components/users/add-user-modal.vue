@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<b-form @submit.prevent="addUser">
-			<b-form-group id="input-group-first-name" label="First Name:" label-for="input-first-name" :class="{ 'form-group--error': $v.newUser.first_name.$error }">
-				<b-form-input id="input-first-name" v-model="newUser.first_name" placeholder="Enter First Name" required></b-form-input>
+			<b-form-group id="input-group-first-name" label="First Name:" label-for="input-first-name">
+				<b-form-input id="input-first-name" name="first_name" v-model="newUser.first_name" placeholder="Enter First Name" required></b-form-input>
 			</b-form-group>
 
 			<div class="error" v-if="!$v.newUser.first_name.required">Field is required</div>
@@ -49,13 +49,6 @@
 					selected_roles: []
 				},
 				roles: [],
-			}
-		},
-		validations: {
-			newUser: {
-				first_name: {
-					required,
-				}
 			}
 		},
 		components: {
