@@ -2,7 +2,12 @@
 	<div>
 		<b-form @submit.prevent="addUser">
 			<b-form-group id="input-group-first-name" label="First Name:" label-for="input-first-name">
-				<b-form-input id="input-first-name" name="first_name" v-model="newUser.first_name" placeholder="Enter First Name" required></b-form-input>
+				<b-form-input id="input-first-name" name="first_name" v-model="newUser.first_name" placeholder="Enter First Name" v-validate="'required'" :class="{ 'is-invalid': errors.has('first_name') }"></b-form-input>
+
+				<div v-if="errors.has('first_name')" class="invalid-feedback">
+					{{ errors.first('first_name') }}
+				</div>
+
 			</b-form-group>
 
 			<b-form-group id="input-group-last-name" label="Last Name:" label-for="input-last-name">
@@ -46,17 +51,28 @@
 					selected_roles: []
 				},
 				roles: [],
+				dictionary: {
+					attributes: {
+                    	first_name: 'First Name',
+                    	last_name: 'Last Name'
+                    },
+                    custom: {
+
+                    }
+				}
 			}
 		},
 		components: {
             Multiselect    
         },
 		mounted() {
+			this.$validator.localize('en', this.dictionary)
 			this.fetchRoles()
 		},
 		methods: {
 			addUser() {
-				axios.post(`/api/user`, this.newUser).then(response => {
+
+				/*axios.post(`/api/user`, this.newUser).then(response => {
 					if(response.data.success) {
 						this.newUser = {
 							first_name: '',
@@ -70,6 +86,12 @@
 					}
 				}).catch(error => {
 					console.log(error);
+				})*/
+
+				this.$validator.validate().then(valid => {
+					if(valid) {
+						
+					}
 				})
 			},
 			fetchRoles() {
