@@ -43,9 +43,7 @@ class UserCtrl extends Controller {
                 if ($validator->fails()) {
                     return response()->json(['success' => false, 'errors' => $validator->errors()->getMessageBag()->toArray()]);
                 } else {
-                    pr($request->input());
-                    die;
-
+                    
                     $user = User::create([
                         'firstname' => $request->input('first_name'),
                         'lastname' => $request->input('last_name'),
