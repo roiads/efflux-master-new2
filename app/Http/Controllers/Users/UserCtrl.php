@@ -35,8 +35,8 @@ class UserCtrl extends Controller {
             try {
 
                 $validator = Validator::make($request->all(), [
-                            'first_name' => 'required|string|max:255',
-                            'last_name' => 'required|string|max:255',
+                            'first_name' => 'required|string|max:2',
+                            'last_name' => 'required|string|max:2',
                             'email' => 'required|string|email|max:255|unique:mysql.efflux_users.users',
                             'password' => 'required',
                 ]);
