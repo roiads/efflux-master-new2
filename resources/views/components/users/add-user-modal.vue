@@ -56,7 +56,7 @@
 		},
 		methods: {
 			addUser(event) {
-				event.prevent.default()
+				event.preventDefault()
 				this.$emit('add-success')
 
 				/*axios.get(`/api/users/create`, this.newUser).then(response => {
