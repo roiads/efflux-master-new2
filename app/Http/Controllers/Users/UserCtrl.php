@@ -7,10 +7,12 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UserCtrl extends Controller {
+    
     public function index() {
         $users = User::with('roles')->latest()->get();
         return $users;
     }
+
     public function create(Request $request) {
 
         Validator::make($request->all(), [
@@ -27,6 +29,7 @@ class UserCtrl extends Controller {
             'password' => Hash::make($request['password']),
         ]);
     }
+
     public function store(Request $request) {
         if($request->ajax()) {
             try {
@@ -48,18 +51,29 @@ class UserCtrl extends Controller {
                 $response = ['success' => true];
 
             } catch(\Exception $ex) {
-                echo $ex->getMessage();
+                //echo $ex->getMessage();
                 $response = ['success' => false];
             }
 
             return $response;
         }
     }
+
     public function show($id) {
         $r = user::with('roles')->find($id);
         return response()->json($r);
     }
-    public function edit(user $user) {}
-    public function update(Request $request, user $user) {}
-    public function destroy(user $user) {}
+
+    public function edit(user $user) {
+
+    }
+
+    public function update(Request $request, user $user) {
+
+    }
+
+    public function destroy(user $user) {
+
+    }
+
 }
