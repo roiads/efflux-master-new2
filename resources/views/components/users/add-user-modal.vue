@@ -56,7 +56,7 @@
 		},
 		methods: {
 			addUser() {
-				axios.post(`/api/users/create`, this.newUser).then(response => {
+				axios.post(`/api/user/create`, this.newUser).then(response => {
 					if(response.data.success) {
 						this.newUser = {
 							first_name: '',
