@@ -3,11 +3,16 @@
 
 @import 'variables';
 
+$headerHeight:50px;
+$controlBarWidth:200px;
+$sidebarWidth:250px;
+
 @import "~bootstrap/scss/bootstrap";
 @import '~icheck-bootstrap/icheck-bootstrap.min.css';
 @import '~grapesjs/dist/css/grapes.min.css';
 
-@import '~admin-lte/dist/css/adminlte.min.css';
+//@import '~admin-lte/dist/css/adminlte.min.css';
+@import '~vue-multiselect/dist/vue-multiselect.min.css';
 
 html,
 body {
@@ -17,6 +22,72 @@ body {
 	margin: 0;
 	background: #f4f6f9;
 
+	div#app {
+		>nav.main-header {
+			margin-left: $sidebarWidth;
+			height: $headerHeight;
+		}
+
+		aside.control-sidebar {
+			display: inline-block;
+			top: $headerHeight;
+			bottom: 0px;
+			right: -$controlBarWidth;
+			width: $controlBarWidth;
+			position: fixed;
+		}
+
+		aside.main-sidebar {
+			display: inline-block;
+			top: 0px;
+			bottom: 0px;
+			left: 0px;
+			width: $sidebarWidth;
+			position: fixed;
+
+			a.brand-link {
+				padding: 25px 5px 5px;
+			}
+
+			div.sidebar {
+				nav {
+					>ul {
+						>li {
+							>a {
+								padding: 15px 10px 0px;
+
+								.bi {
+									display: inline-block;
+									width: 25px;
+									margin-right: 5px;
+								}
+
+								p {
+									display: inline-block;
+								}
+
+							}
+
+							>ul {
+								>li {}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		>div.content-wrapper {
+			margin-left: $sidebarWidth;
+		}
+
+		footer.main-footer {
+			position: absolute;
+			bottom: 0px;
+			left: $sidebarWidth;
+			right: 0px;
+		}
+	}
 
 	.bg-gradient-backdrop {
 		background-image: radial-gradient(ellipse at 20% 0%, #364b71, #2b4066, rgb(20, 35, 61)) !important;

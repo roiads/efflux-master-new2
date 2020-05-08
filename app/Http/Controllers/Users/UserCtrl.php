@@ -12,6 +12,7 @@ class UserCtrl extends Controller {
         return $users;
     }
     public function create(Request $request) {
+
         Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:100'],
             'email' => ['required', 'string', 'email', 'max:100', 'unique:mysql.efflux_users.users'],
@@ -26,7 +27,29 @@ class UserCtrl extends Controller {
             'password' => Hash::make($request['password']),
         ]);
     }
-    public function store(Request $request) {}
+    public function store(Request $request) {
+        if($request->ajax()) {
+            try {
+
+                dd($request->input());
+                die;
+
+                $user = User::create([
+                    'firstname' => $request->input('first_name'),
+                    'lastname' => $request->input('last_name'),
+                    'email' => $request->input('email'),
+                    'password' => Hash::make($request->input('password')),
+                ]);
+
+                $selected_roles = $request->input('selected_roles');
+
+            } catch(\Exception $ex) {
+                $response = ['success' => false];
+            }
+
+            return $response;
+        }
+    }
     public function show($id) {
         $r = user::with('roles')->find($id);
         return response()->json($r);

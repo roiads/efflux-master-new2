@@ -6,6 +6,6 @@ try {
 } catch (e) {
   alert('jQuery-Bootstrap: Could not load');
 }
-require('admin-lte');
+//require('admin-lte');
 window.axios = require('axios');
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';

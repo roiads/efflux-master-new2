@@ -54,19 +54,7 @@ export default {
       }
     }
   }),
-  mounted() {
-    this.getData();
-  },
-  methods: {
-    getData() {
-      let getDomain = null;
-      if (this.domain) {
-        getDomain = "domain=" + this.domain;
-      }
-      axios
-        .get(`/data/system1/${getDomain}`)
-        .then(({ data }) => (this.chartData = data));
-    }
-  }
+  mounted() {},
+  methods: {}
 };
 </script>
