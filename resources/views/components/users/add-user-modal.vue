@@ -118,7 +118,9 @@
 				this.$validator.validate().then(valid => {
 					if(valid) {
 						if(this.errors.items.length == 0) {
-							axios.post(`/api/user`, this.newUser).then(response => {
+							console.log("Success");
+							
+							/*axios.post(`/api/user`, this.newUser).then(response => {
 								if(response.data.success) {
 									this.errors.clear()
                                 	this.$validator.reset()
@@ -135,7 +137,7 @@
 								}
 							}).catch(error => {
 								console.log(error);
-							})
+							})*/
 						}
 					}
 				}).catch(error => {
