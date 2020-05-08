@@ -121,10 +121,10 @@
 									console.log(response.data.errors);
 									if (typeof response.data.errors != 'undefined') {
 										if (Object.keys(response.data.errors).length > 0) {
-											let vaidation_errors = 	response.data.errors
+											let validation_errors = 	response.data.errors
 
-											if(vaidation_errors.hasOwnProperty('email')) {
-												console.log(vaidation_errors.email[0])
+											if(validation_errors.hasOwnProperty('email')) {
+												console.log(validation_errors.email[0])
 											}
 										}
 									}
