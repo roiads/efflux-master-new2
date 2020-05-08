@@ -117,6 +117,17 @@
 									}
 
 									this.$emit('add-success')
+								} else {
+									if (typeof response.data.errors != 'undefined') {
+										if (Object.keys(response.data.errors).length > 0) {
+											let vaidation_errors = 	response.data.errors
+
+											vaidation_errors.forEach((value, key) => {
+												console.log(key);
+												console.log(value)	
+											})
+										}
+									}
 								}
 							}).catch(error => {
 								//console.log(error);
