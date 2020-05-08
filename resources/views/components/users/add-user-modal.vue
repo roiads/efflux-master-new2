@@ -11,15 +11,27 @@
 			</b-form-group>
 
 			<b-form-group id="input-group-last-name" label="Last Name:" label-for="input-last-name">
-				<b-form-input id="input-last-name" v-model="newUser.last_name" placeholder="Enter Last Name" required></b-form-input>
+				<b-form-input id="input-last-name" name="last_name" v-model="newUser.last_name" placeholder="Enter Last Name" v-validate="'required'" :class="{ 'is-invalid': errors.has('last_name') }"></b-form-input>
+
+				<div v-if="errors.has('last_name')" class="invalid-feedback">
+					{{ errors.first('last_name') }}
+				</div>
 			</b-form-group>
 
 			<b-form-group id="input-group-email" label="Email:" label-for="input-email">
-				<b-form-input id="input-email" type="email" v-model="newUser.email" placeholder="Enter Email" required></b-form-input>
+				<b-form-input id="input-email" type="email" v-model="newUser.email" placeholder="Enter Email" v-validate="'required|email'" :class="{ 'is-invalid': errors.has('email') }"></b-form-input>
+
+				<div v-if="errors.has('email')" class="invalid-feedback">
+					{{ errors.first('email') }}
+				</div>
 			</b-form-group>
 
 			<b-form-group id="input-group-password" label="Password:" label-for="input-password">
-				<b-form-input id="input-password" type="password" v-model="newUser.password" placeholder="Enter Password" required></b-form-input>
+				<b-form-input id="input-password" name="password" type="password" v-model="newUser.password" placeholder="Enter Password" v-validate="'required'" :class="{ 'is-invalid': errors.has('password') }"></b-form-input>
+
+				<div v-if="errors.has('password')" class="invalid-feedback">
+					{{ errors.first('password') }}
+				</div>
 			</b-form-group>
 
 			<b-form-group label="Roles:">
@@ -54,7 +66,9 @@
 				dictionary: {
 					attributes: {
                     	first_name: 'First Name',
-                    	last_name: 'Last Name'
+                    	last_name: 'Last Name',
+                    	email: 'Email',
+                    	password: 'Password'
                     },
                     custom: {
 
