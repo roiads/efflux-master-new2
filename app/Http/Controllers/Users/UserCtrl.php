@@ -25,7 +25,7 @@ class UserCtrl extends Controller {
             'email' => $request['email'],
             'username' => $request['email'],
             'password' => Hash::make($request['password']),
-        ]);*
+        ]);
     }
     public function store(Request $request) {
         if($request->ajax()) {
