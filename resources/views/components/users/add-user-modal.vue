@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<b-form @submit="onSubmit" @reset="onReset" v-if="show">
+		<b-form @submit="onSubmit" @reset="onReset">
 			<b-form-group id="input-group-first-name" label="First Name:" label-for="input-first-name">
 				<b-form-input id="input-first-name" v-model="newUser.first_name" required></b-form-input>
 			</b-form-group>
