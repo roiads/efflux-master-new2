@@ -31,17 +31,27 @@
 					last_name: '',
 					email: '',
 					password: '',
-					roles: []
-				}
+					selected_roles: []
+				},
+				roles: [],
 			}
 		},
 		mounted() {
-
+			this.fetchRoles()
 		},
 		methods: {
 			addUser() {
 
 			},
+			fetchRoles() {
+				axios.get(`/api/roles`).then(response => {
+					if(response.data.success) {
+						this.roles = response.data.roles	
+					}
+				}).catch(error => {
+					console.log(error);
+				})
+			}
 
 		}
 

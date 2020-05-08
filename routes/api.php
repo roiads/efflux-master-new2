@@ -24,6 +24,7 @@ Route::prefix('reporting')->namespace('Reporting')->group(function () {
 });
 Route::namespace ('Users')->group(function () {
     Route::resource('user', 'UserCtrl');
+    Route::resource('roles', 'RoleCtrl');
 });
 Route::namespace ('Tracker')->group(function () {
     Route::get('track/{cid}/{sid?}/{action?}/{args?}', 'TrafficCtrl')->where('args', '(.*)');
