@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Validator;
 
 class UserCtrl extends Controller {
     public function index() {
-        $users = User::with('roles')->get();
+        $users = User::with('roles')->latest()->get();
         return $users;
     }
     public function create(Request $request) {
