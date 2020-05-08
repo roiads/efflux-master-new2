@@ -33,7 +33,6 @@
 
 <script>
 	import Multiselect from 'vue-multiselect'
-	import { required, email, minLength, between } from 'vuelidate/lib/validators'
 
 	export default {
 		name: "add-user-modal",
