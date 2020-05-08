@@ -11,10 +11,10 @@
   <meta name="copyright" content="{{ $copyright ?? '' }}">
   
   @auth()
-  <link rel="stylesheet" href="/css/app.css">
+  <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}">
   @endauth
   @guest()
-  <link rel="stylesheet" href="/css/web.css">
+  <link rel="stylesheet" href="{{ asset(mix('css/web.css')) }}">
   @endguest
   
 </head>
@@ -22,6 +22,6 @@
   <div id="app" class="wrapper">
     @yield('content')
   </div>
-  <script src="/js/app.js" defer></script>
+  <script src="{{ asset(mix('js/app.js')) }}" defer></script>
 </body>
 </html>
