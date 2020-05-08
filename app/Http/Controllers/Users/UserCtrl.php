@@ -31,8 +31,6 @@ class UserCtrl extends Controller {
         if($request->ajax()) {
             try {
 
-                var_dump(Hash::make($request->input('password'))); die;
-
                 $user = User::create([
                     'firstname' => $request->input('first_name'),
                     'lastname' => $request->input('last_name'),
