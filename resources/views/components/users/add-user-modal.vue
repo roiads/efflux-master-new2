@@ -108,7 +108,7 @@
 					console.log(error);
 				})*/
 
-				if(this.selected_roles.length == 0) {
+				if(this.newUser.selected_roles.length == 0) {
 					this.errors.add({
 						field: 'roles',
 						msg: 'Please Select Roles'
