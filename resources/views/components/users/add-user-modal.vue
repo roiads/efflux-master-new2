@@ -120,14 +120,12 @@
 								} else {
 									console.log(response.data.errors);
 									if (typeof response.data.errors != 'undefined') {
-										console.log(Object.keys(response.data.errors).length);
 										if (Object.keys(response.data.errors).length > 0) {
 											let vaidation_errors = 	response.data.errors
 
-											vaidation_errors.forEach((value, key) => {
-												console.log(key);
-												console.log(value)	
-											})
+											if(vaidation_errors.hasOwnProperty('email')) {
+												console.log(vaidation_errors.email[0])
+											}
 										}
 									}
 								}
