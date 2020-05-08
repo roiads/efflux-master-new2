@@ -17,11 +17,21 @@
 				<b-form-input id="input-password" type="password" v-model="newUser.password" placeholder="Enter Password" required></b-form-input>
 			</b-form-group>
 
+			<b-form-group label="Roles:">
+				<multiselect v-model="newUser.selected_roles" placeholder="Select Roles" label="role" track-by="name" open-direction="bottom" :options="roles" :searchable="true" select-label="" deselect-label="" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true">
+					<template slot="option" slot-scope="props">
+						<div class="multiselect__clear">{{ props.option.name }}</div>
+					</template>
+				</multiselect>
+			</b-form-group>
+
 		</b-form>
 	</div>
 </template>
 
 <script>
+	import Multiselect from 'vue-multiselect'
+
 	export default {
 		name: "add-user-modal",
 		data() {
@@ -36,6 +46,9 @@
 				roles: [],
 			}
 		},
+		components: {
+            Multiselect    
+        },
 		mounted() {
 			this.fetchRoles()
 		},
