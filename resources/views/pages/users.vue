@@ -37,6 +37,7 @@
         this.$bvModal.show("add-user-modal");
       },
       addSuccess() {
+        this.$bvModal.hide("add-user-modal");
         alert("Success Done");
       }
     }

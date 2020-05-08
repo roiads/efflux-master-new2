@@ -55,8 +55,25 @@
 			this.fetchRoles()
 		},
 		methods: {
-			addUser() {
+			addUser(event) {
+				event.prevent.default()
 				this.$emit('add-success')
+
+				/*axios.get(`/api/users/create`, this.newUser).then(response => {
+					if(response.data.success) {
+						this.newUser = {
+							first_name: '',
+							last_name: '',
+							email: '',
+							password: '',
+							selected_roles: []	
+						}
+
+						this.$emit('add-success')
+					}
+				}).catch(error => {
+					console.log(error);
+				})*/
 			},
 			fetchRoles() {
 				axios.get(`/api/roles`).then(response => {
