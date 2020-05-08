@@ -7,7 +7,7 @@ class Role extends Models {
 
 	//protected $connection = 'efflux_users';
 
-	protected $table = config('app.name') . '_users.user_role';
+	protected $table = config('app.name') . '_users.roles';
 
 	protected $fillable = ['name', 'description'];
 	
