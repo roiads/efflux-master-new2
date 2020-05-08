@@ -56,10 +56,7 @@
 		},
 		methods: {
 			addUser() {
-				//event.preventDefault()
-				this.$emit('add-success')
-
-				/*axios.get(`/api/users/create`, this.newUser).then(response => {
+				axios.post(`/api/users/create`, this.newUser).then(response => {
 					if(response.data.success) {
 						this.newUser = {
 							first_name: '',
@@ -73,7 +70,7 @@
 					}
 				}).catch(error => {
 					console.log(error);
-				})*/
+				})
 			},
 			fetchRoles() {
 				axios.get(`/api/roles`).then(response => {
