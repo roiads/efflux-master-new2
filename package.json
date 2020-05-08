@@ -42,7 +42,7 @@
         "sass-loader": "^8.0.2",
         "tinymce": "^5.2.2",
         "tooltip": "^1.6.1",
-        "vee-validate": "^3.3.0",
+        "vee-validate": "^2.2.12",
         "vue": "^2.6.11",
         "vue-chartjs": "^3.5.0",
         "vue-google-charts": "^0.3.2",
