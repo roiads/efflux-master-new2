@@ -36,13 +36,13 @@
 
 			<b-form-group label="Roles:">
 				<multiselect v-model="newUser.selected_roles" placeholder="Select Roles" label="name" track-by="name" open-direction="bottom" :options="roles" :searchable="true" select-label="" deselect-label="" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true">
-					<template slot="option" slot-scope="props">
+					<template slot="option" slot-scope="props" @select="errors.remove('roles')">
 						<div class="multiselect__clear">{{ props.option.name }}</div>
 					</template>
 				</multiselect>
 
-				<span class="invalid-feedback" style="display: block;" v-if="errors.first('selected_roles')">
-					{{ errors.first('selected_roles') }}
+				<span class="invalid-feedback" style="display: block;" v-if="errors.first('roles')">
+					{{ errors.first('roles') }}
 				</span>
 
 			</b-form-group>
@@ -74,7 +74,7 @@
                     	last_name: 'Last Name',
                     	email: 'Email',
                     	password: 'Password',
-                    	selected_roles: 'Roles',
+                    	roles: 'Roles',
                     },
                     custom: {
 
@@ -108,10 +108,38 @@
 					console.log(error);
 				})*/
 
+				if(this.selected_roles.length == 0) {
+					this.errors.add({
+						field: 'roles',
+						msg: 'Please Select Roles'
+					})
+				}
+
 				this.$validator.validate().then(valid => {
 					if(valid) {
+						if(this.errors.items.length == 0) {
+							axios.post(`/api/user`, this.newUser).then(response => {
+								if(response.data.success) {
+									this.errors.clear()
+                                	this.$validator.reset()
 
+									this.newUser = {
+										first_name: '',
+										last_name: '',
+										email: '',
+										password: '',
+										selected_roles: []	
+									}
+
+									this.$emit('add-success')
+								}
+							}).catch(error => {
+								console.log(error);
+							})
+						}
 					}
+				}).catch(error => {
+					//console.log(error)
 				})
 			},
 			fetchRoles() {
