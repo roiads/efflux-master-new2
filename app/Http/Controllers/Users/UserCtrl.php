@@ -34,21 +34,34 @@ class UserCtrl extends Controller {
         if($request->ajax()) {
             try {
 
-                $user = User::create([
-                    'firstname' => $request->input('first_name'),
-                    'lastname' => $request->input('last_name'),
-                    'email' => $request->input('email'),
-                    'username' => $request->input('email'),
-                    'password' => Hash::make($request->input('password')),
+                $validator = Validator::make($request->all(), [
+                            'first_name' => 'required|string|max:255',
+                            'last_name' => 'required|string|max:255',
+                            'email' => 'required|string|email|max:255|unique:mysql.efflux_users.users',
+                            'password' => 'required',
                 ]);
+                if ($validator->fails()) {
+                    return response()->json(['success' => false, 'errors' => $validator->errors()->getMessageBag()->toArray()]);
+                } else {
+                    pr($request->input());
+                    die;
 
-                $selected_roles = $request->input('selected_roles');
-                
-                foreach($selected_roles as $selected_role) {
-                    $user->roles()->attach($selected_role['id']);
+                    $user = User::create([
+                        'firstname' => $request->input('first_name'),
+                        'lastname' => $request->input('last_name'),
+                        'email' => $request->input('email'),
+                        'username' => $request->input('email'),
+                        'password' => Hash::make($request->input('password')),
+                    ]);
+
+                    $selected_roles = $request->input('selected_roles');
+
+                    foreach($selected_roles as $selected_role) {
+                        $user->roles()->attach($selected_role['id']);
+                    }
+
+                    $response = ['success' => true];
                 }
-
-                $response = ['success' => true];
 
             } catch(\Exception $ex) {
                 //echo $ex->getMessage();
