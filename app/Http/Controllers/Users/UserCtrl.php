@@ -13,7 +13,7 @@ class UserCtrl extends Controller {
     }
     public function create(Request $request) {
 
-        /*Validator::make($request->all(), [
+        Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:100'],
             'email' => ['required', 'string', 'email', 'max:100', 'unique:mysql.efflux_users.users'],
             'password' => ['required', 'string', 'min:4', 'confirmed'],
@@ -25,8 +25,9 @@ class UserCtrl extends Controller {
             'email' => $request['email'],
             'username' => $request['email'],
             'password' => Hash::make($request['password']),
-        ]);*/
-
+        ]);*
+    }
+    public function store(Request $request) {
         if($request->ajax()) {
             try {
 
@@ -49,7 +50,6 @@ class UserCtrl extends Controller {
             return $response;
         }
     }
-    public function store(Request $request) {}
     public function show($id) {
         $r = user::with('roles')->find($id);
         return response()->json($r);
