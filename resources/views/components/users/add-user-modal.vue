@@ -19,7 +19,7 @@
 			</b-form-group>
 
 			<b-form-group id="input-group-email" label="Email:" label-for="input-email">
-				<b-form-input id="input-email" type="email" v-model="newUser.email" placeholder="Enter Email" v-validate="'required|email'" :class="{ 'is-invalid': errors.has('email') }"></b-form-input>
+				<b-form-input id="input-email" v-model="newUser.email" placeholder="Enter Email" v-validate="'required|email'" :class="{ 'is-invalid': errors.has('email') }"></b-form-input>
 
 				<div v-if="errors.has('email')" class="invalid-feedback">
 					{{ errors.first('email') }}
