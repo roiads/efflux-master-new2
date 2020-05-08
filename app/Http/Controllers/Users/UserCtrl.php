@@ -31,17 +31,21 @@ class UserCtrl extends Controller {
         if($request->ajax()) {
             try {
 
-                dd($request->input());
-                die;
-
                 $user = User::create([
                     'firstname' => $request->input('first_name'),
                     'lastname' => $request->input('last_name'),
                     'email' => $request->input('email'),
+                    'username' => $request->input('email'),
                     'password' => Hash::make($request->input('password')),
                 ]);
 
                 $selected_roles = $request->input('selected_roles');
+                
+                foreach($selected_roles as $selected_role) {
+                    $user->roles()->attach($selected_role['id']);
+                }
+
+                $response = ['success' => true];
 
             } catch(\Exception $ex) {
                 $response = ['success' => false];
