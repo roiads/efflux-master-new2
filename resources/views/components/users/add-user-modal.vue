@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<b-form @submit="addUser">
+		<b-form @submit.prevent="addUser">
 			<b-form-group id="input-group-first-name" label="First Name:" label-for="input-first-name">
 				<b-form-input id="input-first-name" v-model="newUser.first_name" placeholder="Enter First Name" required></b-form-input>
 			</b-form-group>
