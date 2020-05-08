@@ -1,9 +1,11 @@
 <template>
 	<div>
 		<b-form @submit.prevent="addUser">
-			<b-form-group id="input-group-first-name" label="First Name:" label-for="input-first-name">
+			<b-form-group id="input-group-first-name" label="First Name:" label-for="input-first-name" :class="{ 'form-group--error': $v.newUser.first_name.$error }">
 				<b-form-input id="input-first-name" v-model="newUser.first_name" placeholder="Enter First Name" required></b-form-input>
 			</b-form-group>
+
+			<div class="error" v-if="!$v.newUser.first_name.required">Field is required</div>
 
 			<b-form-group id="input-group-last-name" label="Last Name:" label-for="input-last-name">
 				<b-form-input id="input-last-name" v-model="newUser.last_name" placeholder="Enter Last Name" required></b-form-input>
@@ -33,6 +35,7 @@
 
 <script>
 	import Multiselect from 'vue-multiselect'
+	import { required, email, minLength, between } from 'vuelidate/lib/validators'
 
 	export default {
 		name: "add-user-modal",
@@ -46,6 +49,11 @@
 					selected_roles: []
 				},
 				roles: [],
+			}
+		},
+		validations: {
+			newUser.first_name: {
+				required,
 			}
 		},
 		components: {
