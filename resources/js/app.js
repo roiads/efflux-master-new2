@@ -18,7 +18,7 @@ Vue.use(Vuelidate);
 Vue.use(Highcharts);
 Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);
-Vue.use(VeeValidate);
+Vue.use(VeeValidate, { inject: 'false' });
 const files = require.context('../views/', true, /\.vue$/i)
 files.keys().map(function (key) {
   var name = files(key).default.name || key.replace(/.*\/([a-zA-Z0-9\-]+)\.(vue)$/, '$1');
