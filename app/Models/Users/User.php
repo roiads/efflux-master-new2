@@ -12,7 +12,7 @@ class User extends Authenticatable {
  protected $table    = 'users.users';
  protected $appends  = ['full_name'];
  protected $fillable = ['firstname', 'lastname', 'username', 'email', 'password'];
- //protected $hidden   = ['api_token', 'password', 'remember_token', 'created_at', 'updated_at', 'email_verified_at', 'status', 'deleted_at'];
+ protected $hidden   = ['api_token', 'password', 'remember_token', 'created_at', 'updated_at', 'email_verified_at', 'status', 'deleted_at'];
  protected $casts    = ['email_verified_at' => 'datetime'];
 
  public function getFullNameAttribute() {
