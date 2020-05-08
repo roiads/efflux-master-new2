@@ -55,8 +55,8 @@
 			this.fetchRoles()
 		},
 		methods: {
-			addUser(event) {
-				event.preventDefault()
+			addUser() {
+				//event.preventDefault()
 				this.$emit('add-success')
 
 				/*axios.get(`/api/users/create`, this.newUser).then(response => {
