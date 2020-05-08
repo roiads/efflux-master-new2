@@ -118,13 +118,36 @@
 
 									this.$emit('add-success')
 								} else {
-									console.log(response.data.errors);
 									if (typeof response.data.errors != 'undefined') {
 										if (Object.keys(response.data.errors).length > 0) {
-											let validation_errors = 	response.data.errors
+											let validation_errors = response.data.errors
+
+											if(validation_errors.hasOwnProperty('first_name')) {
+												this.errors.add({
+													field: 'first_name',
+													msg: validation_errors.first_name[0]
+												})
+											}
+
+											if(validation_errors.hasOwnProperty('last_name')) {
+												this.errors.add({
+													field: 'last_name',
+													msg: validation_errors.last_name[0]
+												})
+											}
 
 											if(validation_errors.hasOwnProperty('email')) {
-												console.log(validation_errors.email[0])
+												this.errors.add({
+													field: 'email',
+													msg: validation_errors.email[0]
+												})
+											}
+
+											if(validation_errors.hasOwnProperty('password')) {
+												this.errors.add({
+													field: 'password',
+													msg: validation_errors.password[0]
+												})
 											}
 										}
 									}
