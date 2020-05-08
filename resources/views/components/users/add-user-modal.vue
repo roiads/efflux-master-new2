@@ -5,8 +5,6 @@
 				<b-form-input id="input-first-name" name="first_name" v-model="newUser.first_name" placeholder="Enter First Name" required></b-form-input>
 			</b-form-group>
 
-			<div class="error" v-if="!$v.newUser.first_name.required">Field is required</div>
-
 			<b-form-group id="input-group-last-name" label="Last Name:" label-for="input-last-name">
 				<b-form-input id="input-last-name" v-model="newUser.last_name" placeholder="Enter Last Name" required></b-form-input>
 			</b-form-group>
