@@ -13,7 +13,7 @@ class User extends Authenticatable {
 
 	//protected $connection = 'efflux_users';
 
-	protected $table = config('app.name') . '_users.users';
+	protected $table = 'efflux_users.users';
 
 	protected $appends = ['full_name'];
 
