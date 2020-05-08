@@ -17,6 +17,7 @@ class RoleCtrl extends Controller {
 				$response = ['success' => true, 'roles' => $roles];
 
 			} catch(\Exception $ex) {
+				echo $ex->getMessage();
 				$response = ['success' => false];
 			}
 
