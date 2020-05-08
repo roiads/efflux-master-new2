@@ -92,22 +92,6 @@
 		methods: {
 			addUser() {
 
-				/*axios.post(`/api/user`, this.newUser).then(response => {
-					if(response.data.success) {
-						this.newUser = {
-							first_name: '',
-							last_name: '',
-							email: '',
-							password: '',
-							selected_roles: []	
-						}
-
-						this.$emit('add-success')
-					}
-				}).catch(error => {
-					console.log(error);
-				})*/
-
 				if(this.newUser.selected_roles.length == 0) {
 					this.errors.add({
 						field: 'roles',
@@ -118,9 +102,8 @@
 				this.$validator.validate().then(valid => {
 					if(valid) {
 						if(this.errors.items.length == 0) {
-							console.log("Success");
-							
-							/*axios.post(`/api/user`, this.newUser).then(response => {
+
+							axios.post(`/api/user`, this.newUser).then(response => {
 								if(response.data.success) {
 									this.errors.clear()
                                 	this.$validator.reset()
@@ -136,8 +119,8 @@
 									this.$emit('add-success')
 								}
 							}).catch(error => {
-								console.log(error);
-							})*/
+								//console.log(error);
+							})
 						}
 					}
 				}).catch(error => {
