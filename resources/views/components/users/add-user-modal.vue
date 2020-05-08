@@ -54,7 +54,7 @@
 		},
 		methods: {
 			addUser() {
-
+				this.$emit('add-success')
 			},
 			fetchRoles() {
 				axios.get(`/api/roles`).then(response => {

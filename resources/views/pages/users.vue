@@ -8,7 +8,7 @@
       <user-index :users="users" />
       
       <b-modal no-stacking id="add-user-modal" size="lg" title="Add New User">
-        <add-user-modal></add-user-modal>
+        <add-user-modal @add-success="addSuccess"></add-user-modal>
       </b-modal>
 
     </page-body>
@@ -35,6 +35,9 @@
       },
       addUser() {
         this.$bvModal.show("add-user-modal");
+      },
+      addSuccess() {
+        alert("Success Done");
       }
     }
   };
