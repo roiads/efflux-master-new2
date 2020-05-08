@@ -40,6 +40,11 @@
 						<div class="multiselect__clear">{{ props.option.name }}</div>
 					</template>
 				</multiselect>
+
+				<span class="invalid-feedback" style="display: block;" v-if="errors.first('selected_roles')">
+					{{ errors.first('selected_roles') }}
+				</span>
+
 			</b-form-group>
 
 			<b-button type="submit" variant="primary">Add</b-button>
@@ -68,7 +73,8 @@
                     	first_name: 'First Name',
                     	last_name: 'Last Name',
                     	email: 'Email',
-                    	password: 'Password'
+                    	password: 'Password',
+                    	selected_roles: 'Roles',
                     },
                     custom: {
 
@@ -104,7 +110,7 @@
 
 				this.$validator.validate().then(valid => {
 					if(valid) {
-						
+
 					}
 				})
 			},
