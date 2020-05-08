@@ -52,8 +52,10 @@
 			}
 		},
 		validations: {
-			newUser.first_name: {
-				required,
+			newUser: {
+				first_name: {
+					required,
+				}
 			}
 		},
 		components: {
