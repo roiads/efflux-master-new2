@@ -53,3 +53,11 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+div.card {
+  table.table > tbody > tr:hover {
+    background: #fffc36c7;
+    cursor: pointer;
+  }
+}
+</style>
