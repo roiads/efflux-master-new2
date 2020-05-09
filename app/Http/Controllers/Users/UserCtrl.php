@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UserCtrl extends Controller {
-    
+
     public function index() {
-        $users = User::with('roles')->latest()->get();
+        $users = User::get();
         return $users;
     }
 
@@ -21,7 +21,7 @@ class UserCtrl extends Controller {
             'password' => ['required', 'string', 'min:4', 'confirmed'],
         ])->validate();
         list($fisrtname, $lastname) = @explode(' ', $request['name'], 2);
-        return user::create([
+        return User::create([
             'fisrtname' => $fisrtname,
             'lastname' => $lastname,
             'email' => $request['email'],
@@ -31,19 +31,19 @@ class UserCtrl extends Controller {
     }
 
     public function store(Request $request) {
-        if($request->ajax()) {
+        if ($request->ajax()) {
             try {
 
                 $validator = Validator::make($request->all(), [
-                            'first_name' => 'required|string|max:255',
-                            'last_name' => 'required|string|max:255',
-                            'email' => 'required|string|email|max:255|unique:mysql.efflux_users.users',
-                            'password' => 'required',
+                    'first_name' => 'required|string|max:255',
+                    'last_name' => 'required|string|max:255',
+                    'email' => 'required|string|email|max:255|unique:mysql.efflux_users.users',
+                    'password' => 'required',
                 ]);
                 if ($validator->fails()) {
                     return response()->json(['success' => false, 'errors' => $validator->errors()->getMessageBag()->toArray()]);
                 } else {
-                    
+
                     $user = User::create([
                         'firstname' => $request->input('first_name'),
                         'lastname' => $request->input('last_name'),
@@ -54,14 +54,14 @@ class UserCtrl extends Controller {
 
                     $selected_roles = $request->input('selected_roles');
 
-                    foreach($selected_roles as $selected_role) {
+                    foreach ($selected_roles as $selected_role) {
                         $user->roles()->attach($selected_role['id']);
                     }
 
                     $response = ['success' => true];
                 }
 
-            } catch(\Exception $ex) {
+            } catch (\Exception $ex) {
                 //echo $ex->getMessage();
                 $response = ['success' => false];
             }
@@ -71,20 +71,15 @@ class UserCtrl extends Controller {
     }
 
     public function show($id) {
-        $r = user::with('roles')->find($id);
-        return response()->json($r);
+        $user = User::with('roles')->find($id)->first();
+        return $user;
     }
-
-    public function edit(user $user) {
-
-    }
-
-    public function update(Request $request, user $user) {
+    public function update(Request $request, $id) {
 
     }
-
-    public function destroy(user $user) {
-
+    public function destroy($id) {
+        $result = User::find($id)->first()->delete();
+        return response($result, 200);
     }
 
 }

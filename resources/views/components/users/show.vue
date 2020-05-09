@@ -1,82 +1,23 @@
 <template>
-  <div class="col-sm-8 col-lg-9" id="user-overview">
-    <div class="row" v-if="user.id">
-      <stat-box
-        bg="gray"
-        size="col-sm-11 col-md-10"
-        :header="user.full_name"
-        url="#"
-        :message="user.email"
-        icon="user"
-        footer="Edit Permissions..."
-      ></stat-box>
+  <div>
+    <b-card header="User Overview" no-body>{{ user }}</b-card>
 
-      <div class="col-sm-6 col-md-4">
-        <div class="card animated fadeInUp fast card-light">
-          <div class="card-body p-0">
-            <div class="card-header py-1 px-3">
-              <h3 class="card-title mb-0">Permissions:</h3>
-            </div>
-            <table class="table table-hover">
-              <tbody>
-                <template v-for="(role,index) in user.roles">
-                  <tr :key="index">
-                    <td class="flex-grow-1">{{role.name}}</td>
-                    <td class="p-1">
-                      <button
-                        class="btn btn-danger px-2 py-1"
-                        @click="$emit('detachRole', role.id )"
-                      >
-                        <i class="fas fa-trash-alt"></i>
-                      </button>
-                    </td>
-                  </tr>
-                </template>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-8">
-        <div class="card animated fadeInUp fast card-light">
-          <div class="card-body p-0">
-            <div class="card-header py-1 px-3">
-              <h3 class="card-title mb-0">Activity:</h3>
-            </div>
-            <table class="table table-hover">
-              <tbody>
-                <tr>
-                  <td>Coming</td>
-                  <td>Soon!</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
+    <b-card header="Roles" no-body>{{ user.roles }}</b-card>
   </div>
 </template>
 <script>
 export default {
-  name: "userOverview",
-  props: ["id"],
-  data() {
-    return {
-      user: {}
-    };
-  },
-  watch: {
-    id: function(newVal, oldVal) {
-      // watch it
-      this.getuser();
+  name: "users-show",
+  props: {
+    user: {
+      type: Object,
+      required: true
     }
   },
+  data: () => ({}),
   methods: {
-    getuser() {
-      axios
-        .get("/user/" + this.id)
-        .then(({ data }) => this.$emit("setObj", (this.user = data)));
+    editUser() {
+      alert("EDIT");
     }
   }
 };
