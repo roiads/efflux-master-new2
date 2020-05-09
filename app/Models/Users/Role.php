@@ -1,17 +1,18 @@
 <?php
+
 namespace App\Models\Users;
 use App\Models\Models;
+use Illuminate\Database\Eloquent\Model;
 
-class Role extends Models {
- public function __construct() {
-  $this->Table('users.roles');
-  $this->fillable = ['name', 'description'];
- }
- public function users() {
-  return $this->belongsToMany(
-   'App\Models\Users\User',
-   $this->Table('users.user_role'),
-   'role_id',
-   'user_id');
- }
+class Role extends Model {
+
+	//protected $connection = 'efflux_users';
+
+	protected $table = 'efflux_users.roles';
+
+	protected $fillable = ['name', 'description'];
+	
+	public function users() {
+		return $this->belongsToMany('App\Models\Users\User', config('app.name') . '_users.user_role', 'role_id', 'user_id');
+	}
 }

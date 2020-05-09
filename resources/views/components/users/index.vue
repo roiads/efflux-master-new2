@@ -1,10 +1,10 @@
 <template>
-  <a-table header="User List" :items="userList" @rowClick="selectUser"></a-table>
+  <a-table header="User List" :items="userList" @rowclick="rowclick"></a-table>
 </template>
 <script>
 export default {
-  name: "user-index",
-  props: ["users"],
+  name: "users-index",
+  props: ["users", "user_id"],
   data: () => ({}),
   mounted() {},
   computed: {
@@ -14,8 +14,8 @@ export default {
   },
   components: {},
   methods: {
-    selectUser() {
-      alert("clicked");
+    rowclick(id) {
+      this.$emit("getUser", id);
     }
   }
 };
