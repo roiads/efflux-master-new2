@@ -16,11 +16,11 @@
             <b-col>
               <p>Some things that are ready but need some design help...</p>
 
-              <b-button block variant="light" to="/tracker/system1/">System1 Reports</b-button>
+              <b-button block variant="light" to="/system1/">System1 Reports</b-button>
               <b-button
                 block
                 variant="light"
-                to="/tracker/system1/a-snag-psoriasistreatment.zone/"
+                to="/system1/a-snag-psoriasistreatment.zone/"
               >System1 Domain Reports</b-button>
 
               <b-button block variant="light" to="/site-manager/">Site Manager</b-button>
