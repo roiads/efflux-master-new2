@@ -12,7 +12,21 @@ class Controller extends BaseController {
     use ValidatesRequests;
 
     public $errors = [];
-
+    public function parseArgs(&$args) {
+        if (!empty($args)) {
+            $args = str_replace('/', '|', $args);
+            $args = explode('|', $args);
+            foreach ($args as $arg) {
+                if (stristr($arg, '=')) {
+                    list($k, $v) = explode('=', $arg, 2);
+                    $_[$k] = $v;
+                } else {
+                    $_[] = $arg;
+                }
+            }
+        }
+        return $_ ?? [];
+    }
     public function anyErrors() {
         if (empty($this->errors)) {
             unset($this->errors);

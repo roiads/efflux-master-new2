@@ -20,7 +20,7 @@ class System1Charts extends Chart {
             'unique'];
     }
     public function __invoke($args = null) {
-        $args = parseArgs($args);
+        $args = $this->parseArgs($args);
         $this->getData($args);
         $this->makeLabels();
         foreach ($this->fields as $field) {

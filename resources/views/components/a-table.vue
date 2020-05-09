@@ -8,7 +8,9 @@
     </b-form-group>
     <b-table
       responsive
+      selectable
       small
+      select-mode="single"
       :items="items"
       :fields="fields"
       :hover="hover"
@@ -16,7 +18,7 @@
       :borderless="borderless"
       :sticky-header="height"
       :foot-clone="footClone"
-      @row-selected="$emit('rowClick', $event)"
+      @row-selected="rowclick"
     >
       <!-- HEADER -->
       <template v-slot:head></template>
@@ -45,8 +47,8 @@ export default {
     clickEvent: { type: String, default: null }
   },
   methods: {
-    rowSelected() {
-      alert("ROW CLICK");
+    rowclick(e) {
+      this.$emit("rowclick", e[0].id);
     }
   }
 };

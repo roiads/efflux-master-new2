@@ -6,9 +6,8 @@
 <script>
 export default {
   name: "reporting-system1-chart",
-  props: ["domain"],
+  props: ["domain", "chartData"],
   data: () => ({
-    chartData: {},
     options: {
       hoverMode: "index",
       responsive: true,

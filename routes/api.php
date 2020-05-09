@@ -22,11 +22,11 @@ Route::prefix('reporting')->namespace('Reporting')->group(function () {
     Route::resource('system1', 'System1Ctrl');
     Route::get('system1/table/{type?}', 'System1Ctrl@table');
 });
-Route::namespace ('Users')->group(function () {
+Route::prefix('users')->namespace('Users')->group(function () {
     Route::resource('user', 'UserCtrl');
     Route::resource('roles', 'RoleCtrl');
 });
 Route::namespace ('Tracker')->group(function () {
     Route::get('track/{cid}/{sid?}/{action?}/{args?}', 'TrafficCtrl')->where('args', '(.*)');
 });
-Route::get('{name}/{args?}', 'ApiController')->where('args', '(.*)');
+Route::get('/{name}/{args?}', 'ApiController')->where('args', '(.*)');

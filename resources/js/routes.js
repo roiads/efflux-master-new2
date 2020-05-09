@@ -37,6 +37,11 @@ let routes = [{
     props: true
   },
   {
+    path: '/system1/:domain?',
+    component: require('../views/pages/system1').default,
+    props: true
+  },
+  {
     path: '/tracker/:resource?/:id?',
     component: require('../views/pages/tracker').default,
     props: true

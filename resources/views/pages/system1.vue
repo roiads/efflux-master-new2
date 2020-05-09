@@ -8,8 +8,9 @@
     </page-header>
 
     <b-container tag="section" fluid>
-      <reporting-system1-chart :chart="chart.data" />
-      <reporting-system1-table :table="table.data" />
+      <reporting-system1-chart :chartData="chart.data" />
+      <reporting-system1-table v-if="table.domain" :table="table.domain" />
+      <reporting-system1-table v-if="table.date" :table="table.date" />
     </b-container>
   </div>
 </template>
@@ -19,38 +20,41 @@ export default {
   data: () => ({
     crumbs: [["tracker", "/"], ["system1"]],
     table: {
-      type: "date",
-      data: {}
+      date: [],
+      domain: []
     },
-    chart: {
-      domain: null,
-      data: {}
-    }
+    chart: {}
   }),
-  mounted() {},
+  mounted() {
+    this.getTableDomain();
+    this.getTableDate();
+    this.getChartData();
+  },
   methods: {
     fetchReports() {
-      fetchReort("summary");
-      fetchReort("campaign");
-      fetchReort("subid");
-      getTableData();
-      getChartData();
+      this.fetchReort("summary");
+      this.fetchReort("campaign");
+      this.fetchReort("subid");
+      this.getTableDomain();
+      this.getTableDate();
+      this.getChartData();
     },
     fetchReport(type) {
       axios.get(`/api/system1/${type}`);
     },
-    getTableData() {
+    getTableDate() {
       axios
-        .get(`/api/reporting/system1/table/${this.table.type}`)
-        .then(({ data }) => (this.table.data = data));
+        .get(`/api/reporting/system1/table/date`)
+        .then(({ data }) => (this.table.date = data));
     },
-    getChartData() {
-      let getDomain = null;
-      if (this.chart.domain) {
-        getDomain = "domain=" + this.chart.domain;
-      }
+    getTableDomain() {
       axios
-        .get(`/data/system1/${getDomain}`)
+        .get(`/api/reporting/system1/table/domain`)
+        .then(({ data }) => (this.table.domain = data));
+    },
+    getChartData(domain = "") {
+      axios
+        .get(`/data/system1/${domain}`)
         .then(({ data }) => (this.chart.data = data));
     }
   }

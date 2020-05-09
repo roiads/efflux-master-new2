@@ -1,22 +1,14 @@
 <template>
   <b-card no-body>
-    <b-table sticky-header="300px" responsive="lg" small striped hover :items="s1">
-      <template v-slot:head(name)="data">
-        <span class="text-info">{{ data.label.toUpperCase() }}</span>
-      </template>
-    </b-table>
+    <a-table :items="table"></a-table>
   </b-card>
 </template>
 <script>
 export default {
   name: "reporting-system1-table",
-  props: ["type"],
-  data() {
-    return { s1: {} };
-  },
-  mounted() {
-    this.getData();
-  },
+  props: ["table"],
+  data: () => ({}),
+  mounted() {},
   computed: {},
   methods: {}
 };
