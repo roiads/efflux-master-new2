@@ -29,4 +29,4 @@ Route::prefix('users')->namespace('Users')->group(function () {
 Route::namespace ('Tracker')->group(function () {
     Route::get('track/{cid}/{sid?}/{action?}/{args?}', 'TrafficCtrl')->where('args', '(.*)');
 });
-Route::get('system1/{args?}', 'ApiController')->where('args', '(.*)');
+Route::get('/{name}/{args?}', 'ApiController')->where('args', '(.*)');
