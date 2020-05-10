@@ -2,6 +2,10 @@ require('./bootstrap');
 
 import Vue from 'vue'
 window.Vue = require('vue');
+
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+
 import App from './components/App'
 import router from './routes'
 import store from './store'
