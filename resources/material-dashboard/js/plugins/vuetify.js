@@ -5,7 +5,7 @@ import '../../sass/overrides.sass'
 
 Vue.use(Vuetify)
 
-/*const theme = {
+const theme = {
   primary: '#E91E63',
   secondary: '#9C27b0',
   accent: '#9C27b0',
@@ -22,4 +22,4 @@ export default new Vuetify({
       light: theme,
     },
   },
-})*/
+})
