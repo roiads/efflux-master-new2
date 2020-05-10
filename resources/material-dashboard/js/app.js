@@ -1,7 +1,7 @@
-require('./bootstrap');
+//require('./bootstrap');
 
 import Vue from 'vue'
-window.Vue = require('vue');
+window.Vue = Vue;
 
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
