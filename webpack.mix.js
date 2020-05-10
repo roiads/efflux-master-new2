@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-mix.webpackConfig({
+/*mix.webpackConfig({
    devServer: {
       proxy: {
          '*': 'http://localhost:8000/'
@@ -9,4 +9,6 @@ mix.webpackConfig({
 
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/web.scss', 'public/css')
-   .sass('resources/sass/app.scss', 'public/css');
+   .sass('resources/sass/app.scss', 'public/css');*/
+
+mix.js('resources/material-dashboard/js/app.js', 'public/js/material-dashboard')
