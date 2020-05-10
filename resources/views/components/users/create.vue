@@ -1,35 +1,49 @@
 <template>
   <div>
     <b-form @submit.prevent="addUser">
-      <b-form-group id="input-group-first-name" label="First Name:" label-for="input-first-name">
-        <b-form-input
-          id="input-first-name"
-          name="first_name"
-          v-model="newUser.first_name"
-          placeholder="Enter First Name"
-          v-validate="'required'"
-          :class="{ 'is-invalid': errors.has('first_name') }"
-        ></b-form-input>
+      <b-row cols="2">
+        <b-form-group
+          id="input-group-first-name"
+          label="First Name:"
+          label-for="input-first-name"
+          class="px-2"
+        >
+          <b-form-input
+            id="input-first-name"
+            name="first_name"
+            v-model="newUser.first_name"
+            placeholder="Enter First Name"
+            v-validate="'required'"
+            :class="{ 'is-invalid': errors.has('first_name') }"
+          ></b-form-input>
 
-        <div
-          v-if="errors.has('first_name')"
-          class="invalid-feedback"
-        >{{ errors.first('first_name') }}</div>
-      </b-form-group>
+          <div
+            v-if="errors.has('first_name')"
+            class="invalid-feedback"
+          >{{ errors.first('first_name') }}</div>
+        </b-form-group>
 
-      <b-form-group id="input-group-last-name" label="Last Name:" label-for="input-last-name">
-        <b-form-input
-          id="input-last-name"
-          name="last_name"
-          v-model="newUser.last_name"
-          placeholder="Enter Last Name"
-          v-validate="'required'"
-          :class="{ 'is-invalid': errors.has('last_name') }"
-        ></b-form-input>
+        <b-form-group
+          id="input-group-last-name"
+          label="Last Name:"
+          label-for="input-last-name"
+          class="px-2"
+        >
+          <b-form-input
+            id="input-last-name"
+            name="last_name"
+            v-model="newUser.last_name"
+            placeholder="Enter Last Name"
+            v-validate="'required'"
+            :class="{ 'is-invalid': errors.has('last_name') }"
+          ></b-form-input>
 
-        <div v-if="errors.has('last_name')" class="invalid-feedback">{{ errors.first('last_name') }}</div>
-      </b-form-group>
-
+          <div
+            v-if="errors.has('last_name')"
+            class="invalid-feedback"
+          >{{ errors.first('last_name') }}</div>
+        </b-form-group>
+      </b-row>
       <b-form-group id="input-group-email" label="Email:" label-for="input-email">
         <b-form-input
           id="input-email"
