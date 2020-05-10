@@ -17,6 +17,6 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
 
-    <script src="{{ asset(mix('js/app.js')) }}" defer></script>
+    <script src="{{ asset(mix('js/material-dashboard/app.js')) }}" defer></script>
   </body>
 </html>
