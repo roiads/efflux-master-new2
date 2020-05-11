@@ -79,7 +79,7 @@
 	export default {
 		name: 'Login',
 		components: {
-			PagesBtn: () => import('../Pages/components/Btn'),
+			PagesBtn: () => import('../pages/components/Btn'),
 		},
 		data: () => ({
 			socials: [

@@ -128,8 +128,8 @@
     name: 'PagesRegister',
 
     components: {
-      PagesBtn: () => import('../Pages/components/Btn'),
-      PagesHeading: () => import('../Pages/components/Heading'),
+      PagesBtn: () => import('../pages/components/Btn'),
+      PagesHeading: () => import('../pages/components/Heading'),
     },
 
     data: () => ({

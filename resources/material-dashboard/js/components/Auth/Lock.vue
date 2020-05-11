@@ -46,7 +46,7 @@
     name: 'PagesLock',
 
     components: {
-      PagesBtn: () => import('../Pages/components/Btn'),
+      PagesBtn: () => import('../pages/components/Btn'),
     },
   }
 </script>
