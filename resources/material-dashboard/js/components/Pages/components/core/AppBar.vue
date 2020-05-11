@@ -69,10 +69,10 @@
         },
       ],
       titles: {
-        '/pages/lock': 'Lock Page',
-        '/pages/login': 'Login Page',
-        '/pages/pricing': 'Pricing Page',
-        '/pages/register': 'Register Page',
+        '/lock': 'Lock Page',
+        '/login': 'Login Page',
+        '/pricing': 'Pricing Page',
+        '/register': 'Register Page',
       },
     }),
 
