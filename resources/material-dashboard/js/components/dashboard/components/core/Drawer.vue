@@ -116,7 +116,7 @@
             },
             {
               title: 'register',
-              to: 'pricing',
+              to: 'register',
             },
             {
               title: 'lock',
