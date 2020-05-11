@@ -6,6 +6,11 @@ let routes = [
       component: () => import('./components/pages/Index'),
       children: [
         {
+          name: 'DefaultLogin',
+          path: '',
+          component: () => import('./components/auth/Login'),
+        },
+        {
           name: 'Login',
           path: 'login',
           component: () => import('./components/auth/Login'),
