@@ -7,11 +7,6 @@ let routes = [
       children: [
         {
           name: 'Login',
-          path: '',
-          component: () => import('./components/auth/Login'),
-        },
-        {
-          name: 'Login',
           path: 'login',
           component: () => import('./components/auth/Login'),
         },
