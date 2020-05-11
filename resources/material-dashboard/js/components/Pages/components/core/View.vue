@@ -8,7 +8,7 @@
         'v-image--sm': this.$vuetify.breakpoint.smAndDown,
         'v-image--md': this.$vuetify.breakpoint.mdAndDown
       }"
-      :src="require(`@/assets/${src || 'clint-mckoy.jpg'}`)"
+      :src="require(`../../../../assets/${src || 'clint-mckoy.jpg'}`)"
       gradient="to top, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)"
       min-height="100%"
     >
@@ -29,10 +29,10 @@
 
     data: () => ({
       srcs: {
-        '/pages/lock': 'lock.jpg',
-        '/pages/login': 'login.jpg',
-        '/pages/pricing': 'pricing.jpg',
-        '/pages/register': 'register.jpg',
+        '/lock': 'lock.jpg',
+        '/login': 'login.jpg',
+        '/pricing': 'pricing.jpg',
+        '/register': 'register.jpg',
       },
     }),
 
