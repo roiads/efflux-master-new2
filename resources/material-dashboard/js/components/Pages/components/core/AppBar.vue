@@ -75,7 +75,6 @@
         '/pages/register': 'Register Page',
       },
     }),
-
     computed: {
       title () {
         return this.titles[this.$route.path]

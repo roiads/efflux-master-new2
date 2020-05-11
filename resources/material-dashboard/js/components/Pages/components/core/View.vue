@@ -35,7 +35,6 @@
         '/pages/register': 'register.jpg',
       },
     }),
-
     computed: {
       src () {
         return this.srcs[this.$route.path]
