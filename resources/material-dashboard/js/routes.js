@@ -2,7 +2,7 @@ import VueRouter from 'vue-router'
 
 let routes = [
 	{
-      path: '/pages',
+      path: '/',
       component: () => import('./components/pages/Index'),
       children: [
         {
@@ -33,7 +33,7 @@ let routes = [
       ],
     },
     {
-      path: '/',
+      path: '/dashboard',
       component: () => import('./components/dashboard/Index'),
       children: [
         {
