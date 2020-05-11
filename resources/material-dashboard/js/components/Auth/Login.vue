@@ -26,9 +26,9 @@
 
 						<v-text-field class="mb-8" color="secondary" label="Password..." prepend-icon="mdi-lock-outline" />
 
-						<v-btn large color="" depressed class="v-btn--text success--text" >
+						<pages-btn large color="" depressed class="v-btn--text success--text">
 							Let's Go
-						</v-btn>
+            			</pages-btn>
 					</v-card-text>
 				</base-material-card>
 			</v-slide-y-transition>
@@ -39,6 +39,9 @@
 <script>
 	export default {
 		name: 'Login',
+		components: {
+      		PagesBtn: () => import('../Pages/components/Btn'),
+    	},
 		data: () => ({
 			socials: [
 			{
