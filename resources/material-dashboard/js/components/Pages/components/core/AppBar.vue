@@ -45,7 +45,7 @@
         {
           icon: 'mdi-view-dashboard',
           text: 'Dashboard',
-          to: '/',
+          to: '/dashboard',
         },
         {
           icon: 'mdi-currency-usd',
