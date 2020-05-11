@@ -32,6 +32,17 @@ let routes = [
         },
       ],
     },
+    {
+      path: '/dashboard',
+      component: () => import('./components/dashboard/Index'),
+      children: [
+        {
+          name: 'Dashboard',
+          path: '',
+          component: () => import('./components/dashboard/Dashboard'),
+        },
+      ],
+    },
 ];
 
 const router = new VueRouter({
