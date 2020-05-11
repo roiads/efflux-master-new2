@@ -1,11 +1,17 @@
-import Login from './components/Auth/Login'
 import VueRouter from 'vue-router'
 
 let routes = [
 	{
-		path: '/',
-		component: Login
-	}
+      path: '/',
+      component: () => import('./components/Pages/Index'),
+      children: [
+        {
+          name: 'Login',
+          path: 'login',
+          component: () => import('./components/Auth/Login'),
+        },
+      ],
+    },
 ];
 
 const router = new VueRouter({
