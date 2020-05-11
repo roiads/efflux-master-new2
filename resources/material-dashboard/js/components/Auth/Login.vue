@@ -26,9 +26,14 @@
 
 						<v-text-field class="mb-8" color="secondary" label="Password..." prepend-icon="mdi-lock-outline" />
 
-						<pages-btn large color="" depressed class="v-btn--text success--text">
+						<pages-btn
+							large
+							color=""
+							depressed
+							class="v-btn--text success--text"
+							>
 							Let's Go
-            			</pages-btn>
+						</pages-btn>
 					</v-card-text>
 				</base-material-card>
 			</v-slide-y-transition>
