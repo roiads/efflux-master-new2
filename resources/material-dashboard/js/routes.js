@@ -7,7 +7,7 @@ let routes = [
       children: [
         {
           name: 'DefaultLogin',
-          path: 'login',
+          path: '/',
           component: () => import('./components/auth/Login'),
         },
         {
