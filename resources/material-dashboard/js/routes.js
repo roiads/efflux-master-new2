@@ -7,8 +7,28 @@ let routes = [
       children: [
         {
           name: 'Login',
+          path: '',
+          component: () => import('./components/Auth/Login'),
+        },
+        {
+          name: 'Login',
           path: 'login',
           component: () => import('./components/Auth/Login'),
+        },
+        {
+          name: 'Register',
+          path: 'register',
+          component: () => import('./components/Auth/Register'),
+        },
+        {
+          name: 'Lock',
+          path: 'lock',
+          component: () => import('./components/Auth/Lock'),
+        },
+        {
+          name: 'Pricing',
+          path: 'pricing',
+          component: () => import('./components/Pages/Pricing'),
         },
       ],
     },
