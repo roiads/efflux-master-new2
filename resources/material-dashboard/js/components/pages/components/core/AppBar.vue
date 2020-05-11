@@ -45,34 +45,34 @@
         {
           icon: 'mdi-view-dashboard',
           text: 'Dashboard',
-          to: '/dashboard',
+          to: '/',
         },
         {
           icon: 'mdi-currency-usd',
           text: 'Pricing',
-          to: '/pricing',
+          to: '/pages/pricing',
         },
         {
           icon: 'mdi-account-multiple-plus',
           text: 'Register',
-          to: '/register',
+          to: '/pages/register',
         },
         {
           icon: 'mdi-fingerprint',
           text: 'Login',
-          to: '/login',
+          to: '/pages/login',
         },
         {
           icon: 'mdi-lock-open-outline',
           text: 'Lock',
-          to: '/lock',
+          to: '/pages/lock',
         },
       ],
       titles: {
-        '/lock': 'Lock Page',
-        '/login': 'Login Page',
-        '/pricing': 'Pricing Page',
-        '/register': 'Register Page',
+        '/pages/lock': 'Lock Page',
+        '/pages/login': 'Login Page',
+        '/pages/pricing': 'Pricing Page',
+        '/pages/register': 'Register Page',
       },
     }),
 

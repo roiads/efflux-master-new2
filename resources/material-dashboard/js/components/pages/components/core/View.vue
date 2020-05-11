@@ -29,11 +29,10 @@
 
     data: () => ({
       srcs: {
-        '/lock': 'lock.jpg',
-        '/': 'login.jpg',
-        '/login': 'login.jpg',
-        '/pricing': 'pricing.jpg',
-        '/register': 'register.jpg',
+        '/pages/lock': 'lock.jpg',
+        '/pages/login': 'login.jpg',
+        '/pages/pricing': 'pricing.jpg',
+        '/pages/register': 'register.jpg',
       },
     }),
 

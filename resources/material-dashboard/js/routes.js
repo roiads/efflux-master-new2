@@ -2,14 +2,9 @@ import VueRouter from 'vue-router'
 
 let routes = [
 	{
-      path: '/',
+      path: '/pages',
       component: () => import('./components/pages/Index'),
       children: [
-        {
-          name: 'DefaultLogin',
-          path: '/',
-          component: () => import('./components/auth/Login'),
-        },
         {
           name: 'Login',
           path: 'login',
@@ -33,7 +28,7 @@ let routes = [
       ],
     },
     {
-      path: '/dashboard',
+      path: '/',
       component: () => import('./components/dashboard/Index'),
       children: [
         // Dashboard
