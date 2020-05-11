@@ -40,6 +40,7 @@
 
     computed: {
       src () {
+        console.log(this.$route.path);
         return this.srcs[this.$route.path]
       },
       styles () {
