@@ -4,7 +4,7 @@ import Vuetify from 'vuetify';
 import i18n from '../i18n'
 import '../../sass/overrides.sass'
 
-//Vue.use(Vuetify)
+Vue.use(Vuetify)
 
 const theme = {
   primary: '#E91E63',
@@ -13,19 +13,7 @@ const theme = {
   info: '#00CAE3',
 }
 
-/*export default new Vuetify({
-  lang: {
-    t: (key, ...params) => i18n.t(key, params),
-  },
-  theme: {
-    themes: {
-      dark: theme,
-      light: theme,
-    },
-  },
-})*/
-
-Vue.use(Vuetify, {
+export default new Vuetify({
   lang: {
     t: (key, ...params) => i18n.t(key, params),
   },
@@ -36,3 +24,15 @@ Vue.use(Vuetify, {
     },
   },
 })
+
+/*Vue.use(Vuetify, {
+  lang: {
+    t: (key, ...params) => i18n.t(key, params),
+  },
+  theme: {
+    themes: {
+      dark: theme,
+      light: theme,
+    },
+  },
+})*/
