@@ -24,15 +24,3 @@ export default new Vuetify({
     },
   },
 })
-
-/*Vue.use(Vuetify, {
-  lang: {
-    t: (key, ...params) => i18n.t(key, params),
-  },
-  theme: {
-    themes: {
-      dark: theme,
-      light: theme,
-    },
-  },
-})*/
