@@ -150,6 +150,17 @@ let routes = [
         },
       ],
     },
+    {
+      path: '*',
+      component: () => import('./components/pages/Index'),
+      children: [
+        {
+          name: '404 Error',
+          path: '',
+          component: () => import('./components/pages/Error'),
+        },
+      ],
+    },
 ];
 
 const router = new VueRouter({
