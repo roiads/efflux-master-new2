@@ -31,6 +31,7 @@
       srcs: {
         '/lock': 'lock.jpg',
         '/': 'login.jpg',
+        '': 'login.jpg',
         '/login': 'login.jpg',
         '/pricing': 'pricing.jpg',
         '/register': 'register.jpg',
